@@ -1,0 +1,10 @@
+# Increment: NeuralWatt vendors (ZhipuAI / MoonshotAI / Qwen). Same prompt sha efd90b74, params matched to
+# the other increments (max_tokens 64000, stream true). NeuralWatt is transport only — three distinct
+# model families, so vendor independence holds.
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 64000, seed_base: 1000, timeout_s: 2400, stream: true}
+models:
+  - {provider: generic_openai_compatible, model: glm-5.2,     vendor: zhipu,    base_url: "https://api.neuralwatt.com/v1", api_key_env: NEURALWATT_API_KEY}
+  - {provider: generic_openai_compatible, model: kimi-k3,     vendor: moonshot, base_url: "https://api.neuralwatt.com/v1", api_key_env: NEURALWATT_API_KEY}
+  - {provider: generic_openai_compatible, model: qwen3.6-35b, vendor: qwen,     base_url: "https://api.neuralwatt.com/v1", api_key_env: NEURALWATT_API_KEY}

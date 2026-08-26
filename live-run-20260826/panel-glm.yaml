@@ -1,0 +1,6 @@
+# GLM 5.2 retry alone: first pass had 1 truncation at 64000 and 2 empty-stream errors under load.
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 64000, seed_base: 1000, timeout_s: 2400, stream: true}
+models:
+  - {provider: generic_openai_compatible, model: glm-5.2, vendor: zhipu, base_url: "https://api.neuralwatt.com/v1", api_key_env: NEURALWATT_API_KEY}

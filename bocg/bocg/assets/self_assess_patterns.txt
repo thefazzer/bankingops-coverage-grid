@@ -1,0 +1,16 @@
+# G8 SELF_ASSESS_GATE regex list (Python re, case-insensitive). One pattern per line. '#' starts a comment.
+# Applied to prompt.txt + system.txt (after negative-instruction allowlist) and to every stored response.
+# A response that matches is marked INVALID (I7). A prompt that matches fails the gate outright.
+\bunder-?served\b
+\bcapabilit(?:y|ies)\s+gaps?\b
+\bmodel\s+capabilit(?:y|ies)\b
+\b(?:ai|llm|language\s+model)\s+capabilit(?:y|ies)\b
+\b(?:models?|llms?|ais?|language\s+models?|automation)\s+(?:is|are|remain|remains|perform|performs)\s+(?:weak|strong|poor|good|bad|unable|capable|reliable|unreliable)\b
+\b(?:ai|models?|llms?|capability)\s+benchmarks?\b
+\b(?:ai|models?|llms?)\s+evals?\b
+\bfrontier\s+models?\b
+\bwell[- ]suited\s+(?:for|to)\s+(?:ai|llms?|automation|models?)\b
+\b(?:ai|llms?|models?)\s+(?:can|cannot|can't|could|struggle|struggles)\s+(?:not\s+)?(?:handle|do|perform|automate|solve)\b
+\bcoverage\s+gaps?\b
+\bdata\s+gaps?\b
+\btooling\s+gaps?\b

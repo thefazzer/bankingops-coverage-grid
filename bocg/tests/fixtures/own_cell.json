@@ -1,0 +1,40 @@
+{
+  "division_keys": [
+    "collateral_management",
+    "settlements",
+    "regulatory_reporting"
+  ],
+  "corpus_coverage": {
+    "trade_lifecycle": {
+      "supports_well": [
+        "match settlement instructions with counterparty",
+        "resolve a failed settlement"
+      ],
+      "thin": [
+        "release a payment against delivery"
+      ],
+      "cannot_speak": [
+        "issue a margin call from the exposure calculation"
+      ]
+    },
+    "reporting": {
+      "supports_well": [
+        "submit daily transaction reports to the repository"
+      ],
+      "thin": [
+        "remediate a rejected report"
+      ],
+      "cannot_speak": [
+        "reconcile reported population to booked trades"
+      ]
+    }
+  },
+  "practitioner_divergences": [
+    {
+      "division_key": "settlements",
+      "consensus_view": "office = back; region = GLOBAL",
+      "practitioner_view": "settlement fails are worked by a regional middle-office team in EMEA, not a global back office",
+      "evidence": "practitioner reviewer P-01; internal org chart reference OC-2024-07 (not published)"
+    }
+  ]
+}

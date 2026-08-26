@@ -1,0 +1,128 @@
+# BOCG FORBIDDEN_TOKENS (SPEC-01 §2.3). One token per line. '#' starts a comment.
+# Matching: case-insensitive, whole-word/phrase (word boundaries), applied to prompt.txt + system.txt (G1).
+# Generic asset-class nouns are allowed ONLY inside the schema enum (axis.product), never as prose examples.
+
+# --- §2.3 literal list ---
+prime brokerage
+prime broker
+PB
+equity finance
+securities lending
+stock loan
+single stock swap
+single-stock swap
+synthetic
+TRS
+total return swap
+delta one
+delta-one
+hedge fund
+FinExhaust
+BankingEnv
+PB-Ops
+Jefferies
+gap
+under-served
+underserved
+model capability
+benchmark
+eval
+
+# --- <any bank name>: concrete list of G-SIB / investment-bank names ---
+JPMorgan
+JP Morgan
+J.P. Morgan
+Goldman Sachs
+Goldman
+Morgan Stanley
+Citigroup
+Citi
+Citibank
+Bank of America
+BofA
+Merrill Lynch
+Wells Fargo
+Barclays
+HSBC
+Deutsche Bank
+UBS
+Credit Suisse
+BNP Paribas
+Societe Generale
+Société Générale
+SocGen
+Credit Agricole
+Crédit Agricole
+Natixis
+Nomura
+Mizuho
+MUFG
+Mitsubishi UFJ
+Sumitomo Mitsui
+SMBC
+Standard Chartered
+Santander
+ING
+RBC
+Royal Bank of Canada
+TD Securities
+BMO
+Scotiabank
+Macquarie
+Lazard
+Evercore
+State Street
+BNY Mellon
+Bank of New York Mellon
+Northern Trust
+UniCredit
+Intesa Sanpaolo
+Bank of China
+ICBC
+China Construction Bank
+Agricultural Bank of China
+Wells
+Rabobank
+
+# --- <any product name beyond generic asset-class nouns> ---
+iTraxx
+CDX
+credit default swap
+CDS
+interest rate swap
+IRS
+overnight index swap
+OIS
+swaption
+cross-currency swap
+cross currency swap
+basis swap
+variance swap
+FX forward
+FX option
+non-deliverable forward
+NDF
+SOFR futures
+Treasury futures
+Bund futures
+Eurodollar futures
+E-mini
+S&P 500 futures
+VIX
+convertible bond
+structured note
+autocallable
+collateralised loan obligation
+collateralized loan obligation
+CLO
+CDO
+MBS
+RMBS
+CMBS
+ABS
+TBA
+ETF
+repurchase agreement
+repo
+reverse repo
+Treasury bill

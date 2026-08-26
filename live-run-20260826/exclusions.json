@@ -1,0 +1,12 @@
+{
+  "prompt_sha8": "efd90b74",
+  "note": "Models dropped from the consensus board. Declared explicitly so the exclusion is auditable: G10 refuses to ignore a model unless it appears here with a reason. Excluded models' raw responses remain in runs/ and are published with the bundle.",
+  "excluded": [
+    {"model_id": "gemma-4-31b", "vendor": "google", "valid": 0, "of": 3,
+     "reason": "All 3 samples failed I5 ORDER_VIOLATION: emitted \"name\" before \"a1_regulatory\" (offset 68 vs 149 in sample 0), i.e. named the division first and supplied anchors afterwards. This is the backwards-rationalisation the field-order rule exists to detect, so the samples are excluded on merit, not on transport failure."},
+    {"model_id": "x-preview-f-free", "vendor": "opencode-zen", "valid": 1, "of": 3,
+     "reason": "2 of 3 samples failed I5 ORDER_VIOLATION (same failure mode as gemma-4-31b); the model also spends most of its budget on reasoning tokens and truncated at 32000 before max_tokens was raised to 64000. 1 valid sample is below the k>=3 requirement, so the model is excluded from support counts; its single valid sample is retained in the matrix as a 0.33 cell for transparency."},
+    {"model_id": "glm-5.2", "vendor": "zhipu", "valid": 0, "of": 3,
+     "reason": "Transport/length failures, not a content judgement: 1 sample truncated at max_tokens 64000 (finish_reason=length) and 2 returned empty SSE streams from the NeuralWatt gateway under concurrent load. A retry is pending; if it yields 3 valid samples this exclusion must be removed and the matrix rebuilt."}
+  ]
+}

@@ -1,0 +1,7 @@
+# Increment: anthropic only. Same prompt sha, same params as panel-live.yaml except max_tokens 64000
+# (matched to the x-preview increment so every model on the final board shares one ceiling).
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 64000, seed_base: 1000, timeout_s: 2400, stream: true}
+models:
+  - {provider: anthropic, model: claude-opus-5}

@@ -1,0 +1,200 @@
+{
+  "all_pass": false,
+  "gates": [
+    {
+      "evidence": {
+        "forbidden_hits_prompt": [],
+        "forbidden_hits_system": [],
+        "prompt_sha256_actual": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+        "prompt_sha256_published": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+        "runs_checked": 24,
+        "runs_with_other_prompt_sha": []
+      },
+      "id": "G1",
+      "name": "CONTAMINATION_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "invalid_marked": 3,
+        "invalid_unmarked": [],
+        "responses": 24,
+        "schema_valid": 21,
+        "sha256_mismatch": []
+      },
+      "id": "G2",
+      "name": "SCHEMA_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "normalised_present": true,
+        "responses_checked": 21,
+        "violations": []
+      },
+      "id": "G3",
+      "name": "ORDER_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "responses_checked": 21,
+        "violations": []
+      },
+      "id": "G4",
+      "name": "REJECTION_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "arith_mismatch": [],
+        "divisions_recomputed": 219,
+        "self_placement_overridden": [],
+        "stale": [],
+        "threshold_usd": 200000.0
+      },
+      "id": "G5",
+      "name": "ADMISSION_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "error": "matrix.json or corroboration.csv missing; run `bocg matrix` + `bocg corroborate`"
+      },
+      "id": "G6",
+      "name": "CORROBORATION_GATE",
+      "status": "FAIL"
+    },
+    {
+      "evidence": {
+        "alias_entries": 188,
+        "aliases_sha256_actual": "61025b9f408f81149bf17da747fde25b8ab3175651c186825051e191f6c0d668",
+        "aliases_sha256_published": "61025b9f408f81149bf17da747fde25b8ab3175651c186825051e191f6c0d668",
+        "auto_generated": false,
+        "keys_without_alias": [],
+        "matrix_aliases_sha256": "61025b9f408f81149bf17da747fde25b8ab3175651c186825051e191f6c0d668"
+      },
+      "id": "G7",
+      "name": "ALIAS_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "prompt_hits": [],
+        "responses_checked": 24,
+        "responses_invalidated": [],
+        "violations_not_marked_invalid": []
+      },
+      "id": "G8",
+      "name": "SELF_ASSESS_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "byte_identical": true,
+        "matrix_sha256_original": "15f15282cb016694c3750da290363cb682406cabed6fee4d170fbd66af3461cc",
+        "matrix_sha256_replay": "15f15282cb016694c3750da290363cb682406cabed6fee4d170fbd66af3461cc",
+        "replay_source": "work/runs/efd90b74"
+      },
+      "id": "G9",
+      "name": "REPRO_GATE",
+      "status": "PASS"
+    },
+    {
+      "evidence": {
+        "excluded": {
+          "gemma-4-31b": {
+            "model_id": "gemma-4-31b",
+            "of": 3,
+            "reason": "All 3 samples failed I5 ORDER_VIOLATION: emitted \"name\" before \"a1_regulatory\" (offset 68 vs 149 in sample 0), i.e. named the division first and supplied anchors afterwards. This is the backwards-rationalisation the field-order rule exists to detect, so the samples are excluded on merit, not on transport failure.",
+            "valid": 0,
+            "vendor": "google"
+          },
+          "glm-5.2": {
+            "model_id": "glm-5.2",
+            "of": 3,
+            "reason": "Transport/length failures, not a content judgement: 1 sample truncated at max_tokens 64000 (finish_reason=length) and 2 returned empty SSE streams from the NeuralWatt gateway under concurrent load. A retry is pending; if it yields 3 valid samples this exclusion must be removed and the matrix rebuilt.",
+            "valid": 0,
+            "vendor": "zhipu"
+          },
+          "x-preview-f-free": {
+            "model_id": "x-preview-f-free",
+            "of": 3,
+            "reason": "2 of 3 samples failed I5 ORDER_VIOLATION (same failure mode as gemma-4-31b); the model also spends most of its budget on reasoning tokens and truncated at 32000 before max_tokens was raised to 64000. 1 valid sample is below the k>=3 requirement, so the model is excluded from support counts; its single valid sample is retained in the matrix as a 0.33 cell for transparency.",
+            "valid": 1,
+            "vendor": "opencode-zen"
+          }
+        },
+        "invalid_exclusions": [],
+        "missing_params": [],
+        "models": {
+          "claude-opus-5": {
+            "k": 3,
+            "valid": 3,
+            "vendor": "anthropic"
+          },
+          "deepseek-v4-pro": {
+            "k": 3,
+            "valid": 3,
+            "vendor": "deepseek"
+          },
+          "gemma-4-31b": {
+            "k": 3,
+            "valid": 0,
+            "vendor": "google"
+          },
+          "glm-5.2": {
+            "k": 3,
+            "valid": 0,
+            "vendor": "zhipu"
+          },
+          "gpt-5.6-sol": {
+            "k": 3,
+            "valid": 3,
+            "vendor": "openai"
+          },
+          "kimi-k3": {
+            "k": 3,
+            "valid": 3,
+            "vendor": "moonshot"
+          },
+          "qwen3.6-35b": {
+            "k": 3,
+            "valid": 3,
+            "vendor": "qwen"
+          },
+          "x-preview-f-free": {
+            "k": 3,
+            "valid": 1,
+            "vendor": "opencode-zen"
+          }
+        },
+        "models_under_3_samples": {},
+        "models_under_3_valid": {},
+        "not_cold": [],
+        "vendors_declared": [
+          "anthropic",
+          "deepseek",
+          "google",
+          "moonshot",
+          "openai",
+          "opencode-zen",
+          "qwen",
+          "zhipu"
+        ],
+        "vendors_with_3plus_valid": [
+          "anthropic",
+          "deepseek",
+          "moonshot",
+          "openai",
+          "qwen"
+        ]
+      },
+      "id": "G10",
+      "name": "PANEL_GATE",
+      "status": "PASS"
+    }
+  ],
+  "prompt_sha8": "efd90b74",
+  "ts_utc": "2026-08-26T02:14:37.891147Z"
+}

@@ -1,0 +1,15 @@
+# Live panel (SPEC-01 §4). >= 4 distinct vendors, k >= 3 samples each, cold calls (no tools/browsing/retrieval).
+# API keys are read from the env var named by `api_key_env` (defaults: OPENAI_API_KEY, ANTHROPIC_API_KEY,
+# GOOGLE_API_KEY, DEEPSEEK_API_KEY, XAI_API_KEY; generic: BOCG_OPENAI_COMPAT_API_KEY).
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 16000, seed_base: 1000}   # seed = seed_base + sample_idx
+models:
+  - {provider: openai,    model: gpt-5}
+  - {provider: anthropic, model: claude-opus-4-1}
+  - {provider: google,    model: gemini-2.5-pro}
+  - {provider: deepseek,  model: deepseek-reasoner}
+  - {provider: xai,       model: grok-4}
+  # meta:llama-4 via any OpenAI-compatible host (tools/browsing must be off on the host; otherwise exclude + log):
+  - {provider: generic_openai_compatible, model: meta-llama/llama-4-maverick, vendor: meta,
+     base_url: "https://YOUR-HOST/v1", api_key_env: LLAMA_API_KEY}

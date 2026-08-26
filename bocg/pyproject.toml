@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bocg"
+version = "0.1.0"
+description = "BankingOps Coverage Grid (BOCG): model-consensus taxonomy elicitation pipeline (SPEC-01)"
+requires-python = ">=3.11"
+dependencies = [
+    "jsonschema>=4.17",
+    "pyyaml>=6.0",
+    "click>=8.1",
+    "httpx>=0.24",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+bocg = "bocg.cli:main"
+
+[tool.setuptools]
+packages = ["bocg"]
+
+[tool.setuptools.package-data]
+bocg = ["assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

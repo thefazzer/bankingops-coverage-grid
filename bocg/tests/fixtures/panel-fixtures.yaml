@@ -1,0 +1,9 @@
+# Panel for fixture replay. `model` = fixture directory name under --fixtures DIR.
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 16000, seed_base: 1000}
+models:
+  - {provider: fixture, model: alpha-lm-1.0, vendor: alphalabs}
+  - {provider: fixture, model: beta-reasoner-2, vendor: betamind}
+  - {provider: fixture, model: gamma-analyst-3, vendor: gammaworks}
+  - {provider: fixture, model: delta-decomposer-4, vendor: deltaresearch}

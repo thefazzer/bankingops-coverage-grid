@@ -1,0 +1,8 @@
+# Exact phrases that are struck from prompt.txt/system.txt BEFORE the G1 contamination scan and the G8
+# self-assessment scan. Each is a NEGATIVE instruction that the frozen SPEC-01 §2.2 prompt uses to prohibit
+# the very language it names. They cannot be removed without changing the byte-frozen prompt (I1).
+# SPEC CONFLICT NOTE: SPEC-01 §2.2 (frozen prompt) contains "under-served" while §2.3 forbids it. This allowlist
+# is the documented resolution. Any edit here is a methodology change and must be published with the bundle.
+Do not speculate about which
+divisions are under-served by tooling or data.
+Do not comment on model or AI capability.

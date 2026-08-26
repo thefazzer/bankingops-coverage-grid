@@ -1,0 +1,26 @@
+# BOCG alias table (SPEC-01 §5.2) — FIXTURE. Maps canon_name -> division_key. Authored after the fixture runs.
+version: 1
+authored_after_runs: efd90b74
+aliases:
+  - {canon: rate trading, key: rates_trading, rationale: "canonical form of 'Rates Trading'"}
+  - {canon: interest rate trading, key: rates_trading, rationale: "'Interest Rates Trading Desk' = rates trading; 'desk' is a stopword"}
+  - {canon: global rate trading, key: rates_trading, rationale: "'Global' qualifier only; same function"}
+  - {canon: fx trading, key: fx_trading, rationale: "canonical form"}
+  - {canon: foreign exchange trading, key: fx_trading, rationale: "'foreign exchange' == FX"}
+  - {canon: credit trading, key: credit_trading, rationale: "canonical form"}
+  - {canon: flow credit trading, key: credit_trading, rationale: "'flow' qualifier; same desk function"}
+  - {canon: security service, key: securities_services, rationale: "canonical form (singularised)"}
+  - {canon: security service custody fund service, key: securities_services, rationale: "parenthetical sub-functions of securities services"}
+  - {canon: collateral management, key: collateral_management, rationale: "canonical form"}
+  - {canon: collateral management margining, key: collateral_management, rationale: "'margining' is the same activity"}
+  - {canon: trade support, key: trade_support, rationale: "canonical form"}
+  - {canon: trade support middle office, key: trade_support, rationale: "'middle office' is the seat location, not a different division"}
+  - {canon: settlement, key: settlements, rationale: "canonical form (singularised)"}
+  - {canon: settlement operation, key: settlements, rationale: "'operations' suffix"}
+  - {canon: trade settlement, key: settlements, rationale: "'trade' qualifier"}
+  - {canon: regulatory reporting, key: regulatory_reporting, rationale: "canonical form"}
+  - {canon: transaction regulatory reporting, key: regulatory_reporting, rationale: "'transaction' qualifier names the same reporting function"}
+  - {canon: equity trading, key: equities_trading, rationale: "canonical form (singularised)"}
+  - {canon: cash equity trading, key: equities_trading, rationale: "'cash' qualifier"}
+  - {canon: commodity trading, key: commodities_trading, rationale: "canonical form (singularised)"}
+  - {canon: market risk control, key: market_risk_control, rationale: "canonical form"}

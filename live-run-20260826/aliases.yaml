@@ -1,0 +1,215 @@
+# BOCG alias table (SPEC-01 §5.2). Maps canon_name -> division_key.
+# Authored AFTER all runs completed (§4 ORDER honoured: no response was inspected before the last call returned).
+# Rule applied: merge only where the surface forms denote the same operational division of the same bank.
+# Combined desks (e.g. a single macro desk covering rates+FX+EM) get their OWN key rather than being split or
+# folded into a component desk — splitting would manufacture agreement that the model did not express.
+version: 1
+authored_after_runs: efd90b74
+aliases:
+# --- rates ---
+- {canon: rate trading, key: rates_trading, rationale: base form}
+- {canon: rate market, key: rates_trading, rationale: same desk - market vs trading surface variant}
+- {canon: rate sale trading, key: rates_trading, rationale: sales+trading is the standard desk pairing, same division}
+- {canon: rate macro market making, key: rates_trading, rationale: market-making is the activity of the rates desk}
+- {canon: rate linear derivatif trading, key: rates_trading, rationale: linear rates derivatives are the rates desk's product}
+# --- fx ---
+- {canon: fx trading, key: fx_trading, rationale: base form}
+- {canon: foreign exchange, key: fx_trading, rationale: unabbreviated surface variant}
+- {canon: foreign exchange sale trading, key: fx_trading, rationale: sales+trading pairing, same division}
+# --- emerging markets ---
+- {canon: emerging market, key: em_trading, rationale: base form}
+- {canon: emerging market trading, key: em_trading, rationale: surface variant}
+# --- combined macro desk (own key: models that named it did NOT name the components separately) ---
+- {canon: macro rate fx emerging market sale trading, key: macro_combined_rates_fx_em, rationale: single combined macro desk}
+- {canon: foreign exchange emerging market macro, key: macro_combined_rates_fx_em, rationale: same combined macro desk}
+- {canon: fx emerging market, key: macro_combined_rates_fx_em, rationale: FX+EM combined, not either component alone}
+# --- credit ---
+- {canon: credit trading, key: credit_trading, rationale: base form}
+- {canon: credit market, key: credit_trading, rationale: surface variant}
+- {canon: credit sale trading, key: credit_trading, rationale: sales+trading pairing, same division}
+# --- equities ---
+- {canon: equity trading, key: equities_trading, rationale: base form}
+- {canon: equity market, key: equities_trading, rationale: surface variant}
+- {canon: equity trading derivatif, key: equities_trading, rationale: cash+derivatives named as one equities division}
+- {canon: equity sale trading electronic execution, key: equities_trading, rationale: one equities division incl. execution}
+- {canon: equity sale execution derivatif trading, key: equities_trading, rationale: same combined equities division}
+- {canon: electronic algorithmic execution, key: electronic_execution, rationale: named as a standalone division, kept separate}
+# --- commodities ---
+- {canon: commodity trading, key: commodities_trading, rationale: base form}
+- {canon: commodity, key: commodities_trading, rationale: bare-noun surface variant}
+- {canon: commodity market, key: commodities_trading, rationale: surface variant}
+- {canon: commodity sale trading, key: commodities_trading, rationale: sales+trading pairing}
+- {canon: commodity sale trading structuring, key: commodities_trading, rationale: same desk incl. structuring}
+# --- securitised products ---
+- {canon: securitised product trading, key: securitised_products, rationale: base form}
+- {canon: securitized product origination trading, key: securitised_products, rationale: US spelling variant}
+- {canon: securitised product origination trading, key: securitised_products, rationale: surface variant}
+- {canon: securitised product structured credit, key: securitised_products, rationale: same division, product framing}
+- {canon: securitised product structured finance, key: securitised_products, rationale: same division, product framing}
+# --- capital markets origination ---
+- {canon: equity capital market origination syndicate, key: ecm_origination, rationale: base form}
+- {canon: equity capital market syndicate, key: ecm_origination, rationale: surface variant}
+- {canon: debt capital market origination syndicate, key: dcm_origination, rationale: base form}
+- {canon: debt capital market syndicate, key: dcm_origination, rationale: surface variant}
+- {canon: capital market origination syndication, key: capital_markets_origination_combined, rationale: ECM+DCM as one division}
+- {canon: equity debt capital market origination syndicate, key: capital_markets_origination_combined, rationale: explicitly combined}
+# --- financing ---
+- {canon: prime brokerage client financing, key: prime_brokerage_financing, rationale: base form}
+- {canon: prime brokerage security financing, key: prime_brokerage_financing, rationale: surface variant}
+- {canon: prime brokerage portfolio financing, key: prime_brokerage_financing, rationale: surface variant}
+- {canon: prime brokerage delta one financing, key: prime_brokerage_financing, rationale: synthetic financing named within PB}
+- {canon: prime service secured financing, key: prime_brokerage_financing, rationale: prime services is the same division}
+- {canon: repo security lending collateral financing, key: repo_secfin_collateral, rationale: firm-financing/secfin desk, kept separate from client-facing PB}
+# --- middle office / control ---
+- {canon: market trade support confirmation settlement reporting, key: trade_lifecycle_operations, rationale: base form}
+- {canon: market post trade operation, key: trade_lifecycle_operations, rationale: surface variant}
+- {canon: clearing post trade service, key: trade_lifecycle_operations, rationale: same post-trade division}
+- {canon: market risk valuation control product control, key: market_risk_valuation_control, rationale: base form}
+- {canon: market risk product control valuation control, key: market_risk_valuation_control, rationale: word-order variant}
+- {canon: market risk valuation control xva, key: market_risk_valuation_control, rationale: XVA named inside the control division}
+- {canon: xva counterparty risk pricing, key: xva_counterparty_risk, rationale: named as its own division, kept separate}
+# --- structuring / research / sales ---
+- {canon: structuring cross asset solution, key: cross_asset_structuring, rationale: base form}
+- {canon: cross asset structuring quantitative solution, key: cross_asset_structuring, rationale: surface variant}
+- {canon: derivatif structuring cross asset solution, key: cross_asset_structuring, rationale: surface variant}
+- {canon: sell side research, key: sellside_research, rationale: base form}
+- {canon: sell side research strategy, key: sellside_research, rationale: surface variant}
+- {canon: institutional research strategy, key: sellside_research, rationale: same research division}
+- {canon: institutional sale client coverage, key: institutional_sales_coverage, rationale: base form}
+- {canon: market sale client coverage, key: institutional_sales_coverage, rationale: surface variant}
+- {canon: merger acquisition strategic advisory, key: ma_advisory, rationale: distinct advisory division}
+# --- buy side ---
+- {canon: buy side portfolio management investment analysis, key: buyside_portfolio_management, rationale: base form}
+- {canon: buy side portfolio construction investment management, key: buyside_portfolio_management, rationale: surface variant}
+- {canon: institutional portfolio management order generation, key: buyside_portfolio_management, rationale: same buy-side PM division}
+- {canon: buy side trading execution, key: buyside_trading_execution, rationale: base form}
+- {canon: buy side trading dealer execution, key: buyside_trading_execution, rationale: surface variant}
+- {canon: buy side trading dealer execution management, key: buyside_trading_execution, rationale: surface variant}
+- {canon: buy side investment operation accounting risk support, key: buyside_investment_operations, rationale: distinct buy-side ops division}
+# --- appended after the x-preview-f-free 64k increment (same prompt sha, same rules) ---
+- {canon: rate trading market making, key: rates_trading, rationale: market-making is the rates desk activity}
+- {canon: fx trading market making, key: fx_trading, rationale: market-making is the FX desk activity}
+- {canon: credit trading market making, key: credit_trading, rationale: market-making is the credit desk activity}
+- {canon: equity trading market making, key: equities_trading, rationale: market-making is the equities desk activity}
+- {canon: commodity trading market making, key: commodities_trading, rationale: market-making is the commodities desk activity}
+- {canon: electronic trading algorithmic market making, key: electronic_execution, rationale: standalone electronic/algo division}
+- {canon: prime brokerage hedge fund financing, key: prime_brokerage_financing, rationale: client-facing PB financing, same division}
+- {canon: financing repo security lending, key: repo_secfin_collateral, rationale: repo/secfin desk, kept separate from client-facing PB}
+- {canon: primary market origination syndication, key: capital_markets_origination_combined, rationale: ECM+DCM named as one primary-markets division}
+- {canon: counterparty analytic margin xva, key: xva_counterparty_risk, rationale: XVA/counterparty named as its own division}
+- {canon: valuation control product control model risk, key: market_risk_valuation_control, rationale: same control division}
+- {canon: buy side dealing execution, key: buyside_trading_execution, rationale: surface variant of buy-side execution}
+- {canon: buy side portfolio construction risk, key: buyside_portfolio_management, rationale: surface variant of buy-side PM}
+- {canon: market treasury balance sheet funding, key: treasury_balance_sheet_funding, rationale: distinct division, no other vendor named it}
+# --- appended after the claude-opus-5 increment. Opus decomposed at a finer grain than the other
+# vendors: it named market risk, product control, model risk, collateral, clearing, custody, regulatory
+# reporting, surveillance and KYC as separate divisions. Per the rule at the top of this file those get
+# their OWN keys rather than being folded into a coarser key, even though that lowers apparent agreement.
+- {canon: g10 rate trading market making, key: rates_trading, rationale: G10 rates desk}
+- {canon: rate sale trading government bond swap short end, key: rates_trading, rationale: rates products, same desk}
+- {canon: foreign exchange trading spot forward option efx, key: fx_trading, rationale: FX products, same desk}
+- {canon: foreign exchange trading electronic fx market making, key: fx_trading, rationale: eFX is the FX desk channel}
+- {canon: fx currency trading voice electronic, key: fx_trading, rationale: voice+electronic FX, same desk}
+- {canon: credit trading cash credit credit derivatif, key: credit_trading, rationale: cash+derivatives credit desk}
+- {canon: credit trading cash credit credit derivatif market making, key: credit_trading, rationale: same desk}
+- {canon: cash equity execution electronic trading, key: equities_trading, rationale: cash equities incl. electronic channel}
+- {canon: equity derivatif structured product, key: equity_derivatives_structured, rationale: named separately from cash equities}
+- {canon: commodity trading energy metal power gas, key: commodities_trading, rationale: commodity sub-products, same desk}
+- {canon: commodity trading physical operation, key: commodities_physical_operations, rationale: physical ops named as its own division}
+- {canon: securitised product mortgage trading, key: securitised_products, rationale: sub-product of securitised desk}
+- {canon: securitised product trading structuring, key: securitised_products, rationale: same desk incl. structuring}
+- {canon: prime brokerage equity financing, key: prime_brokerage_financing, rationale: client-facing PB financing}
+- {canon: prime brokerage security lending, key: prime_brokerage_financing, rationale: sec lending inside PB}
+- {canon: security financing prime brokerage, key: prime_brokerage_financing, rationale: word-order variant}
+- {canon: repo secured funding collateral trading, key: repo_secfin_collateral, rationale: firm secured-funding desk}
+- {canon: security financing repo secured funding, key: repo_secfin_collateral, rationale: same secfin desk}
+- {canon: collateral management margin operation, key: collateral_margin_management, rationale: collateral/margin ops division}
+- {canon: collateral margin management, key: collateral_margin_management, rationale: surface variant}
+- {canon: collateral margin operation, key: collateral_margin_management, rationale: surface variant}
+- {canon: clearing settlement operation, key: trade_lifecycle_operations, rationale: post-trade settlement ops}
+- {canon: trade operation confirmation settlement, key: trade_lifecycle_operations, rationale: surface variant}
+- {canon: trade support middle office confirmation lifecycle, key: trade_lifecycle_operations, rationale: surface variant}
+- {canon: listed derivatif clearing client clearing fcm, key: listed_derivatives_client_clearing, rationale: FCM client clearing named separately}
+- {canon: listed derivatif otc client clearing fcm, key: listed_derivatives_client_clearing, rationale: surface variant}
+- {canon: listed derivatif otc client clearing fcm clearing broker, key: listed_derivatives_client_clearing, rationale: surface variant}
+- {canon: custody depositary asset servicing security service, key: custody_asset_servicing, rationale: securities services division}
+- {canon: custody depositary asset servicing buy side counterpart, key: custody_asset_servicing, rationale: same division, buy-side framing}
+- {canon: regulatory trade transaction reporting operation, key: regulatory_transaction_reporting, rationale: transaction-reporting division}
+- {canon: regulatory transaction reporting operation, key: regulatory_transaction_reporting, rationale: surface variant}
+- {canon: regulatory transaction trade reporting, key: regulatory_transaction_reporting, rationale: surface variant}
+- {canon: trade surveillance market compliance, key: trade_surveillance, rationale: surveillance/conduct division}
+- {canon: trade surveillance market conduct monitoring, key: trade_surveillance, rationale: surface variant}
+- {canon: client lifecycle management kyc trading documentation control, key: client_lifecycle_kyc, rationale: onboarding/KYC/docs division}
+- {canon: market risk management frtb capital, key: market_risk_management, rationale: market risk named standalone (not merged with product control)}
+- {canon: market risk management market risk capital frtb, key: market_risk_management, rationale: surface variant}
+- {canon: market risk management trading book, key: market_risk_management, rationale: surface variant}
+- {canon: product control independent price verification, key: product_control_ipv, rationale: product control named standalone}
+- {canon: product control independent valuation control, key: product_control_ipv, rationale: surface variant}
+- {canon: model risk management model validation traded risk, key: model_risk_management, rationale: model validation named standalone}
+- {canon: counterparty credit risk xva, key: xva_counterparty_risk, rationale: XVA/CCR division}
+- {canon: xva counterparty exposure management, key: xva_counterparty_risk, rationale: surface variant}
+- {canon: xva counterparty portfolio management, key: xva_counterparty_risk, rationale: surface variant}
+- {canon: investment research equity credit, key: sellside_research, rationale: research division}
+- {canon: buy side central dealing execution, key: buyside_trading_execution, rationale: central dealing desk}
+- {canon: buy side dealing best execution oversight, key: buyside_trading_execution, rationale: surface variant}
+- {canon: buy side dealing execution execution analytic, key: buyside_trading_execution, rationale: surface variant}
+- {canon: buy side investment operation fund accounting oversight valuation, key: buyside_investment_operations, rationale: buy-side ops division}
+# --- appended after the NeuralWatt increment (kimi-k3, qwen3.6-35b). Same rules. ---
+- {canon: g10 rate flow trading government bond interest rate derivatif, key: rates_trading, rationale: G10 rates flow desk}
+- {canon: g10 rate government bond trading, key: rates_trading, rationale: rates products, same desk}
+- {canon: g10 rate interest rate derivatif market making, key: rates_trading, rationale: rates market-making}
+- {canon: ficc rate sale trading, key: rates_trading, rationale: rates sales+trading within FICC}
+- {canon: foreign exchange trading, key: fx_trading, rationale: base form}
+- {canon: foreign exchange trading spot forward ndf fx swap, key: fx_trading, rationale: FX products, same desk}
+- {canon: fx trading spot forward ndf option, key: fx_trading, rationale: FX products, same desk}
+- {canon: fx derivatif market making, key: fx_trading, rationale: FX derivatives market-making, same desk}
+- {canon: emerging market macro trading, key: em_trading, rationale: EM desk}
+- {canon: emerging market trading local rate em fx em credit, key: em_trading, rationale: EM sub-products, same desk}
+- {canon: emerging market trading local rate fx credit, key: em_trading, rationale: EM sub-products, same desk}
+- {canon: fx emerging market sale trading, key: macro_combined_rates_fx_em, rationale: FX+EM combined desk}
+- {canon: corporate credit trading bond cds, key: credit_trading, rationale: cash+CDS credit desk}
+- {canon: credit trading ig hy corporate cds distressed, key: credit_trading, rationale: credit sub-products, same desk}
+- {canon: credit trading investment grade high yield credit derivatif, key: credit_trading, rationale: credit sub-products, same desk}
+- {canon: equity sale trading, key: equities_trading, rationale: equities sales+trading}
+- {canon: cash equity agency execution, key: equities_trading, rationale: cash equities execution}
+- {canon: cash equity execution agency program block trading, key: equities_trading, rationale: cash equities execution channels}
+- {canon: cash equity execution program trading, key: equities_trading, rationale: cash equities execution channels}
+- {canon: equity derivatif structured equity product, key: equity_derivatives_structured, rationale: equity derivatives named separately}
+- {canon: equity derivatif structured product trading, key: equity_derivatives_structured, rationale: surface variant}
+- {canon: electronic execution algorithmic trading cross asset, key: electronic_execution, rationale: cross-asset electronic execution division}
+- {canon: commodity trading energy metal agriculture, key: commodities_trading, rationale: commodity sub-products, same desk}
+- {canon: securitised product trading origination mbs abs clo, key: securitised_products, rationale: securitised sub-products}
+- {canon: securitised product trading structuring mbs abs clo, key: securitised_products, rationale: securitised sub-products}
+- {canon: securitized product trading origination, key: securitised_products, rationale: US spelling variant}
+- {canon: equity capital market ipo follow on origination, key: ecm_origination, rationale: ECM products}
+- {canon: debt capital market ig hy bond origination, key: dcm_origination, rationale: DCM products}
+- {canon: primary market syndicate debt equity capital market, key: capital_markets_origination_combined, rationale: ECM+DCM combined}
+- {canon: leveraged finance syndicated loan capital market, key: leveraged_finance_loan_capital_markets, rationale: lev fin/loans named as its own division}
+- {canon: municipal security trading underwriting us public finance, key: municipal_public_finance, rationale: US munis named as its own division}
+- {canon: equity prime brokerage, key: prime_brokerage_financing, rationale: equity PB is the client-facing PB division}
+- {canon: prime service security lending prime brokerage, key: prime_brokerage_financing, rationale: prime services = PB}
+- {canon: prime service security financing repo stock loan margin, key: prime_brokerage_financing, rationale: PB financing incl. stock loan/margin}
+- {canon: repo secured financing, key: repo_secfin_collateral, rationale: firm secured-funding desk}
+- {canon: repo secured funding trading security financing transaction, key: repo_secfin_collateral, rationale: same secfin desk}
+- {canon: collateral management margining otc cleared sft, key: collateral_margin_management, rationale: collateral/margin division}
+- {canon: clearing post trade operation, key: trade_lifecycle_operations, rationale: post-trade ops}
+- {canon: global market clearing post trade operation, key: trade_lifecycle_operations, rationale: surface variant}
+- {canon: derivatif trade lifecycle confirmation regulatory transaction reporting, key: trade_lifecycle_operations, rationale: lifecycle ops incl. reporting}
+- {canon: listed derivatif clearing execution fcm, key: listed_derivatives_client_clearing, rationale: FCM client clearing}
+- {canon: listed derivatif clearing fcm client clearing, key: listed_derivatives_client_clearing, rationale: surface variant}
+- {canon: listed derivatif execution clearing fcm, key: listed_derivatives_client_clearing, rationale: surface variant}
+- {canon: market risk management for trading book, key: market_risk_management, rationale: market risk standalone}
+- {canon: product control valuation control independent price verification, key: product_control_ipv, rationale: product control standalone}
+- {canon: counterparty credit risk management derivatif sft, key: xva_counterparty_risk, rationale: CCR/XVA division}
+- {canon: xva central valuation adjustment, key: xva_counterparty_risk, rationale: XVA desk}
+- {canon: ficc sale trading, key: ficc_combined, rationale: whole FICC named as one division, not any component desk}
+- {canon: buy side execution dealing, key: buyside_trading_execution, rationale: buy-side dealing desk}
+- {canon: buy side execution trading asset management dealing, key: buyside_trading_execution, rationale: surface variant}
+- {canon: asset manager execution trading buy side dealing, key: buyside_trading_execution, rationale: surface variant}
+- {canon: hedge fund execution portfolio trading, key: buyside_trading_execution, rationale: buy-side execution, hedge-fund framing}
+- {canon: buy side long only institutional portfolio management, key: buyside_portfolio_management, rationale: buy-side PM}
+- {canon: buy side hedge fund portfolio management trading, key: buyside_portfolio_management, rationale: buy-side PM, HF framing}
+- {canon: index etf portfolio management buy side, key: buyside_portfolio_management, rationale: index/ETF PM is buy-side PM}
+- {canon: pension insurance derivatif overlay ldi hedging, key: buyside_ldi_overlay, rationale: LDI/overlay named as its own buy-side division}
+- {canon: buy side investment compliance guideline monitoring, key: buyside_investment_compliance, rationale: guideline monitoring named separately}
+- {canon: buy side performance measurement attribution investment risk reporting, key: buyside_performance_risk_reporting, rationale: performance/attribution named separately}

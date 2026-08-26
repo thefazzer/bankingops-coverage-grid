@@ -1,0 +1,14 @@
+# BOCG live panel — 2026-08-26. Four independent model families, cold, k=3.
+# stream=true is transport only (gateways return Cloudflare 524 on multi-minute non-streamed calls); sampling unaffected.
+# max_tokens 32000: deepseek-v4-pro hit finish_reason=length at 16000.
+# NeuralWatt (glm-5.2/kimi-k3/qwen3.6) dropped this run: account credit exhausted (HTTP 402).
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 32000, seed_base: 1000, timeout_s: 1800, stream: true}
+models:
+  - {provider: openai,   model: gpt-5.6-sol}
+  - {provider: deepseek, model: deepseek-v4-pro}
+  - {provider: generic_openai_compatible, model: x-preview-f-free, vendor: opencode-zen,
+     base_url: "https://opencode.ai/zen/v1", api_key_env: ZEN_API_KEY}
+  - {provider: generic_openai_compatible, model: gemma-4-31b, vendor: google,
+     base_url: "https://api.cerebras.ai/v1", api_key_env: CEREBRAS_API_KEY}

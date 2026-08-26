@@ -1,0 +1,8 @@
+# Increment: gemma-4-31b via Cerebras (Google model family). Same prompt sha; max_tokens 64000 to match
+# the other increments. Cerebras was HTTP 402 on the first attempt and was topped up before this run.
+params: {threshold_usd: 200000, currency: USD, as_of_year: 2025}
+samples: 3
+call: {temperature: 0.2, top_p: 1.0, max_tokens: 64000, seed_base: 1000, timeout_s: 2400, stream: true}
+models:
+  - {provider: generic_openai_compatible, model: gemma-4-31b, vendor: google,
+     base_url: "https://api.cerebras.ai/v1", api_key_env: CEREBRAS_API_KEY}
