@@ -1,0 +1,16 @@
+name: gates
+on: [push, pull_request]
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install jsonschema pytest
+      - name: SPEC-03 gates (cells, deny, conformance)
+        run: python3 tools/gate_conformance.py
+      - name: BOCG test suite
+        run: pip install -e bocg && (cd bocg && pytest -q)
+      - name: LAT test suite
+        run: pip install -e lat && (cd lat && pytest -q)

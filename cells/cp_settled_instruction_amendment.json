@@ -1,0 +1,26 @@
+{
+  "cell_id": "cp_settled_instruction_amendment",
+  "division_key": "post_trade_settlement",
+  "job_function": "settlement operations - instruction lifecycle management",
+  "control_point": "Amendment or cancellation of settlement instructions after matching is governed by CSD rules requiring bilateral consent, and settlement fails accrue cash penalties under the CSDR settlement discipline regime; the control is the boundary between amendable and penalty-bearing states of an instruction.",
+  "citations": [
+    {
+      "source_name": "Regulation (EU) No 909/2014 (CSDR), Art. 7 - measures to address settlement fails",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0909",
+      "clause": "Article 7",
+      "accessed": "2026-08-30"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "settlement_fail_penalty",
+    "public_source": "CSDR settlement discipline cash-penalty regime (Commission Delegated Regulation (EU) 2018/1229)",
+    "magnitude_band": "basis-point daily penalties per failing instruction, scaling with fail duration; published penalty rates per asset class"
+  },
+  "commonality_rationale": "Every CSD-settling institution processes instruction amendments and cancellations daily; the penalty regime applies market-wide and penalty statistics are published by CSDs.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-fable-5 (assistant-drafted worked example)",
+    "generated_on": "2026-08-30",
+    "curated_by": null
+  }
+}

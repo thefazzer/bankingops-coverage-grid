@@ -11,3 +11,4 @@ work-*/
 *.env
 !tests/**/*.env
 vault/
+tools/forbidden_cells.local.txt

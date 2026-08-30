@@ -1,0 +1,15 @@
+# S3-I3 PRIVATE_NAMESPACE_DENY — applied to every cell file (case-insensitive).
+# Two layers:
+#   1. SHAPE PATTERNS (below, regex): match the FORM of private identifiers without
+#      disclosing any actual private vocabulary in this public file.
+#   2. tools/forbidden_cells.local.txt (untracked, pre-publish only): the seller's
+#      verbatim private token list. Public CI enforces layer 1; the publish gate
+#      requires layer 2 to exist and pass locally.
+# The named-entity list of SPEC-01 §2.3 (banks, project names) also applies verbatim.
+regex:ann_[0-9a-f]{8,}
+regex:cand-\d{3,4}(-r\d)?
+regex:att-[0-9a-f]{8,}
+regex:(^|[\s"(])/(home|Users)/[A-Za-z]
+regex:[A-Z]:\\+Users\\+
+regex:\b[A-Za-z]+-TODO\.txt\b
+regex:sk-[A-Za-z0-9_\-]{16,}
