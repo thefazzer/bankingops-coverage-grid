@@ -35,6 +35,7 @@ VERIFIED : all cited standards checked against the live web 2026-08-30.
 | 13 | Separation of benchmark authorship from measured product (this project's own bar) | EVIDENCED | I2/I10 + G1; SPEC-03 I3 PRIVATE_NAMESPACE_DENY makes it machine-checked for cells |
 | 14 | Preregistration + reproduction of any reported numbers (exceeds peers) | EVIDENCED | FinExhaust eval discipline: preregs sha-bound, results claimed only after reproduction |
 | 15 | Every cell/claim carries a public, dated citation (this project's own bar) | EVIDENCED | SPEC-03 I1 CITATION_REQUIRED, gate S3-G1 |
+| 16 | Public semantic mappings reuse recognized vocabularies without asserting identity, occurrence or local implementation | EVIDENCED | SPEC-04; `specs/common-semantic-profile.yaml`; S4 gates in `tools/gate_conformance.py` |
 
 NOT MET rows are commitments, not apologies: 8 and 11 gate any "runnable benchmark" claim;
 10 gates any "independently reviewed" claim. This file ships with every release.

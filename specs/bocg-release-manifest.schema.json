@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/bocg-release-manifest.schema.json",
+  "title": "BankingOps Coverage Grid release manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "release",
+    "semantic_profile",
+    "artifacts",
+    "aggregate_sha256",
+    "invariants",
+    "manifest_sha256"
+  ],
+  "properties": {
+    "schema": {
+      "const": "bankingops-coverage-grid.release-manifest.v1"
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "commit_sha", "generated_at"],
+      "properties": {
+        "repository": {"const": "thefazzer/bankingops-coverage-grid"},
+        "tag": {"type": "string", "minLength": 1},
+        "commit_sha": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "generated_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "semantic_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version", "path", "sha256"],
+      "properties": {
+        "id": {"const": "bocg-common-semantics"},
+        "version": {"type": "string", "minLength": 1},
+        "path": {"const": "specs/common-semantic-profile.yaml"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "role", "media_type", "size_bytes", "sha256"],
+        "properties": {
+          "path": {"type": "string", "pattern": "^[^/].+"},
+          "role": {"type": "string", "minLength": 1},
+          "media_type": {"type": "string", "minLength": 1},
+          "size_bytes": {"type": "integer", "minimum": 1},
+          "sha256": {"$ref": "#/$defs/sha256"}
+        }
+      }
+    },
+    "aggregate_sha256": {"$ref": "#/$defs/sha256"},
+    "invariants": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "semantic_ceiling",
+        "occurrence_claims_permitted",
+        "institution_specific_workflow_permitted",
+        "mappings_are_identity"
+      ],
+      "properties": {
+        "semantic_ceiling": {"const": "control_point"},
+        "occurrence_claims_permitted": {"const": false},
+        "institution_specific_workflow_permitted": {"const": false},
+        "mappings_are_identity": {"const": false}
+      }
+    },
+    "manifest_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
