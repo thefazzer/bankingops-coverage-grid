@@ -1,0 +1,165 @@
+profile:
+  id: bocg-common-semantics
+  version: 0.1.0
+  status: PROPOSED
+  title: BankingOps common semantic profile
+  description: >-
+    Standards-backed meanings for the public objects already defined by
+    SPEC-01 and SPEC-03. This profile maps existing fields; it does not create
+    a second coverage-grid or control-point schema.
+  normative_for:
+    - specs/control-point-cell.schema.json
+    - SPEC-01 admitted division keys
+    - post-hoc coverage claims described by SPEC-01 I10 and SPEC-03 I5
+  scope:
+    floor: banking_operations_division
+    ceiling: control_point
+    occurrence_claims_permitted: false
+    institution_specific_workflow_permitted: false
+  prohibited_object_types:
+    - ObservationAtom
+    - Trace
+    - Episode
+    - EmailDiscourseBlock
+    - FiveFamilyAssessment
+    - InstitutionSpecificProcedure
+
+mapping_policy:
+  mapping_is_not_identity: true
+  exact_identity_requires_recognised_identifier: true
+  public_citation_does_not_prove_local_implementation: true
+  control_point_existence_does_not_prove_control_operation: true
+  taxonomy_order_does_not_assert_temporal_or_causal_order: true
+  unmapped_terms_remain_local_candidates: true
+  allowed_relations:
+    - schema-correspondence
+    - close-match
+    - related-match
+    - narrower-than
+
+standards:
+  skos:
+    label: Simple Knowledge Organization System
+    authority: W3C
+    uri: https://www.w3.org/TR/skos-reference/
+    use: concepts, concept schemes, labels, hierarchy and non-identity mappings
+  prov:
+    label: PROV-O
+    authority: W3C
+    uri: https://www.w3.org/TR/prov-o/
+    use: source entities, attribution, derivation and generation time
+  org:
+    label: Organization Ontology
+    authority: W3C
+    uri: https://www.w3.org/TR/vocab-org/
+    use: organizational units, memberships, posts and roles
+  dcterms:
+    label: DCMI Metadata Terms
+    authority: Dublin Core Metadata Initiative
+    uri: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+    use: identifiers, titles, types, references, subjects, dates and part relations
+  fibo:
+    label: Financial Industry Business Ontology
+    authority: EDM Council / Object Management Group
+    uri: https://spec.edmcouncil.org/fibo/ontology/
+    use: financial organizations, services, products and business concepts
+  bcbs_239:
+    label: Principles for effective risk data aggregation and risk reporting
+    authority: Basel Committee on Banking Supervision
+    uri: https://www.bis.org/publ/bcbs239.htm
+    use: accuracy, completeness, traceability and remediation context
+  iso_37301:
+    label: ISO 37301 Compliance management systems
+    authority: ISO/TC 309
+    uri: https://www.iso.org/standard/75080.html
+    use: compliance obligations, controls, nonconformity and corrective action context
+  iso_19011:
+    label: ISO 19011 Guidelines for auditing management systems
+    authority: ISO/PC 302
+    uri: https://www.iso.org/standard/70017.html
+    use: audit evidence, findings and conclusions context
+
+semantic_objects:
+  banking_operations_division:
+    existing_shape: SPEC-01 admitted division_key
+    mappings:
+      - {authority: skos, term: skos:Concept, relation: close-match}
+      - {authority: org, term: org:OrganizationalUnit, relation: related-match, applicability: only when the division is also asserted as an organizational unit}
+  job_function:
+    existing_shape: control-point-cell.schema.json#/properties/job_function
+    mappings:
+      - {authority: org, term: org:Role, relation: close-match}
+      - {authority: skos, term: skos:Concept, relation: related-match}
+  control_point:
+    existing_shape: control-point-cell.schema.json#/properties/control_point
+    mappings:
+      - {authority: skos, term: skos:Concept, relation: close-match, applicability: names what is governed; never an observed occurrence}
+      - {authority: dcterms, term: dcterms:subject, relation: related-match, applicability: subject of evidence and coverage claims}
+  public_evidence_record:
+    existing_shape: control-point-cell.schema.json#/properties/citations/items
+    mappings:
+      - {authority: prov, term: prov:Entity, relation: close-match}
+      - {authority: dcterms, term: dcterms:BibliographicResource, relation: related-match}
+  consequence_anchor:
+    existing_shape: control-point-cell.schema.json#/properties/consequence_anchor
+    mappings:
+      - {authority: prov, term: prov:Entity, relation: related-match, applicability: public record or regime supporting the consequence class}
+      - {authority: dcterms, term: dcterms:references, relation: related-match}
+  coverage_claim:
+    existing_shape: separate post-hoc coverage-map file under SPEC-01 I10 / SPEC-03 I5
+    mappings:
+      - {authority: dcterms, term: dcterms:subject, relation: related-match}
+      - {authority: prov, term: prov:wasDerivedFrom, relation: related-match, applicability: cites the evaluated artifact and control-point definition}
+
+field_mappings:
+  control-point-cell.schema.json#/properties/cell_id:
+    - {authority: dcterms, term: dcterms:identifier, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/division_key:
+    - {authority: skos, term: skos:inScheme, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/job_function:
+    - {authority: org, term: org:role, relation: close-match}
+  control-point-cell.schema.json#/properties/control_point:
+    - {authority: dcterms, term: dcterms:description, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/citations:
+    - {authority: dcterms, term: dcterms:references, relation: close-match}
+    - {authority: prov, term: prov:wasDerivedFrom, relation: related-match}
+  control-point-cell.schema.json#/properties/consequence_anchor:
+    - {authority: dcterms, term: dcterms:relation, relation: related-match}
+  control-point-cell.schema.json#/properties/commonality_rationale:
+    - {authority: dcterms, term: dcterms:description, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/status:
+    - {authority: dcterms, term: dcterms:type, relation: related-match}
+  control-point-cell.schema.json#/properties/methods/properties/generated_by:
+    - {authority: prov, term: prov:wasAttributedTo, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/methods/properties/generated_on:
+    - {authority: prov, term: prov:generatedAtTime, relation: schema-correspondence}
+  control-point-cell.schema.json#/properties/methods/properties/curated_by:
+    - {authority: prov, term: prov:wasAttributedTo, relation: schema-correspondence}
+
+relation_vocabulary:
+  division_has_job_function:
+    domain: banking_operations_division
+    range: job_function
+    mappings:
+      - {authority: dcterms, term: dcterms:hasPart, relation: related-match}
+  job_function_has_control_point:
+    domain: job_function
+    range: control_point
+    mappings:
+      - {authority: dcterms, term: dcterms:hasPart, relation: related-match}
+  control_point_supported_by:
+    domain: control_point
+    range: public_evidence_record
+    mappings:
+      - {authority: prov, term: prov:wasDerivedFrom, relation: related-match}
+      - {authority: dcterms, term: dcterms:references, relation: close-match}
+  control_point_has_consequence_anchor:
+    domain: control_point
+    range: consequence_anchor
+    mappings:
+      - {authority: dcterms, term: dcterms:relation, relation: related-match}
+  coverage_claim_concerns:
+    domain: coverage_claim
+    range: control_point
+    mappings:
+      - {authority: dcterms, term: dcterms:subject, relation: related-match}

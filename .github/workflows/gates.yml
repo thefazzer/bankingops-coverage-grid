@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
-      - run: pip install jsonschema pytest
+      - run: pip install jsonschema PyYAML pytest
       - name: SPEC-03 gates (cells, deny, conformance)
         run: python3 tools/gate_conformance.py
       - name: BOCG test suite
