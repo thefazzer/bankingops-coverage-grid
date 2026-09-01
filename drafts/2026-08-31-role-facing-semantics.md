@@ -1,4 +1,6 @@
-# DRAFT — role/facing semantics for division keys (NOT released)
+# DRAFT — role/facing semantics for division keys
+
+> **INTEGRATED**: folded into specs/common-semantic-profile.yaml 0.2.0 (role_semantics section). This file is retained as the staging-history record only.
 
 Staged from a FinExhaust owner ruling (2026-08-31). Local draft only:
 committing, pushing, and the Release that re-mints the manifest are separate

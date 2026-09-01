@@ -1,6 +1,6 @@
 profile:
   id: bocg-common-semantics
-  version: 0.1.0
+  version: 0.2.0
   status: PROPOSED
   title: BankingOps common semantic profile
   description: >-
@@ -163,3 +163,58 @@ relation_vocabulary:
     range: control_point
     mappings:
       - {authority: dcterms, term: dcterms:subject, relation: related-match}
+
+# Added in 0.2.0 — role/facing semantics (source: FinExhaust owner ruling
+# 2026-08-31, staged via drafts/2026-08-31-role-facing-semantics.md; observed
+# mis-assignment failure mode in a live consumer).
+role_semantics:
+  market_role:
+    definition: >-
+      Buy-side and sell-side are ROLES in the capital-markets ecosystem, not
+      institution categories. A role is held from a perspective; the same
+      ecosystem position can be described differently by each counterparty.
+    members:
+      buyside_role:
+        functions: [allocation, investment, risk]
+      sellside_role:
+        functions: [intermediation, liquidity, capital]
+    mappings:
+      - {authority: org, term: org:Role, relation: close-match}
+      - {authority: skos, term: skos:Concept, relation: related-match}
+      - {authority: fibo, term: fibo Client/ServiceProvider party roles, relation: related-match}
+  faces:
+    definition: >-
+      Directional, perspective-dependent relational predicate joining role
+      holders: a sell-side institution FACES buy-side clients. Direction is
+      part of the meaning; the predicate is never symmetric.
+    domain: sellside_role holder
+    range: buyside_role holder
+    properties:
+      directional: true
+      perspective_dependent: true
+    mappings:
+      - {authority: fibo, term: fibo provides-services-to family, relation: related-match}
+      - {authority: org, term: org:memberOf, relation: related-match, applicability: only via the role posts each party holds; never identity}
+  division_key_interpretation:
+    normative: true
+    rules:
+      - >-
+        buyside_* division keys denote functions of the buy-side ROLE. For a
+        consumer modelling a sell-side institution, these keys describe the
+        FACED CLIENT's functions and MUST NOT be applied as the institution's
+        own operational divisions.
+      - >-
+        Assigning a division key to an institution asserts the institution
+        HOLDS the role that division belongs to; consumers MUST resolve the
+        facing direction before assignment.
+
+# Non-normative candidates recorded by the same ruling. Candidates, not
+# decisions: no key, mapping or hierarchy below is part of the contract.
+candidate_vocabulary_gaps:
+  non_normative: true
+  candidates:
+    - margin/financing terms governance (calculation-basis and terms changes); nearest existing key collateral_margin_management
+    - equity-financing hierarchy (equity trading -> equity financing -> prime brokerage -> equity swaps / securities financing); guards against collapsing "swaps" into fx_trading/rates_trading ("has a rates feature" is not "is rates")
+    - basket structures of single-stock swaps (aggregation concept; name left open)
+    - cross-currency funding basis (funding index = benchmark/reference rate)
+
