@@ -1,0 +1,165 @@
+{
+  "schema": "bankingops-coverage-grid.release-manifest.v1",
+  "release": {
+    "repository": "thefazzer/bankingops-coverage-grid",
+    "tag": "v0.3.0",
+    "commit_sha": "a491bd4258cb0f3f0aabe2fb599f1e37b72521c5",
+    "generated_at": "2026-09-01T22:37:45.347212Z"
+  },
+  "semantic_profile": {
+    "id": "bocg-common-semantics",
+    "version": "0.3.0",
+    "path": "specs/common-semantic-profile.yaml",
+    "sha256": "285187c8e58cb8600344fd47baa2eef03b76257727538d612be40538cd0328b3"
+  },
+  "artifacts": [
+    {
+      "path": "CONFORMANCE.md",
+      "role": "conformance-record",
+      "media_type": "text/markdown",
+      "size_bytes": 3859,
+      "sha256": "ebbd73eef8acfd15cf14aa3cf7d1e64e0e450965ebc1b3ca73f7aa0f85618e99"
+    },
+    {
+      "path": "cells/cp_settled_instruction_amendment.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1506,
+      "sha256": "92d0886e8b1b3619ac845dafc93e439e8e19d16e2787d35ffacdee6f201d8e53"
+    },
+    {
+      "path": "live-run-20260826/RUN_SUMMARY.json",
+      "role": "run-summary",
+      "media_type": "application/json",
+      "size_bytes": 1604,
+      "sha256": "60f92a2dde2d755f05071e0bde76fe4990479acab7b4afa32ab5178986899925"
+    },
+    {
+      "path": "live-run-20260826/aliases.yaml",
+      "role": "normalisation-aliases",
+      "media_type": "application/yaml",
+      "size_bytes": 23232,
+      "sha256": "61025b9f408f81149bf17da747fde25b8ab3175651c186825051e191f6c0d668"
+    },
+    {
+      "path": "live-run-20260826/exclusions.json",
+      "role": "exclusion-ledger",
+      "media_type": "application/json",
+      "size_bytes": 1585,
+      "sha256": "5b33ae4c16b62b30361394f82da290a965bb9825ace90a3686535e2d1d53bd55"
+    },
+    {
+      "path": "live-run-20260826/gates_report.json",
+      "role": "gate-report",
+      "media_type": "application/json",
+      "size_bytes": 6045,
+      "sha256": "600d3ffdde07faad9a1542f08bd0092fc5ebe98e6e5ab42da33e1cd8b254baf1"
+    },
+    {
+      "path": "live-run-20260826/matrix.json",
+      "role": "coverage-matrix",
+      "media_type": "application/json",
+      "size_bytes": 925734,
+      "sha256": "6825d4c51428e7f0ebfac0c6b75bf237b3a6f09766071a50f468cfa0d800538d"
+    },
+    {
+      "path": "live-run-20260826/normalised.json",
+      "role": "normalised-grid",
+      "media_type": "application/json",
+      "size_bytes": 1049535,
+      "sha256": "36c5ab2551dfc67c2ef462db29c2ef70f6d6dc32fdab2b16feba4dc5c9888155"
+    },
+    {
+      "path": "specs/SPEC-01-coverage-grid-elicitation.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 17404,
+      "sha256": "a977e33cf448b66a0c2f94c2f655e13dd1add33ea89bb23527f3927682864df3"
+    },
+    {
+      "path": "specs/SPEC-03-control-point-cells.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 3519,
+      "sha256": "89fd3a215418a8639c854356bd084554f22a1b57c3f8c7b2a264ce9dc54876cf"
+    },
+    {
+      "path": "specs/SPEC-04-common-semantic-profile.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 3830,
+      "sha256": "0160cf0ef75db352ae35b97af0d44a2e6fc7a336bb5c15255b8be98d689d83ba"
+    },
+    {
+      "path": "specs/SPEC-05-insight-construction.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 2187,
+      "sha256": "2b958ee407e4fb3f3512dd9529264d3ed4c23c4a13d78134664e361f37f42d6b"
+    },
+    {
+      "path": "specs/bocg-release-manifest.schema.json",
+      "role": "release-manifest-schema",
+      "media_type": "application/json",
+      "size_bytes": 2652,
+      "sha256": "57baace386fa108400a3f6ba2b2338d3b9069b662262f628ca022639b978f82d"
+    },
+    {
+      "path": "specs/common-semantic-profile.yaml",
+      "role": "semantic-profile",
+      "media_type": "application/yaml",
+      "size_bytes": 10394,
+      "sha256": "285187c8e58cb8600344fd47baa2eef03b76257727538d612be40538cd0328b3"
+    },
+    {
+      "path": "specs/control-point-cell.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 2574,
+      "sha256": "927b8387be1301945c5a80e186c12e42de9e729a98f5b513edc967ba5e58a437"
+    },
+    {
+      "path": "specs/insight-construction-profile.yaml",
+      "role": "semantic-profile",
+      "media_type": "application/yaml",
+      "size_bytes": 2311,
+      "sha256": "dc87f4b4b84c7436d7b1735c2ee35ea942eed7dfd0f4ad3707aaa1891e66e0f7"
+    },
+    {
+      "path": "specs/insight-construction.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 3248,
+      "sha256": "ef89fa1b2d4f3fc880e79856dcebeea790347185acc6927fdf36c6956a264d0f"
+    },
+    {
+      "path": "specs/institutional-speech-act.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 1975,
+      "sha256": "8eb09ffc122460f0d24c250c8e75ff448952bf94a66b20b1683983658e5606b9"
+    },
+    {
+      "path": "specs/rubrics/episode-feasibility.yaml",
+      "role": "adjudication-rubric",
+      "media_type": "application/yaml",
+      "size_bytes": 1022,
+      "sha256": "a1b13ba755653bd4189e1d6403b27982b56774e83837dd2207f93947eedb8779"
+    },
+    {
+      "path": "specs/rubrics/five-families.yaml",
+      "role": "adjudication-rubric",
+      "media_type": "application/yaml",
+      "size_bytes": 874,
+      "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
+    }
+  ],
+  "aggregate_sha256": "55bc3d5a1177762ae9fc4ad029045b7b78e5dc109000bbd4e41f0b9cf34092ad",
+  "invariants": {
+    "semantic_ceiling": "control_point",
+    "occurrence_claims_permitted": false,
+    "institution_specific_workflow_permitted": false,
+    "mappings_are_identity": false
+  },
+  "manifest_sha256": "dce3dd85c16d96e71cf2a011656d5baecd9a2acbc35143ee06b58c7a6a3ef97b"
+}
