@@ -19,8 +19,14 @@ STATIC_ARTIFACTS = {
     "specs/SPEC-01-coverage-grid-elicitation.md": "normative-specification",
     "specs/SPEC-03-control-point-cells.md": "normative-specification",
     "specs/SPEC-04-common-semantic-profile.md": "normative-specification",
+    "specs/SPEC-05-insight-construction.md": "normative-specification",
     "specs/control-point-cell.schema.json": "json-schema",
     "specs/common-semantic-profile.yaml": "semantic-profile",
+    "specs/insight-construction-profile.yaml": "semantic-profile",
+    "specs/insight-construction.schema.json": "json-schema",
+    "specs/institutional-speech-act.schema.json": "json-schema",
+    "specs/rubrics/episode-feasibility.yaml": "adjudication-rubric",
+    "specs/rubrics/five-families.yaml": "adjudication-rubric",
     "specs/bocg-release-manifest.schema.json": "release-manifest-schema",
 }
 RUN_ARTIFACTS = {

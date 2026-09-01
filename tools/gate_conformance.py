@@ -205,19 +205,60 @@ def gate_release_manifest() -> None:
         fail("S4-G5 manifest self-digest is invalid")
 
 
+def gate_insight_construction() -> None:
+    """S5: portable occurrence shapes remain static and lifecycle-safe."""
+    profile_path = ROOT / "specs/insight-construction-profile.yaml"
+    try:
+        profile = yaml.safe_load(profile_path.read_text())
+        insight_schema = json.loads((ROOT / "specs/insight-construction.schema.json").read_text())
+        speech_schema = json.loads((ROOT / "specs/institutional-speech-act.schema.json").read_text())
+        episode = yaml.safe_load((ROOT / "specs/rubrics/episode-feasibility.yaml").read_text())
+        families = yaml.safe_load((ROOT / "specs/rubrics/five-families.yaml").read_text())
+    except (OSError, ValueError, yaml.YAMLError) as exc:
+        fail(f"S5-G1 insight-construction artifacts unreadable: {exc}")
+        return
+    meta = profile.get("profile") or {}
+    scope = meta.get("scope") or {}
+    if meta.get("id") != "bocg-insight-construction" or meta.get("layered_on") != "bocg-common-semantics":
+        fail("S5-G1 layered profile identity drifted")
+    if scope.get("definitions_only") is not True or scope.get("occurrence_instances_permitted") is not False:
+        fail("S5-G1 profile must publish definitions but no occurrence instances")
+    lifecycle = profile.get("lifecycle_vocabulary") or {}
+    required = {"directed", "scheduled", "executed", "completed", "verified"}
+    if not required.issubset(set(lifecycle.get("ordered_states") or [])):
+        fail("S5-G2 lifecycle state separation is incomplete")
+    rules = lifecycle.get("inference_rules") or {}
+    if any(rules.get(key) is not False for key in (
+        "directive_implies_execution", "scheduled_implies_execution",
+        "executed_implies_completion", "completed_implies_verification",
+    )):
+        fail("S5-G2 lifecycle inference must fail closed")
+    if not {"ObservationAtom", "Trace", "Episode"}.issubset((insight_schema.get("$defs") or {}).keys()):
+        fail("S5-G3 insight schema lacks Atom/Trace/Episode definitions")
+    obligation = ((speech_schema.get("properties") or {}).get("obligation_frame") or {}).get("properties") or {}
+    if "executed" in ((obligation.get("execution_status") or {}).get("enum") or []):
+        fail("S5-G3 directive expansion must not assert execution")
+    if (episode.get("rubric") or {}).get("safeguards", {}).get("atom_truth_does_not_imply_episode_truth") is not True:
+        fail("S5-G4 Episode rubric lacks composition safeguard")
+    family_ids = set(((families.get("rubric") or {}).get("families") or {}).keys())
+    if family_ids != {"DEEP_DOMAIN_TRANSFER", "EVIDENCE_ABLATION", "NEGATIVE_CONTROL", "LATERAL_HIRE", "COMMERCIAL_INSIGHT"}:
+        fail("S5-G5 Five Families vocabulary drifted")
+
+
 def main() -> int:
     gate_cells()
     gate_deny()
     gate_conformance_doc()
     gate_common_semantics()
     gate_release_manifest()
+    gate_insight_construction()
     if FAILURES:
         print("GATE FAILURES:")
         for f in FAILURES:
             print("  ", f)
         return 1
     cells = len(list((ROOT / "cells").glob("*.json")))
-    print(f"all SPEC-03/SPEC-04 gates pass ({cells} cells, CONFORMANCE.md intact)")
+    print(f"all SPEC-03/SPEC-04/SPEC-05 gates pass ({cells} cells, CONFORMANCE.md intact)")
     return 0
 
 
