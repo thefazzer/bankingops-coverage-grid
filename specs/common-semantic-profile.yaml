@@ -1,6 +1,6 @@
 profile:
   id: bocg-common-semantics
-  version: 0.2.0
+  version: 0.3.0
   status: PROPOSED
   title: BankingOps common semantic profile
   description: >-
@@ -164,7 +164,7 @@ relation_vocabulary:
     mappings:
       - {authority: dcterms, term: dcterms:subject, relation: related-match}
 
-# Added in 0.2.0 — role/facing semantics (source: FinExhaust owner ruling
+# Added in 0.3.0 — role/facing semantics (source: FinExhaust owner ruling
 # 2026-08-31, staged via drafts/2026-08-31-role-facing-semantics.md; observed
 # mis-assignment failure mode in a live consumer).
 role_semantics:
