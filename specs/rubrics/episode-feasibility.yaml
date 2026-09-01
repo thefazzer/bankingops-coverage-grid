@@ -1,0 +1,25 @@
+rubric:
+  id: bocg-episode-feasibility
+  version: 1.0.0
+  purpose: Determine whether a bounded source record can support a defeasible institutional Episode.
+  prerequisites:
+    - bounded_context_with_exact_source_reference
+    - instantiated_operational_proposition
+    - two_participant_slots_or_one_participant_plus_state_change_dependency
+  signals:
+    explicit_institutional_participant: 2
+    operational_action_dependency_flow_exception_state_or_change: 2
+    second_participant_or_affected_object: 1
+    source_grounded_temporal_anchor: 1
+    typed_identifier_product_environment_or_message_field: 1
+    two_or_more_related_atomic_propositions: 1
+    syntax_without_occurrence_marker: -3
+    generic_definition_template_or_example: -3
+  classification:
+    NULL: prerequisite_failure_or_score_below_4
+    FEASIBLE: score_4_to_5
+    STRONG: score_6_or_above
+  safeguards:
+    score_is_triage_not_truth: true
+    atom_truth_does_not_imply_episode_truth: true
+    actor_cause_decision_outcome_require_evidence: true

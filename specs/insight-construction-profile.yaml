@@ -1,0 +1,60 @@
+profile:
+  id: bocg-insight-construction
+  version: 0.2.0
+  status: NORMATIVE
+  title: BankingOps portable insight-construction profile
+  layered_on: bocg-common-semantics
+  scope:
+    definitions_only: true
+    occurrence_shapes_permitted: true
+    occurrence_instances_permitted: false
+    institution_specific_content_permitted: false
+    analytic_implementation_permitted: false
+
+normative_artifacts:
+  insight_schema: specs/insight-construction.schema.json
+  speech_act_schema: specs/institutional-speech-act.schema.json
+  episode_rubric: specs/rubrics/episode-feasibility.yaml
+  five_families_rubric: specs/rubrics/five-families.yaml
+
+objects:
+  ObservationAtom:
+    definition: Independently addressable proposition bound to exact source evidence.
+    identity_rule: content_addressed_within_source_instance
+    source_required: true
+  Trace:
+    definition: Partial ordering or dependency arrangement of Atom identifiers.
+    order_does_not_imply_causality: true
+  Episode:
+    definition: Defeasible composition providing connective tissue among evidence-bound Atoms.
+    component_truth_does_not_imply_composition_truth: true
+  InstitutionalSpeechActExpansion:
+    definition: SME-confirmed sidecar separating literal form from institutional force.
+    source_text_mutation_prohibited: true
+  FiveFamilyAssessment:
+    definition: Non-aggregated machine or SME test result attached to an immutable target.
+
+lifecycle_vocabulary:
+  ordered_states: [directed, pending, scheduled, executed, completed, verified]
+  non_occurrence_states: [not_observed, unknown]
+  inference_rules:
+    directive_implies_execution: false
+    scheduled_implies_execution: false
+    executed_implies_completion: false
+    completed_implies_verification: false
+
+adjudication_policy:
+  source_and_machine_construction_immutable: true
+  overlays_append_only: true
+  evidence_retargeting_prohibited: true
+  split_preserves_original_atom: true
+  split_components_independently_addressable: true
+  downstream_recomposition_required: true
+  score_aggregation_prohibited: true
+
+standards_alignment:
+  w3c_annotation: https://www.w3.org/TR/annotation-model/
+  w3c_prov: https://www.w3.org/TR/prov-o/
+  ieee_xes: https://standards.ieee.org/ieee/1849/10907/
+  skos: https://www.w3.org/TR/skos-reference/
+  mapping_is_not_identity: true

@@ -1,0 +1,21 @@
+rubric:
+  id: bocg-five-families
+  version: 1.0.0
+  aggregation: prohibited
+  families:
+    DEEP_DOMAIN_TRANSFER:
+      question: Does the construction survive transfer to a deep-domain expert context?
+    EVIDENCE_ABLATION:
+      question: Does the conclusion weaken correctly when supporting evidence is removed?
+    NEGATIVE_CONTROL:
+      question: Does structurally similar but non-instantiated material remain unpromoted?
+    LATERAL_HIRE:
+      question: Can an experienced outsider reproduce the judgment from evidence and rubric alone?
+    COMMERCIAL_INSIGHT:
+      question: Is the construction decision-relevant without exceeding the evidence?
+  verdicts: [PASS, FAIL, UNCERTAIN, NOT_APPLICABLE]
+  policy:
+    target_immutable: true
+    assessments_append_only: true
+    disagreement_preserved_until_resolution: true
+    machine_and_sme_assessors_permitted: true

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/insight-construction.schema.json",
+  "title": "BOCG portable insight-construction objects",
+  "oneOf": [
+    {"$ref": "#/$defs/ObservationAtom"},
+    {"$ref": "#/$defs/Trace"},
+    {"$ref": "#/$defs/Episode"}
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "EvidenceReference": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["source_id", "lines", "selected_content_sha256"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "lines": {"type": "array", "prefixItems": [{"type": "integer", "minimum": 1}, {"type": "integer", "minimum": 1}], "minItems": 2, "maxItems": 2},
+        "selected_content_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "ObservationAtom": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind", "atom_id", "predicate", "assertion_status", "source_refs"],
+      "properties": {
+        "kind": {"const": "ObservationAtom"},
+        "atom_id": {"type": "string", "minLength": 1},
+        "subject_entity_id": {"type": ["string", "null"]},
+        "predicate": {"type": "string", "minLength": 1},
+        "object_entity_id": {"type": ["string", "null"]},
+        "object_literal": {},
+        "qualifiers": {"type": "object"},
+        "assertion_status": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "source_refs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/EvidenceReference"}}
+      },
+      "allOf": [{"not": {"required": ["object_entity_id", "object_literal"], "properties": {"object_entity_id": {"type": "string"}, "object_literal": {"not": {"type": "null"}}}}}]
+    },
+    "Trace": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind", "trace_id", "atom_ids", "ordering_model", "causality_asserted"],
+      "properties": {
+        "kind": {"const": "Trace"},
+        "trace_id": {"type": "string", "minLength": 1},
+        "atom_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "ordering_model": {"enum": ["partial_order", "total_order", "unordered"]},
+        "causality_asserted": {"type": "boolean"}
+      }
+    },
+    "Episode": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind", "episode_id", "atom_ids", "composition_status"],
+      "properties": {
+        "kind": {"const": "Episode"},
+        "episode_id": {"type": "string", "minLength": 1},
+        "atom_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+        "composition_status": {"enum": ["candidate", "admitted", "qualified", "recomposition_required", "rejected"]},
+        "execution_status": {"$ref": "#/$defs/LifecycleState"},
+        "completion_status": {"$ref": "#/$defs/LifecycleState"},
+        "verification_status": {"$ref": "#/$defs/LifecycleState"}
+      }
+    },
+    "LifecycleState": {"enum": ["not_observed", "directed", "pending", "scheduled", "executed", "completed", "verified", "unknown"]}
+  }
+}
