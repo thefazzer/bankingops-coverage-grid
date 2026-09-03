@@ -97,17 +97,65 @@ def token_regex(token: str) -> re.Pattern:
     return re.compile(lead + body + trail, re.IGNORECASE)
 
 
+HASHED_PREFIX = "sha256:"
+
+
+def is_hashed_entry(token: str) -> bool:
+    """A denylist line of the form sha256:<hex> denies a token without printing it (SPEC-01 §2.3)."""
+    return token.strip().lower().startswith(HASHED_PREFIX)
+
+
+def canonical_token(token: str) -> str:
+    """The form a hashed entry commits to: lowercase; runs of whitespace/hyphen collapse to one space."""
+    return " ".join(p for p in re.split(r"[\s\-]+", token.strip().lower()) if p)
+
+
+def _phrase_candidates(text: str, max_words: int = 6):
+    """Yield (canonical phrase, start, end) for every run of 1..max_words whole words joined only by
+    whitespace/hyphen. Mirrors token_regex(): word boundaries are non-alphanumerics."""
+    words = [(m.group(0).lower(), m.start(), m.end()) for m in re.finditer(r"[A-Za-z0-9]+", text)]
+    for i, (word, start, end) in enumerate(words):
+        yield word, start, end
+        parts, last = [word], end
+        for nxt, s2, e2 in words[i + 1: i + max_words]:
+            if not re.fullmatch(r"[\s\-]+", text[last:s2]):
+                break
+            parts.append(nxt)
+            last = e2
+            yield " ".join(parts), start, last
+
+
+def find_hashed(text: str, entries: list[str]) -> list[dict]:
+    """Return [{token, count, sample, span}] for every sha256: entry whose token occurs whole-word in text.
+    The matched text is never echoed (that would print the denied token); the first span is reported instead."""
+    wanted = {e.strip()[len(HASHED_PREFIX):].lower(): e.strip() for e in entries}
+    hits: dict[str, dict] = {}
+    for phrase, start, end in _phrase_candidates(text):
+        entry = wanted.get(sha256_text(phrase))
+        if entry is None:
+            continue
+        if entry in hits:
+            hits[entry]["count"] += 1
+        else:
+            hits[entry] = {"token": entry, "count": 1, "sample": "<redacted: hashed entry>", "span": [start, end]}
+    return list(hits.values())
+
+
 def find_forbidden(text: str, tokens: list[str] | None = None, apply_allowlist: bool = True) -> list[dict]:
     """Return [{token, count, sample}] for every forbidden token present in text (after allowlist stripping)."""
     scan = strip_allowlisted(text) if apply_allowlist else text
+    entries = tokens if tokens is not None else forbidden_tokens()
     hits = []
-    for tok in (tokens if tokens is not None else forbidden_tokens()):
+    for tok in entries:
+        if is_hashed_entry(tok):
+            continue
         rx = token_regex(tok)
         ms = list(rx.finditer(scan))
         if ms:
             m = ms[0]
             hits.append({"token": tok, "count": len(ms),
                          "sample": scan[max(0, m.start() - 30): m.end() + 30].replace("\n", " ")})
+    hits.extend(find_hashed(scan, [t for t in entries if is_hashed_entry(t)]))
     return hits
 
 

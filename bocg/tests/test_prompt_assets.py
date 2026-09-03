@@ -1,9 +1,10 @@
 """Frozen prompt assets: §2.1/2.2 text, schema embedding, placeholders, forbidden tokens (I1, I2, I7)."""
+import hashlib
 import json
 import re
 
-from bocg.prompt import (PLACEHOLDERS, asset_text, find_forbidden, find_self_assessment, forbidden_tokens,
-                         load_frozen, token_regex)
+from bocg.prompt import (PLACEHOLDERS, asset_text, canonical_token, find_forbidden, find_self_assessment,
+                         forbidden_tokens, is_hashed_entry, load_frozen, token_regex)
 
 
 def test_prompt_has_placeholders_and_embedded_schema():
@@ -37,11 +38,13 @@ def test_forbidden_token_list_covers_spec_and_names():
     toks = {t.lower() for t in forbidden_tokens()}
     for t in ["prime brokerage", "prime broker", "pb", "equity finance", "securities lending", "stock loan",
               "single stock swap", "single-stock swap", "synthetic", "trs", "total return swap", "delta one",
-              "delta-one", "hedge fund", "finexhaust", "bankingenv", "pb-ops", "jefferies", "gap", "under-served",
+              "delta-one", "hedge fund", "finexhaust", "bankingenv", "pb-ops", "gap", "under-served",
               "underserved", "model capability", "benchmark", "eval"]:
         assert t in toks
     banks = [t for t in toks if t in {"goldman sachs", "morgan stanley", "barclays", "hsbc", "ubs", "nomura"}]
     assert len(banks) == 6
+    # one private institution name is carried only as a hashed entry (I2, G1): never printed in a public file
+    assert [t for t in toks if is_hashed_entry(t)] == ["sha256:977506cfba9f653a131260c206bc713e8c5d72c506ee00235ef8b71f1714462c"]
     assert len(toks) >= 24 + 30 + 20
 
 
@@ -59,3 +62,16 @@ def test_prompt_assets_do_not_mention_seller_segment():
     text = (asset_text("prompt.txt") + asset_text("system.txt")).lower()
     for bad in ["prime brokerage", "equity finance", "swap", "hedge fund"]:
         assert not re.search(r"\b" + re.escape(bad) + r"s?\b", text)
+
+
+def test_hashed_entries_match_whole_words_without_printing_them():
+    entry = "sha256:" + hashlib.sha256(b"fictional bancorp").hexdigest()
+    assert is_hashed_entry(entry) and canonical_token("  Fictional-Bancorp ") == "fictional bancorp"
+    hits = find_forbidden("we serve Fictional-Bancorp clients", tokens=[entry], apply_allowlist=False)
+    assert hits and hits[0]["token"] == entry and hits[0]["count"] == 1
+    assert "bancorp" not in hits[0]["sample"].lower()  # the denied text is never echoed into gate evidence
+    assert find_forbidden("FictionalBancorp Ltd", tokens=[entry], apply_allowlist=False) == []  # no word boundary
+    assert find_forbidden("fictional.bancorp", tokens=[entry], apply_allowlist=False) == []  # not joined by space/hyphen
+    assert find_forbidden("fictional bancorp; FICTIONAL  BANCORP", tokens=[entry], apply_allowlist=False)[0]["count"] == 2
+    mixed = find_forbidden("prime brokerage ops", tokens=[entry, "prime brokerage"], apply_allowlist=False)
+    assert [h["token"] for h in mixed] == ["prime brokerage"]

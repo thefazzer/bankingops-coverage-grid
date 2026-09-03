@@ -93,11 +93,15 @@ Output JSON conforming exactly to the schema below.
 ### 2.3 FORBIDDEN_TOKENS (contamination gate; case-insensitive; applied to prompt.txt + system prompt)
 ```
 prime brokerage, prime broker, PB, equity finance, securities lending, stock loan, single stock swap, single-stock swap,
-synthetic, TRS, total return swap, delta one, delta-one, hedge fund, FinExhaust, BankingEnv, PB-Ops, Jefferies,
+synthetic, TRS, total return swap, delta one, delta-one, hedge fund, FinExhaust, BankingEnv, PB-Ops,
+<one private institution name, carried as a sha256 entry>,
 <any bank name>, <any product name beyond generic asset-class nouns>, "gap", "under-served", "underserved",
 "model capability", "benchmark", "eval"
 ```
 Generic asset-class nouns allowed ONLY inside the schema enum (§3 `axis.product`), never as examples in prose.
+A `sha256:<hex>` line in `forbidden_tokens.txt` denies the token whose lowercase form (whitespace/hyphen runs collapsed
+to one space) has that digest; it is matched whole-word like a plain entry, so a private name is denied without being
+printed in any public file.
 
 ## 3. RESPONSE SCHEMA (JSON Schema draft 2020-12; field ORDER enforced by post-validation on raw text)
 

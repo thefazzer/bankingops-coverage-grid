@@ -19,7 +19,7 @@ bocg/
       system.txt             §2.1 system prompt (verbatim)
       prompt.txt             §2.2 user prompt (verbatim; §3 schema embedded at <SCHEMA>; {THRESHOLD_USD},{CURRENCY},{AS_OF_YEAR} kept)
       schema.json            §3 response schema (draft 2020-12)
-      forbidden_tokens.txt   §2.3 FORBIDDEN_TOKENS incl. ~50 bank names and ~40 product names
+      forbidden_tokens.txt   §2.3 FORBIDDEN_TOKENS incl. ~50 bank names and ~40 product names; sha256:<hex> lines deny a token without printing it
       negative_instruction_allowlist.txt   see "Spec conflict" below
       self_assess_patterns.txt             G8 regex list
       methodology.md  limits.md            copied into every bundle (§9)

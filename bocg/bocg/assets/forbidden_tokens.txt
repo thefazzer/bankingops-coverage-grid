@@ -1,6 +1,8 @@
 # BOCG FORBIDDEN_TOKENS (SPEC-01 §2.3). One token per line. '#' starts a comment.
 # Matching: case-insensitive, whole-word/phrase (word boundaries), applied to prompt.txt + system.txt (G1).
 # Generic asset-class nouns are allowed ONLY inside the schema enum (axis.product), never as prose examples.
+# Hashed entries: "sha256:<hex>" is the sha256 of the lowercase token with whitespace/hyphen runs collapsed to one
+# space; matched whole-word like a plain entry, so a private name is denied without being printed in this public file.
 
 # --- §2.3 literal list ---
 prime brokerage
@@ -20,7 +22,7 @@ hedge fund
 FinExhaust
 BankingEnv
 PB-Ops
-Jefferies
+sha256:977506cfba9f653a131260c206bc713e8c5d72c506ee00235ef8b71f1714462c
 gap
 under-served
 underserved
