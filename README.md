@@ -7,6 +7,10 @@ derived corpus machine-verifiable by a party who never sees the source material.
 `live-run-20260826/` holds a real run of the first: five vendor families, cold, with every raw response published.
 It is **provisional** — the anchor-corroboration gate has not been satisfied. See that folder's README.
 
+The grid is a model-consensus prior, not a validated map. `docs/downstream-evidence.md` records how its division keys
+have been exercised by a preregistered downstream evaluation lane; those results are calibration evidence from a private
+corpus (one institution, not released) and are not validation of the grid.
+
 | Artifact | Spec | Package | CLI | Tests |
 |---|---|---|---|---|
 | **BankingOps Coverage Grid (BOCG)** — model-consensus taxonomy of capital-markets operational divisions, anchored + corroborated, with runnable gates | `specs/SPEC-01-coverage-grid-elicitation.md` | `bocg/` | `bocg` | 87 passing |
