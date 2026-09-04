@@ -143,30 +143,22 @@ on U1). The second judge is missing on one task's sheets, hence n=19. Doubling t
 retrieval budget changed the score on five of twenty tasks, by +0.05 on average, so
 the U1 delta is not a length effect.
 
-### T7 v3 (preregistration frozen 2026-09-02; run in progress on 2026-09-03; no result recorded here)
+### T7-v3 COMPLETE 2026-09-03; union claim PASSED narrowly
 
-Estimand, verbatim from the preregistration: "T7 estimates union uplift over
-retrieval for institution-specific tasks demonstrably answerable from the source
-corpus, not for arbitrary generated tasks." Fifteen generated questions per locus; a
-task is admitted only if the evidence model passes at least one criterion when handed
-the source slice the question was generated from; fewer than 20 admitted tasks halts
-the run. Arms: unaided, twice-budget retrieval, union, wrong-locus union; three
-replicates. Gate: U1 and U2 as in T6, same test, same alpha, same locus and
-second-judge conditions. Two strikes: if U1 fails here, the union line is closed on
-these loci and is not re-run.
+T7-v3 COMPLETE 2026-09-03 (freeze intact). Union claim PASSED narrowly under the
+intersection-union rule. Estimand: conditional on oracle answerability (union uplift
+over retrieval for institution-specific tasks demonstrably answerable from the source
+corpus). n=27 admitted tasks from 2 loci.
 
-Part A (routing-signal admission, developmental, run before the freeze) admitted no
-signal. The best candidate, a self-coverage probe, simulated +0.208 against
-always-union +0.176, a gain of +0.032 below the +0.05 admission bar; the disagreement
-probe gained -0.069; the oracle router ceiling on the same tasks was +0.250. The
-routing line is closed at the cheap and probe-based level; no routed arm runs in T7.
+| Contrast | Delta | p | BCa 95% | Standing |
+|---|---|---|---|---|
+| U1 union vs twice-budget retrieval (gate) | +0.130 | 0.047 | [0.009, 0.296] | rejects (narrowly) |
+| U2 union vs wrong-locus pack + same retrieval (gate) | +0.228 | 0.003 | [0.096, 0.395] | rejects |
 
-Two earlier T7 versions halted before any scored answer, both on instrument defects
-caught by automated gates: v1 at the unaided-discrimination gate (0.358 against a 0.20
-ceiling on one locus) and v2 at the admission gate (its four-chunk oracle window
-measured membership in a sample, not answerability; 15 of 30 tasks admitted). When
-this note was written no T7 report existed. Its result belongs in a later revision of
-this note, not in a reading of the figures above.
+Decision-tree branch reached: untouched-locus replication, not another optimisation
+run. Part A admitted no routing signal (best gain +0.032 under the +0.05 bar); no
+routed arm ran. Two earlier T7 versions halted before any scored answer (v1 Gate A,
+v2 admission instrument defect).
 
 ### Pattern across runs (descriptive, never a gate)
 
@@ -174,8 +166,9 @@ this note, not in a reading of the figures above.
   the wrong-locus pack has replicated twice (+0.467, +0.593) and the union form once
   (+0.179): the gain depends on the content being the right content.
 - Pack over equal-length retrieval has not been established in any run (+0.108,
-  +0.269, +0.100), and union over twice-budget retrieval was not established in T6
-  (+0.158, p=0.061).
+  +0.269, +0.100). Union over twice-budget retrieval was not established in T6
+  (+0.158, p=0.061) and PASSED narrowly in T7 on oracle-answerable tasks (+0.130,
+  p=0.047); next is untouched-locus replication.
 - The two loci disagree. Locus A rewards the pack in T4, T5 and T6 (in T6 the union
   beats twice-budget retrieval there by +0.267); on locus B retrieval already answers
   most tasks and the pack adds +0.050. Per-task pack effects range from +1.0 to -0.5,
@@ -187,15 +180,17 @@ this note, not in a reading of the figures above.
 
 The lane's results ledger fixes the language: until a complete report exists, the
 words "citable", "decided", "validated" and "pure uplift" (and equivalents) are banned
-for any result, and predictions are not findings. Every canonical claim tested so far
-is labelled **NOT passed**. The supported statements, each scoped to two loci, one
+for any result, and predictions are not findings. T4, T5 and T6 canonical claims are labelled **NOT passed**; T7-v3 union claim is
+labelled **PASSED narrowly**. The supported statements, each scoped to two loci, one
 institution and model judges only, are:
 
 1. The curated pack beats the unaided model (three replications).
 2. The curated pack beats a wrong-locus pack of identical format (content
    specificity), and the union form beats the wrong-locus union (T6 U2).
 3. The pack does not demonstrably beat equal-length retrieval (T4 C3, T5 C3b, T6
-   C3b-r), and the union does not demonstrably beat twice-budget retrieval (T6 U1).
+   C3b-r). Union over twice-budget retrieval failed narrowly at T6 (U1) and PASSED
+   narrowly at T7-v3 on oracle-answerable tasks (U1 +0.130, p=0.047; U2 +0.228,
+   p=0.003); next is untouched-locus replication.
 
 What the lane licenses on this evidence, in its own words: "standalone pack authoring
 stops as a product activity; curation continues for retrieval, evidence selection,
@@ -232,13 +227,13 @@ routing and adjudication."
 ## 6. Sources and maintenance
 
 Figures are transcribed from the lane's private documents as they stood on
-2026-09-03: its results-status ledger (labels, T4/T5/T6 summaries and the T4
-erratum), the T6 report (sections 1, 2, 6 and 7), the T7 preregistration v3
-(sections 2 to 7, 11 and 12) and a viability read dated 2026-09-03 (locus
-descriptions, pack size, budget-doubling and power estimates). Division-key
-assignments are from the lane's registry; live-run support figures are from
-`live-run-20260826/RUN_SUMMARY.json` and `matrix.csv`.
+2026-09-04: its results-status ledger (labels, T4/T5/T6/T7 summaries and the T4
+erratum), the T6 report (sections 1, 2, 6 and 7), T7-REPORT.md section 1,
+out-t7/report.json, the T7 preregistration v3 (sections 2 to 7, 11 and 12) and a
+viability read dated 2026-09-03 (locus descriptions, pack size, budget-doubling and
+power estimates). Division-key assignments are from the lane's registry; live-run
+support figures are from `live-run-20260826/RUN_SUMMARY.json` and `matrix.csv`.
 
 This note is non-normative and is not listed in the release manifest; it may be
-revised without a release. A revision is due when T7 reports. Any figure here that
-disagrees with a lane report is an error in this note.
+revised without a release. Any figure here that disagrees with a lane report is an
+error in this note.
