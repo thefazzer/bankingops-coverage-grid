@@ -47,13 +47,13 @@ entity_semantics:
   label_equality_is_identity: false
   type_mapping_is_instance_identity: false
   classes:
-    person: {meaning: actual human identity, standard: prov, term: "https://www.w3.org/TR/prov-o/#Person", relation: close-match, identity: evidenced_person_resolution}
-    organization: {meaning: actual legal entity or explicitly distinguished organizational unit, standard: org, term: "https://www.w3.org/TR/vocab-org/#org:Organization", relation: close-match, identity: authoritative_entity_identifier}
+    person: {meaning: actual human identity, standard: prov, term: "http://www.w3.org/ns/prov#Person", relation: close-match, identity: evidenced_person_resolution}
+    organization: {meaning: actual legal entity or explicitly distinguished organizational unit, standard: org, term: "http://www.w3.org/ns/org#Organization", relation: close-match, identity: authoritative_entity_identifier}
     account: {meaning: actual account within its issuer namespace, standard: fibo, term: "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account", relation: close-match, identity: issuer_and_account_identifier}
     instrument: {meaning: actual financial instrument with standards-backed classification, standard: iso_10962, term: "https://www.iso.org/standard/81140.html", relation: schema-correspondence, identity: authoritative_instrument_identifier}
-    product_type: {meaning: governed regulatory product classification, standard: skos, term: "https://www.w3.org/TR/skos-reference/#Concept", relation: narrower-than, identity: regulatory_reference_key}
-    system: {meaning: actual information system within its operator namespace, standard: prov, term: "https://www.w3.org/TR/prov-o/#Entity", relation: narrower-than, identity: operator_and_system_identifier}
-    role: {meaning: role held by a party in an evidenced context, standard: org, term: "https://www.w3.org/TR/vocab-org/#org:Role", relation: close-match, identity: governed_role_definition}
+    product_type: {meaning: governed regulatory product classification, standard: skos, term: "http://www.w3.org/2004/02/skos/core#Concept", relation: narrower-than, identity: regulatory_reference_key}
+    system: {meaning: actual information system within its operator namespace, standard: prov, term: "http://www.w3.org/ns/prov#Entity", relation: narrower-than, identity: operator_and_system_identifier}
+    role: {meaning: role held by a party in an evidenced context, standard: org, term: "http://www.w3.org/ns/org#Role", relation: close-match, identity: governed_role_definition}
   instance_resolution:
     accepted_requires: [canonical_entity_id, entity_type, authority, evidence_refs]
     local_identifiers_require_issuer_namespace: true

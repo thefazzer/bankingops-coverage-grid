@@ -139,7 +139,7 @@ def gate_common_semantics() -> None:
             fail(f"S4-G6 {field} must be false")
     for name, definition in entities.get("classes", {}).items():
         if (definition.get("standard") not in standards
-                or not str(definition.get("term", "")).startswith("https://")
+                or not str(definition.get("term", "")).startswith(("http://", "https://"))
                 or definition.get("relation") not in allowed or not definition.get("identity")):
             fail(f"S4-G6 {name} lacks standards-bearing semantics or identity rule")
     if not {"person", "organization", "account", "instrument", "product_type", "system", "role"} <= set(entities.get("classes", {})):
