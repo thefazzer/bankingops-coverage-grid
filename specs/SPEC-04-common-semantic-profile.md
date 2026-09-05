@@ -76,6 +76,29 @@ logic, corpus labels or workflow claims with it.
 
 The gate validates the contract, not the truth of a future coverage claim.
 
+## 4.1 Canonical entity semantics
+
+The `entity_semantics` contract defines shared business meanings and identity
+rules for consumers. BOCG owns these definitions; consumers retain private
+instances, observations, evidence and adjudication history. Corpus membership
+and equal labels do not create or disprove identity.
+
+A resolved person can hold multiple evidenced employment relationships over
+time. A legal entity remains the same entity when its counterparties, roles or
+perspective change. FACING and FACED remain directed contextual relationships
+under `role_semantics`, with applicable time, party roles and transaction/leg
+context preserved. Observation dates never supply missing tenure dates.
+
+Product types represent governed regulatory reference definitions. Their keys
+include authority, regime, identifier, version and effective bounds. Aliases
+can resolve to the same reference across corpora; a close vocabulary mapping
+does not prove regulatory equivalence. Classification of an instrument never
+merges distinct instrument, contract or trade instances.
+
+Canonicalisation must identify the standard or reference represented, and
+separately record evidence for an actual instance identity. Unresolved labels
+remain observations with candidate links until evidence supports resolution.
+
 ## 5. Release assertion
 
 Every consumer must select a GitHub release, download its

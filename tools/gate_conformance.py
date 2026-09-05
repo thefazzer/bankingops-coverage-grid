@@ -131,6 +131,27 @@ def gate_common_semantics() -> None:
     allowed = set((profile.get("mapping_policy") or {}).get("allowed_relations") or [])
     if not allowed or (profile.get("mapping_policy") or {}).get("mapping_is_not_identity") is not True:
         fail("S4-G2 mapping strengths or non-identity policy missing")
+    entities = profile.get("entity_semantics") or {}
+    if entities.get("id") != "bocg-canonical-entities":
+        fail("S4-G6 canonical entity semantics missing")
+    for field in ("corpus_membership_is_identity", "label_equality_is_identity", "type_mapping_is_instance_identity"):
+        if entities.get(field) is not False:
+            fail(f"S4-G6 {field} must be false")
+    for name, definition in entities.get("classes", {}).items():
+        if (definition.get("standard") not in standards
+                or not str(definition.get("term", "")).startswith("https://")
+                or definition.get("relation") not in allowed or not definition.get("identity")):
+            fail(f"S4-G6 {name} lacks standards-bearing semantics or identity rule")
+    if not {"person", "organization", "account", "instrument", "product_type", "system", "role"} <= set(entities.get("classes", {})):
+        fail("S4-G6 business entity classes incomplete")
+    products = entities.get("product_classification") or {}
+    if set(products.get("reference_key", [])) != {"authority", "regime", "identifier", "version", "valid_from", "valid_to"}:
+        fail("S4-G6 product reference must bind authority, regime, version and validity")
+    relationships = entities.get("contextual_relationships") or {}
+    for field in ("observation_time_is_not_validity_time", "unknown_validity_bounds_remain_unknown",
+                  "facing_direction_is_not_symmetric", "facing_role_is_not_intrinsic_to_organization"):
+        if relationships.get(field) is not True:
+            fail(f"S4-G6 contextual relationship invariant missing: {field}")
 
     def check_mappings(location: str, mappings: object) -> None:
         if not isinstance(mappings, list) or not mappings:
