@@ -49,7 +49,7 @@ entity_semantics:
   classes:
     person: {meaning: actual human identity, standard: prov, term: "https://www.w3.org/TR/prov-o/#Person", relation: close-match, identity: evidenced_person_resolution}
     organization: {meaning: actual legal entity or explicitly distinguished organizational unit, standard: org, term: "https://www.w3.org/TR/vocab-org/#org:Organization", relation: close-match, identity: authoritative_entity_identifier}
-    account: {meaning: actual account within its issuer namespace, standard: fibo, term: "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/FinancialProductsAndServices/Account", relation: close-match, identity: issuer_and_account_identifier}
+    account: {meaning: actual account within its issuer namespace, standard: fibo, term: "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account", relation: close-match, identity: issuer_and_account_identifier}
     instrument: {meaning: actual financial instrument with standards-backed classification, standard: iso_10962, term: "https://www.iso.org/standard/81140.html", relation: schema-correspondence, identity: authoritative_instrument_identifier}
     product_type: {meaning: governed regulatory product classification, standard: skos, term: "https://www.w3.org/TR/skos-reference/#Concept", relation: narrower-than, identity: regulatory_reference_key}
     system: {meaning: actual information system within its operator namespace, standard: prov, term: "https://www.w3.org/TR/prov-o/#Entity", relation: narrower-than, identity: operator_and_system_identifier}
