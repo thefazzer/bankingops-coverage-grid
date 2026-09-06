@@ -1,6 +1,9 @@
+import sys
 from pathlib import Path
 import yaml
-import gate_conformance as gate
+
+sys.path.insert(0, str(Path(__file__).parents[2] / "tools"))
+import gate_conformance as gate  # noqa: E402
 
 
 ROOT = Path(__file__).parents[2]
