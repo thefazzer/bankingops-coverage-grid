@@ -1,6 +1,6 @@
 profile:
   id: bocg-common-semantics
-  version: 0.3.0
+  version: 0.4.0
   status: PROPOSED
   title: BankingOps common semantic profile
   description: >-
@@ -37,7 +37,65 @@ mapping_policy:
     - related-match
     - narrower-than
 
+# Public definitions and identity rules. Private instance/evidence registries
+# remain consumer-owned and do not become public BOCG occurrence claims.
+entity_semantics:
+  id: bocg-canonical-entities
+  version: 1.0.0
+  canonicalisation_basis: standards_and_evidenced_identity
+  corpus_membership_is_identity: false
+  label_equality_is_identity: false
+  type_mapping_is_instance_identity: false
+  classes:
+    person: {meaning: actual human identity, standard: prov, term: "http://www.w3.org/ns/prov#Person", relation: close-match, identity: evidenced_person_resolution}
+    organization: {meaning: actual legal entity or explicitly distinguished organizational unit, standard: org, term: "http://www.w3.org/ns/org#Organization", relation: close-match, identity: authoritative_entity_identifier}
+    account: {meaning: actual account within its issuer namespace, standard: fibo, term: "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/Account", relation: close-match, identity: issuer_and_account_identifier}
+    instrument: {meaning: actual financial instrument with standards-backed classification, standard: iso_10962, term: "https://www.iso.org/standard/81140.html", relation: schema-correspondence, identity: authoritative_instrument_identifier}
+    product_type: {meaning: governed regulatory product classification, standard: skos, term: "http://www.w3.org/2004/02/skos/core#Concept", relation: narrower-than, identity: regulatory_reference_key}
+    system: {meaning: actual information system within its operator namespace, standard: prov, term: "http://www.w3.org/ns/prov#Entity", relation: narrower-than, identity: operator_and_system_identifier}
+    role: {meaning: role held by a party in an evidenced context, standard: org, term: "http://www.w3.org/ns/org#Role", relation: close-match, identity: governed_role_definition}
+  instance_resolution:
+    accepted_requires: [canonical_entity_id, entity_type, authority, evidence_refs]
+    local_identifiers_require_issuer_namespace: true
+    unresolved_identity: retain_observations_and_candidate_links
+    same_person_can_have_multiple_employers: true
+    simultaneous_employment_is_not_automatic_disproof: true
+    organization_role_does_not_change_legal_identity: true
+    source_observations_and_resolution_history_required: true
+  contextual_relationships:
+    required: [subject, predicate, object, evidence_refs]
+    applicable_qualifiers: [valid_from, valid_to, observed_at, perspective, transaction_id, leg_id, role]
+    observation_time_is_not_validity_time: true
+    unknown_validity_bounds_remain_unknown: true
+    employment_history_is_relationship_history: true
+    facing_direction_required: true
+    facing_direction_is_not_symmetric: true
+    facing_role_is_not_intrinsic_to_organization: true
+  product_classification:
+    reference_key: [authority, regime, identifier, version, valid_from, valid_to]
+    evidence_refs_required: true
+    aliases_resolve_to_reference_key: true
+    same_regulatory_reference_is_shared_across_corpora: true
+    close_match_is_not_regulatory_equivalence: true
+    classification_is_not_instrument_or_trade_identity: true
+    missing_authority_or_regime: unresolved_classification
+  public_reference_instances:
+    - canonical_entity_id: "lei:O2RNE8IBXP4R0TD8PU41"
+      entity_type: organization
+      legal_name: Société Générale
+      identifiers: {lei: O2RNE8IBXP4R0TD8PU41}
+      authority: ISO 17442 Legal Entity Identifier
+      evidence_refs:
+        - {url: "https://www.societegenerale.com/en/legal-information", publisher: Societe Generale, retrieved_at: "2026-09-05"}
+      scope: legal_entity_identity_only
+      occurrence_or_role_claims: false
+
 standards:
+  iso_10962:
+    label: ISO 10962 Classification of financial instruments
+    authority: ISO
+    uri: https://www.iso.org/standard/81140.html
+    use: instrument classification reference; not identity of an individual instrument
   skos:
     label: Simple Knowledge Organization System
     authority: W3C
@@ -217,4 +275,3 @@ candidate_vocabulary_gaps:
     - equity-financing hierarchy (equity trading -> equity financing -> prime brokerage -> equity swaps / securities financing); guards against collapsing "swaps" into fx_trading/rates_trading ("has a rates feature" is not "is rates")
     - basket structures of single-stock swaps (aggregation concept; name left open)
     - cross-currency funding basis (funding index = benchmark/reference rate)
-
