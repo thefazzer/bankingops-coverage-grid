@@ -2,7 +2,7 @@
 
 ```
 ARTIFACT : evidence note (non-normative; not a manifest artifact; not a coverage claim)
-AS OF    : 2026-09-03
+AS OF    : 2026-09-05
 SOURCE   : a preregistered evaluation lane run privately by the grid's author
 DATA     : a private calibration corpus (one institution, not released)
 RULE     : the grid is a model-consensus prior; the lane's results are calibration
@@ -20,7 +20,10 @@ to the grid only through admitted division keys. It records which keys were exer
 and what was measured, in the lane's own status language, so that nobody reads more
 into the grid than the grid claims.
 
-Everything below is scoped to one institution, two loci and model judges only. The
+Everything below is scoped to model judges only and to two private corpora: the
+first (one institution, two loci, T4 to T7) and, for the one-shot replication T8, a
+second (a second institution, three loci never touched by the lane). Neither corpus
+is released. The
 live run in `live-run-20260826/` remains PROVISIONAL (G6 corroboration outstanding);
 nothing here changes an admitted key, a tier, or that status.
 
@@ -35,6 +38,24 @@ the lane author's, recorded in the lane's private registry; it is not a grid out
 |---|---|---|---|
 | A | client financing within prime brokerage: portfolio-swap (synthetic) financing operations | `prime_brokerage_financing` (primary); `repo_secfin_collateral` (secondary) | primary: model_support 5, tier MODERATE, named by all 5 vendors on the board (`RUN_SUMMARY.json` `support_5_of_5`); secondary: model_support 2, tier WEAK |
 | B | support procedures for a swaps application (trade-support runbook material) | `trade_lifecycle_operations` | model_support 3, tier WEAK |
+
+T8 (2026-09-05) used three loci of a second private corpus, chosen by an evidence
+gate before any question was generated. The gate admits a locus only if the lane's
+private evidence ledger binds it to an admitted key through one of that key's
+released terminality tasks (SPEC-04 §5 pinned release), with the binding ratified by
+the corpus owner; lexical matches never count. The keys those bindings name:
+
+| Locus | Subject matter (generic) | Division key(s) via released terminality task | Live-run consensus (`matrix.csv`) |
+|---|---|---|---|
+| C | credit pricing and curve construction (a missing discount curve, a custom default curve) | `credit_trading` ("price a cash bond or credit derivative") | model_support 4, tier MODERATE |
+| D | risk-engine batch scheduling, release migration and batch recovery against reference data | `market_risk_valuation_control` ("gate model change before production deployment"); `market_risk_management` ("produce daily VaR / expected shortfall using approved model") | 1, WEAK; 1, WEAK |
+| E | reconciliation of risk results and implied rates between environments across an engine release | `market_risk_valuation_control` ("gate model change before production deployment"; "calculate daily market risk measure") | model_support 1, tier WEAK |
+
+The same reading notes apply: these are the lane owner's bindings, recorded in the
+lane's private ledger, and a key being exercised is not a key being confirmed. Two of
+the three T8 keys sit in the WEAK tier of the live run, so the grid's own prior for
+them is thin; the lane's result on them (section 3) is evidence about the corpus, not
+about the keys.
 
 Reading notes:
 
@@ -160,18 +181,50 @@ run. Part A admitted no routing signal (best gain +0.032 under the +0.05 bar); n
 routed arm ran. Two earlier T7 versions halted before any scored answer (v1 Gate A,
 v2 admission instrument defect).
 
+### T8-v1 COMPLETE 2026-09-05; union claim NOT passed; line closed (one shot)
+
+T8-v1 COMPLETE 2026-09-05 (freeze intact, 540 sheets, one runner hash, clean tree).
+The preregistered one-shot replication of the T7 union claim on three untouched loci
+of a second private corpus (loci C, D and E above). Estimand unchanged from T7
+(conditional on oracle answerability). n=45 admitted tasks, 15 per locus, none
+excluded. Union claim NOT passed under the intersection-union rule. "Per locus" lists
+C, D, E.
+
+| Contrast | Delta | p | BCa 95% | Per locus | Sensitivity judge | Standing |
+|---|---|---|---|---|---|---|
+| U1 union vs twice-budget retrieval (gate) | +0.072 | 0.047 | [-0.002, 0.162] | +0.137 / 0.000 / +0.078 | n=43, +0.074, p=0.057 | rejects pooled; fails the every-locus-positive component (locus D exactly zero); sensitivity direction not established |
+| U2 union vs wrong-locus pack + same retrieval (gate) | +0.177 | 0.000004 | [0.107, 0.273] | +0.298 / +0.111 / +0.122 | +0.185, p=0.000002 | rejects |
+| O1 oracle source slice vs retrieval (descriptive) | +0.380 | <0.00001 | [0.261, 0.503] | +0.213 / +0.411 / +0.517 | +0.374 | never a gate |
+| B1 union vs unaided (descriptive) | +0.573 | <0.00001 | [0.465, 0.676] | +0.691 / +0.517 / +0.511 | +0.575 | never a gate |
+
+Decision-tree branch reached, in the protocol's words: "U1 fails: the T7 effect does
+not transfer to untouched loci; union line closed for product purposes". One shot by
+preregistration: no further run on the union claim, no two-strikes clause, no
+parameter tuning. T7 stands as a locus-specific finding on loci A and B; it has no
+replication. Part A re-used the T6 and T5 artifacts and admitted no routing signal
+(best +0.032 under the +0.05 bar); no routed arm ran. Disclosures: five of 540 sheets
+were persistent refusals scored zero, all unaided; sixteen sensitivity-judge sheets
+missing (two tasks of locus E, hence n=43); one provider interruption and one
+same-version resume with no code change; judge agreement 1,959 of 2,028 cells (96.6
+percent, kappa 0.93). The pack content and the locus bindings were drafted by the
+lane's tooling and signed by the corpus owner in one sitting without a second human
+reader, as the lane's adversarial record for 4 September states.
+
 ### Pattern across runs (descriptive, never a gate)
 
-- Pack over unaided has replicated three times (+0.408, +0.537, +0.454). Pack over
-  the wrong-locus pack has replicated twice (+0.467, +0.593) and the union form once
-  (+0.179): the gain depends on the content being the right content.
+- Pack over unaided has replicated four times, the fourth on a second corpus
+  (+0.408, +0.537, +0.454, +0.573). Pack over the wrong-locus pack has replicated
+  twice (+0.467, +0.593) and the union form twice (+0.179, +0.177 on the second
+  corpus): the gain depends on the content being the right content.
 - Pack over equal-length retrieval has not been established in any run (+0.108,
   +0.269, +0.100). Union over twice-budget retrieval was not established in T6
-  (+0.158, p=0.061) and PASSED narrowly in T7 on oracle-answerable tasks (+0.130,
-  p=0.047); next is untouched-locus replication.
+  (+0.158, p=0.061), PASSED narrowly in T7 on oracle-answerable tasks (+0.130,
+  p=0.047), and did NOT pass the one-shot replication on untouched loci of a second
+  corpus at T8 (+0.072, one locus exactly zero). The line is closed.
 - The two loci disagree. Locus A rewards the pack in T4, T5 and T6 (in T6 the union
   beats twice-budget retrieval there by +0.267); on locus B retrieval already answers
-  most tasks and the pack adds +0.050. Per-task pack effects range from +1.0 to -0.5,
+  most tasks and the pack adds +0.050. The same shape recurred on the second corpus
+  (T8 per-locus U1 +0.137, 0.000, +0.078). Per-task pack effects range from +1.0 to -0.5,
   so a twenty-task mean is unstable: the lane's planning estimate gives a twenty-task
   run about a 50 percent chance of passing U1 if the true effect is what T6 measured,
   and thirty admitted tasks about 70 percent.
@@ -181,16 +234,21 @@ v2 admission instrument defect).
 The lane's results ledger fixes the language: until a complete report exists, the
 words "citable", "decided", "validated" and "pure uplift" (and equivalents) are banned
 for any result, and predictions are not findings. T4, T5 and T6 canonical claims are labelled **NOT passed**; T7-v3 union claim is
-labelled **PASSED narrowly**. The supported statements, each scoped to two loci, one
-institution and model judges only, are:
+labelled **PASSED narrowly**; the T8-v1 union claim is labelled **NOT passed, line
+closed (one shot)**. The supported statements, each scoped to model judges only and
+to the corpora named, are:
 
-1. The curated pack beats the unaided model (three replications).
+1. The curated pack beats the unaided model (four replications, two corpora).
 2. The curated pack beats a wrong-locus pack of identical format (content
-   specificity), and the union form beats the wrong-locus union (T6 U2).
+   specificity), and the union form beats the wrong-locus union (T6 U2, T7 U2, T8
+   U2 on the second corpus).
 3. The pack does not demonstrably beat equal-length retrieval (T4 C3, T5 C3b, T6
-   C3b-r). Union over twice-budget retrieval failed narrowly at T6 (U1) and PASSED
-   narrowly at T7-v3 on oracle-answerable tasks (U1 +0.130, p=0.047; U2 +0.228,
-   p=0.003); next is untouched-locus replication.
+   C3b-r). Union over twice-budget retrieval failed narrowly at T6 (U1), PASSED
+   narrowly at T7-v3 on oracle-answerable tasks of loci A and B (U1 +0.130, p=0.047;
+   U2 +0.228, p=0.003), and did NOT pass its one-shot replication on three untouched
+   loci of a second corpus at T8-v1 (U1 +0.072, locus D exactly zero, sensitivity
+   judge p=0.057). The union line is closed by preregistration; T7 stands as a
+   locus-specific finding with no replication.
 
 What the lane licenses on this evidence, in its own words: "standalone pack authoring
 stops as a product activity; curation continues for retrieval, evidence selection,
@@ -208,8 +266,8 @@ routing and adjudication."
   inside two division keys. They are evidence about that corpus and that material.
 - **They are not validation of the grid.** No run tested whether a division key is
   correctly named, correctly bounded, complete or economically important; the loci
-  were assigned to keys by the lane's author, not derived from the grid; and two loci
-  at one institution cannot speak for 42 keys. A key being exercised is not a key
+  were assigned to keys by the lane's author, not derived from the grid; and five loci
+  across two institutions cannot speak for 42 keys. A key being exercised is not a key
   being confirmed.
 - **This note is not a coverage claim.** Under SPEC-01 I10 and SPEC-03 I5, coverage
   claims live in separate post-hoc files, one per claimant. No grid cell's
@@ -227,9 +285,11 @@ routing and adjudication."
 ## 6. Sources and maintenance
 
 Figures are transcribed from the lane's private documents as they stood on
-2026-09-04: its results-status ledger (labels, T4/T5/T6/T7 summaries and the T4
+2026-09-05: its results-status ledger (labels, T4/T5/T6/T7/T8 summaries and the T4
 erratum), the T6 report (sections 1, 2, 6 and 7), T7-REPORT.md section 1,
-out-t7/report.json, the T7 preregistration v3 (sections 2 to 7, 11 and 12) and a
+out-t7/report.json, the T7 preregistration v3 (sections 2 to 7, 11 and 12), the T8
+preregistration v1 (sections 2, 3, 5, 6 and 10), out-t8/report.json, the lane's
+evidence ledger and 2026-09-04 ruling packets (T8 locus bindings) and a
 viability read dated 2026-09-03 (locus descriptions, pack size, budget-doubling and
 power estimates). Division-key assignments are from the lane's registry; live-run
 support figures are from `live-run-20260826/RUN_SUMMARY.json` and `matrix.csv`.
