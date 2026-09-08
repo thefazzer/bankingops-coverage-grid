@@ -10,6 +10,8 @@ jobs:
       - run: pip install jsonschema PyYAML pytest
       - name: SPEC-03 gates (cells, deny, conformance)
         run: python3 tools/gate_conformance.py
+      - name: Operating reference catalogue reproduces
+        run: python3 tools/build_operating_catalogue.py --check
       - name: BOCG test suite
         run: pip install -e bocg && (cd bocg && pytest -q)
       - name: LAT test suite

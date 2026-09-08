@@ -16,6 +16,10 @@ SCHEMA_ID = "bankingops-coverage-grid.release-manifest.v1"
 SEMANTIC_PROFILE = Path("specs/common-semantic-profile.yaml")
 STATIC_ARTIFACTS = {
     "CONFORMANCE.md": "conformance-record",
+    "specs/SPEC-06-operating-reference.md": "normative-specification",
+    "specs/operating-reference-contract.json": "operating-reference-contract",
+    "specs/operating-unit-register.schema.json": "operating-unit-register-schema",
+    "reference/operating-catalogue.v1.json": "operating-reference-catalogue",
     "specs/SPEC-01-coverage-grid-elicitation.md": "normative-specification",
     "specs/SPEC-03-control-point-cells.md": "normative-specification",
     "specs/SPEC-04-common-semantic-profile.md": "normative-specification",
@@ -104,6 +108,10 @@ def build_manifest(
         raise ValueError("generated-at must be an ISO 8601 timestamp") from exc
     if parsed_time.tzinfo is None:
         raise ValueError("generated-at must include a timezone")
+
+    from build_operating_catalogue import build_catalogue, CATALOGUE_PATH
+    if json.loads((root / CATALOGUE_PATH).read_text()) != build_catalogue(root, f"{run_dir}/matrix.json"):
+        raise ValueError("operating catalogue is stale")
 
     artifact_roles = dict(STATIC_ARTIFACTS)
     artifact_roles.update(
