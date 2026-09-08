@@ -1,0 +1,46 @@
+{
+  "schema": "bocg.operating-reference-contract/v1",
+  "version": "1.0.0",
+  "catalogue_path": "reference/operating-catalogue.v1.json",
+  "register_schema_path": "specs/operating-unit-register.schema.json",
+  "scope": {
+    "public_definitions_only": true,
+    "institution_instances_permitted": false,
+    "institution_workflows_permitted": false
+  },
+  "reference_kinds": [
+    "division",
+    "function",
+    "task",
+    "control_point"
+  ],
+  "relationship_target_types": {
+    "owns_book": "account",
+    "uses_system": "system",
+    "has_member": "person",
+    "has_owner": "role",
+    "located_at": "location",
+    "uses_calendar": "calendar",
+    "uses_reference_dataset": "reference_dataset"
+  },
+  "temporal_policy": {
+    "interval": "[valid_from,valid_to)",
+    "unknown_bounds": "unassessed; excluded from effective-at queries",
+    "recorded_at_is_validity": false,
+    "overlapping_settings": "reject within the same unit, key and scope"
+  },
+  "upgrade_policy": {
+    "same_reference_id_is_unchanged_meaning": false,
+    "compare_definition_digests": true,
+    "changed_or_removed_reference": "requires review; never silently promote or rebind",
+    "existing_snapshots": "immutable",
+    "reference_assignments_are_identity": false,
+    "regulatory_applicability_from_division": "never infer"
+  },
+  "source_policy": {
+    "every_assertion_requires_source": true,
+    "record_plane_fixture_sources_permitted": false,
+    "review_status_requires_named_reviewer": true,
+    "review_is_independent_approval": false
+  }
+}

@@ -23,7 +23,7 @@ VERIFIED : all cited standards checked against the live web 2026-08-30.
 | 1 | Motivation, composition, collection process documented (DS §3) | EVIDENCED | SPEC-01 §0–§4; live-run README |
 | 2 | Curation/labeling process disclosed, curator named (DS) | EVIDENCED | SPEC-01 I8 CORROBORATE_OR_DROP; practitioner curation declared in SPEC-03 §1 |
 | 3 | Known limitations stated in-artifact (DS/BB) | EVIDENCED | live-run-20260826/README "provisional; anchor-corroboration gate not satisfied"; this table's NOT MET rows |
-| 4 | Versioning + changelog, immutable releases (BB maintenance) | PARTIAL | git history + hash-fixed inputs (I1, I4); no semver release tags yet — cut at v1.0.0 |
+| 4 | Versioning + changelog, immutable releases (BB maintenance) | PARTIAL | git history + hash-fixed inputs (I1, I4); published release manifests bind exact tag, commit and artifact hashes; consumer upgrade review remains required |
 | 5 | Contamination controls (BB implementation) | EVIDENCED | SPEC-01 I2 ZERO_SEEDING + G1 CONTAMINATION_GATE; LAT salted canaries (SPEC-02) |
 | 6 | Construct validity: what the benchmark measures is argued, not assumed (BB design) | EVIDENCED | SPEC-01 §0 (anchored divisions, seat-cost + terminality filters I9); gaps NOT model-elicited (I7) |
 | 7 | Statistical reporting basis (BB) | EVIDENCED | agreement matrix + corroboration ledger (SPEC-01 §5–§6), all raw responses published verbatim (I4) |
@@ -36,6 +36,8 @@ VERIFIED : all cited standards checked against the live web 2026-08-30.
 | 14 | Preregistration + reproduction of any reported numbers (exceeds peers) | EVIDENCED | FinExhaust eval discipline: preregs sha-bound, results claimed only after reproduction |
 | 15 | Every cell/claim carries a public, dated citation (this project's own bar) | EVIDENCED | SPEC-03 I1 CITATION_REQUIRED, gate S3-G1 |
 | 16 | Public semantic mappings reuse recognized vocabularies without asserting identity, occurrence or local implementation | EVIDENCED | SPEC-04; `specs/common-semantic-profile.yaml`; S4 gates in `tools/gate_conformance.py` |
+
+| 17 | Operating-unit reference definitions are versioned separately from private instance records | EVIDENCED | SPEC-06; operating reference contract/schema; reproducible catalogue and release tests |
 
 NOT MET rows are commitments, not apologies: 8 and 11 gate any "runnable benchmark" claim;
 10 gates any "independently reviewed" claim. This file ships with every release.

@@ -21,6 +21,14 @@ corpus (one institution, not released) and are not validation of the grid.
 
 The benchmark that sits in the seller's own cell is the **PB-Ops Eval**; it is deliberately *not* referenced anywhere in the BOCG elicitation assets (invariant I2, gate G1).
 
+## Operating reference contract — v0.4.0
+
+[ SPEC-06 ](specs/SPEC-06-operating-reference.md) adds a stable reference catalogue
+and a schema for consumer-owned desk/business-unit registers. Public definitions
+are derived from the existing grid; named units, configurations and evidence stay
+with the consuming institution. The release manifest pins the contract, schema
+and catalogue so downstream products can verify dependency upgrades.
+
 ## Tags (for search)
 BankingOps Coverage Grid, PB-Ops Eval, FinExhaust, BankingEnv, model consensus taxonomy, benchmark ceiling, frontier saturation, sealed holdout, rubric design, capital markets eval gap, seat-cost filter, terminality test, corroboration ledger, lineage attestation, span commitment, salted canary, pseudonymisation, clean room, buyer-counsel attestation, runnable gates, provenance manifest.
 
