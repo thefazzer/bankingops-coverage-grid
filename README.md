@@ -13,7 +13,7 @@ corpus (one institution, not released) and are not validation of the grid.
 
 | Artifact | Spec | Package | CLI | Tests |
 |---|---|---|---|---|
-| **BankingOps Coverage Grid (BOCG)** — model-consensus taxonomy of capital-markets operational divisions, anchored + corroborated, with runnable gates | `specs/SPEC-01-coverage-grid-elicitation.md` | `bocg/` | `bocg` | 87 passing |
+| **BankingOps Coverage Grid (BOCG)** — model-consensus taxonomy of capital-markets operational divisions, anchored + corroborated, with runnable gates | `specs/SPEC-01-coverage-grid-elicitation.md` | `bocg/` | `bocg` | 93 passing |
 | **Lineage Attestation Toolkit (LAT)** — span commitments, per-atom lineage classes, salted canaries, sealed holdout, buyer/examiner verification, runnable gates | `specs/SPEC-02-lineage-attestation.md` | `lat/` | `lat` | 70 passing |
 | **Common semantic profile** — standards-backed meanings for existing division, function, control-point, evidence and coverage fields; explicitly stops above institution workflow | `specs/SPEC-04-common-semantic-profile.md` | `specs/common-semantic-profile.yaml` | `python3 tools/gate_conformance.py` | conformance gate |
 | **Insight-construction profile** — portable Atom, Trace, Episode, institutional speech-act and adjudication definitions; definitions only, never institution instances | `specs/SPEC-05-insight-construction.md` | `specs/insight-construction-profile.yaml` | `python3 tools/gate_conformance.py` | lifecycle + rubric gates |
