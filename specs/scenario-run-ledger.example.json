@@ -3,17 +3,20 @@
   "version": "0.1.0",
   "rows": [
     {
-      "row_sha256": "4c85e56f0d8d3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a",
+      "row_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
       "recorded_at": "2026-09-20T12:00:00Z",
       "replaces_row_sha256": null,
       "model": {
         "model_id": "claude-opus-5",
         "provider_release": "anthropic/2.1.0"
       },
-      "manifest_sha256": "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899",
-      "scenario_sha256": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff",
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
       "replicates": 3,
-      "judge_ids": ["judge-primary", "judge-sensitivity"],
+      "judge_ids": [
+        "judge-primary",
+        "judge-sensitivity"
+      ],
       "pass_rule_ref": "five-families/intersection-union/v1",
       "verdict": "PASS",
       "freeze": {
@@ -23,17 +26,20 @@
       "evidence_ref": "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff"
     },
     {
-      "row_sha256": "111111112222222233333333444444445555555566666666777777778888888899999999aaaaaaaabbbbbbbbcccccccc",
+      "row_sha256": "0000000000000000000000000000000000000000000000000000000000000002",
       "recorded_at": "2026-09-21T10:00:00Z",
-      "replaces_row_sha256": "4c85e56f0d8d3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a",
+      "replaces_row_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
       "model": {
         "model_id": "claude-opus-5",
         "provider_release": "anthropic/2.1.0"
       },
-      "manifest_sha256": "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899",
-      "scenario_sha256": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff",
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
       "replicates": 4,
-      "judge_ids": ["judge-primary", "judge-sensitivity"],
+      "judge_ids": [
+        "judge-primary",
+        "judge-sensitivity"
+      ],
       "pass_rule_ref": "five-families/intersection-union/v1",
       "verdict": "UNCERTAIN",
       "freeze": {
@@ -43,17 +49,19 @@
       "evidence_ref": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
     },
     {
-      "row_sha256": "abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+      "row_sha256": "0000000000000000000000000000000000000000000000000000000000000003",
       "recorded_at": "2026-09-21T11:00:00Z",
       "replaces_row_sha256": null,
       "model": {
         "model_id": "gpt-5.6-sol",
         "provider_release": "openai/2026-08"
       },
-      "manifest_sha256": "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899",
-      "scenario_sha256": "11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff11223344556677889900aabbccddeeff",
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
       "replicates": 3,
-      "judge_ids": ["judge-primary"],
+      "judge_ids": [
+        "judge-primary"
+      ],
       "pass_rule_ref": "five-families/intersection-union/v1",
       "verdict": "FAIL",
       "freeze": {
