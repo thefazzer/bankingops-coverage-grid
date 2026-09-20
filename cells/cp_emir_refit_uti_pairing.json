@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_emir_refit_uti_pairing",
+  "division_key": "regulatory_transaction_reporting",
+  "job_function": "regulatory transaction reporting operations",
+  "control_point": "Unique Transaction Identifiers are generated, paired and matched with the counterparty and reported values are reconciled with the trade repository under EMIR REFIT.",
+  "citations": [
+    {
+      "source_name": "Regulation (EU) No 648/2012 (EMIR), Article 9 as amended by Regulation (EU) 2019/834 (EMIR REFIT)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0648",
+      "clause": "Article 9",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) 2022/1855 supplementing EMIR with regard to regulatory technical standards on the procedures and arrangements for the registration and reconciliation of OTC derivative contracts",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R1855",
+      "clause": "Articles 3-5",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reporting_rejection",
+    "public_source": "EMIR trade-repository reconciliation and pairing failure regime; competent authority powers under Article 21 of Regulation (EU) No 648/2012",
+    "magnitude_band": "operational remediation cost plus potential public enforcement and corrective-order exposure; published supervisory fines in the multi-million-euro range for persistent reporting failures"
+  },
+  "commonality_rationale": "Every EU-obligated derivatives counterparty must generate or obtain a UTI, pair it with its counterparty and reconcile reportable fields with a registered trade repository; the requirement is asset-class-agnostic and applies across cleared and uncleared OTC derivatives.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}
