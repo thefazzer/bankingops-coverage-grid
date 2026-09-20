@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_derivatives_transaction_reporting_uti_upi",
+  "division_key": "regulatory_transaction_reporting",
+  "job_function": "regulatory transaction reporting operations - UTI/UPI lifecycle",
+  "control_point": "OTC derivative transaction reports are submitted with a valid Unique Transaction Identifier (UTI) and, where required, an ISO 4914 Unique Product Identifier (UPI), and are pair-matched or reconciled with the counterparty report; the control point is the generation, validation and pairing of identifiers before the applicable trade-repository deadline.",
+  "citations": [
+    {
+      "source_name": "ESMA, Final Report on the revised EMIR Refit technical standards – RTS 22",
+      "url": "https://www.esma.europa.eu/sites/default/files/library/esma65-8-1043_final_report_rts_and_its_emir_refit.pdf",
+      "clause": "RTS 22 on transaction reporting",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "CFTC, Part 45 Swap Data Recordkeeping and Reporting Requirements",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-45",
+      "clause": "17 CFR Part 45",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "ISO 4914:2024 Financial services – Unique Product Identifier",
+      "url": "https://www.iso.org/standard/80506.html",
+      "clause": "UPI data standard",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reporting_rejection",
+    "public_source": "EMIR Refit, CFTC Part 45 and MiFIR transaction-reporting regimes with published penalties for incomplete, late or unreconciled reports",
+    "magnitude_band": "per-report late or rejection penalties; aggregate supervisory fines for systematic reporting failures"
+  },
+  "commonality_rationale": "Every in-scope derivatives market participant must report to a trade repository with UTIs and, under EMIR Refit, UPIs; ISO standardisation and counterparty pair-matching make this an operationally common checkpoint.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted from public sources)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}
