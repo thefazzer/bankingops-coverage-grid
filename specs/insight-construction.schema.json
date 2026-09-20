@@ -58,11 +58,37 @@
         "episode_id": {"type": "string", "minLength": 1},
         "atom_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
         "composition_status": {"enum": ["candidate", "admitted", "qualified", "recomposition_required", "rejected"]},
-        "execution_status": {"$ref": "#/$defs/LifecycleState"},
-        "completion_status": {"$ref": "#/$defs/LifecycleState"},
-        "verification_status": {"$ref": "#/$defs/LifecycleState"}
+        "execution_status": {"$ref": "#/$defs/LifecycleStatus"},
+        "completion_status": {"$ref": "#/$defs/LifecycleStatus"},
+        "verification_status": {"$ref": "#/$defs/LifecycleStatus"}
       }
     },
-    "LifecycleState": {"enum": ["not_observed", "directed", "pending", "scheduled", "executed", "completed", "verified", "unknown"]}
+    "LifecycleState": {"enum": ["not_observed", "directed", "pending", "scheduled", "executed", "completed", "verified", "unknown"]},
+    "DeadlineReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expression", "citation"],
+      "properties": {
+        "expression": {"type": "string", "minLength": 1, "description": "Regime clock expression, e.g. T+1 business day or CSA notification time."},
+        "citation": {"type": "string", "minLength": 1, "description": "Citation from which the deadline expression derives."}
+      }
+    },
+    "LifecycleStateTransition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state"],
+      "properties": {
+        "state": {"$ref": "#/$defs/LifecycleState"},
+        "occurred_at": {"type": "string", "format": "date-time", "description": "Source-grounded timestamp when the transition into this state occurred."},
+        "deadline_ref": {"$ref": "#/$defs/DeadlineReference"},
+        "calendar_ref": {"type": "string", "minLength": 1, "description": "Business-day calendar identifier used to interpret deadline_ref."}
+      }
+    },
+    "LifecycleStatus": {
+      "oneOf": [
+        {"$ref": "#/$defs/LifecycleState"},
+        {"$ref": "#/$defs/LifecycleStateTransition"}
+      ]
+    }
   }
 }
