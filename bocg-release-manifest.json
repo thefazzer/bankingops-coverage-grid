@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "46d6f6f953978d52e32d34464bcc2a4e02d66743",
-    "generated_at": "2026-09-20T23:34:37.390110Z"
+    "commit_sha": "4f26b0e9fd909f102777f1935abf68834a2c1fe6",
+    "generated_at": "2026-09-20T23:36:03.977710Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -203,5 +203,5 @@
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "c71711435cd8b1829b3f669eeaf7de3a2b2cfdd057b6ce015098b06f9c7ab79a"
+  "manifest_sha256": "54be6a56cd9827e54bf21fcc6ac71da5b31f63e0f6a048b8614d01876e55ce5a"
 }
