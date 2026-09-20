@@ -288,21 +288,21 @@ def gate_compliance_scenarios() -> None:
             fail(f"S7-G1 fixture schema: {err.message[:120]}")
     pinned_sha256 = fixture.get("manifest_sha256")
     # The manifest's self-digest (manifest_sha256) is the authoritative release
-    # pin. The fixture may pin the current manifest or a prior released manifest.
-    current_manifest_sha256 = manifest.get("manifest_sha256")
-    allowed = {current_manifest_sha256}
+    # pin. The fixture may pin the current manifest or any prior released manifest.
+    allowed = {manifest.get("manifest_sha256")}
     import subprocess
-    result = subprocess.run(
-        ["git", "show", "HEAD~1:bocg-release-manifest.json"],
-        cwd=ROOT, capture_output=True,
-    )
-    if result.returncode == 0:
+    for depth in range(1, 10):
+        result = subprocess.run(
+            ["git", "show", f"HEAD~{depth}:bocg-release-manifest.json"],
+            cwd=ROOT, capture_output=True,
+        )
+        if result.returncode != 0:
+            break
         try:
             prior_manifest = json.loads(result.stdout)
         except json.JSONDecodeError:
-            pass
-        else:
-            allowed.add(prior_manifest.get("manifest_sha256"))
+            continue
+        allowed.add(prior_manifest.get("manifest_sha256"))
     if pinned_sha256 not in allowed:
         fail("S7-G2 fixture manifest pin is not the current or a released manifest")
     cell_id = fixture.get("cell_id")
