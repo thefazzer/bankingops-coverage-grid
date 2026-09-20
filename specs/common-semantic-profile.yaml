@@ -36,6 +36,15 @@ mapping_policy:
     - close-match
     - related-match
     - narrower-than
+  allowed_relations_usage:
+    identity_prohibited: true
+    notes: >-
+      These strengths are deliberately weaker than identity. A mapping never
+      means owl:sameAs. This applies to all declared standards, including
+      CDM, FpML, DSB UPI/ISDA product taxonomy and ISO 20022: a
+      correspondence to a trade, event, product or message element does not
+      make a BOCG division, function or control point identical to that
+      element.
 
 # Public definitions and identity rules. Private instance/evidence registries
 # remain consumer-owned and do not become public BOCG occurrence claims.
@@ -136,6 +145,26 @@ standards:
     authority: ISO/PC 302
     uri: https://www.iso.org/standard/70017.html
     use: audit evidence, findings and conclusions context
+  cdm:
+    label: Common Domain Model
+    authority: FINOS
+    uri: https://cdm.finos.org/
+    use: trade, event and legal-agreement semantics; mapped only as related context, never as identity
+  fpml:
+    label: Financial products Markup Language
+    authority: ISDA / FpML community
+    uri: https://www.fpml.org/
+    use: OTC derivatives and structured-product representation; mapped only as related context, never as identity
+  dsb_upi:
+    label: DSB Unique Product Identifier and ISDA/DSB product taxonomy
+    authority: ANNA DSB / ISDA
+    uri: https://www.anna-dsb.com/
+    use: product-classification reference; not identity of an individual instrument, trade or position
+  iso_20022:
+    label: ISO 20022 Universal financial industry message scheme
+    authority: ISO
+    uri: https://www.iso20022.org/
+    use: financial-message semantics; mapped only as related context, never as identity
 
 semantic_objects:
   banking_operations_division:
