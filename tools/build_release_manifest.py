@@ -24,6 +24,8 @@ STATIC_ARTIFACTS = {
     "specs/SPEC-03-control-point-cells.md": "normative-specification",
     "specs/SPEC-04-common-semantic-profile.md": "normative-specification",
     "specs/SPEC-05-insight-construction.md": "normative-specification",
+    "specs/SPEC-07-compliance-scenario.md": "normative-specification",
+    "specs/compliance-scenario.schema.json": "json-schema",
     "specs/control-point-cell.schema.json": "json-schema",
     "specs/common-semantic-profile.yaml": "semantic-profile",
     "specs/insight-construction-profile.yaml": "semantic-profile",

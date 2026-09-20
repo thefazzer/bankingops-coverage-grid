@@ -2,23 +2,23 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.3.0",
-    "commit_sha": "a491bd4258cb0f3f0aabe2fb599f1e37b72521c5",
-    "generated_at": "2026-09-01T22:37:45.347212Z"
+    "tag": "v0.5.0",
+    "commit_sha": "2e1686ce04b28fda561fbaca0fcd95f749532635",
+    "generated_at": "2026-09-20T23:29:22.426666Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "path": "specs/common-semantic-profile.yaml",
-    "sha256": "285187c8e58cb8600344fd47baa2eef03b76257727538d612be40538cd0328b3"
+    "sha256": "0f18b26889de12521ac54d6ed58205311ea278dbc1d21aa61b6845851ccdd7f0"
   },
   "artifacts": [
     {
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 3859,
-      "sha256": "ebbd73eef8acfd15cf14aa3cf7d1e64e0e450965ebc1b3ca73f7aa0f85618e99"
+      "size_bytes": 4130,
+      "sha256": "1464979387f5a1d766e23b912c173fb10149ad83007555a0d89b43a07d104994"
     },
     {
       "path": "cells/cp_settled_instruction_amendment.json",
@@ -70,11 +70,18 @@
       "sha256": "36c5ab2551dfc67c2ef462db29c2ef70f6d6dc32fdab2b16feba4dc5c9888155"
     },
     {
+      "path": "reference/operating-catalogue.v1.json",
+      "role": "operating-reference-catalogue",
+      "media_type": "application/json",
+      "size_bytes": 641217,
+      "sha256": "fc8617e5ac3db5957a49b3e8bdbd42c3fa864ff4cde95081d5de93565178b5ad"
+    },
+    {
       "path": "specs/SPEC-01-coverage-grid-elicitation.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 17404,
-      "sha256": "a977e33cf448b66a0c2f94c2f655e13dd1add33ea89bb23527f3927682864df3"
+      "size_bytes": 17718,
+      "sha256": "a1810a19cbbf8b822207a2f9160b6b548ac67c3a3bcafcccc1d75d098954eb08"
     },
     {
       "path": "specs/SPEC-03-control-point-cells.md",
@@ -87,8 +94,8 @@
       "path": "specs/SPEC-04-common-semantic-profile.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 3830,
-      "sha256": "0160cf0ef75db352ae35b97af0d44a2e6fc7a336bb5c15255b8be98d689d83ba"
+      "size_bytes": 5131,
+      "sha256": "652b99202b47b492d713ec513a6c113d726614f4e7df0bc096a8181eb0b4347e"
     },
     {
       "path": "specs/SPEC-05-insight-construction.md",
@@ -96,6 +103,20 @@
       "media_type": "text/markdown",
       "size_bytes": 2187,
       "sha256": "2b958ee407e4fb3f3512dd9529264d3ed4c23c4a13d78134664e361f37f42d6b"
+    },
+    {
+      "path": "specs/SPEC-06-operating-reference.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 3643,
+      "sha256": "286127536253bc021f5341c34727508d1b3fbb0c7099a68aeb2fabc3438869a7"
+    },
+    {
+      "path": "specs/SPEC-07-compliance-scenario.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 2349,
+      "sha256": "d1213399d881c03c35c1a033a291e9b4f6aef116fc449ee229e358604af6912e"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -108,8 +129,15 @@
       "path": "specs/common-semantic-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 10394,
-      "sha256": "285187c8e58cb8600344fd47baa2eef03b76257727538d612be40538cd0328b3"
+      "size_bytes": 14325,
+      "sha256": "0f18b26889de12521ac54d6ed58205311ea278dbc1d21aa61b6845851ccdd7f0"
+    },
+    {
+      "path": "specs/compliance-scenario.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 5459,
+      "sha256": "b34974d9cd60bd349a00606cbb98440eb14a3bf815667827f319db4b63af2979"
     },
     {
       "path": "specs/control-point-cell.schema.json",
@@ -140,6 +168,20 @@
       "sha256": "8eb09ffc122460f0d24c250c8e75ff448952bf94a66b20b1683983658e5606b9"
     },
     {
+      "path": "specs/operating-reference-contract.json",
+      "role": "operating-reference-contract",
+      "media_type": "application/json",
+      "size_bytes": 1536,
+      "sha256": "000e33a5c708c3f8cd930b3fbf44b0e33069d92574fb345f7301415f6836914a"
+    },
+    {
+      "path": "specs/operating-unit-register.schema.json",
+      "role": "operating-unit-register-schema",
+      "media_type": "application/json",
+      "size_bytes": 11800,
+      "sha256": "b4a3aae9f2056f273245a4118da9c64ab8b07925a41c092d4a9c19a07e3a3068"
+    },
+    {
       "path": "specs/rubrics/episode-feasibility.yaml",
       "role": "adjudication-rubric",
       "media_type": "application/yaml",
@@ -154,12 +196,12 @@
       "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
     }
   ],
-  "aggregate_sha256": "55bc3d5a1177762ae9fc4ad029045b7b78e5dc109000bbd4e41f0b9cf34092ad",
+  "aggregate_sha256": "782cc8aab2ac02dad36d8672efb8306e04871ad75bc0ef3bdbc179eeddba1b02",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "dce3dd85c16d96e71cf2a011656d5baecd9a2acbc35143ee06b58c7a6a3ef97b"
+  "manifest_sha256": "1cefd3e458e1975c2ebafa963936329bfb516f0ea7f416104aa1674bd74435a0"
 }
