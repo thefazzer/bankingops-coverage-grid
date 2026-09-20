@@ -275,3 +275,4 @@ candidate_vocabulary_gaps:
     - equity-financing hierarchy (equity trading -> equity financing -> prime brokerage -> equity swaps / securities financing); guards against collapsing "swaps" into fx_trading/rates_trading ("has a rates feature" is not "is rates")
     - basket structures of single-stock swaps (aggregation concept; name left open)
     - cross-currency funding basis (funding index = benchmark/reference rate)
+    - derivatives trading documentation control (ISDA Master / CSA / GMRA / GMSLA execution and term capture; protocol adherence; netting-opinion coverage); nearest existing key client_lifecycle_kyc; name left open
