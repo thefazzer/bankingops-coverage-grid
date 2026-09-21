@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_credit_event_determination_committee_application",
+  "division_key": "credit_trading",
+  "job_function": "credit trading - credit derivatives lifecycle",
+  "control_point": "Credit derivatives positions are adjusted following an ISDA Credit Derivatives Determinations Committee decision, including succession-event treatment, credit-event application and auction settlement; the control point is the use of the published DC outcome to update reference-entity and obligation attributes rather than firm-only interpretation.",
+  "citations": [
+    {
+      "source_name": "ISDA, Credit Derivatives Determinations Committees Rules",
+      "url": "https://www.isda.org/protocol/isda-determinations-committees/",
+      "clause": "DC Rules",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "ISDA, 2014 ISDA Credit Derivatives Definitions",
+      "url": "https://www.isda.org/book/2014-isda-credit-derivatives-definitions/",
+      "clause": "Credit event and succession provisions",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reconciliation_remediation",
+    "public_source": "ISDA DC Rules, auction settlement methodology and CFTC/SEC record-keeping for swap portfolios",
+    "magnitude_band": "trade remediation, auction settlement mismatch and regulatory record-keeping penalties; magnitude scales with position size and number of affected trades"
+  },
+  "commonality_rationale": "All market participants holding standardized credit derivatives rely on the same ISDA DC determinations for credit events and succession events; failure to apply the published outcome produces common, cross-firm misalignment.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted from public sources)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

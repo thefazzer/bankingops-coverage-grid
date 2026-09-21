@@ -25,13 +25,29 @@
         "directive_status": {"enum": ["directed", "not_observed", "unknown"]},
         "execution_status": {"enum": ["not_observed", "pending", "scheduled", "unknown"]},
         "completion_status": {"enum": ["not_observed", "unknown"]},
-        "verification_status": {"enum": ["not_observed", "unknown"]}
+        "verification_status": {"enum": ["not_observed", "unknown"]},
+        "deadline_constraints": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/DeadlineConstraint"}
+        }
       }
     },
     "state_separation_enforced": {"const": true},
     "expansion_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
   },
   "$defs": {
+    "DeadlineConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deadline_type", "reference_time"],
+      "properties": {
+        "deadline_type": {"enum": ["regulatory", "contractual", "internal_sla", "market_cutoff"]},
+        "reference_time": {"type": "string", "format": "date-time"},
+        "window": {"type": "string"},
+        "business_calendar": {"type": "string"},
+        "non_business_day_rule": {"enum": ["previous", "following", "modified_following", "none"]}
+      }
+    },
     "SpeechAct": {
       "type": "object", "additionalProperties": true, "required": ["type"],
       "properties": {"type": {"enum": ["directive", "information_request", "confirmation_request", "commitment", "acknowledgement", "assertion"]}}
