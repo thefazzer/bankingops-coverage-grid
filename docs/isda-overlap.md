@@ -1,35 +1,139 @@
-# ISDA overlap note: where the grid's divisions touch ISDA-native concepts
+# ISDA regulatory overlap in the BankingOps Coverage Grid
 
+This document records the ISDA regulatory overlap work completed under
+[`thefazzer/bankingops-coverage-grid#6`](https://github.com/thefazzer/bankingops-coverage-grid/issues/6).
+It stays above the SPEC-03 floor: definitions, schemas, rubrics, public citations
+and conformance gates. It does not contain institution instances, corpus material
+or workflow claims.
+
+## Why the overlap matters
+
+ISDA's regulatory footprint (UMR/SIMM margin, OTC confirmation and portfolio
+reconciliation, EMIR/CFTC/MiFIR transaction reporting, netting enforceability,
+Determinations Committee outcomes) touches roughly ten of the 42 admitted BOCG
+division keys and about 77 of the 1,025 catalogue definitions in
+`reference/operating-catalogue.v1.json`. Before this epic the public layer had no
+ISDA-native control-point cells and no standards-backed way to cite ISDA public
+artefacts.
+
+## What changed
+
+### SPEC-04 — Common semantic profile
+
+- Added ISDA public standards to the standards layer:
+  - **Common Domain Model (CDM)** — `https://cdm.finos.org/`
+  - **FpML** — `https://www.fpml.org/`
+  - **ISO 4914 UPI** — `https://www.anna-dsb.com/upi/`
+  - **ISO 20022** — `https://www.iso20022.org/`
+- Promoted `derivatives_documentation_control` to the
+  `candidate_vocabulary_gaps` list because the current division key
+  `client_lifecycle_kyc` had zero model support in the live run and does not
+  adequately represent ISDA Master / CSA / GMRA / GMSLA execution and protocol
+  adherence.
+
+### Control-point cells
+
+Five new `status: PROPOSED` cells were authored. They are intentionally
+solution-neutral and cite only public sources.
+
+| Cell | Division | Control point |
+|---|---|---|
+| `cp_simm_initial_margin_reconciliation` | `collateral_margin_management` | Bilateral agreement of SIMM initial margin before the regulatory settlement deadline. |
+| `cp_aana_umr_scope` | `collateral_margin_management` | AANA computation and documentation for UMR in-scope status. |
+| `cp_csa_vm_call_timeline` | `collateral_margin_management` | Daily CSA variation-margin call within the regulatory timeline. |
+| `cp_simm_im_dispute` | `collateral_margin_management` | Investigation and resolution of SIMM IM differences above the dispute threshold. |
+| `cp_umr_im_segregation` | `collateral_margin_management` | Regulatory IM calculation, segregated posting and segregation evidence. |
+| `cp_otc_derivatives_confirmation_reconciliation` | `trade_lifecycle_operations` | OTC derivative confirmation and portfolio reconciliation against counterparty data. |
+| `cp_derivatives_transaction_reporting_uti_upi` | `regulatory_transaction_reporting` | UTI/UPI generation, validation and pair-matching for OTC derivative transaction reports. |
+| `cp_credit_event_determination_committee_application` | `credit_trading` | Application of ISDA Determinations Committee outcomes to credit derivatives positions. |
+| `cp_dc_outcome_application` | `credit_trading` | Re-papering, cash settlement or position adjustment after a DC resolution, with product-control confirmation. |
+| `cp_derivatives_documentation_execution` | `client_lifecycle_kyc` | Execution and capture of ISDA Master, CSA, GMRA, GMSLA and protocol adherence. |
+| `cp_cftc_part43_realtime` | `regulatory_transaction_reporting` | Real-time public swap reports under CFTC Part 43. |
+| `cp_emir_refit_uti_pairing` | `regulatory_transaction_reporting` | UTI generation, pairing and TR reconciliation under EMIR REFIT. |
+| `cp_mifir_art26_t1_submission` | `regulatory_transaction_reporting` | Complete MiFIR Article 26 report by T+1. |
+| `cp_otc_confirmation_timeliness` | `trade_lifecycle_operations` | Uncleared OTC confirmations issued and matched within the regulatory deadline. |
+| `cp_portfolio_reconciliation` | `trade_lifecycle_operations` | Periodic portfolio reconciliation and valuation/term-break resolution. |
+| `cp_reporting_error_remediation` | `regulatory_transaction_reporting` | Remediation and notification of identified reporting errors. |
+
+Two existing `failure_class` values — `margin_dispute` and `reporting_rejection` —
+are now exercised by the new cells.
+
+### SPEC-07 — Replayable compliance scenario contract
+
+- Added `specs/SPEC-07-replayable-compliance-scenario.md`.
+- Added `specs/replayable-compliance-scenario.schema.json`, which composes:
+  - a BOCG release pinned by manifest hash;
+  - one control-point cell pinned by `cell_id` and SHA-256;
+  - one operating-catalogue task pinned by `division_key` and `reference_id`;
+  - a bounded synthetic input state;
+  - a public oracle (regulatory clause, standard rule set, reference table or
+deterministic function);
+  - a closed-set expected verdict (`compliant`, `non_compliant`, `indeterminate`,
+`out_of_scope`);
+  - a deterministic scenario hash.
+- Added `specs/scenario-run-ledger.schema.json` to record model release,
+manifest hash, scenario hash and actual verdict.
+
+### SPEC-05 — Time and deadline semantics
+
+- Extended `specs/insight-construction.schema.json` with `TemporalAnchor` and
+  `DeadlineConstraint` definitions.
+- Extended `specs/institutional-speech-act.schema.json` with optional deadline
+  constraints on the obligation frame.
+- Added temporal semantics to `specs/insight-construction-profile.yaml`:
+  observation time is not validity time; scheduled time does not prove execution;
+  unknown bounds remain unknown.
+- Documented the semantics in `specs/SPEC-05-insight-construction.md`.
+
+### G6 corroboration priority
+
+- Drafted `drafts/2026-09-20-isda-g6-corroboration-priority.md` with a ranked
+  list of ISDA-adjacent division keys for hand-corroboration.
+- Initialised `live-run-20260826/corroboration.csv` (1015 rows) and
+  `corroboration_summary.json` from the published anchor pool. Every row is
+  `UNVERIFIED`; G6 still fails for the honest reason (unverified anchors) rather
+  than a missing ledger.
+- Kept the `glm-5.2` exclusion: retry did not yield three valid samples.
+- The live run remains PROVISIONAL; this epic records the priority order and
+  the ledger skeleton but does not claim any anchor has been verified.
+
+## Conformance
+
+All changes are gated by the existing conformance tooling:
+
+```bash
+python3 tools/gate_conformance.py
+python3 tools/build_operating_catalogue.py --check
+(cd bocg && pytest -q)
+(cd lat && pytest -q)
 ```
-ARTIFACT : overlap note (non-normative; not a manifest artifact; not a coverage claim)
-AS OF    : 2026-09-20
-SOURCE   : lexical inspection of the provisional live run in live-run-20260826/
-RULE     : the grid is a model-consensus prior; this note is structural and lexical,
-           not validated consensus; ISDA-relevant keys are WEAK
-```
 
-## 0. Why this note exists
+## What is deliberately not in scope
 
-Several divisions named by the provisional live run contain tasks, input records or
-regime anchors that refer to ISDA standards, documentation families or governance
-processes. This note records where that overlap is visible in the public artifact so
-that consumers do not read it as an endorsement, a coverage claim or a statement that
-the grid has validated ISDA's taxonomy against bank operations. It is a vocabulary
-observation, not a manifest item.
+- Institution instances, desk configurations, or private evidence.
+- Claims that any model, benchmark or environment satisfies a cell.
+- Live Determinations Committee outcomes, trade data or UPI values.
+- Corpus-side oracle adapters or regression runs (those live in the private
+  FinExhaust repo and flow back as counts and hashes only).
 
-Everything below is scoped to the model-consensus prior in `live-run-20260826/`, which
-remains **PROVISIONAL** (G6 corroboration outstanding). The ISDA-relevant keys are
-predominantly in the **WEAK** tier of the live run. The overlap is structural and
-lexical, not validated consensus.
+## References
 
-## 1. Division keys with ISDA-adjacent material
+- `specs/common-semantic-profile.yaml`
+- `specs/SPEC-04-common-semantic-profile.md`
+- `specs/SPEC-05-insight-construction.md`
+- `specs/SPEC-07-replayable-compliance-scenario.md`
+- `specs/replayable-compliance-scenario.schema.json`
+- `specs/scenario-run-ledger.schema.json`
+- `specs/insight-construction.schema.json`
+- `specs/institutional-speech-act.schema.json`
+- `drafts/2026-09-20-isda-g6-corroboration-priority.md`
 
-The table lists admitted division keys whose terminality tasks or market-size anchors
-mention ISDA standards, ISDA documentation families (ISDA Master, ISDA confirmation,
-ISDA definitions), CSA/GMRA/GMSLA margin or collateral agreements, the ISDA Standard
-Initial Margin Model (SIMM), or ISDA Determinations Committee processes. Counts are
-raw mentions across the model-sampled terminality tasks in `normalised.json`; anchor
-counts are `a3_market_size` entries whose `publisher` is "ISDA".
+## Lexical overlap in the provisional live run
+
+The following tables are structural and lexical, not validated consensus. Counts
+are raw mentions across model-sampled terminality tasks in
+`live-run-20260826/normalised.json`; ISDA publisher anchors are `a3_market_size`
+entries whose publisher is "ISDA". The live run remains PROVISIONAL.
 
 | Division key | Live-run support | Tier | ISDA-adjacent terminality mentions | ISDA publisher anchors |
 |---|---:|---|---:|---:|
@@ -46,119 +150,41 @@ counts are `a3_market_size` entries whose `publisher` is "ISDA".
 | `fx_trading` | 3 | WEAK | 1 | 0 |
 | `model_risk_management` | 0 | WEAK | 1 | 0 |
 
-Reading notes:
+Counts are not importance scores. `client_lifecycle_kyc` and
+`model_risk_management` have live-run support of zero, so their single
+ISDA-adjacent mention is lexical residue, not a confirmed division.
 
-- The counts are not weighted by importance. A mention of "ISDA SIMM" in a margin
-calculation task is one mention; so is a generic "ISDA/CSA" in a counterparty-eligibility
-check. Counts should not be compared across keys as scores.
-- `client_lifecycle_kyc` and `model_risk_management` have live-run support of zero,
-so their single ISDA-adjacent mention is a lexical residue, not a confirmed division.
-- `credit_trading` is the only MODERATE-tier key in this list whose overlap is driven
-by ISDA-native failure processes (credit events, Determinations Committee decisions,
-CDS auction settlement). `rates_trading`'s overlap is instead documentation-level
-(swap confirmation, ISDA Master matching).
-
-## 2. ISDA-relevant regimes per key
-
-The regulatory anchors (`a1_regulatory`) that touch ISDA's domain are not ISDA regimes
-as such; they are public rules that reference the same instruments ISDA standardises.
-The most relevant are:
+### ISDA-relevant public regimes per key
 
 | Division key | Selected ISDA-relevant public regimes |
 |---|---|
-| `credit_trading` | Real-time public reporting of swap transaction data (credit default swaps); MiFIR post-trade transparency for bonds and credit derivatives; Short Selling Regulation — sovereign and CDS restrictions |
-| `collateral_margin_management` | BCBS-IOSCO margin requirements for non-centrally cleared derivatives; EMIR risk-mitigation margin RTS; CFTC/SEC uncleared swap margin rules; UMR |
-| `xva_counterparty_risk` | Uncleared margin rules (initial and variation margin); BCBS-IOSCO non-cleared margin requirements |
-| `repo_secfin_collateral` | SFTR securities financing transaction reporting; US Treasury clearing mandate for eligible repo transactions |
-| `trade_lifecycle_operations` | EMIR timely confirmation and portfolio reconciliation for uncleared OTC derivatives; CFTC swap confirmation requirements for swap dealers; CSDR settlement discipline |
-| `rates_trading` | CFTC swap data reporting and swap-dealer business conduct; MiFIR derivatives trading obligation and transaction reporting |
-| `client_lifecycle_kyc` | Swap dealer documentation and relationship documentation requirements |
+| `credit_trading` | Real-time public reporting of swap transaction data; MiFIR post-trade transparency for bonds and credit derivatives; Short Selling Regulation sovereign and CDS restrictions |
+| `collateral_margin_management` | BCBS-IOSCO non-cleared margin; EMIR risk-mitigation margin RTS; CFTC/SEC uncleared swap margin; UMR |
+| `xva_counterparty_risk` | Uncleared margin rules; BCBS-IOSCO non-cleared margin requirements |
+| `repo_secfin_collateral` | SFTR securities financing transaction reporting; US Treasury clearing mandate for eligible repo |
+| `trade_lifecycle_operations` | EMIR timely confirmation and portfolio reconciliation; CFTC swap confirmation; CSDR settlement discipline |
+| `rates_trading` | CFTC swap-data reporting and swap-dealer business conduct; MiFIR derivatives trading obligation |
+| `client_lifecycle_kyc` | Swap dealer documentation and relationship-documentation requirements |
 
-These regimes are cited by the models as public anchors; they do not establish that
-the division key is correctly bounded or that ISDA's taxonomy maps cleanly onto it.
-
-## 3. The two ISDA-native failure classes visible in the grid
-
-ISDA itself publishes standard documentation and governs determinations processes;
-the grid's model-generated terminality tasks touch two ISDA-native priced-failure
-classes most directly:
-
-1. **Documentation / confirmation mismatch.** Tasks mention confirming ISDA swap terms,
-matching ISDA confirmations to term sheets, validating CSA terms in collateral systems,
-and reconciling GMRA/GMSLA documentation for repo and securities financing. The priced
-failure is operational: an unmatched or mis-captured term produces a trade dispute,
-failed settlement or wrong margin call.
-
-2. **Credit event determination and auction settlement.** Tasks in `credit_trading`
-mention applying ISDA Determinations Committee decisions, handling CDS credit events
-and auction settlements, and validating reference entities and restructuring clauses
-against ISDA credit derivatives definitions. The priced failure is contractual: a wrong
-application of a determination or auction result produces a settlement mismatch or
-PvL hit.
-
-A third cluster — SIMM / initial-margin calculation and dispute resolution — appears in
-`collateral_margin_management`, `xva_counterparty_risk` and `model_risk_management`, but
-that cluster is anchored in public margin rules rather than in an ISDA pricing failure
-as such; ISDA SIMM is the methodology, while the priced failure sits in the regulatory
-margin regime.
-
-## 4. What ISDA's stack models versus what the grid models
-
-ISDA's public taxonomy is built around the lifecycle of a derivatives contract and its
-supporting infrastructure:
+### What ISDA's stack models versus what the grid models
 
 | ISDA layer | Typical ISDA concern |
 |---|---|
 | Trade | Execution, confirmation, affirmation, allocation |
 | Event | Credit events, lifecycle events, determinations, auctions, settlements |
-| Legal agreement | ISDA Master, CSA, Schedule, Protocol adherence |
+| Legal agreement | ISDA Master, CSA, Schedule, protocol adherence |
 | Report | Regulatory reporting, taxonomy, market-size surveys |
-
-The grid instead models banking operations from the outside in:
 
 | Grid layer | Grid concern |
 |---|---|
-| Division | Operational division of a global bank (sell-side or buy-side counterpart) |
+| Division | Operational division of a global bank |
 | Function | Principal human seat inside the division |
 | Control point | Publicly citable checkpoint where a failure has a priced consequence |
 | Priced failure | Failure class with a public cost anchor (SPEC-03 I2) |
 
-The overlap is therefore diagonal, not one-to-one:
-
-- ISDA's "trade" layer crosses `trade_lifecycle_operations`, `rates_trading`,
-`credit_trading`, `cross_asset_structuring` and parts of `client_lifecycle_kyc`.
-- ISDA's "event" layer concentrates in `credit_trading` (Determinations Committee,
-CDS auction) and touches `equity_derivatives_structured` and `trade_lifecycle_operations`
-(corporate action adjustments, fixings).
-- ISDA's "legal agreement" layer is most visible in `collateral_margin_management`
-(CSA), `repo_secfin_collateral` (GMRA/GMSLA), `xva_counterparty_risk` (netting
-opinions, CSA ingestion) and `rates_trading` / `credit_trading` (confirmation matching).
-- ISDA's "report" layer overlaps only as market-size anchors (`ISDA Margin Survey`)
-under `collateral_margin_management` and `xva_counterparty_risk`; the grid does not
-treat reporting as a division in itself.
-
-## 5. Explicit caveat
-
-- The live run is **PROVISIONAL**; no anchor has been hand-corroborated (G6 still FAILS
-in `live-run-20260826/RUN_SUMMARY.json`).
-- The ISDA-relevant keys are **WEAK** in the live run, except `credit_trading` and
-`rates_trading` (MODERATE). WEAK means the model-consensus prior is thin; a lexical
-overlap is not a validation.
-- This note is **non-normative** and is **not a manifest artifact**. It is not listed in
-`bocg-release-manifest.json` and does not create or fill any `corpus_coverage` field in
-the cells.
-- The overlap is **structural and lexical**, not validated consensus. A division key
-mentioning "ISDA" in a task string is not evidence that the bank division exists, that
-ISDA would recognise the key, or that any specific control point is covered.
-- Consumers looking for authoritative ISDA definitions should consult ISDA's own
-documentation, not this grid.
-
-## 6. Links
-
-- Provisional live run: `live-run-20260826/`
-- Division aliases and merge rationale: `live-run-20260826/aliases.yaml`
-- Coverage matrix: `live-run-20260826/matrix.csv`
-- Control-point cells (when they land): `cells/`
-- SPEC-07 — division/function/control-point catalogue (when it lands): `specs/SPEC-07-divisions-cells-and-regimes.md`
-
-This note may be revised without a release.
+The overlap is diagonal, not one-to-one. ISDA's trade layer crosses
+`trade_lifecycle_operations`, `rates_trading`, `credit_trading` and
+`client_lifecycle_kyc`. The event layer concentrates in `credit_trading`. The
+legal-agreement layer is most visible in `collateral_margin_management`,
+`repo_secfin_collateral` and `xva_counterparty_risk`. The report layer appears
+mainly as market-size anchors, not as a division.

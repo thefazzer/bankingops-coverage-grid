@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_umr_im_segregation",
+  "division_key": "collateral_margin_management",
+  "job_function": "collateral management / margin operations analyst (regulatory IM segregation)",
+  "control_point": "Regulatory initial margin is calculated, posted to a segregated custodian and its segregation evidenced; governed by collateral operations with counterparty credit risk sign-off.",
+  "citations": [
+    {
+      "source_name": "Regulation (EU) No 648/2012 (EMIR), Art. 11(3)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0648",
+      "clause": "Article 11(3)",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) 2016/2251 (EMIR margin RTS)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R2251",
+      "clause": "Article 1 and Article 11",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "17 CFR 23.150 to 23.161 (CFTC uncleared swap margin)",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-I",
+      "clause": "23.150-23.161",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "regulatory_fine",
+    "public_source": "CFTC and EU uncleared margin rules: published supervisory fines and remediation orders for IM segregation and posting failures",
+    "magnitude_band": "qualitative: enforcement notices describe penalties scaling with duration and materiality; no fixed public tariff"
+  },
+  "commonality_rationale": "Every in-scope derivatives counterparty under UMR must post initial margin with a segregated custodian and evidence segregation; EMIR Art. 11(3) and CFTC Subpart I apply market-wide, and public enforcement records document failures.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

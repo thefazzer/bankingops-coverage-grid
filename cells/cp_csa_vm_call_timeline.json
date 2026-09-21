@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_csa_vm_call_timeline",
+  "division_key": "collateral_margin_management",
+  "job_function": "collateral management / margin operations analyst (daily variation margin calls)",
+  "control_point": "Daily variation margin is computed per CSA threshold, minimum transfer amount and rounding, issued and agreed within the regulatory timeline.",
+  "citations": [
+    {
+      "source_name": "BCBS-IOSCO, Margin requirements for non-centrally cleared derivatives (BCBS d499, April 2020)",
+      "url": "https://www.bis.org/bcbs/publ/d499.pdf",
+      "clause": "Section 3.7 (variation margin)",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) 2016/2251 (EMIR margin RTS)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R2251",
+      "clause": "Article 4",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "17 CFR 23.150 to 23.161 (CFTC uncleared swap margin)",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-I",
+      "clause": "23.152-23.153",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "margin_dispute",
+    "public_source": "BCBS-IOSCO d499 and EMIR/CFTC uncleared-margin timelines: documented margin-call disputes, remediation and regulatory remediation orders",
+    "magnitude_band": "qualitative: operational remediation and counterparty dispute exposure; no fixed public tariff"
+  },
+  "commonality_rationale": "Every bilateral derivatives relationship under uncleared margin rules computes, issues and agrees variation margin daily; the required timeline and CSA terms are identical across market participants.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

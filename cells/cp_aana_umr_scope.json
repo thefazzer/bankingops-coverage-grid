@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_aana_umr_scope",
+  "division_key": "collateral_margin_management",
+  "job_function": "collateral management / margin operations analyst (UMR scope determination)",
+  "control_point": "AANA is computed and documented each compliance period to determine UMR in-scope status.",
+  "citations": [
+    {
+      "source_name": "BCBS-IOSCO, Margin requirements for non-centrally cleared derivatives (BCBS d499, April 2020)",
+      "url": "https://www.bis.org/bcbs/publ/d499.pdf",
+      "clause": "Section 2 (scope and phasing)",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "12 CFR Part 237 (Regulation KK, FRB, OCC, FDIC margin rules)",
+      "url": "https://www.ecfr.gov/current/title-12/chapter-II/subchapter-A/part-237",
+      "clause": "237.2 and 237.3",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) 2016/2251 (EMIR margin RTS)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R2251",
+      "clause": "Article 1 and Article 2",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "regulatory_fine",
+    "public_source": "BCBS-IOSCO UMR phase-in, Regulation KK and EMIR margin RTS: supervisory powers to impose penalties for failure to compute, document or notify AANA/UMR scope correctly",
+    "magnitude_band": "qualitative: enforcement notices describe penalties tied to materiality and duration; no fixed public tariff"
+  },
+  "commonality_rationale": "Every derivatives-dealing entity crossing the UMR AANA threshold must compute and document its aggregate notional amount each compliance period; the phase-in thresholds and AANA methodology are published by BCBS-IOSCO and transposed in the EU and US regimes.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}
