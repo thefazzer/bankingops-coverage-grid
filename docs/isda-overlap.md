@@ -78,8 +78,13 @@ manifest hash, scenario hash and actual verdict.
 
 - Drafted `drafts/2026-09-20-isda-g6-corroboration-priority.md` with a ranked
   list of ISDA-adjacent division keys for hand-corroboration.
-- The live run remains PROVISIONAL; this epic records the priority order but
-  does not claim any anchor has been verified.
+- Initialised `live-run-20260826/corroboration.csv` (1015 rows) and
+  `corroboration_summary.json` from the published anchor pool. Every row is
+  `UNVERIFIED`; G6 still fails for the honest reason (unverified anchors) rather
+  than a missing ledger.
+- Kept the `glm-5.2` exclusion: retry did not yield three valid samples.
+- The live run remains PROVISIONAL; this epic records the priority order and
+  the ledger skeleton but does not claim any anchor has been verified.
 
 ## Conformance
 

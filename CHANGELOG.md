@@ -12,6 +12,8 @@
   - Add time and deadline semantics for SPEC-05 lifecycle states.
   - Publish G6 corroboration priority draft for ISDA-adjacent division keys and
     `docs/isda-overlap.md`.
+  - Initialise the live-run corroboration ledger (1015 UNVERIFIED rows) so G6
+    can be evaluated; keep the `glm-5.2` exclusion after an unsuccessful retry.
 - Rebuild release manifest to bind new specs, schemas, cells and documentation.
 - All changes remain above the SPEC-03 floor: definitions, schemas, rubrics and
   public citations only. No institution instances, corpus material or workflow
