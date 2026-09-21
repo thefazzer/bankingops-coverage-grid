@@ -36,6 +36,15 @@ mapping_policy:
     - close-match
     - related-match
     - narrower-than
+  allowed_relations_usage:
+    identity_prohibited: true
+    notes: >-
+      These strengths are deliberately weaker than identity. A mapping never
+      means owl:sameAs. This applies to all declared standards, including
+      CDM, FpML, DSB UPI/ISDA product taxonomy and ISO 20022: a
+      correspondence to a trade, event, product or message element does not
+      make a BOCG division, function or control point identical to that
+      element.
 
 # Public definitions and identity rules. Private instance/evidence registries
 # remain consumer-owned and do not become public BOCG occurrence claims.
@@ -140,22 +149,22 @@ standards:
     label: Common Domain Model
     authority: FINOS / ISDA / ICMA / ISLA
     uri: https://cdm.finos.org/
-    use: standardized, machine-readable product and transaction-lifecycle model for OTC derivatives, securities and securities financing
+    use: standardized, machine-readable product and transaction-lifecycle model for OTC derivatives, securities and securities financing; mapped only as related context, never as identity
   fpml:
     label: Financial products Markup Language
     authority: International Swaps and Derivatives Association, Inc.
     uri: https://www.fpml.org/
-    use: XML schema standard for representing OTC derivative products and trade lifecycle events
+    use: XML schema standard for representing OTC derivative products and trade lifecycle events; mapped only as related context, never as identity
   upi:
     label: ISO 4914 Unique Product Identifier
     authority: The Derivatives Service Bureau (DSB) Ltd / ANNA-DSB
     uri: https://www.anna-dsb.com/upi/
-    use: 12-character alphanumeric identifier for OTC derivative products used in transaction reporting
+    use: 12-character alphanumeric identifier for OTC derivative products used in transaction reporting; product-classification reference, not identity of an individual instrument, trade or position
   iso_20022:
     label: ISO 20022 Universal financial industry message scheme
     authority: ISO
     uri: https://www.iso20022.org/
-    use: universal message scheme for payments, securities, FX and derivatives transaction messaging
+    use: universal message scheme for payments, securities, FX and derivatives transaction messaging; mapped only as related context, never as identity
 
 semantic_objects:
   banking_operations_division:

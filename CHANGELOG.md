@@ -4,6 +4,12 @@
 
 - Close ISDA regulatory overlap gaps (EPIC #6):
   - Add ISDA public standards (CDM, FpML, DSB UPI, ISO 20022) to SPEC-04.
+  - Document in SPEC-04 that CDM/FpML model trade, event and legal agreement
+    while the grid models division, function and control point, and that
+    mappings are never identity assertions.
+  - Extend mapping-policy usage notes so all declared standards, including the
+    ISDA-adjacent entries, use only `close-match`, `related-match`,
+    `narrower-than` or `schema-correspondence`.
   - Promote `derivatives_documentation_control` to `candidate_vocabulary_gaps`.
   - Author five PROPOSED control-point cells for ISDA-native margin, reporting,
     confirmation, Determinations Committee and documentation controls.
