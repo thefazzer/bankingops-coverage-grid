@@ -15,7 +15,8 @@
     candidate draft.
   - Author PROPOSED control-point cells for ISDA-native margin, reporting,
     confirmation, Determinations Committee and documentation controls, including
-    a dedicated DC outcome-application cell under credit trading and
+    a dedicated DC outcome-application cell under credit trading, four
+    additional UMR/SIMM/CSA margin cells, and
     six reporting/confirmation cells (CFTC Part 43, EMIR REFIT UTI pairing,
     MiFIR Art. 26, OTC confirmation timeliness, portfolio reconciliation and
     reporting-error remediation).
