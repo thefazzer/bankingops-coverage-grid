@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/scenario-run-ledger.schema.json",
+  "title": "BOCG scenario run ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "ledger_id",
+    "model_release",
+    "bocg_release",
+    "run_timestamp",
+    "entries"
+  ],
+  "properties": {
+    "schema": {
+      "const": "bocg.scenario-run-ledger.v1"
+    },
+    "ledger_id": {
+      "type": "string",
+      "pattern": "^ledger_[a-z0-9_]{3,128}$"
+    },
+    "model_release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model_id", "model_version", "release_timestamp"],
+      "properties": {
+        "model_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "bocg_release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["release_tag", "manifest_sha256"],
+      "properties": {
+        "release_tag": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "run_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "replay_parameters_hash": {
+      "$ref": "#/$defs/sha256"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/RunEntry"
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "RunEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scenario_id",
+        "scenario_hash",
+        "actual_verdict",
+        "ran_at"
+      ],
+      "properties": {
+        "scenario_id": {
+          "type": "string",
+          "pattern": "^scenario_[a-z0-9_]{3,128}$"
+        },
+        "scenario_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "actual_verdict": {
+          "enum": [
+            "compliant",
+            "non_compliant",
+            "indeterminate",
+            "out_of_scope",
+            "runner_error"
+          ]
+        },
+        "ran_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rationale_required": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
