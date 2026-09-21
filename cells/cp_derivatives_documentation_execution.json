@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_derivatives_documentation_execution",
+  "division_key": "client_lifecycle_kyc",
+  "job_function": "client lifecycle management - trading documentation control",
+  "control_point": "Derivatives trading documentation, including ISDA Master Agreement, Credit Support Annex, GMRA and GMSLA and adherence to ISDA protocols, is executed, captured and verified before trades are booked; the control point is the existence of a valid, executed legal framework with the counterparty and any required protocol adherence.",
+  "citations": [
+    {
+      "source_name": "ISDA, 2002 ISDA Master Agreement",
+      "url": "https://www.isda.org/book/2002-isda-master-agreements/",
+      "clause": "Master Agreement structure",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "ISDA, Protocol Management",
+      "url": "https://www.isda.org/protocol/",
+      "clause": "Protocol adherence framework",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "CFTC Regulation 23.501 – Swap trading relationship documentation",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-B/subject-group-ECFRa55d97ff6bda22/section-23.501",
+      "clause": "17 CFR 23.501(a)",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "regulatory_fine",
+    "public_source": "CFTC/SEC swap-trading-relationship-documentation rules and ESMA/FCA conduct requirements for derivatives documentation",
+    "magnitude_band": "per-counterparty or per-trade supervisory penalties and mandatory remediation; larger fines for systematic documentation gaps"
+  },
+  "commonality_rationale": "Every swap dealer and in-scope derivatives counterparty must execute and maintain ISDA-style documentation and protocol adherence before transacting; the requirement is independent of asset class or jurisdiction-specific booking.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted from public sources)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

@@ -4,7 +4,7 @@
   "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
   "prompt_sha8": "efd90b74",
   "aliases_sha256": "61025b9f408f81149bf17da747fde25b8ab3175651c186825051e191f6c0d668",
-  "status": "PROVISIONAL \u2014 G10 PASSES (5 vendors); G6 corroboration still outstanding (no anchor hand-verified yet)",
+  "status": "PROVISIONAL \u2014 G10 PASSES (5 vendors); G6 ledger initialised (1015 UNVERIFIED rows); no anchor hand-verified; glm-5.2 exclusion kept (retry did not yield 3 valid samples)",
   "gates": {
     "G1": "PASS",
     "G2": "PASS",

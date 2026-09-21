@@ -60,7 +60,15 @@
         "composition_status": {"enum": ["candidate", "admitted", "qualified", "recomposition_required", "rejected"]},
         "execution_status": {"$ref": "#/$defs/LifecycleStatus"},
         "completion_status": {"$ref": "#/$defs/LifecycleStatus"},
-        "verification_status": {"$ref": "#/$defs/LifecycleStatus"}
+        "verification_status": {"$ref": "#/$defs/LifecycleStatus"},
+        "temporal_anchors": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/TemporalAnchor"}
+        },
+        "deadline_constraints": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/DeadlineConstraint"}
+        }
       }
     },
     "LifecycleState": {"enum": ["not_observed", "directed", "pending", "scheduled", "executed", "completed", "verified", "unknown"]},
@@ -89,6 +97,29 @@
         {"$ref": "#/$defs/LifecycleState"},
         {"$ref": "#/$defs/LifecycleStateTransition"}
       ]
+    },
+    "TemporalAnchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["anchor_type", "timestamp"],
+      "properties": {
+        "anchor_type": {"enum": ["observed_at", "valid_from", "valid_to", "deadline", "scheduled_at", "executed_at", "completed_at", "verified_at"]},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "timezone": {"type": "string"},
+        "precision": {"enum": ["instant", "date", "business_date", "unknown"]}
+      }
+    },
+    "DeadlineConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deadline_type", "reference_time"],
+      "properties": {
+        "deadline_type": {"enum": ["regulatory", "contractual", "internal_sla", "market_cutoff"]},
+        "reference_time": {"type": "string", "format": "date-time"},
+        "window": {"type": "string"},
+        "business_calendar": {"type": "string"},
+        "non_business_day_rule": {"enum": ["previous", "following", "modified_following", "none"]}
+      }
     }
   }
 }
