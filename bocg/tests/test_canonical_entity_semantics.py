@@ -16,6 +16,12 @@ def test_standards_bearing_entity_contract_and_existing_facing_rules_conform():
     profile = yaml.safe_load((ROOT / "specs/common-semantic-profile.yaml").read_text())
     assert profile["role_semantics"]["faces"]["properties"]["directional"] is True
     assert profile["profile"]["scope"]["occurrence_claims_permitted"] is False
+    gaps = profile.get("candidate_vocabulary_gaps") or {}
+    assert gaps.get("non_normative") is True
+    assert any(
+        "derivatives trading documentation control" in str(candidate)
+        for candidate in gaps.get("candidates") or []
+    )
 
 
 def test_gate_rejects_corpus_identity_and_unversioned_product_classes(tmp_path, monkeypatch):

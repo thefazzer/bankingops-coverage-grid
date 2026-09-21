@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_otc_derivatives_confirmation_reconciliation",
+  "division_key": "trade_lifecycle_operations",
+  "job_function": "trade lifecycle operations - OTC confirmation and portfolio reconciliation",
+  "control_point": "OTC derivative trades are confirmed with counterparties and portfolio reconciliations are performed on economic terms, with breaks escalated under ISDA trade-matching and reconciliation guidance; the control point is the comparison of internally booked trade data against the counterparty affirmation and portfolio reconciliation statement.",
+  "citations": [
+    {
+      "source_name": "CFTC Regulation 23.501 – Confirmation requirements for swap transactions",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-B/subject-group-ECFRa55d97ff6bda22/section-23.501",
+      "clause": "17 CFR 23.501",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "ISDA, 2021 ISDA Definitions",
+      "url": "https://www.isda.org/book/2021-isda-definitions/",
+      "clause": "Definitions and confirmation framework",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reconciliation_remediation",
+    "public_source": "CFTC/SEC and ESMA rules requiring timely confirmation and portfolio reconciliation, plus ISDA best-practice guidance on break escalation",
+    "magnitude_band": "regulatory fine per late or unconfirmed trade and remediation cost scaling with backlog age and notional volume"
+  },
+  "commonality_rationale": "OTC confirmation and portfolio reconciliation are daily, cross-asset operations for every dealer and major end-user; public rule deadlines and ISDA documentation make the control point independent of any single institution.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted from public sources)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

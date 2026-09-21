@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_reporting_error_remediation",
+  "division_key": "regulatory_transaction_reporting",
+  "job_function": "regulatory transaction reporting operations",
+  "control_point": "An identified population of reporting errors is remediated and the relevant competent authority is notified under the applicable transaction-reporting regime.",
+  "citations": [
+    {
+      "source_name": "Regulation (EU) No 600/2014 (MiFIR), Article 26 - transaction reporting",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0600",
+      "clause": "Article 26",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Regulation (EU) No 648/2012 (EMIR), Article 9 as amended by Regulation (EU) 2019/834 (EMIR REFIT)",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0648",
+      "clause": "Article 9",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "17 CFR Part 45 - Swap Data Recordkeeping and Reporting Requirements",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-45",
+      "clause": "Subpart A",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "regulatory_fine",
+    "public_source": "Competent-authority enforcement under MiFIR Article 35, EMIR Article 21 and CFTC Part 45; published enforcement for late or incomplete remediation of reporting errors",
+    "magnitude_band": "published penalties in the low- to mid-million-euro range and comparable CFTC civil monetary penalties; escalation where the authority is not notified within required timeframes"
+  },
+  "commonality_rationale": "All transaction-reporting regimes require firms to correct errors and omissions once discovered and to notify the regulator where required; the remediation workflow is a shared operational checkpoint across EU and US swap and securities reporting obligations.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}
