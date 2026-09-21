@@ -43,6 +43,12 @@ solution-neutral and cite only public sources.
 | `cp_derivatives_transaction_reporting_uti_upi` | `regulatory_transaction_reporting` | UTI/UPI generation, validation and pair-matching for OTC derivative transaction reports. |
 | `cp_credit_event_determination_committee_application` | `credit_trading` | Application of ISDA Determinations Committee outcomes to credit derivatives positions. |
 | `cp_derivatives_documentation_execution` | `client_lifecycle_kyc` | Execution and capture of ISDA Master, CSA, GMRA, GMSLA and protocol adherence. |
+| `cp_cftc_part43_realtime` | `regulatory_transaction_reporting` | Real-time public swap reports under CFTC Part 43. |
+| `cp_emir_refit_uti_pairing` | `regulatory_transaction_reporting` | UTI generation, pairing and TR reconciliation under EMIR REFIT. |
+| `cp_mifir_art26_t1_submission` | `regulatory_transaction_reporting` | Complete MiFIR Article 26 report by T+1. |
+| `cp_otc_confirmation_timeliness` | `trade_lifecycle_operations` | Uncleared OTC confirmations issued and matched within the regulatory deadline. |
+| `cp_portfolio_reconciliation` | `trade_lifecycle_operations` | Periodic portfolio reconciliation and valuation/term-break resolution. |
+| `cp_reporting_error_remediation` | `regulatory_transaction_reporting` | Remediation and notification of identified reporting errors. |
 
 Two existing `failure_class` values — `margin_dispute` and `reporting_rejection` —
 are now exercised by the new cells.

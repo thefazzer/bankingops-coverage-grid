@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_portfolio_reconciliation",
+  "division_key": "trade_lifecycle_operations",
+  "job_function": "trade lifecycle operations",
+  "control_point": "Periodic portfolio reconciliation with counterparties is performed and valuation or term differences are resolved under the applicable derivatives risk-mitigation framework.",
+  "citations": [
+    {
+      "source_name": "17 CFR 23.502 - Portfolio reconciliation",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-23/subpart-I/subject-group-ECFR28a80a1f0cdae63/section-23.502",
+      "clause": "Section 23.502",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) No 149/2013 (EMIR RTS on clearing and risk mitigation), Article 13 - portfolio reconciliation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32013R0149",
+      "clause": "Article 13",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "margin_dispute",
+    "public_source": "Uncleared derivatives margin and valuation-dispute frameworks under EMIR risk-mitigation RTS and CFTC margin rules; failure to reconcile exposes counterparties to stale margin calls and settlement disputes",
+    "magnitude_band": "operational cost of dispute resolution and potential margin shortfall; supervisory penalties in the low- to mid-million-euro/dollar range for persistent failures to maintain risk-mitigation arrangements"
+  },
+  "commonality_rationale": "All in-scope OTC derivatives counterparties must periodically reconcile open portfolios with each other; mismatches in valuation or terms are a recurring source of margin disputes and are explicitly regulated in both EU and US regimes.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

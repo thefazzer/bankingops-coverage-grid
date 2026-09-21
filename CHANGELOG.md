@@ -11,8 +11,11 @@
     ISDA-adjacent entries, use only `close-match`, `related-match`,
     `narrower-than` or `schema-correspondence`.
   - Promote `derivatives_documentation_control` to `candidate_vocabulary_gaps`.
-  - Author five PROPOSED control-point cells for ISDA-native margin, reporting,
-    confirmation, Determinations Committee and documentation controls.
+  - Author PROPOSED control-point cells for ISDA-native margin, reporting,
+    confirmation, Determinations Committee and documentation controls, including
+    six reporting/confirmation cells (CFTC Part 43, EMIR REFIT UTI pairing,
+    MiFIR Art. 26, OTC confirmation timeliness, portfolio reconciliation and
+    reporting-error remediation).
   - Add SPEC-07 replayable compliance scenario contract and scenario run ledger
     schema (model release, manifest hash, scenario hash, verdict), plus the
     operational scenario schema, synthetic fixture and S7 conformance gate.

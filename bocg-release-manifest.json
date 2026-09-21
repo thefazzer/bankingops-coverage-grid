@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "2496037bc6bff9f95b4b3e1b54213af7235fbe6c",
-    "generated_at": "2026-09-21T00:07:08.631755Z"
+    "commit_sha": "b012ed5c6432e28e670d3bd3dc72513bb90a0998",
+    "generated_at": "2026-09-21T00:08:28.808432Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -19,6 +19,13 @@
       "media_type": "text/markdown",
       "size_bytes": 4130,
       "sha256": "1464979387f5a1d766e23b912c173fb10149ad83007555a0d89b43a07d104994"
+    },
+    {
+      "path": "cells/cp_cftc_part43_realtime.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1675,
+      "sha256": "fdca7ee893e2baa1cc6db37999bd3e0685d90e4a8e837882b33d82608caed9ce"
     },
     {
       "path": "cells/cp_credit_event_determination_committee_application.json",
@@ -42,11 +49,46 @@
       "sha256": "83820c649aa57202a39b8aafed28f8edcbeabbc538d52e7c33f18ea7be6d1023"
     },
     {
+      "path": "cells/cp_emir_refit_uti_pairing.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1945,
+      "sha256": "1dac1f0a799548bce32a459c3a0bd5daf3d0513b4c400c2a2adb2dc0fe0414e6"
+    },
+    {
+      "path": "cells/cp_mifir_art26_t1_submission.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1744,
+      "sha256": "1f1207876a0564d49c0e027690c5f5cff3679780b4ce125f9f1f0dcb755857b7"
+    },
+    {
+      "path": "cells/cp_otc_confirmation_timeliness.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1847,
+      "sha256": "14106025dd3c125ad485463977a09939057c516c3d2a69263854c025be31d96b"
+    },
+    {
       "path": "cells/cp_otc_derivatives_confirmation_reconciliation.json",
       "role": "control-point-cell",
       "media_type": "application/json",
       "size_bytes": 1932,
       "sha256": "4f731c398efb6cd44cbaef6b0ee4756a5252e0de2c29de49956bc314747a8acf"
+    },
+    {
+      "path": "cells/cp_portfolio_reconciliation.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1882,
+      "sha256": "409304c6ad19fcfb265d3bcafef9d004a14d14046352fc45c50f043923af364e"
+    },
+    {
+      "path": "cells/cp_reporting_error_remediation.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 2037,
+      "sha256": "76e04d40e6f060cb688473f8b6570fd03176097d89944572612151a3bf8555ed"
     },
     {
       "path": "cells/cp_settled_instruction_amendment.json",
@@ -66,8 +108,8 @@
       "path": "docs/isda-overlap.md",
       "role": "documentation",
       "media_type": "text/markdown",
-      "size_bytes": 5671,
-      "sha256": "c00a51b19bc284d248e668bdcd82f8d76d82fc77c338a302c97d271844150487"
+      "size_bytes": 6464,
+      "sha256": "4624830dc95c4e383b0d7ad8e1198926f312d69c0cd0e1a0445a688b90a9171f"
     },
     {
       "path": "live-run-20260826/RUN_SUMMARY.json",
@@ -259,12 +301,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "53ffcdae856fb170fbf2e5329b1bc77007191b3818530967beb892600338e129",
+  "aggregate_sha256": "1e9d446e9f69842bb0fae93d876c6228a412bfcf65b8c9cb5ec7477b18ec39bd",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "196b317345029887ff9c27689f665c2e2596f3a64d7215bce364ffdfa68bf0e3"
+  "manifest_sha256": "0921ca93b312fad0c2e1d5574ac21e812a8291dac3b3601e069c29ac612084c9"
 }
