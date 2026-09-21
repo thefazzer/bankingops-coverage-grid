@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "726e8c75e795421c97d09cb1ca1808a0a27b1034",
-    "generated_at": "2026-09-20T23:45:30.230769Z"
+    "commit_sha": "ab1f4de9f7c27aefdf44917bce8faac7483ae971",
+    "generated_at": "2026-09-21T00:04:02.652477Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -66,15 +66,15 @@
       "path": "docs/isda-overlap.md",
       "role": "documentation",
       "media_type": "text/markdown",
-      "size_bytes": 5324,
-      "sha256": "b3aae2bd3638a2ff937d891e397d4ddbeefd8b86ecca9137b30e9ea051b60ea8"
+      "size_bytes": 5671,
+      "sha256": "c00a51b19bc284d248e668bdcd82f8d76d82fc77c338a302c97d271844150487"
     },
     {
       "path": "live-run-20260826/RUN_SUMMARY.json",
       "role": "run-summary",
       "media_type": "application/json",
-      "size_bytes": 1604,
-      "sha256": "60f92a2dde2d755f05071e0bde76fe4990479acab7b4afa32ab5178986899925"
+      "size_bytes": 1671,
+      "sha256": "b5e1eabce644a35387adf132950285593dab4adf465655237fce20f7ab4799d4"
     },
     {
       "path": "live-run-20260826/aliases.yaml",
@@ -87,8 +87,8 @@
       "path": "live-run-20260826/exclusions.json",
       "role": "exclusion-ledger",
       "media_type": "application/json",
-      "size_bytes": 1585,
-      "sha256": "5b33ae4c16b62b30361394f82da290a965bb9825ace90a3686535e2d1d53bd55"
+      "size_bytes": 1635,
+      "sha256": "28b0c86622fd93277ffd0882585956d7792446918dabb5c4d8432b0d904ba4d8"
     },
     {
       "path": "live-run-20260826/gates_report.json",
@@ -245,12 +245,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "1335836edbe41d0c5f392f8b7eb5e04074ad09b12c90e45b69f2f26900efc7de",
+  "aggregate_sha256": "87a50ed886cdc84b91f9f549b0c8e127e8c89e614acf85170a0f5a78a44e8e7a",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "7f23a1cbe557c8df38996fa49002337044ff00341b2640c17b409e6ae6d9f800"
+  "manifest_sha256": "1093accfc6c652526935a970672d443c37baf25577586c3e8a087c667d882b00"
 }

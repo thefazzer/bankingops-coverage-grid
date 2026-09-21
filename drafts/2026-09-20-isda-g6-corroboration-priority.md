@@ -38,6 +38,12 @@ relevant to the new control-point cells added in this epic.
 - `regulatory_transaction_reporting`: ESMA RTS 22; CFTC Part 45; ISO 4914 UPI standard.
 - `xva_counterparty_risk`: Basel CVA risk capital framework; BCBS-IOSCO margin framework.
 
+## Ledger status (2026-09-21)
+
+`live-run-20260826/corroboration.csv` is initialised with 1015 UNVERIFIED rows
+from the published anchor pool. None of the keys above are publishable. The
+`glm-5.2` exclusion remains: retry did not yield three valid samples.
+
 ## Definition of done for G6 on these keys
 
 For each key, at least one A1 regulatory anchor and one A2 segment anchor are
