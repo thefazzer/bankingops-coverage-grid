@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_otc_confirmation_timeliness",
+  "division_key": "trade_lifecycle_operations",
+  "job_function": "trade lifecycle operations",
+  "control_point": "Uncleared OTC derivative confirmations are issued and matched with counterparties within the regulatory deadline.",
+  "citations": [
+    {
+      "source_name": "17 CFR 23.501 - Confirmation, processing, netting, documentation, and settlement of swaps",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-II/part-23/subpart-I/subject-group-ECFR28a80a1f0cdae63/section-23.501",
+      "clause": "Section 23.501",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) No 149/2013 (EMIR RTS on clearing and risk mitigation), Article 12 - timely confirmation",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32013R0149",
+      "clause": "Article 12",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reporting_rejection",
+    "public_source": "CFTC swap-confirmation requirements under 17 CFR 23.501 and EU risk-mitigation requirements under Delegated Regulation (EU) 149/2013; associated supervisory remediation orders and penalties",
+    "magnitude_band": "published penalties for systematic confirmation backlogs in the low- to mid-million-dollar/euro range, plus heightened supervisory scrutiny and remediation requirements"
+  },
+  "commonality_rationale": "Every market participant entering uncleared OTC derivatives must confirm trades within the timeframe set by its regulator; the control point is operationally common across interest-rate, credit, equity and commodity OTC derivatives in both EU and US regimes.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

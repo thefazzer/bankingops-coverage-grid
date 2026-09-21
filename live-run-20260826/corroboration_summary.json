@@ -1,0 +1,1646 @@
+{
+  "divisions": {
+    "buyside_investment_compliance": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 5,
+      "verified_types": 0
+    },
+    "buyside_investment_operations": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 13,
+      "verified_types": 0
+    },
+    "buyside_ldi_overlay": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 7,
+      "verified_types": 0
+    },
+    "buyside_performance_risk_reporting": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 5,
+      "verified_types": 0
+    },
+    "buyside_portfolio_management": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 14,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 24,
+      "verified_types": 0
+    },
+    "buyside_trading_execution": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 24,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 49,
+      "verified_types": 0
+    },
+    "capital_markets_origination_combined": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 23,
+      "verified_types": 0
+    },
+    "client_lifecycle_kyc": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 0,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 2,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 6,
+      "verified_types": 0
+    },
+    "collateral_margin_management": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 11,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 20,
+      "verified_types": 0
+    },
+    "commodities_physical_operations": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 8,
+      "verified_types": 0
+    },
+    "commodities_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 22,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 13,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 11,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 47,
+      "verified_types": 0
+    },
+    "credit_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 33,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 15,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 15,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 64,
+      "verified_types": 0
+    },
+    "cross_asset_structuring": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 13,
+      "verified_types": 0
+    },
+    "custody_asset_servicing": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 17,
+      "verified_types": 0
+    },
+    "dcm_origination": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 14,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 29,
+      "verified_types": 0
+    },
+    "ecm_origination": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 22,
+      "verified_types": 0
+    },
+    "electronic_execution": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 11,
+      "verified_types": 0
+    },
+    "em_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 11,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 19,
+      "verified_types": 0
+    },
+    "equities_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 34,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 14,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 17,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 66,
+      "verified_types": 0
+    },
+    "equity_derivatives_structured": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 16,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 8,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 8,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 33,
+      "verified_types": 0
+    },
+    "ficc_combined": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 7,
+      "verified_types": 0
+    },
+    "fx_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 24,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 15,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 13,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 53,
+      "verified_types": 0
+    },
+    "institutional_sales_coverage": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 0,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 2,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 7,
+      "verified_types": 0
+    },
+    "leveraged_finance_loan_capital_markets": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 5,
+      "verified_types": 0
+    },
+    "listed_derivatives_client_clearing": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 19,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 9,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 34,
+      "verified_types": 0
+    },
+    "ma_advisory": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 5,
+      "verified_types": 0
+    },
+    "macro_combined_rates_fx_em": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 16,
+      "verified_types": 0
+    },
+    "market_risk_management": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 22,
+      "verified_types": 0
+    },
+    "market_risk_valuation_control": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 8,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 14,
+      "verified_types": 0
+    },
+    "model_risk_management": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 0,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 2,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 6,
+      "verified_types": 0
+    },
+    "municipal_public_finance": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 0,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 2,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 4,
+      "verified_types": 0
+    },
+    "prime_brokerage_financing": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 28,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 18,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 17,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 64,
+      "verified_types": 0
+    },
+    "product_control_ipv": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 11,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 23,
+      "verified_types": 0
+    },
+    "rates_trading": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 30,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 15,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 16,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 62,
+      "verified_types": 0
+    },
+    "regulatory_transaction_reporting": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 4,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 19,
+      "verified_types": 0
+    },
+    "repo_secfin_collateral": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 14,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 29,
+      "verified_types": 0
+    },
+    "securitised_products": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 27,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 14,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 12,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 54,
+      "verified_types": 0
+    },
+    "sellside_research": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 8,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 5,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 16,
+      "verified_types": 0
+    },
+    "trade_lifecycle_operations": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 22,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 9,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 8,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 40,
+      "verified_types": 0
+    },
+    "trade_surveillance": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 7,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 2,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 12,
+      "verified_types": 0
+    },
+    "treasury_balance_sheet_funding": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 3,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 1,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 0,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 2,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 5,
+      "verified_types": 0
+    },
+    "xva_counterparty_risk": {
+      "a4_status": "UNVERIFIED",
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "counts": {
+        "A1": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 21,
+          "VERIFIED": 0
+        },
+        "A2": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 6,
+          "VERIFIED": 0
+        },
+        "A3": {
+          "MISSING": 0,
+          "PARTIAL": 0,
+          "REFUTED": 0,
+          "UNVERIFIED": 9,
+          "VERIFIED": 0
+        }
+      },
+      "missing_rows": [],
+      "non_refuted_types": 3,
+      "publishable": false,
+      "refuted": [],
+      "rejected_post_corroboration": false,
+      "unverified_count": 37,
+      "verified_types": 0
+    }
+  },
+  "ledger_rows": 1015,
+  "ledger_source": "live-run-20260826/corroboration.csv",
+  "problems": [],
+  "ts_utc": "2026-09-20T23:32:21.209538Z"
+}
