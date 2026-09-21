@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/compliance-scenario.schema.json",
+  "title": "BOCG replayable compliance scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "scenario_id",
+    "manifest_sha256",
+    "cell_id",
+    "task_ref",
+    "input_state",
+    "oracle",
+    "expected_verdict",
+    "deadline",
+    "pass_rule",
+    "leakage_attestation",
+    "controls"
+  ],
+  "properties": {
+    "schema": {
+      "const": "bocg.compliance-scenario/v1"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable identifier for the scenario; not a security boundary."
+    },
+    "manifest_sha256": {
+      "$ref": "#/$defs/sha256",
+      "description": "BOCG release manifest the scenario is pinned to."
+    },
+    "cell_id": {
+      "type": "string",
+      "pattern": "^cp_[a-z0-9_]{3,64}$"
+    },
+    "task_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Reference to a released terminality task."
+    },
+    "input_state": {
+      "$ref": "#/$defs/InputState"
+    },
+    "oracle": {
+      "$ref": "#/$defs/Oracle"
+    },
+    "expected_verdict": {
+      "$ref": "#/$defs/ExpectedVerdict"
+    },
+    "deadline": {
+      "$ref": "#/$defs/Deadline"
+    },
+    "pass_rule": {
+      "$ref": "#/$defs/PassRule"
+    },
+    "leakage_attestation": {
+      "$ref": "#/$defs/LeakageAttestation"
+    },
+    "controls": {
+      "$ref": "#/$defs/Controls"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "InputState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "sha256"],
+      "properties": {
+        "kind": {
+          "enum": ["cdm_event", "fpml_document", "synthetic_fixture"]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Opaque path or URI; content hash is the authoritative reference."
+        }
+      }
+    },
+    "Oracle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "version"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "cdm_drr_validation",
+            "simm",
+            "isda_cds_standard_model",
+            "rule_predicate"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "parameters_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "ExpectedVerdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["predicate", "lifecycle_states"],
+      "properties": {
+        "predicate": {
+          "enum": ["all_of", "any_of", "none_of", "ordered"]
+        },
+        "lifecycle_states": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["directed", "scheduled", "executed", "completed", "verified"]
+          }
+        },
+        "directive_may_satisfy_execution": {
+          "const": false
+        }
+      }
+    },
+    "Deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["regime_clock_ref"],
+      "properties": {
+        "regime_clock_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "PassRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "statistical_assertion"],
+      "properties": {
+        "kind": {
+          "enum": ["replicates", "judges", "alpha"]
+        },
+        "statistical_assertion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["metric", "threshold"],
+          "properties": {
+            "metric": {
+              "enum": ["exact_match", "consensus", "pass_rate", "f1"]
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "confidence_level": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "is_boolean": {
+          "const": false
+        }
+      }
+    },
+    "LeakageAttestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lat_holdout_commitment_sha256", "mode"],
+      "properties": {
+        "lat_holdout_commitment_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "mode": {
+          "enum": ["holdout", "public", "sealed"]
+        }
+      }
+    },
+    "Controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["five_families_checks"],
+      "properties": {
+        "five_families_checks": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "NEGATIVE_CONTROL",
+              "EVIDENCE_ABLATION",
+              "DEEP_DOMAIN_TRANSFER",
+              "LATERAL_HIRE",
+              "COMMERCIAL_INSIGHT"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

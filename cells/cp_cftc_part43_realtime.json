@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_cftc_part43_realtime",
+  "division_key": "regulatory_transaction_reporting",
+  "job_function": "regulatory transaction reporting operations",
+  "control_point": "Real-time public reports of swap transactions are disseminated within the CFTC Part 43 deadline with correct block and cap treatment.",
+  "citations": [
+    {
+      "source_name": "17 CFR Part 43 - Real-Time Public Reporting of Swap Transaction Data",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-43",
+      "clause": "Subparts A-C",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "17 CFR Part 45 - Swap Data Recordkeeping and Reporting Requirements",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-45",
+      "clause": "Subpart A",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "reporting_rejection",
+    "public_source": "CFTC swap-data reporting enforcement under 17 CFR Parts 43, 45 and 46; CFTC civil monetary penalties for reporting violations",
+    "magnitude_band": "published CFTC civil monetary penalties ranging from hundreds of thousands to tens of millions of dollars for systematic swap-reporting failures"
+  },
+  "commonality_rationale": "Every swap dealer and major swap participant subject to CFTC regulation must report swaps in real time under Part 43, including correct application of block-trade and cap-size deferrals; the obligation applies across interest-rate, credit, equity, foreign-exchange and commodity asset classes.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

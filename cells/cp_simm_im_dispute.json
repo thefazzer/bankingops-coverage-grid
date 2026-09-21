@@ -1,0 +1,38 @@
+{
+  "cell_id": "cp_simm_im_dispute",
+  "division_key": "collateral_margin_management",
+  "job_function": "collateral management / margin operations analyst (SIMM IM reconciliation and disputes)",
+  "control_point": "Initial margin differences above the dispute threshold are investigated and resolved against the counterparty's figure, and reported where the regime requires.",
+  "citations": [
+    {
+      "source_name": "ISDA Standard Initial Margin Model (SIMM) methodology, public documentation",
+      "url": "https://www.isda.org/book/simm-introduction/",
+      "clause": "SIMM dispute-resolution and reconciliation provisions",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "17 CFR 23.502 and 23.504(b)(4) (CFTC uncleared swap margin dispute reporting)",
+      "url": "https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-I",
+      "clause": "23.502 and 23.504(b)(4)",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) No 149/2013 (EMIR risk mitigation), Art. 15",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32013R0149",
+      "clause": "Article 15",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "margin_dispute",
+    "public_source": "CFTC and EMIR dispute-reporting and reconciliation obligations: public enforcement records document failures to investigate, resolve or report margin disputes",
+    "magnitude_band": "qualitative: remediation and operational exposure; enforcement penalties vary by materiality and duration"
+  },
+  "commonality_rationale": "Every in-scope uncleared derivatives counterparty using SIMM or an approved initial-margin model must reconcile IM figures and resolve or escalate disputes; CFTC and EMIR dispute-reporting rules apply market-wide.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

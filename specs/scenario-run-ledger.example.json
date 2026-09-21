@@ -26,9 +26,9 @@
       "evidence_ref": "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff"
     },
     {
-      "row_sha256": "a43d73a9547db83681dc94054876cea4bc14248b58cb0a1b521b47ee50bb84a4",
+      "row_sha256": "64c312c938665eeed09c92ecfa442e508fe8ccb150478b8cfd4e4fbed0e72320",
       "recorded_at": "2026-09-21T10:00:00Z",
-      "replaces_row_sha256": "0000000000000000000000000000000000000000000000000000000000000001",
+      "replaces_row_sha256": "a65aab35e56712bbf92878df4d24df3cf9185cc7ed4d6617fe34413cd9b5f7ed",
       "model": {
         "model_id": "claude-opus-5",
         "provider_release": "anthropic/2.1.0"

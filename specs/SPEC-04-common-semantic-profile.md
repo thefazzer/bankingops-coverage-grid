@@ -40,7 +40,17 @@ The profile reuses:
 - DCMI Terms for identifiers, descriptions, subjects, references and parts;
 - FIBO for financial-business context where a narrower mapping is justified;
 - BCBS 239, ISO 37301 and ISO 19011 as governance context for data controls,
-  compliance and audit evidence.
+  compliance and audit evidence;
+- the FINOS Common Domain Model (CDM) and FpML for trade, event and legal-
+  agreement semantics;
+- the DSB Unique Product Identifier (UPI) and ISDA/DSB product taxonomy for
+  product-classification reference; and
+- ISO 20022 for financial-message semantics.
+
+CDM and FpML model the trade, event and legal agreement; the grid models
+organisational division, job function and control point. They are complementary,
+not competing. A mapping to any of these standards is therefore never an
+identity assertion.
 
 These correspondences do not assert that an institution implements a control,
 conforms to a standard, has a particular organization structure, or performed

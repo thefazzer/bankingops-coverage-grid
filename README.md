@@ -10,6 +10,9 @@ It is **provisional** — the anchor-corroboration gate has not been satisfied. 
 The grid is a model-consensus prior, not a validated map. `docs/downstream-evidence.md` records how its division keys
 have been exercised by a preregistered downstream evaluation lane; those results are calibration evidence from a private
 corpus (one institution, not released) and are not validation of the grid.
+`docs/isda-overlap.md` records the ISDA regulatory overlap work and where the
+provisional live run touches ISDA standards and governance processes. The note
+does not claim validated consensus.
 
 | Artifact | Spec | Package | CLI | Tests |
 |---|---|---|---|---|
@@ -18,6 +21,7 @@ corpus (one institution, not released) and are not validation of the grid.
 | **Common semantic profile** — standards-backed meanings for existing division, function, control-point, evidence and coverage fields; explicitly stops above institution workflow | `specs/SPEC-04-common-semantic-profile.md` | `specs/common-semantic-profile.yaml` | `python3 tools/gate_conformance.py` | conformance gate |
 | **Insight-construction profile** — portable Atom, Trace, Episode, institutional speech-act and adjudication definitions; definitions only, never institution instances | `specs/SPEC-05-insight-construction.md` | `specs/insight-construction-profile.yaml` | `python3 tools/gate_conformance.py` | lifecycle + rubric gates |
 | **Release manifest** — content-addressed assertion of the exact public specs, semantic profile, cells and release-run artifacts consumed at runtime | `specs/bocg-release-manifest.schema.json` | release asset `bocg-release-manifest.json` | `python3 tools/build_release_manifest.py --tag <tag> --commit <sha> --output bocg-release-manifest.json` | self-hash + per-artifact hashes |
+| **Compliance scenario** — replayable, manifest-pinned contract that composes a control-point cell, terminality task, input state, oracle and expected verdict | `specs/SPEC-07-replayable-compliance-scenario.md` + `specs/SPEC-07-compliance-scenario.md` | `specs/replayable-compliance-scenario.schema.json` + `specs/compliance-scenario.schema.json` + `specs/fixtures/compliance-scenario-synthetic.json` | `python3 tools/gate_conformance.py` | S7 gate |
 
 The benchmark that sits in the seller's own cell is the **PB-Ops Eval**; it is deliberately *not* referenced anywhere in the BOCG elicitation assets (invariant I2, gate G1).
 

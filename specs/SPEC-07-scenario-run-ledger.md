@@ -3,7 +3,7 @@
 ```
 ARTIFACT : append-only, content-addressed ledger that records a model identity against a scenario outcome
 STATUS   : v0.1 normative schema
-SOURCE   : specs/scenario-run-ledger.schema.json
+SOURCE   : specs/scenario-run-ledger-rows.schema.json
 BOUNDARY : ledger structure only; no institution-specific corpus, task text or occurrence claims
 ```
 
@@ -20,7 +20,9 @@ row that binds:
 - the verdict, and
 - the sealed evidence bundle.
 
-`specs/scenario-run-ledger.schema.json` defines that row. Nothing in this ledger is
+`specs/scenario-run-ledger-rows.schema.json` defines that row. The run-level
+ledger in `specs/scenario-run-ledger.schema.json` remains the simpler per-run
+record. Nothing in this ledger is
 a claim about the grid itself; it is a portable record of a model-scenario outcome
 that consumers can replay or audit against the named manifest and evidence bundle.
 
