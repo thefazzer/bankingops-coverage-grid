@@ -14,7 +14,8 @@
   - Author five PROPOSED control-point cells for ISDA-native margin, reporting,
     confirmation, Determinations Committee and documentation controls.
   - Add SPEC-07 replayable compliance scenario contract and scenario run ledger
-    schema (model release, manifest hash, scenario hash, verdict).
+    schema (model release, manifest hash, scenario hash, verdict), plus the
+    operational scenario schema, synthetic fixture and S7 conformance gate.
   - Add time and deadline semantics for SPEC-05 lifecycle states, including
     optional per-state `occurred_at` / `deadline_ref` / `calendar_ref`
     transitions alongside episode-level temporal anchors.

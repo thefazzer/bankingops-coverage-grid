@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "a92b558c9eaa6b683e79c40038ffff6d5258a16c",
-    "generated_at": "2026-09-21T00:06:22.489567Z"
+    "commit_sha": "2496037bc6bff9f95b4b3e1b54213af7235fbe6c",
+    "generated_at": "2026-09-21T00:07:08.631755Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -154,6 +154,13 @@
       "sha256": "286127536253bc021f5341c34727508d1b3fbb0c7099a68aeb2fabc3438869a7"
     },
     {
+      "path": "specs/SPEC-07-compliance-scenario.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 2349,
+      "sha256": "d1213399d881c03c35c1a033a291e9b4f6aef116fc449ee229e358604af6912e"
+    },
+    {
       "path": "specs/SPEC-07-replayable-compliance-scenario.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
@@ -173,6 +180,13 @@
       "media_type": "application/yaml",
       "size_bytes": 16608,
       "sha256": "10e29ba5ad8ef911420582de8da005efd62d847f1d192eaeb35936c2656c0024"
+    },
+    {
+      "path": "specs/compliance-scenario.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 5459,
+      "sha256": "b34974d9cd60bd349a00606cbb98440eb14a3bf815667827f319db4b63af2979"
     },
     {
       "path": "specs/control-point-cell.schema.json",
@@ -245,12 +259,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "76d5aab9822cf0a9012c56aa8102f45b65c9158bde2c8295ed0e13c3103b4d06",
+  "aggregate_sha256": "53ffcdae856fb170fbf2e5329b1bc77007191b3818530967beb892600338e129",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "c29ff83cb40006b9d858c30d597ddf2da264a0cdde33f06337c8fd7871220f2f"
+  "manifest_sha256": "196b317345029887ff9c27689f665c2e2596f3a64d7215bce364ffdfa68bf0e3"
 }
