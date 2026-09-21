@@ -127,3 +127,64 @@ python3 tools/build_operating_catalogue.py --check
 - `specs/insight-construction.schema.json`
 - `specs/institutional-speech-act.schema.json`
 - `drafts/2026-09-20-isda-g6-corroboration-priority.md`
+
+## Lexical overlap in the provisional live run
+
+The following tables are structural and lexical, not validated consensus. Counts
+are raw mentions across model-sampled terminality tasks in
+`live-run-20260826/normalised.json`; ISDA publisher anchors are `a3_market_size`
+entries whose publisher is "ISDA". The live run remains PROVISIONAL.
+
+| Division key | Live-run support | Tier | ISDA-adjacent terminality mentions | ISDA publisher anchors |
+|---|---:|---|---:|---:|
+| `collateral_margin_management` | 1 | WEAK | 11 | 4 |
+| `xva_counterparty_risk` | 2 | WEAK | 8 | 1 |
+| `credit_trading` | 4 | MODERATE | 6 | 0 |
+| `repo_secfin_collateral` | 2 | WEAK | 4 | 0 |
+| `buyside_trading_execution` | 3 | WEAK | 3 | 0 |
+| `cross_asset_structuring` | 1 | WEAK | 2 | 0 |
+| `equity_derivatives_structured` | 2 | WEAK | 2 | 0 |
+| `rates_trading` | 4 | MODERATE | 2 | 0 |
+| `trade_lifecycle_operations` | 3 | WEAK | 2 | 0 |
+| `client_lifecycle_kyc` | 0 | WEAK | 1 | 0 |
+| `fx_trading` | 3 | WEAK | 1 | 0 |
+| `model_risk_management` | 0 | WEAK | 1 | 0 |
+
+Counts are not importance scores. `client_lifecycle_kyc` and
+`model_risk_management` have live-run support of zero, so their single
+ISDA-adjacent mention is lexical residue, not a confirmed division.
+
+### ISDA-relevant public regimes per key
+
+| Division key | Selected ISDA-relevant public regimes |
+|---|---|
+| `credit_trading` | Real-time public reporting of swap transaction data; MiFIR post-trade transparency for bonds and credit derivatives; Short Selling Regulation sovereign and CDS restrictions |
+| `collateral_margin_management` | BCBS-IOSCO non-cleared margin; EMIR risk-mitigation margin RTS; CFTC/SEC uncleared swap margin; UMR |
+| `xva_counterparty_risk` | Uncleared margin rules; BCBS-IOSCO non-cleared margin requirements |
+| `repo_secfin_collateral` | SFTR securities financing transaction reporting; US Treasury clearing mandate for eligible repo |
+| `trade_lifecycle_operations` | EMIR timely confirmation and portfolio reconciliation; CFTC swap confirmation; CSDR settlement discipline |
+| `rates_trading` | CFTC swap-data reporting and swap-dealer business conduct; MiFIR derivatives trading obligation |
+| `client_lifecycle_kyc` | Swap dealer documentation and relationship-documentation requirements |
+
+### What ISDA's stack models versus what the grid models
+
+| ISDA layer | Typical ISDA concern |
+|---|---|
+| Trade | Execution, confirmation, affirmation, allocation |
+| Event | Credit events, lifecycle events, determinations, auctions, settlements |
+| Legal agreement | ISDA Master, CSA, Schedule, protocol adherence |
+| Report | Regulatory reporting, taxonomy, market-size surveys |
+
+| Grid layer | Grid concern |
+|---|---|
+| Division | Operational division of a global bank |
+| Function | Principal human seat inside the division |
+| Control point | Publicly citable checkpoint where a failure has a priced consequence |
+| Priced failure | Failure class with a public cost anchor (SPEC-03 I2) |
+
+The overlap is diagonal, not one-to-one. ISDA's trade layer crosses
+`trade_lifecycle_operations`, `rates_trading`, `credit_trading` and
+`client_lifecycle_kyc`. The event layer concentrates in `credit_trading`. The
+legal-agreement layer is most visible in `collateral_margin_management`,
+`repo_secfin_collateral` and `xva_counterparty_risk`. The report layer appears
+mainly as market-size anchors, not as a division.

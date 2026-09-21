@@ -10,6 +10,9 @@ It is **provisional** — the anchor-corroboration gate has not been satisfied. 
 The grid is a model-consensus prior, not a validated map. `docs/downstream-evidence.md` records how its division keys
 have been exercised by a preregistered downstream evaluation lane; those results are calibration evidence from a private
 corpus (one institution, not released) and are not validation of the grid.
+`docs/isda-overlap.md` records the ISDA regulatory overlap work and where the
+provisional live run touches ISDA standards and governance processes. The note
+does not claim validated consensus.
 
 | Artifact | Spec | Package | CLI | Tests |
 |---|---|---|---|---|

@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "404eae81d4ad75bdbe5d5087d925629c7dad6d3f",
-    "generated_at": "2026-09-21T00:10:14.552536Z"
+    "commit_sha": "dfb8dabbefd117d118e01b782ffa17a175298834",
+    "generated_at": "2026-09-21T00:11:18.071464Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -143,8 +143,8 @@
       "path": "docs/isda-overlap.md",
       "role": "documentation",
       "media_type": "text/markdown",
-      "size_bytes": 6627,
-      "sha256": "9c5de825b39c6467ae6176a0e8544ec3ddd36663fa2481cd135d7d79877b8ce6"
+      "size_bytes": 10535,
+      "sha256": "de7c38fecf93bc84dbcd1cd853b086a59a752da1cbef51131406a3e29739d7af"
     },
     {
       "path": "live-run-20260826/RUN_SUMMARY.json",
@@ -336,12 +336,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "702190b4d49519045df1a848f86e9b191b4fae9ea23d96afa4c20c760cb6a677",
+  "aggregate_sha256": "fd5371e51be272ad4285174fd46edf734d0f57c967f2050d746a3fd61eb165a3",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "a99dd8f7298d704cdafaa167130f6579530b27674033935e2fb75f6af1a49087"
+  "manifest_sha256": "8a9981e3f3282bf02474ca2705642426851116d3e3caa101e2b88e9cc1d50c84"
 }
