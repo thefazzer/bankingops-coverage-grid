@@ -27,9 +27,19 @@ Divisions named by four or more vendors: `prime_brokerage_financing`, `equities_
 
 ## Status — PROVISIONAL, do not cite
 
-G10 (panel width) passes. **G6 (corroboration) does not**: no anchor in this run has been verified by hand
-against an actual filing, rulebook or published series. Every citation below the matrix is a model's
-assertion and nothing more. The gate report in `gates_report.json` records this.
+G10 (panel width) passes. **G6 (corroboration) does not**. The corroboration ledger
+(`corroboration.csv`, 1015 rows) is now initialised from the published anchor pool so
+G6 can be evaluated as unverified rather than missing. Every row is `UNVERIFIED`:
+no anchor in this run has been verified by hand against an actual filing, rulebook
+or published series. The ISDA-adjacent keys listed in
+`drafts/2026-09-20-isda-g6-corroboration-priority.md` are the first queue for
+hand-corroboration; none are publishable yet. Every citation below the matrix is a
+model's assertion and nothing more. The gate report in `gates_report.json` still
+records G6 as FAIL.
+
+The pending `glm-5.2` retry did not produce three valid samples. The exclusion in
+`exclusions.json` is kept; a future retry that yields `k>=3` valid samples must
+remove the exclusion and rebuild the matrix.
 
 ## Reading the numbers
 

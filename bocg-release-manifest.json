@@ -2,15 +2,15 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.4.0",
-    "commit_sha": "5c7a5359dbcb4f7871a5676541df4d3263692e50",
-    "generated_at": "2026-09-20T23:26:36.011140Z"
+    "tag": "v0.5.0",
+    "commit_sha": "ed93dd775964f286dc333b5bcafcae82ecd6909e",
+    "generated_at": "2026-09-21T00:05:09.700978Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
     "version": "0.4.0",
     "path": "specs/common-semantic-profile.yaml",
-    "sha256": "7fff0bd67bd7265ce15d75d3729322f68d4b4e24fea281783053bd8654120427"
+    "sha256": "10e29ba5ad8ef911420582de8da005efd62d847f1d192eaeb35936c2656c0024"
   },
   "artifacts": [
     {
@@ -21,6 +21,34 @@
       "sha256": "1464979387f5a1d766e23b912c173fb10149ad83007555a0d89b43a07d104994"
     },
     {
+      "path": "cells/cp_credit_event_determination_committee_application.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1868,
+      "sha256": "7140d03ed61af259ec4c5942c79d946334c2367e919b4cedd4293f9efa0f00bd"
+    },
+    {
+      "path": "cells/cp_derivatives_documentation_execution.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 2066,
+      "sha256": "694212565612ecd8bb4ddaa4889fe48af682c49a196947f8aaf177c5dd88e20a"
+    },
+    {
+      "path": "cells/cp_derivatives_transaction_reporting_uti_upi.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 2168,
+      "sha256": "83820c649aa57202a39b8aafed28f8edcbeabbc538d52e7c33f18ea7be6d1023"
+    },
+    {
+      "path": "cells/cp_otc_derivatives_confirmation_reconciliation.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1932,
+      "sha256": "4f731c398efb6cd44cbaef6b0ee4756a5252e0de2c29de49956bc314747a8acf"
+    },
+    {
       "path": "cells/cp_settled_instruction_amendment.json",
       "role": "control-point-cell",
       "media_type": "application/json",
@@ -28,11 +56,25 @@
       "sha256": "92d0886e8b1b3619ac845dafc93e439e8e19d16e2787d35ffacdee6f201d8e53"
     },
     {
+      "path": "cells/cp_simm_initial_margin_reconciliation.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1893,
+      "sha256": "741e3460dbe01a8c7c4d78cb4c61fcedf30aa90e3a90eabb51d70570371a9bd2"
+    },
+    {
+      "path": "docs/isda-overlap.md",
+      "role": "documentation",
+      "media_type": "text/markdown",
+      "size_bytes": 5671,
+      "sha256": "c00a51b19bc284d248e668bdcd82f8d76d82fc77c338a302c97d271844150487"
+    },
+    {
       "path": "live-run-20260826/RUN_SUMMARY.json",
       "role": "run-summary",
       "media_type": "application/json",
-      "size_bytes": 1604,
-      "sha256": "60f92a2dde2d755f05071e0bde76fe4990479acab7b4afa32ab5178986899925"
+      "size_bytes": 1671,
+      "sha256": "b5e1eabce644a35387adf132950285593dab4adf465655237fce20f7ab4799d4"
     },
     {
       "path": "live-run-20260826/aliases.yaml",
@@ -45,8 +87,8 @@
       "path": "live-run-20260826/exclusions.json",
       "role": "exclusion-ledger",
       "media_type": "application/json",
-      "size_bytes": 1585,
-      "sha256": "5b33ae4c16b62b30361394f82da290a965bb9825ace90a3686535e2d1d53bd55"
+      "size_bytes": 1635,
+      "sha256": "28b0c86622fd93277ffd0882585956d7792446918dabb5c4d8432b0d904ba4d8"
     },
     {
       "path": "live-run-20260826/gates_report.json",
@@ -101,8 +143,8 @@
       "path": "specs/SPEC-05-insight-construction.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 2187,
-      "sha256": "2b958ee407e4fb3f3512dd9529264d3ed4c23c4a13d78134664e361f37f42d6b"
+      "size_bytes": 2731,
+      "sha256": "39b9a39c619da2f9c0bc731eb95e741dabb2a20e82570cc2932e1eca6bcf5354"
     },
     {
       "path": "specs/SPEC-06-operating-reference.md",
@@ -110,6 +152,13 @@
       "media_type": "text/markdown",
       "size_bytes": 3643,
       "sha256": "286127536253bc021f5341c34727508d1b3fbb0c7099a68aeb2fabc3438869a7"
+    },
+    {
+      "path": "specs/SPEC-07-replayable-compliance-scenario.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 2759,
+      "sha256": "23378c5f8f8422b6a29460929ee46dd69e858441b523e4367d6b6c6504584e1f"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -122,8 +171,8 @@
       "path": "specs/common-semantic-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 15675,
-      "sha256": "7fff0bd67bd7265ce15d75d3729322f68d4b4e24fea281783053bd8654120427"
+      "size_bytes": 16608,
+      "sha256": "10e29ba5ad8ef911420582de8da005efd62d847f1d192eaeb35936c2656c0024"
     },
     {
       "path": "specs/control-point-cell.schema.json",
@@ -136,22 +185,22 @@
       "path": "specs/insight-construction-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 2311,
-      "sha256": "dc87f4b4b84c7436d7b1735c2ee35ea942eed7dfd0f4ad3707aaa1891e66e0f7"
+      "size_bytes": 2846,
+      "sha256": "09c833b3c89062cd74be7c0e54adea91732a38d3949e35ed639a9536ea51f904"
     },
     {
       "path": "specs/insight-construction.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 3248,
-      "sha256": "ef89fa1b2d4f3fc880e79856dcebeea790347185acc6927fdf36c6956a264d0f"
+      "size_bytes": 4538,
+      "sha256": "81dccbe2a27c521b0937cc2382824fe12fd0c3d53e52fa6717d257fa7c1814d1"
     },
     {
       "path": "specs/institutional-speech-act.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 1975,
-      "sha256": "8eb09ffc122460f0d24c250c8e75ff448952bf94a66b20b1683983658e5606b9"
+      "size_bytes": 2640,
+      "sha256": "c384877f8a8a33fab093f01ba1d88ddbb4955e03502a39d3c3f6ae46bbc9a109"
     },
     {
       "path": "specs/operating-reference-contract.json",
@@ -168,6 +217,13 @@
       "sha256": "b4a3aae9f2056f273245a4118da9c64ab8b07925a41c092d4a9c19a07e3a3068"
     },
     {
+      "path": "specs/replayable-compliance-scenario.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 4408,
+      "sha256": "848505e3a8329aeec09ce79f4422265685fc9c39a20f6c777de7ee8a86bfe564"
+    },
+    {
       "path": "specs/rubrics/episode-feasibility.yaml",
       "role": "adjudication-rubric",
       "media_type": "application/yaml",
@@ -180,14 +236,21 @@
       "media_type": "application/yaml",
       "size_bytes": 874,
       "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
+    },
+    {
+      "path": "specs/scenario-run-ledger.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 2587,
+      "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "e7fd3bc25a4c549f6cdf6b4bc80e0c4f7346eb70496c0f7696df7f512750807e",
+  "aggregate_sha256": "b2d77df813b498160d54c8d6489de1d0ba456681234bf8aac7025783a6f6f2e4",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "99008c8c83caeb479c3cd22f2048c1f90db26a484a3a2e7a9d4da5df6a017fee"
+  "manifest_sha256": "b29c589a8b5ad9cdfe121786d8aa17abc3bb2599d692cd8c20c52eab2c150535"
 }
