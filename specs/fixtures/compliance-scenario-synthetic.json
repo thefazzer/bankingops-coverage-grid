@@ -1,0 +1,46 @@
+{
+  "schema": "bocg.compliance-scenario/v1",
+  "scenario_id": "synthetic-cp-settled-instruction-amendment-001",
+  "manifest_sha256": "0921ca93b312fad0c2e1d5574ac21e812a8291dac3b3601e069c29ac612084c9",
+  "cell_id": "cp_settled_instruction_amendment",
+  "task_ref": "task:buyside_trading_execution:4da0790ddda180b928fa5a7a",
+  "input_state": {
+    "kind": "synthetic_fixture",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "locator": "specs/fixtures/compliance-scenario-input-synthetic.json"
+  },
+  "oracle": {
+    "kind": "rule_predicate",
+    "version": "v0.1.0",
+    "locator": "specs/fixtures/cp_settled_instruction_amendment_oracle.py",
+    "parameters_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "expected_verdict": {
+    "predicate": "all_of",
+    "lifecycle_states": ["scheduled", "executed", "completed", "verified"],
+    "directive_may_satisfy_execution": false
+  },
+  "deadline": {
+    "regime_clock_ref": "CSDR settlement discipline: instruction amendment deadline on S-1 before 14:00 CET",
+    "observed_at": "2026-09-20T12:00:00Z"
+  },
+  "pass_rule": {
+    "kind": "replicates",
+    "statistical_assertion": {
+      "metric": "exact_match",
+      "threshold": 0.95,
+      "confidence_level": 0.95
+    },
+    "is_boolean": false
+  },
+  "leakage_attestation": {
+    "lat_holdout_commitment_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "mode": "holdout"
+  },
+  "controls": {
+    "five_families_checks": [
+      "NEGATIVE_CONTROL",
+      "EVIDENCE_ABLATION"
+    ]
+  }
+}

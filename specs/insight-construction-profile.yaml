@@ -42,6 +42,45 @@ lifecycle_vocabulary:
     scheduled_implies_execution: false
     executed_implies_completion: false
     completed_implies_verification: false
+  temporal_semantics:
+    observation_time_is_not_validity_time: true
+    deadline_is_not_evidence_of_execution: true
+    scheduled_at_does_not_assert_executed_at: true
+    completed_at_does_not_assert_verified_at: true
+    unknown_bounds_remain_unknown: true
+    anchor_types:
+      - observed_at
+      - valid_from
+      - valid_to
+      - deadline
+      - scheduled_at
+      - executed_at
+      - completed_at
+      - verified_at
+    deadline_types:
+      - regulatory
+      - contractual
+      - internal_sla
+      - market_cutoff
+    occurred_at:
+      definition: Source-grounded timestamp at which a transition into a lifecycle state occurred.
+      source_anchor_required: true
+      signal: source_grounded_temporal_anchor
+      format: ISO 8601 date-time
+    deadline_ref:
+      definition: Regime clock expression describing when a lifecycle transition is due.
+      expression_examples:
+        - "T+1 business day"
+        - "EMIR reporting deadline"
+        - "CSA notification time"
+      citation_required: true
+    calendar_ref:
+      definition: Business-day calendar identifier used to interpret deadline_ref.
+      examples:
+        - "TARGET2"
+        - "FED"
+        - "LSE"
+        - "firm-internal calendar"
 
 adjudication_policy:
   source_and_machine_construction_immutable: true

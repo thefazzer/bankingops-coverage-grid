@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_simm_initial_margin_reconciliation",
+  "division_key": "collateral_margin_management",
+  "job_function": "collateral and margin operations - bilateral initial margin",
+  "control_point": "Regulatory initial margin for non-cleared derivatives is calculated, reconciled and disputed under the ISDA SIMM standard model or a regulator-approved alternative; the control point is the bilateral agreement of the IM amount, composition and segregation before the regulatory settlement deadline.",
+  "citations": [
+    {
+      "source_name": "BCBS-IOSCO, Margin requirements for non-centrally cleared derivatives, September 2013",
+      "url": "https://www.bis.org/publ/bcbs261.pdf",
+      "clause": " paragraphs 20–25",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "ISDA, Standard Initial Margin Model for Non-Cleared Derivatives, version 2.6",
+      "url": "https://www.isda.org/book/standard-initial-margin-model-for-non-cleared-derivatives/",
+      "clause": "SIMM specification",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "margin_dispute",
+    "public_source": "BCBS-IOSCO non-cleared margin framework and CFTC/SEC/ESMA/PRA supervisory remediation for missed IM calls and unsegregated margin",
+    "magnitude_band": "regulatory remediation, capped variation margin haircut disallowance and published enforcement fines; material disputes can delay trading capacity"
+  },
+  "commonality_rationale": "Every in-scope swap dealer and financial end-user computes and exchanges regulatory IM daily under consistent SIMM parameters; public enforcement actions and ISDA dispute-resolution guidance confirm the operational commonality.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted from public sources)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}
