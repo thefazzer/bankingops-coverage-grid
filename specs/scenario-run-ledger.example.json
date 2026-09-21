@@ -1,0 +1,74 @@
+{
+  "schema": "bocg.scenario-run-ledger.v1",
+  "version": "0.1.0",
+  "rows": [
+    {
+      "row_sha256": "a65aab35e56712bbf92878df4d24df3cf9185cc7ed4d6617fe34413cd9b5f7ed",
+      "recorded_at": "2026-09-20T12:00:00Z",
+      "replaces_row_sha256": null,
+      "model": {
+        "model_id": "claude-opus-5",
+        "provider_release": "anthropic/2.1.0"
+      },
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "replicates": 3,
+      "judge_ids": [
+        "judge-primary",
+        "judge-sensitivity"
+      ],
+      "pass_rule_ref": "five-families/intersection-union/v1",
+      "verdict": "PASS",
+      "freeze": {
+        "runner_sha256": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+        "clean_tree": true
+      },
+      "evidence_ref": "0000111122223333444455556666777788889999aaaabbbbccccddddeeeeffff"
+    },
+    {
+      "row_sha256": "64c312c938665eeed09c92ecfa442e508fe8ccb150478b8cfd4e4fbed0e72320",
+      "recorded_at": "2026-09-21T10:00:00Z",
+      "replaces_row_sha256": "a65aab35e56712bbf92878df4d24df3cf9185cc7ed4d6617fe34413cd9b5f7ed",
+      "model": {
+        "model_id": "claude-opus-5",
+        "provider_release": "anthropic/2.1.0"
+      },
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "replicates": 4,
+      "judge_ids": [
+        "judge-primary",
+        "judge-sensitivity"
+      ],
+      "pass_rule_ref": "five-families/intersection-union/v1",
+      "verdict": "UNCERTAIN",
+      "freeze": {
+        "runner_sha256": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+        "clean_tree": true
+      },
+      "evidence_ref": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+    },
+    {
+      "row_sha256": "891a0ede3d2bdef6bcb50a3ed9f94e499eba352fc1b10675cc57c6c035432cbe",
+      "recorded_at": "2026-09-21T11:00:00Z",
+      "replaces_row_sha256": null,
+      "model": {
+        "model_id": "gpt-5.6-sol",
+        "provider_release": "openai/2026-08"
+      },
+      "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "scenario_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "replicates": 3,
+      "judge_ids": [
+        "judge-primary"
+      ],
+      "pass_rule_ref": "five-families/intersection-union/v1",
+      "verdict": "FAIL",
+      "freeze": {
+        "runner_sha256": "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+        "clean_tree": false
+      },
+      "evidence_ref": "fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210"
+    }
+  ]
+}

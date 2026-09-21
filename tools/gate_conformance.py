@@ -329,6 +329,49 @@ def gate_compliance_scenarios() -> None:
         pass
 
 
+def gate_scenario_run_ledger() -> None:
+    """S7: append-only scenario-run ledger schema, fixture and row integrity."""
+    schema_path = ROOT / "specs/scenario-run-ledger-rows.schema.json"
+    fixture_path = ROOT / "specs/scenario-run-ledger.example.json"
+    try:
+        schema = json.loads(schema_path.read_text())
+        ledger = json.loads(fixture_path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"S7-G1 scenario-run ledger unreadable: {exc}")
+        return
+    try:
+        import jsonschema
+        validator = jsonschema.Draft202012Validator(schema)
+    except ImportError:
+        validator = None
+    if validator:
+        for err in validator.iter_errors(ledger):
+            fail(f"S7-G1 fixture schema: {err.message[:120]}")
+    if ledger.get("schema") != "bocg.scenario-run-ledger.v1":
+        fail("S7-G1 ledger schema identity drifted")
+    rows = ledger.get("rows") or []
+    seen_hashes = set()
+    for i, row in enumerate(rows):
+        claimed = row.get("row_sha256")
+        body = {k: v for k, v in row.items() if k != "row_sha256"}
+        computed = sha256_bytes(canonical_json(body))
+        if claimed != computed:
+            fail(f"S7-G2 row {i}: row_sha256 mismatch")
+        if claimed in seen_hashes:
+            fail(f"S7-G2 row {i}: duplicate row_sha256")
+        seen_hashes.add(claimed)
+        replaces = row.get("replaces_row_sha256")
+        if replaces is not None and replaces not in seen_hashes:
+            fail(f"S7-G2 row {i}: replaces_row_sha256 does not resolve to an earlier row")
+    families = yaml.safe_load((ROOT / "specs/rubrics/five-families.yaml").read_text())
+    allowed_verdicts = set((families.get("rubric") or {}).get("verdicts") or [])
+    if not {"PASS", "FAIL", "UNCERTAIN", "NOT_APPLICABLE"}.issubset(allowed_verdicts):
+        fail("S7-G3 five-families verdict vocabulary missing required values")
+    for i, row in enumerate(rows):
+        if row.get("verdict") not in allowed_verdicts:
+            fail(f"S7-G3 row {i}: verdict not in five-families vocabulary")
+
+
 def main() -> int:
     gate_cells()
     gate_deny()
@@ -337,6 +380,7 @@ def main() -> int:
     gate_release_manifest()
     gate_insight_construction()
     gate_compliance_scenarios()
+    gate_scenario_run_ledger()
     if FAILURES:
         print("GATE FAILURES:")
         for f in FAILURES:

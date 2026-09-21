@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "dfb8dabbefd117d118e01b782ffa17a175298834",
-    "generated_at": "2026-09-21T00:11:18.071464Z"
+    "commit_sha": "2bcca22528f9355bceaf72bd34942ae30ea348a3",
+    "generated_at": "2026-09-21T00:12:35.716963Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -245,6 +245,13 @@
       "sha256": "23378c5f8f8422b6a29460929ee46dd69e858441b523e4367d6b6c6504584e1f"
     },
     {
+      "path": "specs/SPEC-07-scenario-run-ledger.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 3830,
+      "sha256": "64846e236239a238a4e16678099ccf0cc9d3eec1fd5515aaca5252f4a73b6f0b"
+    },
+    {
       "path": "specs/bocg-release-manifest.schema.json",
       "role": "release-manifest-schema",
       "media_type": "application/json",
@@ -329,6 +336,13 @@
       "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
     },
     {
+      "path": "specs/scenario-run-ledger-rows.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 4405,
+      "sha256": "ad4647e4ec0b160c95ae32e0501e2a42ee99ac0247853741d79ed0a81fce4b0b"
+    },
+    {
       "path": "specs/scenario-run-ledger.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
@@ -336,12 +350,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "fd5371e51be272ad4285174fd46edf734d0f57c967f2050d746a3fd61eb165a3",
+  "aggregate_sha256": "965f84497a6af75a64f5aaefdc75b7c9a8f10d88852903b72b37e43361c292d0",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "8a9981e3f3282bf02474ca2705642426851116d3e3caa101e2b88e9cc1d50c84"
+  "manifest_sha256": "81c92c62aa9baa5b0fa08376d423aaefe52b1a73291d7cd28671d19fc664b05c"
 }

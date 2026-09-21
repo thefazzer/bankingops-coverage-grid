@@ -22,7 +22,8 @@
     reporting-error remediation).
   - Add SPEC-07 replayable compliance scenario contract and scenario run ledger
     schema (model release, manifest hash, scenario hash, verdict), plus the
-    operational scenario schema, synthetic fixture and S7 conformance gate.
+    operational scenario schema, synthetic fixture, append-only row ledger and
+    S7 conformance gates.
   - Add time and deadline semantics for SPEC-05 lifecycle states, including
     optional per-state `occurred_at` / `deadline_ref` / `calendar_ref`
     transitions alongside episode-level temporal anchors.
