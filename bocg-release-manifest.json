@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "b012ed5c6432e28e670d3bd3dc72513bb90a0998",
-    "generated_at": "2026-09-21T00:08:28.808432Z"
+    "commit_sha": "969321aa89f0cb228ab31908f9f6d0d5d628f84b",
+    "generated_at": "2026-09-21T00:09:05.954129Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -33,6 +33,13 @@
       "media_type": "application/json",
       "size_bytes": 1868,
       "sha256": "7140d03ed61af259ec4c5942c79d946334c2367e919b4cedd4293f9efa0f00bd"
+    },
+    {
+      "path": "cells/cp_dc_outcome_application.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 2086,
+      "sha256": "0c541cb8abfb6fe666980a3e759a8b762c9af4a05d11c53a7b062caea0e4e126"
     },
     {
       "path": "cells/cp_derivatives_documentation_execution.json",
@@ -301,12 +308,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "1e9d446e9f69842bb0fae93d876c6228a412bfcf65b8c9cb5ec7477b18ec39bd",
+  "aggregate_sha256": "cc6c576ca6b209879239ab8af0429451bed4377f6d2b6bab490fff34a5ec211b",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "0921ca93b312fad0c2e1d5574ac21e812a8291dac3b3601e069c29ac612084c9"
+  "manifest_sha256": "cfe8515706657367a6b02d0c9ab03eec452470a8a170eb54386879cfc6a290e8"
 }

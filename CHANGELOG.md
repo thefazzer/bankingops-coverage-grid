@@ -13,6 +13,7 @@
   - Promote `derivatives_documentation_control` to `candidate_vocabulary_gaps`.
   - Author PROPOSED control-point cells for ISDA-native margin, reporting,
     confirmation, Determinations Committee and documentation controls, including
+    a dedicated DC outcome-application cell under credit trading and
     six reporting/confirmation cells (CFTC Part 43, EMIR REFIT UTI pairing,
     MiFIR Art. 26, OTC confirmation timeliness, portfolio reconciliation and
     reporting-error remediation).
