@@ -3,14 +3,14 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "58f32e2ceb7fd0c3fbe750d0c1700bd108f299c4",
-    "generated_at": "2026-09-21T00:09:40.532790Z"
+    "commit_sha": "404eae81d4ad75bdbe5d5087d925629c7dad6d3f",
+    "generated_at": "2026-09-21T00:10:14.552536Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
     "version": "0.4.0",
     "path": "specs/common-semantic-profile.yaml",
-    "sha256": "18ebcc596b556985b0542797ff7e3adf69c8b4f40efe8038c45d1ca9488cb94b"
+    "sha256": "459dc8feb1c4d979c047cfd59afbc197d368ab045db5a4ceaaec77146cbe2732"
   },
   "artifacts": [
     {
@@ -19,6 +19,13 @@
       "media_type": "text/markdown",
       "size_bytes": 4130,
       "sha256": "1464979387f5a1d766e23b912c173fb10149ad83007555a0d89b43a07d104994"
+    },
+    {
+      "path": "cells/cp_aana_umr_scope.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1920,
+      "sha256": "2170fcdbb608d19f2d55569dbb24e7d613a829033aa94dfe009c34fffb787c52"
     },
     {
       "path": "cells/cp_cftc_part43_realtime.json",
@@ -33,6 +40,13 @@
       "media_type": "application/json",
       "size_bytes": 1868,
       "sha256": "7140d03ed61af259ec4c5942c79d946334c2367e919b4cedd4293f9efa0f00bd"
+    },
+    {
+      "path": "cells/cp_csa_vm_call_timeline.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1852,
+      "sha256": "8c0bcfb98a2e5a50bdfdfbba0b066a55cc43872abd13dfd65d7f733551880c2d"
     },
     {
       "path": "cells/cp_dc_outcome_application.json",
@@ -105,11 +119,25 @@
       "sha256": "92d0886e8b1b3619ac845dafc93e439e8e19d16e2787d35ffacdee6f201d8e53"
     },
     {
+      "path": "cells/cp_simm_im_dispute.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1982,
+      "sha256": "4642b22683626143d81fce39c8efbb65d171c7a1852215c1654485155bcdc264"
+    },
+    {
       "path": "cells/cp_simm_initial_margin_reconciliation.json",
       "role": "control-point-cell",
       "media_type": "application/json",
       "size_bytes": 1893,
       "sha256": "741e3460dbe01a8c7c4d78cb4c61fcedf30aa90e3a90eabb51d70570371a9bd2"
+    },
+    {
+      "path": "cells/cp_umr_im_segregation.json",
+      "role": "control-point-cell",
+      "media_type": "application/json",
+      "size_bytes": 1910,
+      "sha256": "e273d3fa7ff8fbe2587a35e15c618f4889a3afb65f3ea383658d1526aac56a12"
     },
     {
       "path": "docs/isda-overlap.md",
@@ -227,8 +255,8 @@
       "path": "specs/common-semantic-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 16864,
-      "sha256": "18ebcc596b556985b0542797ff7e3adf69c8b4f40efe8038c45d1ca9488cb94b"
+      "size_bytes": 16823,
+      "sha256": "459dc8feb1c4d979c047cfd59afbc197d368ab045db5a4ceaaec77146cbe2732"
     },
     {
       "path": "specs/compliance-scenario.schema.json",
@@ -308,12 +336,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "1f8e9f17c54b051f635a11dad7258f7a3802db7ac911fe53159ee51bb84fc313",
+  "aggregate_sha256": "702190b4d49519045df1a848f86e9b191b4fae9ea23d96afa4c20c760cb6a677",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "67acf5881217a3bf188b42efe46d0279afebfdf3420496356b14c6d248edb0ec"
+  "manifest_sha256": "a99dd8f7298d704cdafaa167130f6579530b27674033935e2fb75f6af1a49087"
 }

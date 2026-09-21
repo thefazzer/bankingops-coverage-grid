@@ -39,6 +39,10 @@ solution-neutral and cite only public sources.
 | Cell | Division | Control point |
 |---|---|---|
 | `cp_simm_initial_margin_reconciliation` | `collateral_margin_management` | Bilateral agreement of SIMM initial margin before the regulatory settlement deadline. |
+| `cp_aana_umr_scope` | `collateral_margin_management` | AANA computation and documentation for UMR in-scope status. |
+| `cp_csa_vm_call_timeline` | `collateral_margin_management` | Daily CSA variation-margin call within the regulatory timeline. |
+| `cp_simm_im_dispute` | `collateral_margin_management` | Investigation and resolution of SIMM IM differences above the dispute threshold. |
+| `cp_umr_im_segregation` | `collateral_margin_management` | Regulatory IM calculation, segregated posting and segregation evidence. |
 | `cp_otc_derivatives_confirmation_reconciliation` | `trade_lifecycle_operations` | OTC derivative confirmation and portfolio reconciliation against counterparty data. |
 | `cp_derivatives_transaction_reporting_uti_upi` | `regulatory_transaction_reporting` | UTI/UPI generation, validation and pair-matching for OTC derivative transaction reports. |
 | `cp_credit_event_determination_committee_application` | `credit_trading` | Application of ISDA Determinations Committee outcomes to credit derivatives positions. |
