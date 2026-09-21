@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "ed93dd775964f286dc333b5bcafcae82ecd6909e",
-    "generated_at": "2026-09-21T00:05:09.700978Z"
+    "commit_sha": "a92b558c9eaa6b683e79c40038ffff6d5258a16c",
+    "generated_at": "2026-09-21T00:06:22.489567Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -143,8 +143,8 @@
       "path": "specs/SPEC-05-insight-construction.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 2731,
-      "sha256": "39b9a39c619da2f9c0bc731eb95e741dabb2a20e82570cc2932e1eca6bcf5354"
+      "size_bytes": 3436,
+      "sha256": "81fd08c629667e7e641d35f58b97b75e39f8ccf942ecb2080165d47411d800d2"
     },
     {
       "path": "specs/SPEC-06-operating-reference.md",
@@ -185,15 +185,15 @@
       "path": "specs/insight-construction-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 2846,
-      "sha256": "09c833b3c89062cd74be7c0e54adea91732a38d3949e35ed639a9536ea51f904"
+      "size_bytes": 3543,
+      "sha256": "10237a665f8d77daf2cb1b9478226d9819e8259912780b93c496460ddfa26c07"
     },
     {
       "path": "specs/insight-construction.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 4538,
-      "sha256": "81dccbe2a27c521b0937cc2382824fe12fd0c3d53e52fa6717d257fa7c1814d1"
+      "size_bytes": 5716,
+      "sha256": "ee276937671e70c102bc031680d404d53dc8e6848d2d1cc258899b1c2dac6d8b"
     },
     {
       "path": "specs/institutional-speech-act.schema.json",
@@ -245,12 +245,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "b2d77df813b498160d54c8d6489de1d0ba456681234bf8aac7025783a6f6f2e4",
+  "aggregate_sha256": "76d5aab9822cf0a9012c56aa8102f45b65c9158bde2c8295ed0e13c3103b4d06",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "b29c589a8b5ad9cdfe121786d8aa17abc3bb2599d692cd8c20c52eab2c150535"
+  "manifest_sha256": "c29ff83cb40006b9d858c30d597ddf2da264a0cdde33f06337c8fd7871220f2f"
 }

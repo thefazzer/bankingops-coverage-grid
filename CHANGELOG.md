@@ -15,7 +15,9 @@
     confirmation, Determinations Committee and documentation controls.
   - Add SPEC-07 replayable compliance scenario contract and scenario run ledger
     schema (model release, manifest hash, scenario hash, verdict).
-  - Add time and deadline semantics for SPEC-05 lifecycle states.
+  - Add time and deadline semantics for SPEC-05 lifecycle states, including
+    optional per-state `occurred_at` / `deadline_ref` / `calendar_ref`
+    transitions alongside episode-level temporal anchors.
   - Publish G6 corroboration priority draft for ISDA-adjacent division keys and
     `docs/isda-overlap.md`.
   - Initialise the live-run corroboration ledger (1015 UNVERIFIED rows) so G6
