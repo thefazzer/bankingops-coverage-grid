@@ -3,14 +3,14 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.5.0",
-    "commit_sha": "969321aa89f0cb228ab31908f9f6d0d5d628f84b",
-    "generated_at": "2026-09-21T00:09:05.954129Z"
+    "commit_sha": "58f32e2ceb7fd0c3fbe750d0c1700bd108f299c4",
+    "generated_at": "2026-09-21T00:09:40.532790Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
     "version": "0.4.0",
     "path": "specs/common-semantic-profile.yaml",
-    "sha256": "10e29ba5ad8ef911420582de8da005efd62d847f1d192eaeb35936c2656c0024"
+    "sha256": "18ebcc596b556985b0542797ff7e3adf69c8b4f40efe8038c45d1ca9488cb94b"
   },
   "artifacts": [
     {
@@ -115,8 +115,8 @@
       "path": "docs/isda-overlap.md",
       "role": "documentation",
       "media_type": "text/markdown",
-      "size_bytes": 6464,
-      "sha256": "4624830dc95c4e383b0d7ad8e1198926f312d69c0cd0e1a0445a688b90a9171f"
+      "size_bytes": 6627,
+      "sha256": "9c5de825b39c6467ae6176a0e8544ec3ddd36663fa2481cd135d7d79877b8ce6"
     },
     {
       "path": "live-run-20260826/RUN_SUMMARY.json",
@@ -227,8 +227,8 @@
       "path": "specs/common-semantic-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
-      "size_bytes": 16608,
-      "sha256": "10e29ba5ad8ef911420582de8da005efd62d847f1d192eaeb35936c2656c0024"
+      "size_bytes": 16864,
+      "sha256": "18ebcc596b556985b0542797ff7e3adf69c8b4f40efe8038c45d1ca9488cb94b"
     },
     {
       "path": "specs/compliance-scenario.schema.json",
@@ -308,12 +308,12 @@
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
     }
   ],
-  "aggregate_sha256": "cc6c576ca6b209879239ab8af0429451bed4377f6d2b6bab490fff34a5ec211b",
+  "aggregate_sha256": "1f8e9f17c54b051f635a11dad7258f7a3802db7ac911fe53159ee51bb84fc313",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "cfe8515706657367a6b02d0c9ab03eec452470a8a170eb54386879cfc6a290e8"
+  "manifest_sha256": "67acf5881217a3bf188b42efe46d0279afebfdf3420496356b14c6d248edb0ec"
 }

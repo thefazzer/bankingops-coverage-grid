@@ -10,7 +10,9 @@
   - Extend mapping-policy usage notes so all declared standards, including the
     ISDA-adjacent entries, use only `close-match`, `related-match`,
     `narrower-than` or `schema-correspondence`.
-  - Promote `derivatives_documentation_control` to `candidate_vocabulary_gaps`.
+  - Promote `derivatives_documentation_control` to `candidate_vocabulary_gaps`
+    and record the non-normative derivatives trading documentation control
+    candidate draft.
   - Author PROPOSED control-point cells for ISDA-native margin, reporting,
     confirmation, Determinations Committee and documentation controls, including
     a dedicated DC outcome-application cell under credit trading and

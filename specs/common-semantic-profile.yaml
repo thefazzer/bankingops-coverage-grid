@@ -310,3 +310,4 @@ candidate_vocabulary_gaps:
     # model support in the live run. A distinct division key may be warranted
     # once corroboration shows it is named independently by multiple models.
     - derivatives_documentation_control (ISDA Master, credit support and securities financing documentation execution, protocol adherence and repapering); nearest existing key client_lifecycle_kyc
+    - derivatives trading documentation control (ISDA Master / CSA / GMRA / GMSLA execution and term capture; protocol adherence; netting-opinion coverage); nearest existing key client_lifecycle_kyc; name left open
