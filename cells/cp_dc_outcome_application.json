@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_dc_outcome_application",
+  "division_key": "credit_trading",
+  "job_function": "credit derivatives control - determinations committee outcome application",
+  "control_point": "After a Credit Derivatives Determinations Committee resolution, affected credit-derivative positions are re-papered, cash-settled or adjusted in accordance with the applicable Credit Derivatives Definitions, governed by credit trading with product control confirmation of the resulting position or settlement amount.",
+  "citations": [
+    {
+      "source_name": "ISDA 2014 Credit Derivatives Definitions",
+      "url": "https://www.isda.org/book/2014-credit-derivatives-definitions/",
+      "clause": "Article III and Article XII (Credit Events, Succession Events and related settlement provisions)",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Credit Derivatives Determinations Committees Rules (ISDA)",
+      "url": "https://www.cdsdeterminationscommittees.org/rules/",
+      "clause": "Rules governing DC resolutions, public questions and binding effect on market participants",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "mispayment",
+    "public_source": "ISDA 2014 Credit Derivatives Definitions auction settlement and succession-event adjustment mechanics; market-published CDS settlement amounts and reference-entity succession splits",
+    "magnitude_band": "wrong auction settlement amount or erroneous succession split applied to CDS position; material mark-to-market and settlement-amount exposure, scaled by net-position notional"
+  },
+  "commonality_rationale": "Every sell-side institution active in credit derivatives holds CDS positions governed by ISDA Definitions and subject to DC resolutions; the auction and succession mechanics are standardized across the market and the operational control is a known recurring process.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5 (assistant-drafted worked example)",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

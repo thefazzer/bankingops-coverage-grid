@@ -36,6 +36,26 @@ The lifecycle states `directed`, `scheduled`, `executed`, `completed` and
 `verified` are non-interchangeable. A directive MUST NOT establish execution,
 completion or verification.
 
+## Temporal anchors and deadlines
+
+Episode and obligation-frame records may carry typed temporal anchors
+(`observed_at`, `valid_from`, `valid_to`, `deadline`, `scheduled_at`,
+`executed_at`, `completed_at`, `verified_at`). An observation timestamp never
+supplies a validity bound, and a scheduled time never proves execution. Deadline
+constraints name a deadline type (`regulatory`, `contractual`, `internal_sla`,
+`market_cutoff`) and a reference time; they express when a state is due, not that
+it occurred. Unknown timestamps remain unknown.
+
+Lifecycle states are also deadline-bearing transitions. Each state MAY remain a
+plain vocabulary value or MAY be a `LifecycleStateTransition` carrying an
+optional `occurred_at` timestamp that MUST be grounded in a source span, per the
+episode-feasibility rubric's `source_grounded_temporal_anchor` signal. A state
+MAY also carry a `deadline_ref` expressing the regime clock expression (for
+example `T+1 business day`, `EMIR reporting deadline`, `CSA notification time`)
+together with the citation it derives from, and a `calendar_ref` identifying the
+business-day calendar used to interpret that expression. These temporal fields
+are optional and occur on transitions, not on abstract vocabulary values.
+
 ## Adjudication
 
 Machine constructions are immutable. SME decisions are append-only overlays,

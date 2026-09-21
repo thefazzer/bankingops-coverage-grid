@@ -1,0 +1,32 @@
+{
+  "cell_id": "cp_mifir_art26_t1_submission",
+  "division_key": "regulatory_transaction_reporting",
+  "job_function": "regulatory transaction reporting operations",
+  "control_point": "A complete and accurate Article 26 transaction report is submitted by close of T+1 for every reportable execution under MiFIR.",
+  "citations": [
+    {
+      "source_name": "Regulation (EU) No 600/2014 (MiFIR), Article 26 - transaction reporting",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0600",
+      "clause": "Article 26",
+      "accessed": "2026-09-20"
+    },
+    {
+      "source_name": "Commission Delegated Regulation (EU) 2017/590 (RTS 22) laying down standards for the content and format of transaction reports",
+      "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R0590",
+      "clause": "Articles 1-3",
+      "accessed": "2026-09-20"
+    }
+  ],
+  "consequence_anchor": {
+    "failure_class": "regulatory_fine",
+    "public_source": "MiFIR transaction-reporting enforcement by national competent authorities under Article 35 of Directive 2014/65/EU and Article 39 of Regulation (EU) No 600/2014",
+    "magnitude_band": "published administrative fines in the low- to mid-million-euro range for firms with repeated late, incomplete or inaccurate MiFIR reports"
+  },
+  "commonality_rationale": "All investment firms executing reportable instruments under MiFIR must submit T+1 transaction reports to their competent authority; the obligation spans equity, fixed-income and derivatives markets and is enforced consistently across EU jurisdictions.",
+  "status": "PROPOSED",
+  "methods": {
+    "generated_by": "claude-sonnet-5",
+    "generated_on": "2026-09-20",
+    "curated_by": null
+  }
+}

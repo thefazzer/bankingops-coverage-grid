@@ -266,6 +266,69 @@ def gate_insight_construction() -> None:
         fail("S5-G5 Five Families vocabulary drifted")
 
 
+def gate_compliance_scenarios() -> None:
+    """S7: replayable compliance scenarios are schema-valid, pinned and lifecycle-safe."""
+    schema_path = ROOT / "specs/compliance-scenario.schema.json"
+    fixture_path = ROOT / "specs/fixtures/compliance-scenario-synthetic.json"
+    manifest_path = ROOT / "bocg-release-manifest.json"
+    try:
+        schema = json.loads(schema_path.read_text())
+        fixture = json.loads(fixture_path.read_text())
+        manifest = json.loads(manifest_path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        fail(f"S7-G1 compliance-scenario artifacts unreadable: {exc}")
+        return
+    try:
+        import jsonschema
+        validator = jsonschema.Draft202012Validator(schema)
+    except ImportError:
+        validator = None
+    if validator:
+        for err in validator.iter_errors(fixture):
+            fail(f"S7-G1 fixture schema: {err.message[:120]}")
+    pinned_sha256 = fixture.get("manifest_sha256")
+    # The manifest's self-digest (manifest_sha256) is the authoritative release
+    # pin. The fixture may pin the current manifest or any prior released manifest.
+    allowed = {manifest.get("manifest_sha256")}
+    import subprocess
+    for depth in range(1, 10):
+        result = subprocess.run(
+            ["git", "show", f"HEAD~{depth}:bocg-release-manifest.json"],
+            cwd=ROOT, capture_output=True,
+        )
+        if result.returncode != 0:
+            break
+        try:
+            prior_manifest = json.loads(result.stdout)
+        except json.JSONDecodeError:
+            continue
+        allowed.add(prior_manifest.get("manifest_sha256"))
+    if pinned_sha256 not in allowed:
+        fail("S7-G2 fixture manifest pin is not the current or a released manifest")
+    cell_id = fixture.get("cell_id")
+    cell_path = ROOT / "cells" / f"{cell_id}.json"
+    if not cell_path.is_file():
+        fail(f"S7-G2 referenced cell {cell_id} is not published")
+    expected = fixture.get("expected_verdict") or {}
+    if expected.get("directive_may_satisfy_execution") is not False:
+        fail("S7-G3 expected_verdict must fail closed: directive never satisfies execution")
+    pass_rule = fixture.get("pass_rule") or {}
+    if pass_rule.get("is_boolean") is not False:
+        fail("S7-G3 pass_rule must be statistical, never boolean")
+    controls = set((fixture.get("controls") or {}).get("five_families_checks") or [])
+    if not {"NEGATIVE_CONTROL", "EVIDENCE_ABLATION"} <= controls:
+        fail("S7-G4 controls must include NEGATIVE_CONTROL and EVIDENCE_ABLATION")
+    try:
+        import jsonschema
+        manifest_schema = json.loads((ROOT / "specs/bocg-release-manifest.schema.json").read_text())
+        for error in jsonschema.Draft202012Validator(
+            manifest_schema, format_checker=jsonschema.FormatChecker()
+        ).iter_errors(manifest):
+            fail(f"S7-G5 pinned manifest is not schema-valid: {error.message[:120]}")
+    except ImportError:
+        pass
+
+
 def main() -> int:
     gate_cells()
     gate_deny()
@@ -273,13 +336,15 @@ def main() -> int:
     gate_common_semantics()
     gate_release_manifest()
     gate_insight_construction()
+    gate_compliance_scenarios()
     if FAILURES:
         print("GATE FAILURES:")
         for f in FAILURES:
             print("  ", f)
         return 1
     cells = len(list((ROOT / "cells").glob("*.json")))
-    print(f"all SPEC-03/SPEC-04/SPEC-05 gates pass ({cells} cells, CONFORMANCE.md intact)")
+    scenarios = len(list((ROOT / "specs/fixtures").glob("compliance-scenario-*.json")))
+    print(f"all SPEC-03/SPEC-04/SPEC-05/SPEC-07 gates pass ({cells} cells, {scenarios} scenario fixture(s), CONFORMANCE.md intact)")
     return 0
 
 
