@@ -1,7 +1,7 @@
 {
   "schema": "bocg.compliance-scenario/v1",
   "scenario_id": "synthetic-cp-settled-instruction-amendment-001",
-  "manifest_sha256": "a27061327cd19fab09e8c098db5cff2a56ea404fd0a90b4541404ecf9e70b921",
+  "manifest_sha256": "7440d147211df463df0a109b88e789ade49a658d3499c092f4682592cf930f48",
   "cell_id": "cp_settled_instruction_amendment",
   "task_ref": "task:buyside_trading_execution:4da0790ddda180b928fa5a7a",
   "input_state": {
@@ -17,7 +17,12 @@
   },
   "expected_verdict": {
     "predicate": "all_of",
-    "lifecycle_states": ["scheduled", "executed", "completed", "verified"],
+    "lifecycle_states": [
+      "scheduled",
+      "executed",
+      "completed",
+      "verified"
+    ],
     "directive_may_satisfy_execution": false
   },
   "deadline": {
