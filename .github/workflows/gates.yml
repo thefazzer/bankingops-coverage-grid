@@ -12,6 +12,8 @@ jobs:
         run: python3 tools/gate_conformance.py
       - name: Operating reference catalogue reproduces
         run: python3 tools/build_operating_catalogue.py --check
+      - name: Task concepts reproduce
+        run: python3 tools/build_task_concepts.py --check
       - name: BOCG test suite
         run: pip install -e bocg && (cd bocg && pytest -q)
       - name: LAT test suite

@@ -38,6 +38,7 @@ VERIFIED : all cited standards checked against the live web 2026-08-30.
 | 16 | Public semantic mappings reuse recognized vocabularies without asserting identity, occurrence or local implementation | EVIDENCED | SPEC-04; `specs/common-semantic-profile.yaml`; S4 gates in `tools/gate_conformance.py` |
 
 | 17 | Operating-unit reference definitions are versioned separately from private instance records | EVIDENCED | SPEC-06; operating reference contract/schema; reproducible catalogue and release tests |
+| 18 | Grouped definitions declare their provenance per group and never pool machine grouping with argued review (DS curation disclosure; BB construct validity) | EVIDENCED | SPEC-08; `reference/task-concepts.v1.json` review_status per division (1 REVIEWED, 41 AUTO in v0.6.0); rulings with named reviewer and per-alias rationale; S8 gates in `tools/gate_conformance.py` |
 
 NOT MET rows are commitments, not apologies: 8 and 11 gate any "runnable benchmark" claim;
 10 gates any "independently reviewed" claim. This file ships with every release.

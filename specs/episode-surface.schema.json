@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/episode-surface.schema.json",
+  "title": "BOCG episode surface",
+  "description": "Consumer-owned projection of the grid surface one Episode (SPEC-05) touches: division, function concept, task concept, released terminal task or control point. The shape carries identifiers, statuses and dates only. It cannot carry source text, an institution name, a corpus identifier or a person. BOCG publishes the shape and a synthetic fixture, never an instance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "bocg_release", "episode_ref", "source_profile_ref", "touchpoints", "evidence_depth", "candidate_depth"],
+  "properties": {
+    "schema": {"const": "bocg.episode-surface/v1"},
+    "bocg_release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "manifest_sha256", "task_concepts_sha256"],
+      "properties": {
+        "tag": {"type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "task_concepts_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "episode_ref": {
+      "description": "Opaque consumer hash of the episode identity. Never a corpus, message, file or graph identifier.",
+      "type": "string",
+      "pattern": "^ep-[0-9a-f]{12}$"
+    },
+    "source_profile_ref": {
+      "description": "Opaque consumer hash of the source profile. Never an institution name or registry label.",
+      "type": "string",
+      "pattern": "^sp-[0-9a-f]{8}$"
+    },
+    "touchpoints": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/touchpoint"}
+    },
+    "evidence_depth": {
+      "description": "Deepest touchpoint whose mapping status is RATIFIED_MAPPING or QUALIFIED_MAPPING. Candidates never raise it.",
+      "$ref": "#/$defs/depth"
+    },
+    "candidate_depth": {
+      "description": "Deepest touchpoint whose mapping status is PROPOSED or PENDING. Displayed, never counted as evidence.",
+      "$ref": "#/$defs/depth"
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "depth": {"enum": ["none", "division", "function_concept", "task_concept", "terminal_task", "control_point"]},
+    "mapping_status": {"enum": ["PROPOSED", "PENDING", "RATIFIED_MAPPING", "QUALIFIED_MAPPING", "REJECTED_MAPPING", "DEFERRED_MAPPING"]},
+    "touchpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["division_key", "depth", "mapping_status", "function_concept_id", "task_concept_id", "task_reference_id", "control_point_id", "ruling"],
+      "properties": {
+        "division_key": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "depth": {"$ref": "#/$defs/depth"},
+        "mapping_status": {"$ref": "#/$defs/mapping_status"},
+        "function_concept_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^function_concept:[a-z0-9_]+:[0-9a-f]{24}$"}]},
+        "task_concept_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^task_concept:[a-z0-9_]+:[0-9a-f]{24}$"}]},
+        "task_reference_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^task:[a-z0-9_]+:[0-9a-f]{24}$"}]},
+        "control_point_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^cp_[a-z0-9_]+$"}]},
+        "ruling": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["ruled_at", "ruled_by_role"],
+              "properties": {
+                "ruled_at": {"type": "string", "format": "date"},
+                "ruled_by_role": {"enum": ["owner", "sme", "second_reviewer"]}
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {"if": {"properties": {"depth": {"const": "none"}}}, "then": {"properties": {"depth": {"not": {"const": "none"}}}}},
+        {"if": {"properties": {"depth": {"const": "function_concept"}}}, "then": {"properties": {"function_concept_id": {"type": "string"}}}},
+        {"if": {"properties": {"depth": {"const": "task_concept"}}}, "then": {"properties": {"task_concept_id": {"type": "string"}}}},
+        {"if": {"properties": {"depth": {"const": "terminal_task"}}}, "then": {"properties": {"task_reference_id": {"type": "string"}}}},
+        {"if": {"properties": {"depth": {"const": "control_point"}}}, "then": {"properties": {"control_point_id": {"type": "string"}}}},
+        {"if": {"properties": {"mapping_status": {"enum": ["RATIFIED_MAPPING", "QUALIFIED_MAPPING", "REJECTED_MAPPING", "DEFERRED_MAPPING"]}}}, "then": {"properties": {"ruling": {"type": "object"}}}}
+      ]
+    }
+  }
+}

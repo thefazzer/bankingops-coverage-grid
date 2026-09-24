@@ -2,9 +2,9 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.5.0",
-    "commit_sha": "3d860210338e809bdd7ec1306a05a91244b92a1c",
-    "generated_at": "2026-09-23T22:54:57.496361Z"
+    "tag": "v0.6.0",
+    "commit_sha": "455d84680589a5bc1ecfc2afa215a8414bb2d126",
+    "generated_at": "2026-09-24T01:19:29.655552Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -17,8 +17,8 @@
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 4130,
-      "sha256": "1464979387f5a1d766e23b912c173fb10149ad83007555a0d89b43a07d104994"
+      "size_bytes": 4503,
+      "sha256": "8568132b0a66b53050e4f350ae5043d7cb2eb7307724e095cb111062f7a7df25"
     },
     {
       "path": "cells/cp_aana_umr_scope.json",
@@ -196,6 +196,20 @@
       "sha256": "fc8617e5ac3db5957a49b3e8bdbd42c3fa864ff4cde95081d5de93565178b5ad"
     },
     {
+      "path": "reference/task-concept-rulings.yaml",
+      "role": "task-concept-rulings",
+      "media_type": "application/yaml",
+      "size_bytes": 8834,
+      "sha256": "c0b544ab55112cbd98092e7d5af50d5ddccda0c10178dc99c314afe6880e4cf5"
+    },
+    {
+      "path": "reference/task-concepts.v1.json",
+      "role": "task-concept-catalogue",
+      "media_type": "application/json",
+      "size_bytes": 638828,
+      "sha256": "8f154d0dfe6116bff4da9e25d29b1d986b22da99e7a56e2bf6e9edc32a7b622d"
+    },
+    {
       "path": "specs/SPEC-01-coverage-grid-elicitation.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
@@ -252,6 +266,13 @@
       "sha256": "64846e236239a238a4e16678099ccf0cc9d3eec1fd5515aaca5252f4a73b6f0b"
     },
     {
+      "path": "specs/SPEC-08-task-concepts-and-episode-surface.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 8754,
+      "sha256": "666f3cf09164a38d7054b2ee9ee4f686c5ed5462f74de852d6085e72b3bc1f53"
+    },
+    {
       "path": "specs/bocg-release-manifest.schema.json",
       "role": "release-manifest-schema",
       "media_type": "application/json",
@@ -278,6 +299,20 @@
       "media_type": "application/json",
       "size_bytes": 2574,
       "sha256": "927b8387be1301945c5a80e186c12e42de9e729a98f5b513edc967ba5e58a437"
+    },
+    {
+      "path": "specs/episode-surface.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 4771,
+      "sha256": "4d012b5faac93d390a330aac3bd0ef5dc5a8a3ebc2a35a85027ca05d4083e3be"
+    },
+    {
+      "path": "specs/fixtures/episode-surface-synthetic.json",
+      "role": "conformance-fixture",
+      "media_type": "application/json",
+      "size_bytes": 1948,
+      "sha256": "5d5c8827887ee5fd7c83521bf7bb994077cb0461501a0238fc38e8a74793f4fa"
     },
     {
       "path": "specs/insight-construction-profile.yaml",
@@ -348,14 +383,21 @@
       "media_type": "application/json",
       "size_bytes": 2587,
       "sha256": "2ed971111ee01ffe4c8a0459240242c481b92e4fbb2b728aaf9a0562eefe68d9"
+    },
+    {
+      "path": "specs/task-concepts.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 8112,
+      "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "965f84497a6af75a64f5aaefdc75b7c9a8f10d88852903b72b37e43361c292d0",
+  "aggregate_sha256": "621822eeb2194339dc2886347e47f0833c61ebaada066972a6ee778952b18ad7",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "40fd3fe9e6c593ede0e3ef793e9e7b96fa0370973b5cbaeb05bf36a962d58bd4"
+  "manifest_sha256": "a27061327cd19fab09e8c098db5cff2a56ea404fd0a90b4541404ecf9e70b921"
 }
