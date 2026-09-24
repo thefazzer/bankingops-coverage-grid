@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/task-concepts.schema.json",
+  "title": "BOCG task concepts and function concepts",
+  "description": "Grouping of released function and task definitions into concepts, one division at a time. Each division declares whether its concepts were machine-clustered (AUTO) or argued under a named ruling (REVIEWED). Definitions only; no institution instance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "contract_version", "identity_rule", "institution_instances", "sources", "method", "divisions", "concepts", "counts", "task_concepts_sha256"],
+  "properties": {
+    "schema": {"const": "bocg.task-concepts/v1"},
+    "contract_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "identity_rule": {"type": "string", "minLength": 1},
+    "institution_instances": {"const": false},
+    "sources": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256"],
+        "properties": {"path": {"type": "string", "pattern": "^[^/].+"}, "sha256": {"$ref": "#/$defs/sha256"}}
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["machine", "reviewed"],
+      "properties": {
+        "machine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["algorithm", "similarity_threshold", "token_rule", "stoplist_sha256", "variants_sha256", "representative_rule", "read_by_a_human"],
+          "properties": {
+            "algorithm": {"type": "string", "minLength": 1},
+            "similarity_threshold": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+            "token_rule": {"type": "string", "minLength": 1},
+            "stoplist_sha256": {"$ref": "#/$defs/sha256"},
+            "variants_sha256": {"$ref": "#/$defs/sha256"},
+            "representative_rule": {"type": "string", "minLength": 1},
+            "read_by_a_human": {"const": false}
+          }
+        },
+        "reviewed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rulings_path", "rule"],
+          "properties": {"rulings_path": {"type": "string", "minLength": 1}, "rule": {"type": "string", "minLength": 1}}
+        }
+      }
+    },
+    "divisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["division_key", "review_status", "basis", "ruling", "counts"],
+        "properties": {
+          "division_key": {"$ref": "#/$defs/division_key"},
+          "review_status": {"$ref": "#/$defs/review_status"},
+          "basis": {"enum": ["machine_clustered", "argued_merge"]},
+          "ruling": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["ruled_by", "ruled_at", "basis", "argued_merges", "aliases"],
+                "properties": {
+                  "ruled_by": {"type": "string", "minLength": 1},
+                  "ruled_at": {"type": "string", "format": "date"},
+                  "basis": {"type": "string", "minLength": 1},
+                  "argued_merges": {"type": "integer", "minimum": 1},
+                  "aliases": {"type": "integer", "minimum": 1}
+                }
+              }
+            ]
+          },
+          "counts": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["functions", "function_concepts", "tasks", "task_concepts", "aliases"],
+            "properties": {
+              "functions": {"type": "integer", "minimum": 0},
+              "function_concepts": {"type": "integer", "minimum": 0},
+              "tasks": {"type": "integer", "minimum": 0},
+              "task_concepts": {"type": "integer", "minimum": 0},
+              "aliases": {"type": "integer", "minimum": 0}
+            }
+          }
+        },
+        "allOf": [
+          {"if": {"properties": {"review_status": {"const": "AUTO"}}}, "then": {"properties": {"ruling": {"type": "null"}, "basis": {"const": "machine_clustered"}}}},
+          {"if": {"properties": {"review_status": {"const": "REVIEWED"}}}, "then": {"properties": {"ruling": {"type": "object"}, "basis": {"const": "argued_merge"}}}}
+        ]
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/concept"}
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["divisions", "reviewed_divisions", "auto_divisions", "function_concepts", "task_concepts", "aliases", "reviewed_aliases"],
+      "properties": {
+        "divisions": {"type": "integer", "minimum": 1},
+        "reviewed_divisions": {"type": "integer", "minimum": 0},
+        "auto_divisions": {"type": "integer", "minimum": 0},
+        "function_concepts": {"type": "integer", "minimum": 0},
+        "task_concepts": {"type": "integer", "minimum": 0},
+        "aliases": {"type": "integer", "minimum": 0},
+        "reviewed_aliases": {"type": "integer", "minimum": 0}
+      }
+    },
+    "task_concepts_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "division_key": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "review_status": {"enum": ["AUTO", "REVIEWED"]},
+    "concept_id": {"type": "string", "pattern": "^(task_concept|function_concept):[a-z0-9_]+:[0-9a-f]{24}$"},
+    "reference_id": {"type": "string", "pattern": "^(task|function):[a-z0-9_]+:[0-9a-f]{24}$"},
+    "alias": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reference_id", "label", "rationale"],
+      "properties": {
+        "reference_id": {"$ref": "#/$defs/reference_id"},
+        "label": {"type": "string", "minLength": 1},
+        "rationale": {"type": "string", "minLength": 1}
+      }
+    },
+    "concept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["concept_id", "kind", "division_key", "label", "label_source", "review_status", "basis", "rationale", "members", "member_labels", "aliases", "definition_sha256"],
+      "properties": {
+        "concept_id": {"$ref": "#/$defs/concept_id"},
+        "kind": {"enum": ["task_concept", "function_concept"]},
+        "division_key": {"$ref": "#/$defs/division_key"},
+        "label": {"type": "string", "minLength": 1},
+        "label_source": {"enum": ["member", "ruled"]},
+        "review_status": {"$ref": "#/$defs/review_status"},
+        "basis": {"enum": ["machine_clustered", "argued_merge", "standalone_under_review"]},
+        "rationale": {"type": ["string", "null"]},
+        "members": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/reference_id"}},
+        "member_labels": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "aliases": {"type": "array", "items": {"$ref": "#/$defs/alias"}},
+        "definition_sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "allOf": [
+        {"if": {"properties": {"review_status": {"const": "AUTO"}}}, "then": {"properties": {"basis": {"const": "machine_clustered"}, "label_source": {"const": "member"}, "rationale": {"type": "null"}}}},
+        {"if": {"properties": {"basis": {"const": "argued_merge"}}}, "then": {"properties": {"review_status": {"const": "REVIEWED"}, "rationale": {"type": "string", "minLength": 1}, "members": {"minItems": 2}, "aliases": {"minItems": 1}}}},
+        {"if": {"properties": {"basis": {"const": "standalone_under_review"}}}, "then": {"properties": {"review_status": {"const": "REVIEWED"}, "label_source": {"const": "member"}, "members": {"maxItems": 1}, "aliases": {"maxItems": 0}}}},
+        {"if": {"properties": {"label_source": {"const": "ruled"}}}, "then": {"properties": {"basis": {"const": "argued_merge"}}}}
+      ]
+    }
+  }
+}

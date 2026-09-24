@@ -21,6 +21,7 @@ does not claim validated consensus.
 | **Common semantic profile** — standards-backed meanings for existing division, function, control-point, evidence and coverage fields; explicitly stops above institution workflow | `specs/SPEC-04-common-semantic-profile.md` | `specs/common-semantic-profile.yaml` | `python3 tools/gate_conformance.py` | conformance gate |
 | **Insight-construction profile** — portable Atom, Trace, Episode, institutional speech-act and adjudication definitions; definitions only, never institution instances | `specs/SPEC-05-insight-construction.md` | `specs/insight-construction-profile.yaml` | `python3 tools/gate_conformance.py` | lifecycle + rubric gates |
 | **Release manifest** — content-addressed assertion of the exact public specs, semantic profile, cells and release-run artifacts consumed at runtime | `specs/bocg-release-manifest.schema.json` | release asset `bocg-release-manifest.json` | `python3 tools/build_release_manifest.py --tag <tag> --commit <sha> --output bocg-release-manifest.json` | self-hash + per-artifact hashes |
+| **Task concepts + episode surface** — grouped function/task definitions with per-division provenance (machine-clustered AUTO or argued REVIEWED) and the instance-free shape that records how deep an Episode's ratified evidence binds to the grid | `specs/SPEC-08-task-concepts-and-episode-surface.md` | `reference/task-concepts.v1.json` + `reference/task-concept-rulings.yaml` + `specs/task-concepts.schema.json` + `specs/episode-surface.schema.json` | `python3 tools/build_task_concepts.py --check`; `python3 tools/episode_surface.py <surface.json>` | S8 gates |
 | **Compliance scenario** — replayable, manifest-pinned contract that composes a control-point cell, terminality task, input state, oracle and expected verdict | `specs/SPEC-07-replayable-compliance-scenario.md` + `specs/SPEC-07-compliance-scenario.md` | `specs/replayable-compliance-scenario.schema.json` + `specs/compliance-scenario.schema.json` + `specs/fixtures/compliance-scenario-synthetic.json` | `python3 tools/gate_conformance.py` | S7 gate |
 
 The benchmark that sits in the seller's own cell is the **PB-Ops Eval**; it is deliberately *not* referenced anywhere in the BOCG elicitation assets (invariant I2, gate G1).
@@ -32,6 +33,18 @@ and a schema for consumer-owned desk/business-unit registers. Public definitions
 are derived from the existing grid; named units, configurations and evidence stay
 with the consuming institution. The release manifest pins the contract, schema
 and catalogue so downstream products can verify dependency upgrades.
+
+## Task concepts and episode surface — v0.6.0
+
+[ SPEC-08 ](specs/SPEC-08-task-concepts-and-episode-surface.md) groups the released
+function and task labels into concepts one division at a time and states, per
+division, whether the grouping was machine-clustered (`AUTO`, unread) or argued
+under a named ruling (`REVIEWED`). In v0.6.0 one division is reviewed
+(prime brokerage and client financing: two argued task merges and one argued
+function merge, 23 aliases) and 41 are machine-clustered. The catalogue, matrix
+and cells are unchanged. The episode surface is the consumer-owned shape for
+recording which concepts, released tasks and control points one Episode touches
+and how deep its ratified evidence goes; candidates never raise that depth.
 
 ## Tags (for search)
 BankingOps Coverage Grid, PB-Ops Eval, FinExhaust, BankingEnv, model consensus taxonomy, benchmark ceiling, frontier saturation, sealed holdout, rubric design, capital markets eval gap, seat-cost filter, terminality test, corroboration ledger, lineage attestation, span commitment, salted canary, pseudonymisation, clean room, buyer-counsel attestation, runnable gates, provenance manifest.

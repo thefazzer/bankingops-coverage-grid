@@ -1,0 +1,54 @@
+{
+  "schema": "bocg.episode-surface/v1",
+  "bocg_release": {
+    "tag": "v0.6.0",
+    "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
+  },
+  "episode_ref": "ep-000000000001",
+  "source_profile_ref": "sp-00000000",
+  "touchpoints": [
+    {
+      "division_key": "prime_brokerage_financing",
+      "depth": "terminal_task",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "function_concept_id": null,
+      "task_concept_id": "task_concept:prime_brokerage_financing:0b0c077890e86dcde1b5f109",
+      "task_reference_id": "task:prime_brokerage_financing:5e6ef15b8803182ae19d6a8f",
+      "control_point_id": null,
+      "ruling": {"ruled_at": "2026-09-24", "ruled_by_role": "owner"}
+    },
+    {
+      "division_key": "prime_brokerage_financing",
+      "depth": "function_concept",
+      "mapping_status": "RATIFIED_MAPPING",
+      "function_concept_id": "function_concept:prime_brokerage_financing:f8aa5fcf1cfe794e7f3930a1",
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "ruling": {"ruled_at": "2026-09-24", "ruled_by_role": "owner"}
+    },
+    {
+      "division_key": "collateral_margin_management",
+      "depth": "control_point",
+      "mapping_status": "PROPOSED",
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_umr_im_segregation",
+      "ruling": null
+    },
+    {
+      "division_key": "repo_secfin_collateral",
+      "depth": "division",
+      "mapping_status": "REJECTED_MAPPING",
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "ruling": {"ruled_at": "2026-09-24", "ruled_by_role": "owner"}
+    }
+  ],
+  "evidence_depth": "terminal_task",
+  "candidate_depth": "control_point"
+}

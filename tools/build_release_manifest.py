@@ -39,6 +39,12 @@ STATIC_ARTIFACTS = {
     "specs/scenario-run-ledger.schema.json": "json-schema",
     "specs/rubrics/episode-feasibility.yaml": "adjudication-rubric",
     "specs/rubrics/five-families.yaml": "adjudication-rubric",
+    "specs/SPEC-08-task-concepts-and-episode-surface.md": "normative-specification",
+    "specs/task-concepts.schema.json": "json-schema",
+    "specs/episode-surface.schema.json": "json-schema",
+    "specs/fixtures/episode-surface-synthetic.json": "conformance-fixture",
+    "reference/task-concepts.v1.json": "task-concept-catalogue",
+    "reference/task-concept-rulings.yaml": "task-concept-rulings",
     "specs/bocg-release-manifest.schema.json": "release-manifest-schema",
 }
 RUN_ARTIFACTS = {
@@ -120,6 +126,9 @@ def build_manifest(
     from build_operating_catalogue import build_catalogue, CATALOGUE_PATH
     if json.loads((root / CATALOGUE_PATH).read_text()) != build_catalogue(root, f"{run_dir}/matrix.json"):
         raise ValueError("operating catalogue is stale")
+    from build_task_concepts import build_task_concepts, render as render_concepts, OUTPUT_PATH as CONCEPTS_PATH
+    if (root / CONCEPTS_PATH).read_text(encoding="utf-8") != render_concepts(build_task_concepts(root)):
+        raise ValueError("task concepts are stale")
 
     artifact_roles = dict(STATIC_ARTIFACTS)
     artifact_roles.update(

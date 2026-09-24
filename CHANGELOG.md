@@ -1,5 +1,30 @@
 # Release changes
 
+## v0.6.0 — 2026-09-24
+
+- Add SPEC-08 task concepts and episode surface:
+  - Group the released function and task definitions into concepts, one
+    division at a time, with per-division provenance. `AUTO` divisions are
+    machine-clustered by a deterministic, parameter-hashed method and are
+    labelled as unread; `REVIEWED` divisions carry argued merges from
+    `reference/task-concept-rulings.yaml` with a named reviewer, a date and a
+    rationale per alias.
+  - Rule `prime_brokerage_financing` REVIEWED: the released margin tasks split
+    into compute-requirement and issue-and-collect concepts by terminal state,
+    and nine composite role labels merge into one function concept (23
+    aliases). The other 41 divisions stay AUTO.
+  - Publish `reference/task-concepts.v1.json`, its schema, the rulings, the
+    episode-surface schema, a synthetic surface fixture and the depth rule
+    (`tools/episode_surface.py`): evidence depth is the deepest ratified
+    touchpoint; candidates never raise it.
+  - Add S8 gates and CI reproduction of the concept file; bind the new
+    artifacts into the release manifest.
+- The operating catalogue, coverage matrix, control-point cells and semantic
+  profile are byte-identical to v0.5.0. Consumers pinned to an earlier release
+  keep their evidence bindings.
+- All changes remain above the SPEC-03 floor: definitions, schemas and rubrics
+  only. No institution instance, corpus material or workflow claim is included.
+
 ## v0.5.0 — 2026-09-20
 
 - Close ISDA regulatory overlap gaps (EPIC #6):

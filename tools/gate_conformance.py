@@ -66,6 +66,11 @@ def gate_deny() -> None:
         ROOT / "specs/SPEC-03-control-point-cells.md",
         ROOT / "specs/SPEC-04-common-semantic-profile.md",
         ROOT / "specs/common-semantic-profile.yaml",
+        # S8-G5: the same deny list covers the concept layer and its fixture.
+        ROOT / "specs/SPEC-08-task-concepts-and-episode-surface.md",
+        ROOT / "reference/task-concept-rulings.yaml",
+        ROOT / "reference/task-concepts.v1.json",
+        ROOT / "specs/fixtures/episode-surface-synthetic.json",
     ]
     for path in targets:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -372,6 +377,70 @@ def gate_scenario_run_ledger() -> None:
             fail(f"S7-G3 row {i}: verdict not in five-families vocabulary")
 
 
+def gate_task_concepts() -> None:
+    """S8-G1..G4: concepts reproduce, partition the catalogue, declare provenance; surface fixture obeys the depth rule."""
+    from build_task_concepts import build_task_concepts, render, KINDS
+    from episode_surface import surface_problems
+    try:
+        concepts_path = ROOT / "reference/task-concepts.v1.json"
+        concepts = json.loads(concepts_path.read_text(encoding="utf-8"))
+        schema = json.loads((ROOT / "specs/task-concepts.schema.json").read_text())
+        surface_schema = json.loads((ROOT / "specs/episode-surface.schema.json").read_text())
+        fixture = json.loads((ROOT / "specs/fixtures/episode-surface-synthetic.json").read_text())
+        catalogue = json.loads((ROOT / "reference/operating-catalogue.v1.json").read_text())
+        rulings = yaml.safe_load((ROOT / "reference/task-concept-rulings.yaml").read_text(encoding="utf-8"))
+    except (OSError, ValueError, yaml.YAMLError) as exc:
+        fail(f"S8-G1 task-concept artifacts unreadable: {exc}")
+        return
+    try:
+        if render(build_task_concepts(ROOT)) != concepts_path.read_text(encoding="utf-8"):
+            fail("S8-G1 task concepts do not reproduce from the catalogue and rulings")
+    except ValueError as exc:
+        fail(f"S8-G1 task concepts cannot be built: {exc}")
+    try:
+        import jsonschema
+        checker = jsonschema.FormatChecker()
+        for error in jsonschema.Draft202012Validator(schema, format_checker=checker).iter_errors(concepts):
+            fail(f"S8-G1 task-concepts schema: {error.message[:120]}")
+        jsonschema.Draft202012Validator.check_schema(surface_schema)
+        for error in jsonschema.Draft202012Validator(surface_schema, format_checker=checker).iter_errors(fixture):
+            fail(f"S8-G4 episode-surface fixture schema: {error.message[:120]}")
+    except ImportError:
+        pass
+    released = {d["reference_id"]: d for d in catalogue["definitions"] if d["kind"] in KINDS}
+    membership: list[str] = []
+    for concept in concepts["concepts"]:
+        for member in concept["members"]:
+            definition = released.get(member)
+            if definition is None or definition["division_key"] != concept["division_key"] or KINDS[definition["kind"]] != concept["kind"]:
+                fail(f"S8-G2 {concept['concept_id']}: member outside its division or kind")
+            membership.append(member)
+    if sorted(membership) != sorted(released):
+        fail("S8-G2 released functions and tasks are not partitioned exactly once into concepts")
+    if len({c["concept_id"] for c in concepts["concepts"]}) != len(concepts["concepts"]):
+        fail("S8-G2 concept identifier collision")
+    ruled = {r["division_key"]: r for r in (rulings.get("rulings") or [])}
+    reviewed_aliases = 0
+    for division in concepts["divisions"]:
+        key = division["division_key"]
+        if division["review_status"] == "REVIEWED":
+            ruling = ruled.get(key)
+            if not ruling or not str(ruling.get("ruled_by", "")).strip() or not ruling.get("ruled_at") or not str(ruling.get("basis", "")).strip():
+                fail(f"S8-G3 {key}: REVIEWED without a named, dated, argued ruling")
+            reviewed_aliases += division["counts"]["aliases"]
+        elif key in ruled or division["ruling"] is not None:
+            fail(f"S8-G3 {key}: AUTO division carries a ruling")
+    for concept in concepts["concepts"]:
+        if concept["review_status"] == "AUTO" and (concept["basis"] != "machine_clustered" or concept["rationale"] is not None):
+            fail(f"S8-G3 {concept['concept_id']}: AUTO concept claims an argued basis")
+        if concept["review_status"] == "REVIEWED" and concept["division_key"] not in ruled:
+            fail(f"S8-G3 {concept['concept_id']}: REVIEWED concept outside any ruling")
+    if reviewed_aliases != concepts["counts"]["reviewed_aliases"]:
+        fail("S8-G3 reviewed alias count does not reconcile")
+    for problem in surface_problems(fixture, root=ROOT):
+        fail(f"S8-G4 episode-surface fixture: {problem}")
+
+
 def main() -> int:
     gate_cells()
     gate_deny()
@@ -381,6 +450,7 @@ def main() -> int:
     gate_insight_construction()
     gate_compliance_scenarios()
     gate_scenario_run_ledger()
+    gate_task_concepts()
     if FAILURES:
         print("GATE FAILURES:")
         for f in FAILURES:
@@ -388,7 +458,7 @@ def main() -> int:
         return 1
     cells = len(list((ROOT / "cells").glob("*.json")))
     scenarios = len(list((ROOT / "specs/fixtures").glob("compliance-scenario-*.json")))
-    print(f"all SPEC-03/SPEC-04/SPEC-05/SPEC-07 gates pass ({cells} cells, {scenarios} scenario fixture(s), CONFORMANCE.md intact)")
+    print(f"all SPEC-03/SPEC-04/SPEC-05/SPEC-07/SPEC-08 gates pass ({cells} cells, {scenarios} scenario fixture(s), CONFORMANCE.md intact)")
     return 0
 
 
