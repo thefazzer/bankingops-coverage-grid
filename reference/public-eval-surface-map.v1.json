@@ -1,0 +1,911 @@
+{
+  "schema": "bocg.public-eval-surface-overlay/v1",
+  "bocg_release": {
+    "tag": "v0.6.0",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
+  },
+  "method": {
+    "rules_version": "1.0.0",
+    "paint_statuses": [
+      "QUALIFIED_MAPPING",
+      "RATIFIED_MAPPING"
+    ],
+    "band_weights": {
+      "L1": 1,
+      "L2": 2,
+      "L3": 3
+    },
+    "channels_in_saturation": [
+      "public"
+    ]
+  },
+  "inventory_sha256": "174a77d5be412b896a0c0d8e35590a322c9f31c9f6b1c9cace25c90343e76726",
+  "rows": [
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": null,
+      "depth": null,
+      "division_key": null,
+      "row_id": "ovr_peer_betterbench_reject",
+      "inventory_id": "peer.betterbench",
+      "mapping_status": "REJECTED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "BetterBench assesses benchmark design criteria; it does not exercise a capital-markets operational division, terminal task or control point on the BOCG surface."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": null,
+      "depth": null,
+      "division_key": null,
+      "row_id": "ovr_peer_inspect_reject",
+      "inventory_id": "peer.inspect",
+      "mapping_status": "REJECTED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "Inspect is an evaluation harness. Without a published banking-ops task bound to an admitted division key, it cannot paint the BOCG choropleth."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": null,
+      "depth": null,
+      "division_key": null,
+      "row_id": "ovr_peer_datasheets_reject",
+      "inventory_id": "peer.datasheets",
+      "mapping_status": "REJECTED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "Datasheets for Datasets is a documentation standard for datasets, not an operational desk task on the coverage grid."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": null,
+      "band": null,
+      "depth": null,
+      "division_key": null,
+      "row_id": "ovr_rubric_five_families_defer",
+      "inventory_id": "rubric.five_families",
+      "mapping_status": "DEFERRED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "Five-families adjudicates insight-construction quality (SPEC-05), not a single admitted division; deferred until a division-scoped application is argued."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": null,
+      "band": null,
+      "depth": null,
+      "division_key": null,
+      "row_id": "ovr_rubric_episode_feasibility_defer",
+      "inventory_id": "rubric.episode_feasibility",
+      "mapping_status": "DEFERRED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "Episode-feasibility is a triage rubric for Episode construction, not a map onto one division or control point."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L1",
+      "depth": "division",
+      "division_key": "trade_lifecycle_operations",
+      "row_id": "ovr_harvey_lab_trade_lifecycle",
+      "inventory_id": "peer.harvey_lab",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-PEER-SHAPE",
+      "rationale": "CONFORMANCE.md records two banking tasks accepted in the Harvey LAB schema. Task content loci are not republished here; mapping is limited to division grain with L1 likelihood."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_settled_instruction_amendment",
+      "channel": "public",
+      "ruling": null,
+      "band": null,
+      "depth": "control_point",
+      "division_key": "post_trade_settlement",
+      "row_id": "ovr_cp_settled_instruction_defer",
+      "inventory_id": "cite.csdr_909_2014",
+      "mapping_status": "DEFERRED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "Cell cites CSDR Art. 7 but its division_key post_trade_settlement is not an admitted catalogue division; deferred until the cell is rebound to an admitted key."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_simm_initial_margin_reconciliation",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "collateral_margin_management",
+      "row_id": "ovr_cp_simm_im_recon",
+      "inventory_id": "cite.isda_simm",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "Cell cites BCBS-IOSCO and ISDA SIMM; public standard directly defines the IM reconciliation control point."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_simm_im_dispute",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "collateral_margin_management",
+      "row_id": "ovr_cp_simm_im_dispute",
+      "inventory_id": "cite.isda_simm_intro",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "Cell cites ISDA SIMM dispute methodology; maps to the bilateral IM dispute control point."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_umr_im_segregation",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "collateral_margin_management",
+      "row_id": "ovr_cp_umr_im_seg",
+      "inventory_id": "cite.emir_648_2012",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "EMIR Art. 11(3) is the public citation anchoring IM segregation on the cell."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_aana_umr_scope",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "collateral_margin_management",
+      "row_id": "ovr_cp_aana_umr",
+      "inventory_id": "cite.bcbs_iosco_margin_d499",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "BCBS-IOSCO margin framework citation defines AANA/UMR scope control on the cell."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_csa_vm_call_timeline",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "control_point",
+      "division_key": "collateral_margin_management",
+      "row_id": "ovr_cp_csa_vm",
+      "inventory_id": "cite.bcbs_iosco_margin_2013",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "BCBS-IOSCO / uncleared margin citations support VM call timeline; qualified because CSA operational timing is firm-specific."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_credit_event_determination_committee_application",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "credit_trading",
+      "row_id": "ovr_cp_dc_app",
+      "inventory_id": "cite.isda_dc_rules",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "ISDA DC Rules are the public authority for applying DC outcomes to credit-derivative positions."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_dc_outcome_application",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "credit_trading",
+      "row_id": "ovr_cp_dc_outcome",
+      "inventory_id": "cite.isda_2014_defs",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "2014 Credit Derivatives Definitions cite the credit-event and succession mechanics the cell controls."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_cftc_part43_realtime",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "regulatory_transaction_reporting",
+      "row_id": "ovr_cp_cftc_43",
+      "inventory_id": "cite.cftc_part43",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "17 CFR Part 43 is the public real-time swap reporting rule the cell implements as a control point."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_emir_refit_uti_pairing",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "regulatory_transaction_reporting",
+      "row_id": "ovr_cp_emir_uti",
+      "inventory_id": "cite.emir_648_2012",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "EMIR Art. 9 reporting obligation is the citation for UTI pairing control."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_mifir_art26_t1_submission",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "regulatory_transaction_reporting",
+      "row_id": "ovr_cp_mifir_26",
+      "inventory_id": "cite.mifir_600_2014",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "MiFIR Art. 26 is the public transaction-reporting obligation for the T+1 submission cell."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_derivatives_transaction_reporting_uti_upi",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "control_point",
+      "division_key": "regulatory_transaction_reporting",
+      "row_id": "ovr_cp_uti_upi",
+      "inventory_id": "cite.iso_4914_upi",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "ISO 4914 UPI is a public identifier standard used by the reporting cell; qualified because UTI pairing is multi-regime."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_reporting_error_remediation",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "control_point",
+      "division_key": "regulatory_transaction_reporting",
+      "row_id": "ovr_cp_reporting_error",
+      "inventory_id": "cite.mifir_600_2014",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "MiFIR Art. 26 underpins error remediation; qualified because remediation workflows are not fully specified by the article alone."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_otc_confirmation_timeliness",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "trade_lifecycle_operations",
+      "row_id": "ovr_cp_otc_confirm",
+      "inventory_id": "cite.cftc_23_501",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "17 CFR 23.501 is the public confirmation-timing rule for the OTC confirmation control point."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_otc_derivatives_confirmation_reconciliation",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "control_point",
+      "division_key": "trade_lifecycle_operations",
+      "row_id": "ovr_cp_otc_recon",
+      "inventory_id": "cite.cftc_23_501",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "Same confirmation rule family supports confirmation/reconciliation control; qualified as the cell also leans on ISDA definitions."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_portfolio_reconciliation",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L3",
+      "depth": "control_point",
+      "division_key": "trade_lifecycle_operations",
+      "row_id": "ovr_cp_port_recon",
+      "inventory_id": "cite.cftc_23_502",
+      "mapping_status": "RATIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "17 CFR 23.502 is the public portfolio-reconciliation requirement the cell anchors."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": "cp_derivatives_documentation_execution",
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "control_point",
+      "division_key": "client_lifecycle_kyc",
+      "row_id": "ovr_cp_docs_exec",
+      "inventory_id": "cite.isda_master_2002",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CTRL-CITE",
+      "rationale": "2002 ISDA Master is the public documentation standard; qualified because onboarding/KYC local process sits beside the Master."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": "task_concept:prime_brokerage_financing:0b0c077890e86dcde1b5f109",
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "task_concept",
+      "division_key": "prime_brokerage_financing",
+      "row_id": "ovr_simm_to_pb_margin_concept",
+      "inventory_id": "cite.isda_simm",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-CONCEPT",
+      "rationale": "ISDA SIMM specifies bilateral regulatory IM. It is a close-match to the REVIEWED prime brokerage task concept 'calculate a client margin requirement' but does not cover house Reg T / portfolio margin in full; qualified L2 with that limit."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": "task_concept:prime_brokerage_financing:0b0c077890e86dcde1b5f109",
+      "task_reference_id": "task:prime_brokerage_financing:5e6ef15b8803182ae19d6a8f",
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-24",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "terminal_task",
+      "division_key": "prime_brokerage_financing",
+      "row_id": "ovr_simm_to_pb_margin_task",
+      "inventory_id": "cite.isda_simm",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-TERM-TASK",
+      "rationale": "Released terminal task 'calculate a client margin requirement' is the nearest catalogue member for SIMM-style requirement calculation; qualified because SIMM is one methodology among house/regulatory schedules named by sibling tasks."
+    }
+  ],
+  "choropleth": {
+    "grain": "division",
+    "band_weights": {
+      "L1": 1,
+      "L2": 2,
+      "L3": 3
+    },
+    "divisions": [
+      {
+        "division_key": "buyside_investment_compliance",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "buyside_investment_operations",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "buyside_ldi_overlay",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "buyside_performance_risk_reporting",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "buyside_portfolio_management",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "buyside_trading_execution",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "capital_markets_origination_combined",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "client_lifecycle_kyc",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 1,
+        "saturation": 2,
+        "void": false,
+        "row_ids": [
+          "ovr_cp_docs_exec"
+        ]
+      },
+      {
+        "division_key": "collateral_margin_management",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 5,
+        "saturation": 14,
+        "void": false,
+        "row_ids": [
+          "ovr_cp_simm_im_recon",
+          "ovr_cp_simm_im_dispute",
+          "ovr_cp_umr_im_seg",
+          "ovr_cp_aana_umr",
+          "ovr_cp_csa_vm"
+        ]
+      },
+      {
+        "division_key": "commodities_physical_operations",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "commodities_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "credit_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 2,
+        "saturation": 6,
+        "void": false,
+        "row_ids": [
+          "ovr_cp_dc_app",
+          "ovr_cp_dc_outcome"
+        ]
+      },
+      {
+        "division_key": "cross_asset_structuring",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "custody_asset_servicing",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "dcm_origination",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "ecm_origination",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "electronic_execution",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "em_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "equities_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "equity_derivatives_structured",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "ficc_combined",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "fx_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "institutional_sales_coverage",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "leveraged_finance_loan_capital_markets",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "listed_derivatives_client_clearing",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "ma_advisory",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "macro_combined_rates_fx_em",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "market_risk_management",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "market_risk_valuation_control",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "model_risk_management",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "municipal_public_finance",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "prime_brokerage_financing",
+        "review_status": "REVIEWED",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 2,
+        "saturation": 4,
+        "void": false,
+        "row_ids": [
+          "ovr_simm_to_pb_margin_concept",
+          "ovr_simm_to_pb_margin_task"
+        ]
+      },
+      {
+        "division_key": "product_control_ipv",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "rates_trading",
+        "review_status": "AUTO",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "regulatory_transaction_reporting",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 5,
+        "saturation": 13,
+        "void": false,
+        "row_ids": [
+          "ovr_cp_cftc_43",
+          "ovr_cp_emir_uti",
+          "ovr_cp_mifir_26",
+          "ovr_cp_uti_upi",
+          "ovr_cp_reporting_error"
+        ]
+      },
+      {
+        "division_key": "repo_secfin_collateral",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "securitised_products",
+        "review_status": "AUTO",
+        "matrix_tier": "MODERATE",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "sellside_research",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "trade_lifecycle_operations",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 4,
+        "saturation": 9,
+        "void": false,
+        "row_ids": [
+          "ovr_harvey_lab_trade_lifecycle",
+          "ovr_cp_otc_confirm",
+          "ovr_cp_otc_recon",
+          "ovr_cp_port_recon"
+        ]
+      },
+      {
+        "division_key": "trade_surveillance",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "treasury_balance_sheet_funding",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      },
+      {
+        "division_key": "xva_counterparty_risk",
+        "review_status": "AUTO",
+        "matrix_tier": "WEAK",
+        "painted_rows": 0,
+        "saturation": 0,
+        "void": true,
+        "row_ids": []
+      }
+    ],
+    "summary": {
+      "admitted_divisions": 42,
+      "painted_divisions": 6,
+      "void_divisions": 36,
+      "painted_rows": 19,
+      "max_saturation": 14
+    }
+  }
+}

@@ -1,0 +1,130 @@
+# BOCG public-eval inventory — living list of public rubrics, benchmarks, evals
+# and citation targets used by the surface overlay. Not a conformance claim.
+schema: bocg.public-eval-inventory/v1
+version: 1.0.0
+checked_at: 2026-09-24
+notes:
+  - Entries are public URLs or in-repo public paths only.
+  - Inclusion does not endorse construct validity for banking ops.
+  - Overlay paint decisions live in reference/public-eval-surface-map.v1.json.
+artifacts:
+  - id: peer.datasheets
+    title: Datasheets for Datasets (Gebru et al., v8)
+    url: https://arxiv.org/abs/1803.09010
+    class: peer_framework
+    checked_at: 2026-08-30
+    access: open_access
+  - id: peer.betterbench
+    title: BetterBench benchmark-assessment criteria (46 criteria)
+    url: https://betterbench.stanford.edu
+    class: peer_framework
+    checked_at: 2026-08-30
+    access: open_web
+  - id: peer.inspect
+    title: Inspect evaluation framework (UK AI Security Institute)
+    url: https://github.com/UKGovernmentBEIS/inspect_ai
+    class: peer_framework
+    checked_at: 2026-08-30
+    access: open_source
+  - id: peer.harvey_lab
+    title: Harvey LAB task format (documents + task.json match-criteria rubrics)
+    url: https://github.com/harveyai/harvey-labs
+    class: peer_task_shape
+    checked_at: 2026-08-30
+    access: open_source
+  - id: rubric.five_families
+    title: BOCG five-families adjudication rubric
+    url: https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/rubrics/five-families.yaml
+    class: in_repo_rubric
+    checked_at: 2026-09-24
+    access: public_repo
+  - id: rubric.episode_feasibility
+    title: BOCG episode-feasibility rubric
+    url: https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/rubrics/episode-feasibility.yaml
+    class: in_repo_rubric
+    checked_at: 2026-09-24
+    access: public_repo
+  - id: cite.bcbs_iosco_margin_2013
+    title: BCBS-IOSCO Margin requirements for non-centrally cleared derivatives (2013)
+    url: https://www.bis.org/publ/bcbs261.pdf
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_pdf
+  - id: cite.bcbs_iosco_margin_d499
+    title: BCBS-IOSCO margin requirements (BCBS d499)
+    url: https://www.bis.org/bcbs/publ/d499.pdf
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_pdf
+  - id: cite.isda_simm
+    title: ISDA Standard Initial Margin Model (SIMM) specification
+    url: https://www.isda.org/book/standard-initial-margin-model-for-non-cleared-derivatives/
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page
+  - id: cite.isda_simm_intro
+    title: ISDA SIMM introduction
+    url: https://www.isda.org/book/simm-introduction/
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page
+  - id: cite.isda_dc_rules
+    title: ISDA Credit Derivatives Determinations Committees Rules
+    url: https://www.isda.org/protocol/isda-determinations-committees/
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page
+  - id: cite.isda_2014_defs
+    title: ISDA 2014 Credit Derivatives Definitions
+    url: https://www.isda.org/book/2014-isda-credit-derivatives-definitions/
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page
+  - id: cite.isda_master_2002
+    title: 2002 ISDA Master Agreement
+    url: https://www.isda.org/book/2002-isda-master-agreements/
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page
+  - id: cite.cftc_part43
+    title: 17 CFR Part 43 Real-Time Public Reporting of Swap Transaction Data
+    url: https://www.ecfr.gov/current/title-17/chapter-I/part-43
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.cftc_23_501
+    title: 17 CFR 23.501 Confirmation / documentation requirements
+    url: https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-I/subject-group-ECFR28a80a1f0cdae63/section-23.501
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.cftc_23_502
+    title: 17 CFR 23.502 Portfolio reconciliation
+    url: https://www.ecfr.gov/current/title-17/chapter-I/part-23/subpart-I/subject-group-ECFR28a80a1f0cdae63/section-23.502
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.emir_648_2012
+    title: Regulation (EU) No 648/2012 (EMIR)
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32012R0648
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.mifir_600_2014
+    title: Regulation (EU) No 600/2014 (MiFIR) Article 26
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32014R0600
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.csdr_909_2014
+    title: Regulation (EU) No 909/2014 (CSDR) Art. 7
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32014R0909
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: open_web
+  - id: cite.iso_4914_upi
+    title: ISO 4914 Unique Product Identifier
+    url: https://www.iso.org/standard/80506.html
+    class: control_point_citation
+    checked_at: 2026-09-20
+    access: publisher_page

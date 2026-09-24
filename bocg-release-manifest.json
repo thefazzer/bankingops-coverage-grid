@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.6.0",
-    "commit_sha": "5e6c9e8077272aa5063137bc72943e85e9a83182",
-    "generated_at": "2026-09-24T01:21:19.466269Z"
+    "commit_sha": "9902c6ea7539ec31450dc44fe65307907046985f",
+    "generated_at": "2026-09-24T23:43:36.269273Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -17,8 +17,8 @@
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 4503,
-      "sha256": "8568132b0a66b53050e4f350ae5043d7cb2eb7307724e095cb111062f7a7df25"
+      "size_bytes": 4889,
+      "sha256": "05305182e74e1c13854b74d2c5e809706401efce09f0daa2c727129ff909151f"
     },
     {
       "path": "cells/cp_aana_umr_scope.json",
@@ -196,6 +196,27 @@
       "sha256": "fc8617e5ac3db5957a49b3e8bdbd42c3fa864ff4cde95081d5de93565178b5ad"
     },
     {
+      "path": "reference/public-eval-choropleth.v1.md",
+      "role": "public-eval-choropleth",
+      "media_type": "text/markdown",
+      "size_bytes": 4401,
+      "sha256": "e051d94e10439fc5df99a84ffe2a90685557ce2efd24dcd8a778b4fb8cf0e526"
+    },
+    {
+      "path": "reference/public-eval-inventory.v1.yaml",
+      "role": "public-eval-inventory",
+      "media_type": "application/yaml",
+      "size_bytes": 5269,
+      "sha256": "174a77d5be412b896a0c0d8e35590a322c9f31c9f6b1c9cace25c90343e76726"
+    },
+    {
+      "path": "reference/public-eval-surface-map.v1.json",
+      "role": "public-eval-surface-overlay",
+      "media_type": "application/json",
+      "size_bytes": 28308,
+      "sha256": "194cca6921b4185cd9896dabf0101a23cdeeafb4750658873b940f7bdb8b8392"
+    },
+    {
       "path": "reference/task-concept-rulings.yaml",
       "role": "task-concept-rulings",
       "media_type": "application/yaml",
@@ -271,6 +292,13 @@
       "media_type": "text/markdown",
       "size_bytes": 8754,
       "sha256": "666f3cf09164a38d7054b2ee9ee4f686c5ed5462f74de852d6085e72b3bc1f53"
+    },
+    {
+      "path": "specs/SPEC-09-public-eval-surface-overlay.md",
+      "role": "normative-specification",
+      "media_type": "text/markdown",
+      "size_bytes": 3470,
+      "sha256": "a025005ce866b8ff7c30b6ff172a170196441736f04b163fff4f0efd9773bde1"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -350,6 +378,13 @@
       "sha256": "b4a3aae9f2056f273245a4118da9c64ab8b07925a41c092d4a9c19a07e3a3068"
     },
     {
+      "path": "specs/public-eval-surface-overlay.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 7628,
+      "sha256": "2b2cb07a2d6fa073a5dbb8f33a756fd9d499151da54d708ac1f59885a384cd75"
+    },
+    {
       "path": "specs/replayable-compliance-scenario.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
@@ -392,12 +427,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "621822eeb2194339dc2886347e47f0833c61ebaada066972a6ee778952b18ad7",
+  "aggregate_sha256": "c8267454c4bc5911243b94962f2559b4ea0d3a6d76d4f8cc6302368a806be7db",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "7440d147211df463df0a109b88e789ade49a658d3499c092f4682592cf930f48"
+  "manifest_sha256": "f0956da57aa54aba379e19525b903e7ab34fefa8e0eff5ed1566a745cd5bd281"
 }
