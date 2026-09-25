@@ -1,0 +1,69 @@
+{
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441",
+  "models": {
+    "judge-primary": "gpt-5.6-sol-high",
+    "judge-sensitivity": "claude-opus-5-5-high"
+  },
+  "cards": [
+    {
+      "inventory_id": "public.handshake_bankertoolbench",
+      "prompts": {
+        "judge-primary": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_handshake_bankertoolbench/judge-primary.prompt.txt",
+          "sha256": "9e8cc7070b15c9c94602ba33c5ec16442047580946c562bfa732ad22bfae48e5",
+          "model_id": "gpt-5.6-sol-high"
+        },
+        "judge-sensitivity": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_handshake_bankertoolbench/judge-sensitivity.prompt.txt",
+          "sha256": "ff42e49e5e47ca7c783c2a498b1b09b1ca38776dfde452d6a0068271375e0295",
+          "model_id": "claude-opus-5-5-high"
+        }
+      }
+    },
+    {
+      "inventory_id": "public.mercor_apex1_ib",
+      "prompts": {
+        "judge-primary": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_mercor_apex1_ib/judge-primary.prompt.txt",
+          "sha256": "5fa2bad021ff4f45fe8cae0596818859b4606d0ed656bb9021a2dc21297a7632",
+          "model_id": "gpt-5.6-sol-high"
+        },
+        "judge-sensitivity": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_mercor_apex1_ib/judge-sensitivity.prompt.txt",
+          "sha256": "97c1a608a3955f2ecb97e94ea7b3506d57c006ecc0ec1a318c65cd7228559fda",
+          "model_id": "claude-opus-5-5-high"
+        }
+      }
+    },
+    {
+      "inventory_id": "public.mercor_apex_agents",
+      "prompts": {
+        "judge-primary": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_mercor_apex_agents/judge-primary.prompt.txt",
+          "sha256": "1d5972f63032d123e1b7e9375ecb643e3691678b6a167cbeee60339ca58a2398",
+          "model_id": "gpt-5.6-sol-high"
+        },
+        "judge-sensitivity": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_mercor_apex_agents/judge-sensitivity.prompt.txt",
+          "sha256": "c117a77a575f8fc5f4cc6155687124cceee2de5ebf2dfaa02e6dc158991eb66d",
+          "model_id": "claude-opus-5-5-high"
+        }
+      }
+    },
+    {
+      "inventory_id": "public.rogo_big_finance_bench",
+      "prompts": {
+        "judge-primary": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_rogo_big_finance_bench/judge-primary.prompt.txt",
+          "sha256": "18d2a17581398413c03041bece126ed3ac5d6eff8e0052dd73923a86bfd0c7b5",
+          "model_id": "gpt-5.6-sol-high"
+        },
+        "judge-sensitivity": {
+          "path": "live-run-public-eval-llmaj/dfcc901848f8/public_rogo_big_finance_bench/judge-sensitivity.prompt.txt",
+          "sha256": "719da7a587875704395eb54c928bca6f450e0e541b2e8e7edd804c18a53e8d25",
+          "model_id": "claude-opus-5-5-high"
+        }
+      }
+    }
+  ]
+}

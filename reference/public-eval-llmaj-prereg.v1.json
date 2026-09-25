@@ -1,6 +1,6 @@
 {
   "schema": "bocg.public-eval-llmaj-prereg/v1",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "locked_at": "2026-09-25",
   "observable_prompt": {
     "path": "specs/prompts/public-eval-llmaj-judge.v1.txt",
@@ -36,6 +36,10 @@
       "judge-primary",
       "judge-sensitivity"
     ],
+    "models": {
+      "judge-primary": "gpt-5.6-sol-high",
+      "judge-sensitivity": "claude-opus-5-5-high"
+    },
     "call": {
       "temperature": 0.0,
       "top_p": 1.0,
@@ -78,5 +82,5 @@
     "mode": "llmaj_output_only",
     "description": "No owner PENDING/PROPOSED public_benchmark overlay rows. Mappings enter the overlay only from live LLMAJ sheets under this prereg (intersection-union), then optional SME append-only overlay."
   },
-  "prereg_sha256": "301e4721fa4ec1c87e17c41f7c55de03a3140790a9090f6a38c64aa8723e1979"
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441"
 }

@@ -1,0 +1,18 @@
+{
+  "public.handshake_bankertoolbench": {
+    "judge-primary": "bc-fa64e693-60fa-57b4-8014-15ced6fff1e2",
+    "judge-sensitivity": "bc-ce69f8a1-e7e6-52f6-9b46-bc3fe0a35ae8"
+  },
+  "public.mercor_apex1_ib": {
+    "judge-primary": "bc-b3029552-d1c4-5b6d-8f31-c78fdbc51577",
+    "judge-sensitivity": "bc-d4bd280b-89fd-5252-9a86-f292868d706d"
+  },
+  "public.mercor_apex_agents": {
+    "judge-primary": "bc-fd812c77-1841-5634-9d8c-4fa7d4f3bda6",
+    "judge-sensitivity": "bc-905e52de-e7f4-5d86-bd3d-ebb93b9e9385"
+  },
+  "public.rogo_big_finance_bench": {
+    "judge-primary": "bc-6319b186-1daa-5e90-b39a-b7530c87105e",
+    "judge-sensitivity": "bc-c2b24035-170c-561d-89b8-3a1fa20c6eef"
+  }
+}

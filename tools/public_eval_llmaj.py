@@ -160,6 +160,13 @@ def prereg_problems(prereg: dict | None = None) -> list[str]:
         problems.append("prereg task_concepts_sha256 drift")
     if list(prereg.get("channels_in_saturation") or []) != ["public"]:
         problems.append("prereg channels_in_saturation must be exactly [public]")
+    models = (prereg.get("panel") or {}).get("models") or {}
+    if set(models) != {"judge-primary", "judge-sensitivity"}:
+        problems.append("prereg panel.models must name judge-primary and judge-sensitivity")
+    elif models.get("judge-primary") == models.get("judge-sensitivity"):
+        problems.append("primary and sensitivity model ids must differ")
+    elif not str(models.get("judge-primary") or "").strip() or not str(models.get("judge-sensitivity") or "").strip():
+        problems.append("prereg panel.models entries must be non-empty")
     ni = prereg.get("non_influence") or {}
     if ni.get("relative_public_eval_saturation") != "forbidden_to_steer":
         problems.append("prereg must forbid steering relative public-eval saturation")

@@ -5,7 +5,7 @@
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "method": {
-    "rules_version": "1.4.0",
+    "rules_version": "1.5.0",
     "paint_statuses": [
       "QUALIFIED_MAPPING",
       "RATIFIED_MAPPING"
@@ -24,7 +24,7 @@
       "public_benchmark",
       "public_rubric"
     ],
-    "llmaj_prereg_sha256": "301e4721fa4ec1c87e17c41f7c55de03a3140790a9090f6a38c64aa8723e1979"
+    "llmaj_prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441"
   },
   "inventory_sha256": "d88223dce15e5c734eeff6bfcef76dd8956ef3371c2505cbb80f7619dc4f4008",
   "rows": [

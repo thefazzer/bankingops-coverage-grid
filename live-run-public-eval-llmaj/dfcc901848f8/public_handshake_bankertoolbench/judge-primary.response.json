@@ -1,0 +1,35 @@
+{
+  "$id": "bocg.public-eval-llmaj-judge-response/v1",
+  "assessor_id": "judge-primary",
+  "inventory_id": "public.handshake_bankertoolbench",
+  "families": [
+    {
+      "family_id": "SURFACE_BINDING",
+      "verdict": "FAIL",
+      "rationale": "The title states only broad end-to-end investment banking workflows and does not identify a specific admitted division or terminal task without pooling or inference."
+    },
+    {
+      "family_id": "LIMITS_NAMED",
+      "verdict": "FAIL",
+      "rationale": "The inventory card does not name whether coverage is advisory, capital-markets origination, research, or another role, nor does it state partial-coverage limits."
+    },
+    {
+      "family_id": "NEGATIVE_CONTROL",
+      "verdict": "PASS",
+      "rationale": "No division is promoted from the generic terms banker, banking, or workflows, so lexical false friends remain unpainted."
+    },
+    {
+      "family_id": "EVIDENCE_ABLATION",
+      "verdict": "PASS",
+      "rationale": "Removing the public title and URL leaves no evidence for any mapping claim; no residual owner intuition is used to create a row."
+    },
+    {
+      "family_id": "LATERAL_HIRE",
+      "verdict": "PASS",
+      "rationale": "An outsider can reproduce the empty mapping by comparing the broad inventory title with the more specific admitted division labels and applying the stated rejection discipline."
+    }
+  ],
+  "mappings": [],
+  "promotion_verdict": "FAIL",
+  "notes": "No mapping is emitted because the card supplies no division-specific or task-specific scope sufficient to choose among admitted investment-banking-related keys."
+}

@@ -4,11 +4,16 @@
 
 - SPEC-09 public-eval LLMAJ purity: front-loaded prereg + observable frozen prompt:
   - Lock prompt, rubric, inventory/catalogue digests, band weights, call settings
-    and non-influence rules in `reference/public-eval-llmaj-prereg.v1.json`.
+    and non-influence rules in `reference/public-eval-llmaj-prereg.v1.json`
+    (`prereg_sha256` `dfcc901848f8…`).
   - Forbid owner-authored PENDING/PROPOSED `public_benchmark` rows and per-artifact
     prompt variants (would steer relative saturation or seller own coverage).
-  - IB benches remain inventoried only; paint still requires live primary+sensitivity
-    PASS under the locked prereg. Harvey LAB peer-shape seed remains the only paint.
+  - Live primary+sensitivity run under the locked prereg
+    (`live-run-public-eval-llmaj/dfcc901848f8/`): four public_benchmark cards
+    (Mercor Apex1 IB, Mercor Apex Agents, Rogo Big Finance Bench, Handshake
+    BankerToolBench). Exact mapping-key intersection was empty on every card;
+    ledger records four `paint_eligible: false` cases; no `public_benchmark`
+    QUALIFIED paint promoted. Harvey LAB peer-shape L1 seed remains the only paint.
 
 ## v0.6.1 — 2026-09-25
 

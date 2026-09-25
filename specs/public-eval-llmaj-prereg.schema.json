@@ -77,12 +77,22 @@
     "panel": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["assessors", "call"],
+      "required": ["assessors", "models", "call"],
       "properties": {
         "assessors": {
           "type": "array",
           "minItems": 2,
           "items": {"enum": ["judge-primary", "judge-sensitivity"]}
+        },
+        "models": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["judge-primary", "judge-sensitivity"],
+          "description": "Front-loaded model ids for each assessor. Must be distinct vendor families.",
+          "properties": {
+            "judge-primary": {"type": "string", "minLength": 3},
+            "judge-sensitivity": {"type": "string", "minLength": 3}
+          }
         },
         "call": {
           "type": "object",
