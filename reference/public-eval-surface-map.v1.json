@@ -1,7 +1,7 @@
 {
   "schema": "bocg.public-eval-surface-overlay/v1",
   "bocg_release": {
-    "tag": "v0.6.1",
+    "tag": "v0.6.2",
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "method": {

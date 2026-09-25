@@ -250,7 +250,7 @@ def main(argv: list[str]) -> int:
         "rubric_version": "1.0.0",
         "prereg_sha256": prereg["prereg_sha256"],
         "bocg_release": {
-            "tag": "v0.6.1",
+            "tag": "v0.6.2",
             "task_concepts_sha256": prereg["inputs"]["task_concepts_sha256"],
         },
         "cases": cases,

@@ -4,7 +4,7 @@
   "rubric_version": "1.0.0",
   "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441",
   "bocg_release": {
-    "tag": "v0.6.1",
+    "tag": "v0.6.2",
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "cases": [

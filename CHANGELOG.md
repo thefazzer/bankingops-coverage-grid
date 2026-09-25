@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.6.2 — 2026-09-25
+
 - SPEC-09 public-eval LLMAJ purity: front-loaded prereg + observable frozen prompt:
   - Lock prompt, rubric, inventory/catalogue digests, band weights, call settings
     and non-influence rules in `reference/public-eval-llmaj-prereg.v1.json`
