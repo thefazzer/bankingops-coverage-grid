@@ -170,6 +170,12 @@ def overlay_problems(overlay: dict, *, root: Path = ROOT) -> list[str]:
         problems.append("method.channels_in_saturation must be exactly ['public']")
     if set(method.get("paint_inventory_classes") or []) != PAINT_CLASSES:
         problems.append("method.paint_inventory_classes must be the public-eval class set only")
+    if not method.get("llmaj_prereg_sha256"):
+        problems.append("method.llmaj_prereg_sha256 is required (front-loaded LLMAJ prereg)")
+    else:
+        from public_eval_llmaj import overlay_non_influence_problems
+
+        problems.extend(overlay_non_influence_problems(overlay))
 
     seen_rows: set[str] = set()
     for index, row in enumerate(overlay.get("rows") or []):
@@ -295,7 +301,11 @@ def cmd_check() -> int:
     problems = overlay_problems(overlay)
     for problem in problems:
         print("FAIL", problem)
-    if schema_failed or problems:
+    # S9-G5: public_benchmark paint is LLMAJ multi-pass only (never one-pass owner).
+    from public_eval_llmaj import cmd_promote_gate
+
+    promote_rc = cmd_promote_gate()
+    if schema_failed or problems or promote_rc != 0:
         return 1
     summary = overlay["division_rollup"]["summary"]
     print(

@@ -2,9 +2,9 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.6.1",
-    "commit_sha": "5076a6b4163f969f1a48aca57bf8da9983430900",
-    "generated_at": "2026-09-25T00:45:08.431265Z"
+    "tag": "v0.6.2",
+    "commit_sha": "99370e504e79d29cd60423e3d643a7482ecf7f0e",
+    "generated_at": "2026-09-25T03:51:35.716754Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -17,8 +17,8 @@
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 4896,
-      "sha256": "767955cbc9461dbd8cdda0baf755a89113a05127a59a4287fe3ab3060933664f"
+      "size_bytes": 5139,
+      "sha256": "f5182ce5605409289316bec993028c681e6aedd9f071a594202afe3417602878"
     },
     {
       "path": "cells/cp_aana_umr_scope.json",
@@ -199,15 +199,29 @@
       "path": "reference/public-eval-inventory.v1.yaml",
       "role": "public-eval-inventory",
       "media_type": "application/yaml",
-      "size_bytes": 2060,
-      "sha256": "949f1c93bfcce1bfe9affb30a63d6a516d22d1e81c321ca8b0da08920d385c98"
+      "size_bytes": 3547,
+      "sha256": "d88223dce15e5c734eeff6bfcef76dd8956ef3371c2505cbb80f7619dc4f4008"
+    },
+    {
+      "path": "reference/public-eval-llmaj-ledger.v1.json",
+      "role": "public-eval-llmaj-ledger",
+      "media_type": "application/json",
+      "size_bytes": 22434,
+      "sha256": "09255359fb1bedccf4e008b546d16ded7ab490812541d300f91b33add872a1d7"
+    },
+    {
+      "path": "reference/public-eval-llmaj-prereg.v1.json",
+      "role": "public-eval-llmaj-prereg",
+      "media_type": "application/json",
+      "size_bytes": 2757,
+      "sha256": "f29b634dc72d99d4f2cd1b865abb3982aaf6afb05f4d256a249bcfa09c0fcac1"
     },
     {
       "path": "reference/public-eval-surface-map.v1.json",
       "role": "public-eval-surface-overlay",
       "media_type": "application/json",
-      "size_bytes": 14549,
-      "sha256": "f2207b041c819494bb739325606a496cc7c172b21d06abfc45cd34fd3c304a48"
+      "size_bytes": 14644,
+      "sha256": "004ec6b3d367b985fa009473c1e7bc645aedaa351aa15819255f16d2308efadf"
     },
     {
       "path": "reference/task-concept-rulings.yaml",
@@ -290,8 +304,8 @@
       "path": "specs/SPEC-09-public-eval-surface-overlay.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 3876,
-      "sha256": "b35d0803b596f2857ae1c7fbe4eb913c5fd25a533bf280391568cfbe749718b3"
+      "size_bytes": 7806,
+      "sha256": "9b833c484df631c7acc1b976c235a007f0ddd8e26b306362769e0a573926b3a1"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -336,6 +350,13 @@
       "sha256": "5d5c8827887ee5fd7c83521bf7bb994077cb0461501a0238fc38e8a74793f4fa"
     },
     {
+      "path": "specs/fixtures/public-eval-llmaj-synthetic.json",
+      "role": "conformance-fixture",
+      "media_type": "application/json",
+      "size_bytes": 7056,
+      "sha256": "cc46810e68f32edb2837ed5a268604ab3dd27ab5256afbaef750f3a498e6b127"
+    },
+    {
       "path": "specs/insight-construction-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
@@ -371,11 +392,32 @@
       "sha256": "b4a3aae9f2056f273245a4118da9c64ab8b07925a41c092d4a9c19a07e3a3068"
     },
     {
+      "path": "specs/prompts/public-eval-llmaj-judge.v1.txt",
+      "role": "llmaj-observable-prompt",
+      "media_type": "text/plain",
+      "size_bytes": 3601,
+      "sha256": "3463d82b2bcefa8dc9fba58445a054b28e83421c9173fdb3226b7d414d051a26"
+    },
+    {
+      "path": "specs/public-eval-llmaj-prereg.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 5682,
+      "sha256": "c90f75e30e67da3bcf655ca490dd33def0e6e644d0e7669c4565f7f75603ad37"
+    },
+    {
+      "path": "specs/public-eval-llmaj.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 4240,
+      "sha256": "548a4b91a54e98527bbd1a785a81a80032912b2aa310c25415081934db78dd17"
+    },
+    {
       "path": "specs/public-eval-surface-overlay.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 7972,
-      "sha256": "40a5ccfffa2eb63fa22cd1e02464fdd26df996aba7f94019de1c446987be47c9"
+      "size_bytes": 8654,
+      "sha256": "3872b30cd40777ec9fab90853fb12a45031e1b855eaa7d0d2ade98e836d8f78b"
     },
     {
       "path": "specs/replayable-compliance-scenario.schema.json",
@@ -399,6 +441,13 @@
       "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
     },
     {
+      "path": "specs/rubrics/public-eval-mapping.yaml",
+      "role": "adjudication-rubric",
+      "media_type": "application/yaml",
+      "size_bytes": 2784,
+      "sha256": "f9b54c876df4cab5a272b69dcc44c1593b40654cf07a19d0c1d17e14dcd0a4d4"
+    },
+    {
       "path": "specs/scenario-run-ledger-rows.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
@@ -420,12 +469,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "31b3ce3ab38e4c4318bc72389805844a8ada062ffacb64dae430007653360490",
+  "aggregate_sha256": "e628e88e6deab6211298031b8e431586a0781dbaaa3c5f56173ca86898f28184",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "0c4ef2fb7e178962819c575130faaa01b84524dcedf5d9e9d81b11c67ae8e3d4"
+  "manifest_sha256": "513f7c25a411af1abb5700a55c2c5a1a1af6b007693eef312effb387c6c79f7a"
 }

@@ -1,0 +1,340 @@
+{
+  "schema": "bocg.public-eval-llmaj/v1",
+  "rubric_id": "bocg-public-eval-mapping",
+  "rubric_version": "1.0.0",
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441",
+  "bocg_release": {
+    "tag": "v0.6.2",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
+  },
+  "cases": [
+    {
+      "case_id": "llmaj_public_handshake_bankertoolbench_no_intersection",
+      "inventory_id": "public.handshake_bankertoolbench",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L1",
+      "proposed_rule_id": "R-REJECT",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "gpt-5.6-sol-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "FAIL",
+              "rationale": "The title states only broad end-to-end investment banking workflows and does not identify a specific admitted division or terminal task without pooling or inference."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The inventory card does not name whether coverage is advisory, capital-markets origination, research, or another role, nor does it state partial-coverage limits."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "No division is promoted from the generic terms banker, banking, or workflows, so lexical false friends remain unpainted."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Removing the public title and URL leaves no evidence for any mapping claim; no residual owner intuition is used to create a row."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "An outsider can reproduce the empty mapping by comparing the broad inventory title with the more specific admitted division labels and applying the stated rejection discipline."
+            }
+          ],
+          "promotion_verdict": "FAIL",
+          "notes": "No mapping is emitted because the card supplies no division-specific or task-specific scope sufficient to choose among admitted investment-banking-related keys."
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "claude-opus-5-5-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The card states scope only as 'end-to-end investment banking workflows'. Investment banking spans several admitted keys (ma_advisory, ecm_origination, dcm_origination, leveraged_finance_loan_capital_markets, capital_markets_origination_combined). The card carries no task-family citation that singles out one key and depth, and binding to all of them would pool across divisions, which is prohibited. No single binding under R-DIV-KEY, R-TERM-TASK, R-CONCEPT or R-PEER-SHAPE can be established from the card alone."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The card names no partial-coverage limits, no split between advisory and capital-markets roles, no terminal tasks, and no operational roles outside its scope. The sell-side facing is only implied by the phrase 'investment banking'. A later reader could not falsify a per-division map from what the card states."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "No near-miss key is promoted. 'Banking' and 'Banker' are not read as binding to treasury_balance_sheet_funding, client_lifecycle_kyc, prime_brokerage_financing or any sales-and-trading, risk or operations key, because the unit of work implied by 'investment banking workflows' differs from those keys' terminality. The mappings array is empty, so no lexical false friend is painted."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "UNCERTAIN",
+              "rationale": "Every candidate binding rests on the title phrase and the GitHub URL. With the URL and task-family citation removed, no residual evidence would pick one division key over another. Because no mapping is asserted, there is nothing that holds up on owner intuition, but there is also no positive claim to test for collapse."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "UNCERTAIN",
+              "rationale": "An experienced outsider reading only the card, the catalogue labels and the rubric would see that the artifact is relevant to investment banking. They could not reproduce a single division_key, depth, band and rule_id with confidence, because the choice among advisory, ECM, DCM, leveraged finance or the combined origination key is underdetermined."
+            }
+          ],
+          "promotion_verdict": "UNCERTAIN",
+          "notes": "Sensitivity judge: the title points toward sell-side investment-banking divisions, but the card has no task-family citation that separates advisory from capital-markets origination. Per the prompt ('If you are unsure a binding exists, omit it') and the no-pooling rule, mappings are left empty and promotion is UNCERTAIN. Nothing is painted. If judge-primary disagrees, both sheets should be kept under on_disagreement."
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "UNCERTAIN",
+      "paint_eligible": false,
+      "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[]"
+    },
+    {
+      "case_id": "llmaj_public_mercor_apex1_ib_no_intersection",
+      "inventory_id": "public.mercor_apex1_ib",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L1",
+      "proposed_rule_id": "R-REJECT",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "gpt-5.6-sol-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The card identifies generic investment-banking analyst tasks but names no task family that uniquely binds to any admitted division."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The card does not state coverage boundaries among advisory, capital-markets origination, leveraged finance, research, or other potentially adjacent roles."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "No division is promoted from the generic terms investment banking and analyst, which do not establish an operational unit of work."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "NOT_APPLICABLE",
+              "rationale": "There is no proposed mapping claim to test after removing the inventory title and URL citation."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "An outsider can reproduce the non-promotion because the supplied card contains no division-specific or terminal-task evidence."
+            }
+          ],
+          "promotion_verdict": "FAIL",
+          "notes": "No mapping is promoted from a generic investment-banking benchmark title without stated task-family evidence."
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "claude-opus-5-5-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The card title names 'Investment Banking Analyst (single-turn IB tasks)'. Sell-side IB analyst work plausibly binds to ma_advisory ('Mergers, acquisitions and strategic advisory') at function_concept depth under R-CONCEPT. However, the card does not explicitly name M&A, and 'investment banking' conventionally also spans ECM/DCM/leveraged finance origination. From title/URL/class alone the binding is plausible but not unambiguous at the division level, and nothing supports task_concept or terminal_task depth. No pooling is applied: a single ma_advisory row is proposed and the other origination keys are left unbound."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "PASS",
+              "rationale": "Limits are stated in the mapping: sell-side facing only; single-turn analyst deliverables (not multi-turn deal execution, client coverage, or syndicate/bookrunning); function_concept depth only; no claim on ecm_origination, dcm_origination, capital_markets_origination_combined or leveraged_finance_loan_capital_markets. A later reader can falsify the map by showing the task families are not M&A/advisory-shaped analyst work."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "The lexical false friend 'banking' is not used to promote treasury_balance_sheet_funding, institutional_sales_coverage, or any markets/trading, risk or operations key. Capital-markets origination keys (ECM/DCM/combined/levfin) are not promoted because the card does not cite syndicate, underwriting or book-building units of work; their terminality differs from generic IB analyst tasks."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "The only basis for the proposed ma_advisory row is the card title and URL ('investment banking analyst tasks'). If the citation is removed, no residual basis remains and the mapping collapses; no owner intuition is used to fill it."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "UNCERTAIN",
+              "rationale": "An outsider would likely reproduce the direction (IB analyst -> ma_advisory at function_concept via R-CONCEPT), but the choice between ma_advisory alone versus additional ECM/DCM rows and the band assignment are not uniquely determined by the title, catalogue labels and rubric, because the prompt does not define L1/L2/L3 semantics. Reproduction of the exact band is therefore uncertain."
+            }
+          ],
+          "promotion_verdict": "UNCERTAIN",
+          "notes": "Sensitivity judge: direction is a single conservative ma_advisory function_concept binding, not promoted. SURFACE_BINDING and LATERAL_HIRE are UNCERTAIN because the card does not name M&A explicitly and band semantics are not defined in the prompt. Under the pass rule this card cannot reach QUALIFIED_MAPPING from this sheet. If the primary judge disagrees, preserve both sheets with status UNCERTAIN and no paint."
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "UNCERTAIN",
+      "paint_eligible": false,
+      "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[('ma_advisory', 'function_concept', 'L2', 'R-CONCEPT')]"
+    },
+    {
+      "case_id": "llmaj_public_mercor_apex_agents_no_intersection",
+      "inventory_id": "public.mercor_apex_agents",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L1",
+      "proposed_rule_id": "R-REJECT",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "gpt-5.6-sol-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "FAIL",
+              "rationale": "The title identifies only a generic investment-banking analyst job family and does not state a division or terminal task matching any admitted key."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The card does not name task coverage, capital-markets versus advisory scope, facing, depth, or exclusions among non-overlapping operational roles."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "The generic words investment banking and analyst are not promoted into advisory, origination, research, trading, risk, or operations keys."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "NOT_APPLICABLE",
+              "rationale": "No mapping claim is made, so there is no promoted evidence-dependent binding to test by removing the public URL or task-family citation."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "An outsider can reproduce the empty mapping from the generic card title and the absence of a stated division or task-family citation."
+            }
+          ],
+          "promotion_verdict": "FAIL",
+          "notes": "Insufficient stated scope for a division-level or task-level binding; no mapping is promoted."
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "claude-opus-5-5-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The card's stated scope is the 'investment banking analyst job family'. Conceptually this sits closest to ma_advisory (the advisory core of the IB analyst role), but the card gives no task-family breakdown, so it cannot tell M&A advisory apart from ECM, DCM or leveraged-finance analyst work. A binding at function_concept depth is plausible under R-CONCEPT. A binding at terminal_task or task_concept depth is not supported by the card."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The card names no partial-coverage limits and no split between sell-side and buy-side facing beyond the implied sell-side IB role. It also names no operational roles that are excluded (such as syndicate execution, capital-markets origination or coverage banking), so a later reader cannot falsify the map against the card alone."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "The word 'banking' in 'investment banking' was not treated as licence to bind to treasury_balance_sheet_funding, market risk, trading, operations or buy-side keys. Those keys have a different operational unit of work, so they stay unpromoted. Only the advisory concept is carried forward, and only tentatively."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "If the URL and the title citing the IB analyst job family are removed, nothing is left to support any binding. The tentative ma_advisory concept depends entirely on the card's cited scope, and no owner intuition remains after ablation."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "UNCERTAIN",
+              "rationale": "An experienced outsider would probably land on ma_advisory at concept level. However, they could reasonably also choose capital_markets_origination_combined, or decline to bind at all, given how coarse 'investment banking analyst' is. The band and the exact key are therefore not reliably reproducible from the card alone."
+            }
+          ],
+          "promotion_verdict": "UNCERTAIN",
+          "notes": "Sensitivity judge. The single concept-level binding to ma_advisory is tentative, and LIMITS_NAMED fails, so under pass rule public-eval-mapping/intersection-union/v1 this cannot be painted as QUALIFIED_MAPPING. No bindings to capital-markets origination keys were made because the card does not distinguish them."
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "UNCERTAIN",
+      "paint_eligible": false,
+      "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[('ma_advisory', 'function_concept', 'L3', 'R-CONCEPT')]"
+    },
+    {
+      "case_id": "llmaj_public_rogo_big_finance_bench_no_intersection",
+      "inventory_id": "public.rogo_big_finance_bench",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L1",
+      "proposed_rule_id": "R-REJECT",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "gpt-5.6-sol-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The title establishes workflow-grounded financial research, but it does not identify a catalogue division or a buy-side versus sell-side operating unit."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The card does not name facing, task-family boundaries, or exclusions needed to distinguish sell-side research from buy-side investment analysis."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "No mapping is promoted from the generic terms finance, financial research, benchmark, or agents without an operational-unit match."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Removing the public title and repository URL leaves no evidence for any division binding, so no residual intuition supports a mapping."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "An outsider can reproduce the non-promotion from the card and catalogue because the card supplies no division-facing or terminal-task detail."
+            }
+          ],
+          "promotion_verdict": "FAIL",
+          "notes": "No mapping is promoted. The closest lexical candidate is sellside_research, but the inventory card says only financial research and does not establish sell-side facing; buy-side investment analysis is also not excluded."
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "claude-opus-5-5-high",
+          "assessed_at": "2026-09-25T03:41:58Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "UNCERTAIN",
+              "rationale": "The card states only 'workflow-grounded financial-research agents'. It does not name a desk, facing (sell-side vs buy-side) or a terminal unit of work. The phrase 'financial research' sits lexically near sellside_research ('Investment Research (equity and credit)') and buyside_portfolio_management ('Buy-side portfolio management and investment analysis'), but nothing on the card binds it to either key under R-DIV-KEY, R-TERM-TASK or R-CONCEPT without guessing. No binding is asserted."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "FAIL",
+              "rationale": "The inventory card names no partial-coverage limits, no sell/buy facing and no operational role boundaries. A later reader could not falsify any division binding from the card, because the card itself states no scope boundary beyond the generic 'financial-research' label."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "The generic tokens 'Finance' and 'financial research' are near-miss lexical false friends. They are kept unpromoted: none of sellside_research, buyside_portfolio_management, ma_advisory or any other key is painted on the strength of the word 'finance' or 'research' alone, because the card does not establish that the operational unit of work matches the terminality of any admitted key."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "No mapping is claimed, so there is no residual owner intuition to collapse. With the URL and title removed, nothing would remain, which matches the empty mappings array returned here."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "UNCERTAIN",
+              "rationale": "An outsider working from the card, catalogue and rubric alone would most likely also decline to bind. However, the title's 'financial-research' wording could lead a different reader to propose sellside_research at concept depth, so reproducibility of the no-binding status is probable but not certain."
+            }
+          ],
+          "promotion_verdict": "UNCERTAIN",
+          "notes": "Sensitivity sheet. Evidence is insufficient to promote any binding from the inventory card title, class and URL alone. The mappings array is left empty rather than filled from intuition. This sheet should be preserved alongside the primary sheet without averaging the two."
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "UNCERTAIN",
+      "paint_eligible": false,
+      "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[]"
+    }
+  ]
+}

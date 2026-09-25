@@ -75,6 +75,11 @@ def gate_deny() -> None:
         ROOT / "specs/SPEC-09-public-eval-surface-overlay.md",
         ROOT / "reference/public-eval-inventory.v1.yaml",
         ROOT / "reference/public-eval-surface-map.v1.json",
+        ROOT / "reference/public-eval-llmaj-ledger.v1.json",
+        ROOT / "reference/public-eval-llmaj-prereg.v1.json",
+        ROOT / "specs/rubrics/public-eval-mapping.yaml",
+        ROOT / "specs/prompts/public-eval-llmaj-judge.v1.txt",
+        ROOT / "specs/fixtures/public-eval-llmaj-synthetic.json",
     ]
     for path in targets:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -446,8 +451,17 @@ def gate_task_concepts() -> None:
 
 
 def gate_public_eval_overlay() -> None:
-    """S9-G1..G2: public-eval overlay schema and release-bound paint rules."""
+    """S9-G1..G2 + S9-G5: overlay schema, paint rules, LLMAJ promote-gate."""
     from public_eval_overlay import OVERLAY_PATH, SCHEMA_PATH, overlay_problems
+    from public_eval_llmaj import (
+        FIXTURE_PATH,
+        LEDGER_PATH,
+        PREREG_PATH,
+        cmd_promote_gate,
+        ledger_problems,
+        prereg_problems,
+        schema_validate,
+    )
 
     try:
         overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
@@ -467,6 +481,42 @@ def gate_public_eval_overlay() -> None:
         pass
     for problem in overlay_problems(overlay, root=ROOT):
         fail(f"S9-G2 {problem}")
+
+    # S9-G5: front-loaded prereg + LLMAJ promote-gate (no owner-steered saturation).
+    try:
+        for problem in prereg_problems():
+            fail(f"S9-G5 prereg: {problem}")
+        fixture = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
+        for msg in schema_validate(fixture):
+            fail(f"S9-G5 fixture schema: {msg[:120]}")
+        for problem in ledger_problems(fixture, allow_fixture_models=True):
+            if "live ledger cannot use fixture" in problem:
+                continue
+            fail(f"S9-G5 fixture: {problem}")
+        if LEDGER_PATH.is_file():
+            ledger = json.loads(LEDGER_PATH.read_text(encoding="utf-8"))
+            for msg in schema_validate(ledger):
+                fail(f"S9-G5 ledger schema: {msg[:120]}")
+            for problem in ledger_problems(ledger, allow_fixture_models=False):
+                fail(f"S9-G5 ledger: {problem}")
+        if not PREREG_PATH.is_file():
+            fail("S9-G5 missing public-eval LLMAJ prereg pack")
+    except (OSError, ValueError) as exc:
+        fail(f"S9-G5 LLMAJ artifacts unreadable: {exc}")
+        return
+
+    import io
+    from contextlib import redirect_stdout
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        rc = cmd_promote_gate()
+    if rc != 0:
+        for line in buf.getvalue().splitlines():
+            if line.startswith("FAIL"):
+                fail(f"S9-G5 {line[5:].strip()}")
+        if not any(line.startswith("FAIL") for line in buf.getvalue().splitlines()):
+            fail("S9-G5 promote-gate failed")
 
 
 def main() -> int:

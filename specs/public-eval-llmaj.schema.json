@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/blob/main/specs/public-eval-llmaj.schema.json",
+  "title": "BOCG public-eval LLMAJ adjudication ledger",
+  "description": "Append-only primary + sensitivity judge sheets for public-eval surface mapping. Disagreement is preserved; intersection-union is required before paint promotion. No institution instances.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rubric_id", "rubric_version", "bocg_release", "prereg_sha256", "cases"],
+  "properties": {
+    "schema": {"const": "bocg.public-eval-llmaj/v1"},
+    "rubric_id": {"const": "bocg-public-eval-mapping"},
+    "rubric_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "prereg_sha256": {"$ref": "#/$defs/sha256"},
+    "bocg_release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tag", "task_concepts_sha256"],
+      "properties": {
+        "tag": {"type": "string", "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "task_concepts_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "cases": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/case"}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "verdict": {"enum": ["PASS", "FAIL", "UNCERTAIN", "NOT_APPLICABLE"]},
+    "family_id": {
+      "enum": [
+        "SURFACE_BINDING",
+        "LIMITS_NAMED",
+        "NEGATIVE_CONTROL",
+        "EVIDENCE_ABLATION",
+        "LATERAL_HIRE"
+      ]
+    },
+    "assessor_id": {"enum": ["judge-primary", "judge-sensitivity", "sme-overlay"]},
+    "family_verdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["family_id", "verdict", "rationale"],
+      "properties": {
+        "family_id": {"$ref": "#/$defs/family_id"},
+        "verdict": {"$ref": "#/$defs/verdict"},
+        "rationale": {"type": "string", "minLength": 20}
+      }
+    },
+    "sheet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessor_id", "model_id", "assessed_at", "families", "promotion_verdict"],
+      "properties": {
+        "assessor_id": {"$ref": "#/$defs/assessor_id"},
+        "model_id": {"type": "string", "minLength": 3},
+        "assessed_at": {"type": "string", "format": "date-time"},
+        "families": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {"$ref": "#/$defs/family_verdict"}
+        },
+        "promotion_verdict": {"$ref": "#/$defs/verdict"},
+        "notes": {"type": "string"}
+      }
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "inventory_id",
+        "proposed_division_key",
+        "proposed_depth",
+        "proposed_band",
+        "proposed_rule_id",
+        "sheets",
+        "pass_rule_ref",
+        "case_verdict",
+        "paint_eligible"
+      ],
+      "properties": {
+        "case_id": {"type": "string", "pattern": "^llmaj_[a-z0-9_]+$"},
+        "inventory_id": {"type": "string", "minLength": 3},
+        "candidate_row_id": {
+          "description": "Optional. Under llmaj_output_only candidate policy, overlay rows are created from PASS cases; pre-staged owner candidate_row_id is forbidden.",
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^ovr_[a-z0-9_]+$"}
+          ]
+        },
+        "proposed_division_key": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+        "proposed_depth": {"enum": ["division", "function_concept", "task_concept", "terminal_task", "control_point"]},
+        "proposed_band": {"enum": ["L1", "L2", "L3"]},
+        "proposed_rule_id": {"enum": ["R-DIV-KEY", "R-TERM-TASK", "R-CONCEPT", "R-CTRL-CITE", "R-PEER-SHAPE", "R-REJECT"]},
+        "sheets": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/sheet"}
+        },
+        "pass_rule_ref": {"const": "public-eval-mapping/intersection-union/v1"},
+        "case_verdict": {"$ref": "#/$defs/verdict"},
+        "paint_eligible": {"type": "boolean"},
+        "disagreement_note": {"type": "string"}
+      }
+    }
+  }
+}

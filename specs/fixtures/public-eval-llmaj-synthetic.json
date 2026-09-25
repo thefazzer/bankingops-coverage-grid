@@ -1,0 +1,174 @@
+{
+  "schema": "bocg.public-eval-llmaj/v1",
+  "rubric_id": "bocg-public-eval-mapping",
+  "rubric_version": "1.0.0",
+  "bocg_release": {
+    "tag": "v0.6.2",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
+  },
+  "cases": [
+    {
+      "case_id": "llmaj_mercor_apex_agents_ma_advisory_disagree",
+      "inventory_id": "public.mercor_apex_agents",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L2",
+      "proposed_rule_id": "R-DIV-KEY",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "fixture-primary",
+          "assessed_at": "2026-09-25T01:00:00Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "PASS",
+              "rationale": "Public page names an Investment Banking Analyst job family with modeling and pitch work that binds to ma_advisory at division grain."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "PASS",
+              "rationale": "Candidate rationale names non-IB professional-services worlds and excludes syndicate bookbuild terminality."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "Generic banking leaderboard language alone would fail; the named IB analyst job family is the binding evidence."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Without the public APEX-Agents IB job-family citation the mapping claim has no residual support."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "An outsider can reproduce L2 / R-DIV-KEY from the public page plus catalogue labels."
+            }
+          ],
+          "promotion_verdict": "PASS",
+          "notes": "Synthetic primary sheet for fixture discipline only."
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "fixture-sensitivity",
+          "assessed_at": "2026-09-25T01:05:00Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "FAIL",
+              "rationale": "IB analyst modeling/pitch work may also sit under capital-markets origination banker roles; a single-division paint without a split row fails SURFACE_BINDING."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "PASS",
+              "rationale": "Limits are named, but they do not resolve the multi-desk binding concern."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "Not a pure lexical false friend; the disagreement is about desk assignment, not empty finance labels."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Ablating the URL removes the claim."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "UNCERTAIN",
+              "rationale": "Two reasonable desk assignments exist; lateral hire would not uniquely recover ma_advisory."
+            }
+          ],
+          "promotion_verdict": "FAIL",
+          "notes": "Synthetic sensitivity disagreement — must remain visible; no silent average."
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "UNCERTAIN",
+      "paint_eligible": false,
+      "disagreement_note": "Primary PASS vs sensitivity FAIL on SURFACE_BINDING; intersection-union blocks paint; both sheets retained."
+    },
+    {
+      "case_id": "llmaj_synthetic_agree_no_paint_without_live_run",
+      "inventory_id": "public.handshake_bankertoolbench",
+      "proposed_division_key": "ma_advisory",
+      "proposed_depth": "division",
+      "proposed_band": "L2",
+      "proposed_rule_id": "R-DIV-KEY",
+      "sheets": [
+        {
+          "assessor_id": "judge-primary",
+          "model_id": "fixture-primary",
+          "assessed_at": "2026-09-25T01:10:00Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "PASS",
+              "rationale": "Fixture agreement case: end-to-end junior IB workflows bind to ma_advisory under R-DIV-KEY."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "PASS",
+              "rationale": "Sandbox data-room limits are named in the candidate rationale."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "Not promoted from a generic finance QA bench; BTB is IB workflow-shaped."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Without the public BTB repository citation the claim collapses."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "Outsider can recover ma_advisory L2 from the public repo description and catalogue."
+            }
+          ],
+          "promotion_verdict": "PASS"
+        },
+        {
+          "assessor_id": "judge-sensitivity",
+          "model_id": "fixture-sensitivity",
+          "assessed_at": "2026-09-25T01:12:00Z",
+          "families": [
+            {
+              "family_id": "SURFACE_BINDING",
+              "verdict": "PASS",
+              "rationale": "Sensitivity agrees: junior IB deliverable workflows bind to ma_advisory."
+            },
+            {
+              "family_id": "LIMITS_NAMED",
+              "verdict": "PASS",
+              "rationale": "Named sandbox limits survive sensitivity review."
+            },
+            {
+              "family_id": "NEGATIVE_CONTROL",
+              "verdict": "PASS",
+              "rationale": "Sensitivity agrees this is not a lexical false friend."
+            },
+            {
+              "family_id": "EVIDENCE_ABLATION",
+              "verdict": "PASS",
+              "rationale": "Ablation still collapses the claim."
+            },
+            {
+              "family_id": "LATERAL_HIRE",
+              "verdict": "PASS",
+              "rationale": "Sensitivity agrees lateral hire recovers the same map."
+            }
+          ],
+          "promotion_verdict": "PASS"
+        }
+      ],
+      "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+      "case_verdict": "PASS",
+      "paint_eligible": true,
+      "disagreement_note": "Fixture agreement only. Live promotion still requires a non-fixture ledger case bound into the overlay llmaj_pass_ref; this synthetic PASS does not paint production rows."
+    }
+  ],
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441"
+}

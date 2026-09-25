@@ -1,0 +1,86 @@
+{
+  "schema": "bocg.public-eval-llmaj-prereg/v1",
+  "version": "1.1.0",
+  "locked_at": "2026-09-25",
+  "observable_prompt": {
+    "path": "specs/prompts/public-eval-llmaj-judge.v1.txt",
+    "sha256": "3463d82b2bcefa8dc9fba58445a054b28e83421c9173fdb3226b7d414d051a26",
+    "placeholders": [
+      "ASSESSOR_ID",
+      "INVENTORY_CARD",
+      "DIVISION_CATALOGUE",
+      "RUBRIC_ID",
+      "RUBRIC_VERSION",
+      "RUBRIC_TEXT"
+    ],
+    "notes": "Single frozen prompt for every public_benchmark card. No per-artifact prompt variants."
+  },
+  "rubric": {
+    "path": "specs/rubrics/public-eval-mapping.yaml",
+    "id": "bocg-public-eval-mapping",
+    "version": "1.0.0",
+    "sha256": "f9b54c876df4cab5a272b69dcc44c1593b40654cf07a19d0c1d17e14dcd0a4d4"
+  },
+  "inputs": {
+    "inventory_path": "reference/public-eval-inventory.v1.yaml",
+    "inventory_sha256": "d88223dce15e5c734eeff6bfcef76dd8956ef3371c2505cbb80f7619dc4f4008",
+    "catalogue_path": "reference/operating-catalogue.v1.json",
+    "catalogue_sha256": "fc8617e5ac3db5957a49b3e8bdbd42c3fa864ff4cde95081d5de93565178b5ad",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62",
+    "inventory_classes_in_scope": [
+      "public_benchmark"
+    ]
+  },
+  "panel": {
+    "assessors": [
+      "judge-primary",
+      "judge-sensitivity"
+    ],
+    "models": {
+      "judge-primary": "gpt-5.6-sol-high",
+      "judge-sensitivity": "claude-opus-5-5-high"
+    },
+    "call": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "max_tokens": 4096,
+      "seed_base": 0
+    }
+  },
+  "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+  "band_weights": {
+    "L1": 1,
+    "L2": 2,
+    "L3": 3
+  },
+  "channels_in_saturation": [
+    "public"
+  ],
+  "paint_inventory_classes": [
+    "peer_framework",
+    "peer_task_shape",
+    "public_benchmark",
+    "public_rubric"
+  ],
+  "non_influence": {
+    "relative_public_eval_saturation": "forbidden_to_steer",
+    "seller_own_coverage": "forbidden_to_steer",
+    "forbidden_context_paths": [
+      "own_cell.json",
+      "coverage_statement.md",
+      "docs/downstream-evidence.md"
+    ],
+    "forbidden_channels_in_judge_context": [
+      "own_cell",
+      "own_artifact"
+    ],
+    "owner_authored_candidate_rows": "forbidden",
+    "per_artifact_prompt_variants": "forbidden",
+    "post_hoc_band_weight_changes": "forbidden_without_new_prereg"
+  },
+  "candidate_policy": {
+    "mode": "llmaj_output_only",
+    "description": "No owner PENDING/PROPOSED public_benchmark overlay rows. Mappings enter the overlay only from live LLMAJ sheets under this prereg (intersection-union), then optional SME append-only overlay."
+  },
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441"
+}

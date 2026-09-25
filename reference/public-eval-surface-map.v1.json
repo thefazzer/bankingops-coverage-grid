@@ -1,11 +1,11 @@
 {
   "schema": "bocg.public-eval-surface-overlay/v1",
   "bocg_release": {
-    "tag": "v0.6.0",
+    "tag": "v0.6.2",
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "method": {
-    "rules_version": "1.1.0",
+    "rules_version": "1.5.0",
     "paint_statuses": [
       "QUALIFIED_MAPPING",
       "RATIFIED_MAPPING"
@@ -23,9 +23,10 @@
       "peer_task_shape",
       "public_benchmark",
       "public_rubric"
-    ]
+    ],
+    "llmaj_prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441"
   },
-  "inventory_sha256": "949f1c93bfcce1bfe9affb30a63d6a516d22d1e81c321ca8b0da08920d385c98",
+  "inventory_sha256": "d88223dce15e5c734eeff6bfcef76dd8956ef3371c2505cbb80f7619dc4f4008",
   "rows": [
     {
       "function_concept_id": null,
