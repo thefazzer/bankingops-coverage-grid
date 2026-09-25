@@ -2,9 +2,9 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.6.1",
-    "commit_sha": "ca8ee9606a1fb08abcb4e703a2812ced5d995c55",
-    "generated_at": "2026-09-25T03:43:06.880020Z"
+    "tag": "v0.6.2",
+    "commit_sha": "99370e504e79d29cd60423e3d643a7482ecf7f0e",
+    "generated_at": "2026-09-25T03:51:35.716754Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -207,7 +207,7 @@
       "role": "public-eval-llmaj-ledger",
       "media_type": "application/json",
       "size_bytes": 22434,
-      "sha256": "8788ac3d73602f792179c76a5057b6bcde788bed3602deebdde7b6c96c086be1"
+      "sha256": "09255359fb1bedccf4e008b546d16ded7ab490812541d300f91b33add872a1d7"
     },
     {
       "path": "reference/public-eval-llmaj-prereg.v1.json",
@@ -221,7 +221,7 @@
       "role": "public-eval-surface-overlay",
       "media_type": "application/json",
       "size_bytes": 14644,
-      "sha256": "8dcc0d38d81a45ff29403c056370ec9a04d0bd0064cbe680bb2e129232b09f7c"
+      "sha256": "004ec6b3d367b985fa009473c1e7bc645aedaa351aa15819255f16d2308efadf"
     },
     {
       "path": "reference/task-concept-rulings.yaml",
@@ -354,7 +354,7 @@
       "role": "conformance-fixture",
       "media_type": "application/json",
       "size_bytes": 7056,
-      "sha256": "3c429885b0858c5868351cd8236998e3b8a6c7272c2206ffa94cb6b56f8b6c8b"
+      "sha256": "cc46810e68f32edb2837ed5a268604ab3dd27ab5256afbaef750f3a498e6b127"
     },
     {
       "path": "specs/insight-construction-profile.yaml",
@@ -469,12 +469,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "06141f41e767495997e4303e89b38668ff6816a5e30832bb166659625ecd6914",
+  "aggregate_sha256": "e628e88e6deab6211298031b8e431586a0781dbaaa3c5f56173ca86898f28184",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "1da149602714f9576b9534827f6c536a0e3cdcbc4b2e08461c042786d7dc7471"
+  "manifest_sha256": "513f7c25a411af1abb5700a55c2c5a1a1af6b007693eef312effb387c6c79f7a"
 }
