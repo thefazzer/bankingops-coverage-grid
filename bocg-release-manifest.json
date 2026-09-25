@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.6.1",
-    "commit_sha": "029ea486a2b948399213a8a280116d0eab54ef64",
-    "generated_at": "2026-09-25T02:08:05.458736Z"
+    "commit_sha": "0a3fce1972d4ba7fe4b7dafdb634d6e02288d7d0",
+    "generated_at": "2026-09-25T02:14:21.546907Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -17,8 +17,8 @@
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 4896,
-      "sha256": "767955cbc9461dbd8cdda0baf755a89113a05127a59a4287fe3ab3060933664f"
+      "size_bytes": 5089,
+      "sha256": "322c4ebf34ca02ded9c559120ec83573228d37f7c035ece03a6a074594e51ca6"
     },
     {
       "path": "cells/cp_aana_umr_scope.json",
@@ -199,15 +199,22 @@
       "path": "reference/public-eval-inventory.v1.yaml",
       "role": "public-eval-inventory",
       "media_type": "application/yaml",
-      "size_bytes": 3291,
-      "sha256": "9e1d61ab333c8b4128eb57b82e7dc3c86115a8403d89afe9cbb198ea7103d9bb"
+      "size_bytes": 3420,
+      "sha256": "ff28d7ec606068aaa5702b7b848dcbdb2220d8c13b9e29472e70781027f0b02d"
+    },
+    {
+      "path": "reference/public-eval-llmaj-ledger.v1.json",
+      "role": "public-eval-llmaj-ledger",
+      "media_type": "application/json",
+      "size_bytes": 272,
+      "sha256": "90ad2db896f4184169b6c40ff36c8db7e448795bef4503ea1648f8ad28c64ded"
     },
     {
       "path": "reference/public-eval-surface-map.v1.json",
       "role": "public-eval-surface-overlay",
       "media_type": "application/json",
-      "size_bytes": 20147,
-      "sha256": "6a2a9e9a4075ae4f54188462e54c3688c3b5992d7acc8e9fbbb007e91196ed9d"
+      "size_bytes": 20412,
+      "sha256": "69567d0205ca703fc05079cdc4345a97d7895c3d883251061229b80b36ce8801"
     },
     {
       "path": "reference/task-concept-rulings.yaml",
@@ -290,8 +297,8 @@
       "path": "specs/SPEC-09-public-eval-surface-overlay.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 4326,
-      "sha256": "b945a5ce65cf2f40c0d2541b1a2f82d8d0b25ac6d19bbac6c905cf3689ae9d59"
+      "size_bytes": 6371,
+      "sha256": "c63456f0999e34e2eae14e2d24b33874cb882329fb3ad55d4fd10cb2c9f01df4"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -336,6 +343,13 @@
       "sha256": "5d5c8827887ee5fd7c83521bf7bb994077cb0461501a0238fc38e8a74793f4fa"
     },
     {
+      "path": "specs/fixtures/public-eval-llmaj-synthetic.json",
+      "role": "conformance-fixture",
+      "media_type": "application/json",
+      "size_bytes": 7092,
+      "sha256": "17e56467c795a2d7235045190f17b2a5b3b653b7337263228b672fd54f703edb"
+    },
+    {
       "path": "specs/insight-construction-profile.yaml",
       "role": "semantic-profile",
       "media_type": "application/yaml",
@@ -371,11 +385,18 @@
       "sha256": "b4a3aae9f2056f273245a4118da9c64ab8b07925a41c092d4a9c19a07e3a3068"
     },
     {
+      "path": "specs/public-eval-llmaj.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 3945,
+      "sha256": "0bcd4c9b022d68801716ac26440e0aa13d1f70c3ce43939ca285d7a7191e8cd8"
+    },
+    {
       "path": "specs/public-eval-surface-overlay.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 7972,
-      "sha256": "40a5ccfffa2eb63fa22cd1e02464fdd26df996aba7f94019de1c446987be47c9"
+      "size_bytes": 8372,
+      "sha256": "7fbf149dca511a684f0c6eb8f94c969671ca7cd554a0dec0b2f91ad35430be51"
     },
     {
       "path": "specs/replayable-compliance-scenario.schema.json",
@@ -399,6 +420,13 @@
       "sha256": "2318fd243ad13eea4721987afd4542cfb8593062301a3d3cb1eaa60ff09a2f2e"
     },
     {
+      "path": "specs/rubrics/public-eval-mapping.yaml",
+      "role": "adjudication-rubric",
+      "media_type": "application/yaml",
+      "size_bytes": 2551,
+      "sha256": "a09e8b20ab87a45dc6abdc89dc6e3eb54848a457254556221d03836cb27f6602"
+    },
+    {
       "path": "specs/scenario-run-ledger-rows.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
@@ -420,12 +448,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "502301520f89cf28a668aad29d337080f8c69a17a416528d68005b2b57db5939",
+  "aggregate_sha256": "606cc9b0a8bffbefae6fa47b319196890cea099af12e400667548b77ec4a77f6",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "f73b4dee1aaf6dc1c1fbe6dd6101d88c22e841986cfe82e847124c46afbf540a"
+  "manifest_sha256": "200a25fad84578316ce43fddd86cfc6b8cffeda6790607f05835c223e337d2ff"
 }
