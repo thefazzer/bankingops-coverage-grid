@@ -49,7 +49,6 @@ STATIC_ARTIFACTS = {
     "reference/task-concept-rulings.yaml": "task-concept-rulings",
     "reference/public-eval-inventory.v1.yaml": "public-eval-inventory",
     "reference/public-eval-surface-map.v1.json": "public-eval-surface-overlay",
-    "reference/public-eval-choropleth.v1.md": "public-eval-choropleth",
     "specs/bocg-release-manifest.schema.json": "release-manifest-schema",
 }
 RUN_ARTIFACTS = {
