@@ -71,6 +71,11 @@ def gate_deny() -> None:
         ROOT / "reference/task-concept-rulings.yaml",
         ROOT / "reference/task-concepts.v1.json",
         ROOT / "specs/fixtures/episode-surface-synthetic.json",
+        # S9-G4: public-eval overlay stays above the SPEC-03 floor.
+        ROOT / "specs/SPEC-09-public-eval-surface-overlay.md",
+        ROOT / "reference/public-eval-inventory.v1.yaml",
+        ROOT / "reference/public-eval-surface-map.v1.json",
+        ROOT / "reference/public-eval-choropleth.v1.md",
     ]
     for path in targets:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -441,6 +446,41 @@ def gate_task_concepts() -> None:
         fail(f"S8-G4 episode-surface fixture: {problem}")
 
 
+def gate_public_eval_overlay() -> None:
+    """S9-G1..G3: public-eval overlay schema, release-bound checks, choropleth reproduction."""
+    from public_eval_overlay import (
+        CHOROPLETH_MD,
+        OVERLAY_PATH,
+        SCHEMA_PATH,
+        overlay_problems,
+        render_markdown,
+    )
+
+    try:
+        overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
+        schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        fail(f"S9-G1 public-eval overlay artifacts unreadable: {exc}")
+        return
+    try:
+        import jsonschema
+
+        jsonschema.Draft202012Validator.check_schema(schema)
+        for error in jsonschema.Draft202012Validator(
+            schema, format_checker=jsonschema.FormatChecker()
+        ).iter_errors(overlay):
+            fail(f"S9-G1 overlay schema: {error.message[:120]}")
+    except ImportError:
+        pass
+    for problem in overlay_problems(overlay, root=ROOT):
+        fail(f"S9-G2 {problem}")
+    expected = render_markdown(overlay)
+    if not CHOROPLETH_MD.is_file():
+        fail("S9-G3 choropleth markdown missing")
+    elif CHOROPLETH_MD.read_text(encoding="utf-8") != expected:
+        fail("S9-G3 choropleth markdown does not reproduce from the map")
+
+
 def main() -> int:
     gate_cells()
     gate_deny()
@@ -451,6 +491,7 @@ def main() -> int:
     gate_compliance_scenarios()
     gate_scenario_run_ledger()
     gate_task_concepts()
+    gate_public_eval_overlay()
     if FAILURES:
         print("GATE FAILURES:")
         for f in FAILURES:
@@ -458,7 +499,10 @@ def main() -> int:
         return 1
     cells = len(list((ROOT / "cells").glob("*.json")))
     scenarios = len(list((ROOT / "specs/fixtures").glob("compliance-scenario-*.json")))
-    print(f"all SPEC-03/SPEC-04/SPEC-05/SPEC-07/SPEC-08 gates pass ({cells} cells, {scenarios} scenario fixture(s), CONFORMANCE.md intact)")
+    print(
+        f"all SPEC-03/SPEC-04/SPEC-05/SPEC-07/SPEC-08/SPEC-09 gates pass "
+        f"({cells} cells, {scenarios} scenario fixture(s), CONFORMANCE.md intact)"
+    )
     return 0
 
 

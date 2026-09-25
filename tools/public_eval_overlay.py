@@ -1,0 +1,375 @@
+#!/usr/bin/env python3
+"""Public-eval surface overlay: validate, roll up, and render a division choropleth.
+
+Likelihood-matched projection of public rubrics/benchmarks/evals onto the
+SPEC-08 episode-surface depth ladder. Painted rows
+(QUALIFIED_MAPPING / RATIFIED_MAPPING on channel=public) drive saturation;
+admitted divisions with zero painted rows are voids.
+
+    python3 tools/public_eval_overlay.py check
+    python3 tools/public_eval_overlay.py render
+    python3 tools/public_eval_overlay.py build   # rebuild map choropleth + render from rows
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_PATH = ROOT / "reference/public-eval-inventory.v1.yaml"
+OVERLAY_PATH = ROOT / "reference/public-eval-surface-map.v1.json"
+SCHEMA_PATH = ROOT / "specs/public-eval-surface-overlay.schema.json"
+CHOROPLETH_MD = ROOT / "reference/public-eval-choropleth.v1.md"
+PAINT = frozenset({"QUALIFIED_MAPPING", "RATIFIED_MAPPING"})
+ID_FIELD_FOR_DEPTH = {
+    "function_concept": "function_concept_id",
+    "task_concept": "task_concept_id",
+    "terminal_task": "task_reference_id",
+    "control_point": "control_point_id",
+}
+BAND_WEIGHTS = {"L1": 1, "L2": 2, "L3": 3}
+
+
+def sha256_bytes(value: bytes) -> str:
+    return hashlib.sha256(value).hexdigest()
+
+
+def sha256_file(path: Path) -> str:
+    return sha256_bytes(path.read_bytes())
+
+
+def load_inventory() -> dict:
+    return yaml.safe_load(INVENTORY_PATH.read_text(encoding="utf-8"))
+
+
+def inventory_digest(inventory: dict | None = None) -> str:
+    # Digest the on-disk bytes so rebuilds are byte-sensitive.
+    return sha256_file(INVENTORY_PATH)
+
+
+def matrix_tiers() -> dict[str, str]:
+    path = ROOT / "live-run-20260826/matrix.csv"
+    if not path.is_file():
+        return {}
+    with path.open(encoding="utf-8") as handle:
+        return {row["division_key"]: row["tier"] for row in csv.DictReader(handle)}
+
+
+def review_status_by_division(concepts: dict) -> dict[str, str]:
+    return {d["division_key"]: d["review_status"] for d in concepts["divisions"]}
+
+
+def admitted_divisions(catalogue: dict) -> list[str]:
+    return sorted(
+        d["division_key"]
+        for d in catalogue["definitions"]
+        if d["kind"] == "division"
+    )
+
+
+def paint_weight(row: dict, weights: dict[str, int]) -> int:
+    if row.get("mapping_status") not in PAINT:
+        return 0
+    if row.get("channel") != "public":
+        return 0
+    band = row.get("band")
+    if band not in weights:
+        return 0
+    return int(weights[band])
+
+
+def compute_choropleth(overlay: dict, *, root: Path = ROOT) -> dict:
+    concepts = json.loads((root / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
+    catalogue = json.loads((root / "reference/operating-catalogue.v1.json").read_text(encoding="utf-8"))
+    tiers = matrix_tiers()
+    reviews = review_status_by_division(concepts)
+    weights = dict(overlay["method"]["band_weights"])
+    by_div: dict[str, list[dict]] = {key: [] for key in admitted_divisions(catalogue)}
+    for row in overlay.get("rows") or []:
+        if paint_weight(row, weights) <= 0:
+            continue
+        key = row.get("division_key")
+        if key in by_div:
+            by_div[key].append(row)
+    divisions = []
+    max_sat = 0
+    painted_divs = 0
+    painted_rows = 0
+    for key in sorted(by_div):
+        rows = by_div[key]
+        sat = sum(paint_weight(r, weights) for r in rows)
+        max_sat = max(max_sat, sat)
+        if rows:
+            painted_divs += 1
+            painted_rows += len(rows)
+        divisions.append(
+            {
+                "division_key": key,
+                "review_status": reviews.get(key, "AUTO"),
+                "matrix_tier": tiers.get(key, "UNKNOWN"),
+                "painted_rows": len(rows),
+                "saturation": sat,
+                "void": len(rows) == 0,
+                "row_ids": [r["row_id"] for r in rows],
+            }
+        )
+    return {
+        "grain": "division",
+        "band_weights": weights,
+        "divisions": divisions,
+        "summary": {
+            "admitted_divisions": len(divisions),
+            "painted_divisions": painted_divs,
+            "void_divisions": len(divisions) - painted_divs,
+            "painted_rows": painted_rows,
+            "max_saturation": max_sat,
+        },
+    }
+
+
+def overlay_problems(overlay: dict, *, root: Path = ROOT) -> list[str]:
+    problems: list[str] = []
+    concepts = json.loads((root / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
+    catalogue = json.loads((root / "reference/operating-catalogue.v1.json").read_text(encoding="utf-8"))
+    inventory = load_inventory()
+    concept_ids = {c["concept_id"]: c for c in concepts["concepts"]}
+    definitions = {d["reference_id"]: d for d in catalogue["definitions"]}
+    divisions = {d["division_key"] for d in catalogue["definitions"] if d["kind"] == "division"}
+    cells = {p.stem for p in (root / "cells").glob("*.json")}
+    inv_ids = {item["id"] for item in inventory.get("artifacts") or []}
+
+    if overlay.get("bocg_release", {}).get("task_concepts_sha256") != concepts["task_concepts_sha256"]:
+        problems.append("overlay is bound to a different task-concepts digest")
+    if overlay.get("inventory_sha256") != inventory_digest():
+        problems.append("overlay inventory_sha256 does not match reference/public-eval-inventory.v1.yaml")
+
+    method = overlay.get("method") or {}
+    if set(method.get("paint_statuses") or []) != PAINT:
+        problems.append("method.paint_statuses must be exactly QUALIFIED_MAPPING and RATIFIED_MAPPING")
+    if method.get("band_weights") != BAND_WEIGHTS:
+        problems.append("method.band_weights must be L1=1, L2=2, L3=3 for this release")
+
+    seen_rows: set[str] = set()
+    for index, row in enumerate(overlay.get("rows") or []):
+        where = f"row {index} ({row.get('row_id')})"
+        rid = row.get("row_id")
+        if rid in seen_rows:
+            problems.append(f"{where}: duplicate row_id")
+        seen_rows.add(rid)
+        if row.get("inventory_id") not in inv_ids:
+            problems.append(f"{where}: unknown inventory_id")
+        status = row.get("mapping_status")
+        division = row.get("division_key")
+        depth = row.get("depth")
+        if status in PAINT:
+            if division not in divisions:
+                problems.append(f"{where}: painted row needs an admitted division_key")
+            if depth not in ID_FIELD_FOR_DEPTH and depth != "division":
+                problems.append(f"{where}: painted row needs a SPEC-08 depth")
+            if row.get("band") not in BAND_WEIGHTS:
+                problems.append(f"{where}: painted row needs band L1|L2|L3")
+            if not row.get("ruling"):
+                problems.append(f"{where}: painted row needs a ruling")
+            if not (row.get("rationale") or "").strip():
+                problems.append(f"{where}: painted row needs a rationale")
+        elif division is not None and division not in divisions:
+            # Deferred/rejected may name a non-admitted key only when explaining exclusion.
+            if status not in {"DEFERRED_MAPPING", "REJECTED_MAPPING"}:
+                problems.append(f"{where}: unknown division {division!r}")
+        field = ID_FIELD_FOR_DEPTH.get(depth) if depth else None
+        if field and not row.get(field):
+            problems.append(f"{where}: depth {depth} needs {field}")
+        for key, kind in (("function_concept_id", "function_concept"), ("task_concept_id", "task_concept")):
+            value = row.get(key)
+            if value is None:
+                continue
+            concept = concept_ids.get(value)
+            if concept is None:
+                problems.append(f"{where}: {key} is not a released concept")
+            elif concept["kind"] != kind or (division and concept["division_key"] != division):
+                problems.append(f"{where}: {key} belongs to another kind or division")
+        task_ref = row.get("task_reference_id")
+        if task_ref is not None:
+            definition = definitions.get(task_ref)
+            if definition is None or definition["kind"] != "task" or (
+                division and definition["division_key"] != division
+            ):
+                problems.append(f"{where}: task_reference_id is not a released task of the division")
+            elif row.get("task_concept_id") in concept_ids:
+                if task_ref not in concept_ids[row["task_concept_id"]]["members"]:
+                    problems.append(f"{where}: task_reference_id is not a member of task_concept_id")
+        cell = row.get("control_point_id")
+        if cell is not None:
+            if cell not in cells:
+                problems.append(f"{where}: control_point_id is not a released cell")
+            else:
+                cell_division = json.loads(
+                    (root / "cells" / f"{cell}.json").read_text(encoding="utf-8")
+                ).get("division_key")
+                if cell_division in divisions and division and cell_division != division:
+                    problems.append(f"{where}: control_point_id belongs to another division")
+                if cell_division not in divisions and status in PAINT:
+                    problems.append(
+                        f"{where}: control_point_id division {cell_division!r} is not admitted; cannot paint"
+                    )
+
+    expected = compute_choropleth(overlay, root=root)
+    if overlay.get("choropleth") != expected:
+        problems.append("choropleth roll-up does not match painted rows / band weights")
+    return problems
+
+
+def render_markdown(overlay: dict) -> str:
+    ch = overlay["choropleth"]
+    summary = ch["summary"]
+    release = overlay["bocg_release"]
+    lines = [
+        "# Public-eval surface overlay — division choropleth",
+        "",
+        "```",
+        "ARTIFACT : derived choropleth render (reproducible from public-eval-surface-map.v1.json)",
+        f"RELEASE  : {release['tag']} / task_concepts_sha256={release['task_concepts_sha256'][:12]}…",
+        "GRAIN    : division (42 admitted keys)",
+        "PAINT    : QUALIFIED_MAPPING + RATIFIED_MAPPING on channel=public only",
+        "BANDS    : L1=1, L2=2, L3=3 (explainable likelihood weights)",
+        "VOID     : admitted division with zero painted public-eval rows",
+        "NOT      : a competency score, an under-served claim (I7), or institution coverage",
+        "```",
+        "",
+        "## Legend",
+        "",
+        "| Symbol | Meaning |",
+        "|---|---|",
+        "| saturation N | weighted sum of painted rows (L1=1, L2=2, L3=3) |",
+        "| VOID | admitted BOCG surface with no painted public-eval touch |",
+        "| matrix_tier | live-run consensus tier (panel density), not eval density |",
+        "| review_status | SPEC-08 AUTO (machine prior) or REVIEWED (argued merges) |",
+        "",
+        "## Summary",
+        "",
+        f"- Admitted divisions: **{summary['admitted_divisions']}**",
+        f"- Painted divisions: **{summary['painted_divisions']}**",
+        f"- Void divisions: **{summary['void_divisions']}**",
+        f"- Painted rows: **{summary['painted_rows']}**",
+        f"- Max saturation: **{summary['max_saturation']}**",
+        "",
+        "## Choropleth (division grain)",
+        "",
+        "| Division | Tier | Review | Painted | Saturation | Void |",
+        "|---|---|---|---:|---:|---|",
+    ]
+    # Sort: saturation desc, then key
+    ordered = sorted(
+        ch["divisions"],
+        key=lambda d: (-d["saturation"], d["division_key"]),
+    )
+    max_sat = max(summary["max_saturation"], 1)
+    for cell in ordered:
+        if cell["void"]:
+            bar = "VOID"
+        else:
+            # Simple text bar proportional to max saturation.
+            filled = max(1, round(10 * cell["saturation"] / max_sat))
+            bar = "█" * filled + "░" * (10 - filled)
+        lines.append(
+            f"| `{cell['division_key']}` | {cell['matrix_tier']} | {cell['review_status']} "
+            f"| {cell['painted_rows']} | {cell['saturation']} {bar} | {'yes' if cell['void'] else ''} |"
+        )
+    lines += [
+        "",
+        "## How to read voids vs saturation",
+        "",
+        "Saturation concentrates where published control-point cells and argued public-eval",
+        "mappings already bind to the grid (often collateral, reporting, trade lifecycle,",
+        "credit). Voids are admitted divisions the overlay has not yet painted — they are",
+        "valid BOCG surface under seat/terminality/anchor rules, not elicited competency gaps.",
+        "",
+        "Rebuild: `python3 tools/public_eval_overlay.py build && python3 tools/public_eval_overlay.py check`.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def refresh_choropleth_and_digest(overlay: dict) -> dict:
+    overlay = dict(overlay)
+    overlay["inventory_sha256"] = inventory_digest()
+    overlay["choropleth"] = compute_choropleth(overlay)
+    return overlay
+
+
+def cmd_build() -> int:
+    overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
+    overlay = refresh_choropleth_and_digest(overlay)
+    OVERLAY_PATH.write_text(json.dumps(overlay, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    CHOROPLETH_MD.write_text(render_markdown(overlay), encoding="utf-8")
+    print(f"wrote {OVERLAY_PATH.relative_to(ROOT)}")
+    print(f"wrote {CHOROPLETH_MD.relative_to(ROOT)}")
+    print(
+        "summary:",
+        overlay["choropleth"]["summary"],
+    )
+    return 0
+
+
+def cmd_check() -> int:
+    overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
+    try:
+        import jsonschema
+
+        schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+        jsonschema.Draft202012Validator.check_schema(schema)
+        errors = sorted(
+            jsonschema.Draft202012Validator(schema, format_checker=jsonschema.FormatChecker()).iter_errors(overlay),
+            key=lambda e: list(e.path),
+        )
+        for err in errors:
+            print("FAIL schema:", err.message)
+        schema_failed = bool(errors)
+    except ImportError:
+        schema_failed = False
+        print("WARN jsonschema not installed; schema check skipped")
+    problems = overlay_problems(overlay)
+    for problem in problems:
+        print("FAIL", problem)
+    # Render must match committed markdown when present.
+    expected_md = render_markdown(overlay)
+    if CHOROPLETH_MD.is_file() and CHOROPLETH_MD.read_text(encoding="utf-8") != expected_md:
+        print("FAIL choropleth markdown is stale; run build")
+        problems.append("stale markdown")
+    if schema_failed or problems:
+        return 1
+    summary = overlay["choropleth"]["summary"]
+    print(
+        f"ok painted={summary['painted_divisions']} voids={summary['void_divisions']} "
+        f"rows={summary['painted_rows']} max_sat={summary['max_saturation']}"
+    )
+    return 0
+
+
+def cmd_render() -> int:
+    overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
+    text = render_markdown(overlay)
+    CHOROPLETH_MD.write_text(text, encoding="utf-8")
+    print(text)
+    return 0
+
+
+def main(argv: list[str]) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", choices=("check", "build", "render"))
+    args = parser.parse_args(argv)
+    if args.command == "check":
+        return cmd_check()
+    if args.command == "build":
+        return cmd_build()
+    return cmd_render()
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv[1:]))

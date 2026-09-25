@@ -1,5 +1,17 @@
 # Release changes
 
+## v0.6.1 — 2026-09-24
+
+- Add SPEC-09 public-eval surface overlay:
+  - Inventory public peers, in-repo rubrics and control-point citation targets.
+  - Likelihood-matched map (`L1`–`L3`, named rules) onto the SPEC-08 depth
+    ladder; only QUALIFIED/RATIFIED public rows paint.
+  - Division choropleth of saturation vs admitted voids
+    (`reference/public-eval-choropleth.v1.md`).
+  - S9 gates; CONFORMANCE.md row 19; release-manifest binding.
+- Catalogue, matrix, cells and task concepts remain byte-compatible with v0.6.0
+  for evidence bindings; overlay is a supplement.
+
 ## v0.6.0 — 2026-09-24
 
 - Add SPEC-08 task concepts and episode surface:
