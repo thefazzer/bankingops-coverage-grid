@@ -2,7 +2,7 @@
 
 ```
 ARTIFACT : plan draft (non-normative; not a release-manifest asset)
-STATUS   : SUPERSEDED by SPEC-09 implementation (inventory, map, choropleth, S9 gates)
+STATUS   : SUPERSEDED — SPEC-09 v1.1 retargets paint to public evals only; choropleth framing removed
 GOAL_REF : Supplement BOCG with a global surface overlay of public rubric/benchmark/evals,
            likelihood-matched to the SPEC-08 episode surface, so a choropleth-style read
            shows voids BOCG already treats as valid/valuable vs where public-eval

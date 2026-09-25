@@ -75,7 +75,6 @@ def gate_deny() -> None:
         ROOT / "specs/SPEC-09-public-eval-surface-overlay.md",
         ROOT / "reference/public-eval-inventory.v1.yaml",
         ROOT / "reference/public-eval-surface-map.v1.json",
-        ROOT / "reference/public-eval-choropleth.v1.md",
     ]
     for path in targets:
         text = path.read_text(encoding="utf-8", errors="replace")
@@ -447,14 +446,8 @@ def gate_task_concepts() -> None:
 
 
 def gate_public_eval_overlay() -> None:
-    """S9-G1..G3: public-eval overlay schema, release-bound checks, choropleth reproduction."""
-    from public_eval_overlay import (
-        CHOROPLETH_MD,
-        OVERLAY_PATH,
-        SCHEMA_PATH,
-        overlay_problems,
-        render_markdown,
-    )
+    """S9-G1..G2: public-eval overlay schema and release-bound paint rules."""
+    from public_eval_overlay import OVERLAY_PATH, SCHEMA_PATH, overlay_problems
 
     try:
         overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
@@ -474,11 +467,6 @@ def gate_public_eval_overlay() -> None:
         pass
     for problem in overlay_problems(overlay, root=ROOT):
         fail(f"S9-G2 {problem}")
-    expected = render_markdown(overlay)
-    if not CHOROPLETH_MD.is_file():
-        fail("S9-G3 choropleth markdown missing")
-    elif CHOROPLETH_MD.read_text(encoding="utf-8") != expected:
-        fail("S9-G3 choropleth markdown does not reproduce from the map")
 
 
 def main() -> int:
