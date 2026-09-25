@@ -9,8 +9,10 @@ notes:
   - Control-point citation targets are out of scope for this inventory (they are BOCG coverage, not public evals).
   - Inclusion does not endorse construct validity for banking ops.
   - Capital-markets / IB public benches (Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench)
-    are inventoried here; public_benchmark paint requires LLMAJ primary+sensitivity
-    intersection-union (specs/rubrics/public-eval-mapping.yaml) — never one-pass owner QUALIFIED.
+    are inventoried here. public_benchmark paint requires front-loaded LLMAJ
+    (observable frozen prompt + prereg pack; primary+sensitivity intersection-union).
+    Owner-authored PENDING maps and per-artifact prompt variants are forbidden —
+    they would steer relative saturation or seller own coverage.
 artifacts:
   - id: peer.datasheets
     title: Datasheets for Datasets (Gebru et al., v8)

@@ -76,7 +76,9 @@ def gate_deny() -> None:
         ROOT / "reference/public-eval-inventory.v1.yaml",
         ROOT / "reference/public-eval-surface-map.v1.json",
         ROOT / "reference/public-eval-llmaj-ledger.v1.json",
+        ROOT / "reference/public-eval-llmaj-prereg.v1.json",
         ROOT / "specs/rubrics/public-eval-mapping.yaml",
+        ROOT / "specs/prompts/public-eval-llmaj-judge.v1.txt",
         ROOT / "specs/fixtures/public-eval-llmaj-synthetic.json",
     ]
     for path in targets:
@@ -454,8 +456,10 @@ def gate_public_eval_overlay() -> None:
     from public_eval_llmaj import (
         FIXTURE_PATH,
         LEDGER_PATH,
+        PREREG_PATH,
         cmd_promote_gate,
         ledger_problems,
+        prereg_problems,
         schema_validate,
     )
 
@@ -478,8 +482,10 @@ def gate_public_eval_overlay() -> None:
     for problem in overlay_problems(overlay, root=ROOT):
         fail(f"S9-G2 {problem}")
 
-    # S9-G5: qualitative public_benchmark paint is LLMAJ multi-pass only.
+    # S9-G5: front-loaded prereg + LLMAJ promote-gate (no owner-steered saturation).
     try:
+        for problem in prereg_problems():
+            fail(f"S9-G5 prereg: {problem}")
         fixture = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
         for msg in schema_validate(fixture):
             fail(f"S9-G5 fixture schema: {msg[:120]}")
@@ -493,11 +499,12 @@ def gate_public_eval_overlay() -> None:
                 fail(f"S9-G5 ledger schema: {msg[:120]}")
             for problem in ledger_problems(ledger, allow_fixture_models=False):
                 fail(f"S9-G5 ledger: {problem}")
+        if not PREREG_PATH.is_file():
+            fail("S9-G5 missing public-eval LLMAJ prereg pack")
     except (OSError, ValueError) as exc:
         fail(f"S9-G5 LLMAJ artifacts unreadable: {exc}")
         return
 
-    # promote-gate prints FAIL lines; capture by re-running logic via return code.
     import io
     from contextlib import redirect_stdout
 

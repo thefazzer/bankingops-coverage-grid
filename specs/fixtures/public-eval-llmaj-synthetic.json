@@ -10,7 +10,6 @@
     {
       "case_id": "llmaj_mercor_apex_agents_ma_advisory_disagree",
       "inventory_id": "public.mercor_apex_agents",
-      "candidate_row_id": "ovr_mercor_apex_agents_ma_advisory",
       "proposed_division_key": "ma_advisory",
       "proposed_depth": "division",
       "proposed_band": "L2",
@@ -93,7 +92,6 @@
     {
       "case_id": "llmaj_synthetic_agree_no_paint_without_live_run",
       "inventory_id": "public.handshake_bankertoolbench",
-      "candidate_row_id": "ovr_handshake_btb_ma_advisory",
       "proposed_division_key": "ma_advisory",
       "proposed_depth": "division",
       "proposed_band": "L2",
@@ -171,5 +169,6 @@
       "paint_eligible": true,
       "disagreement_note": "Fixture agreement only. Live promotion still requires a non-fixture ledger case bound into the overlay llmaj_pass_ref; this synthetic PASS does not paint production rows."
     }
-  ]
+  ],
+  "prereg_sha256": "301e4721fa4ec1c87e17c41f7c55de03a3140790a9090f6a38c64aa8723e1979"
 }

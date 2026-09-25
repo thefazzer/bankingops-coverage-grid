@@ -2,6 +2,7 @@
   "schema": "bocg.public-eval-llmaj/v1",
   "rubric_id": "bocg-public-eval-mapping",
   "rubric_version": "1.0.0",
+  "prereg_sha256": "301e4721fa4ec1c87e17c41f7c55de03a3140790a9090f6a38c64aa8723e1979",
   "bocg_release": {
     "tag": "v0.6.1",
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"

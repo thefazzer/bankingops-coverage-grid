@@ -20,7 +20,7 @@
     "method": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["rules_version", "paint_statuses", "band_weights", "channels_in_saturation", "paint_inventory_classes"],
+      "required": ["rules_version", "paint_statuses", "band_weights", "channels_in_saturation", "paint_inventory_classes", "llmaj_prereg_sha256"],
       "properties": {
         "rules_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
         "paint_statuses": {
@@ -47,6 +47,11 @@
           "type": "array",
           "minItems": 1,
           "items": {"enum": ["peer_framework", "peer_task_shape", "public_benchmark", "public_rubric"]}
+        },
+        "llmaj_prereg_sha256": {
+          "description": "Front-loaded public-eval LLMAJ prereg digest. Band weights, channels, and public_benchmark paint must bind to this pack.",
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
         }
       }
     },

@@ -5,11 +5,12 @@
   "description": "Append-only primary + sensitivity judge sheets for public-eval surface mapping. Disagreement is preserved; intersection-union is required before paint promotion. No institution instances.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "rubric_id", "rubric_version", "bocg_release", "cases"],
+  "required": ["schema", "rubric_id", "rubric_version", "bocg_release", "prereg_sha256", "cases"],
   "properties": {
     "schema": {"const": "bocg.public-eval-llmaj/v1"},
     "rubric_id": {"const": "bocg-public-eval-mapping"},
     "rubric_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "prereg_sha256": {"$ref": "#/$defs/sha256"},
     "bocg_release": {
       "type": "object",
       "additionalProperties": false,
@@ -71,7 +72,6 @@
       "required": [
         "case_id",
         "inventory_id",
-        "candidate_row_id",
         "proposed_division_key",
         "proposed_depth",
         "proposed_band",
@@ -84,7 +84,13 @@
       "properties": {
         "case_id": {"type": "string", "pattern": "^llmaj_[a-z0-9_]+$"},
         "inventory_id": {"type": "string", "minLength": 3},
-        "candidate_row_id": {"type": "string", "pattern": "^ovr_[a-z0-9_]+$"},
+        "candidate_row_id": {
+          "description": "Optional. Under llmaj_output_only candidate policy, overlay rows are created from PASS cases; pre-staged owner candidate_row_id is forbidden.",
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^ovr_[a-z0-9_]+$"}
+          ]
+        },
         "proposed_division_key": {"type": "string", "pattern": "^[a-z0-9_]+$"},
         "proposed_depth": {"enum": ["division", "function_concept", "task_concept", "terminal_task", "control_point"]},
         "proposed_band": {"enum": ["L1", "L2", "L3"]},

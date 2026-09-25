@@ -5,7 +5,7 @@
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "method": {
-    "rules_version": "1.3.0",
+    "rules_version": "1.4.0",
     "paint_statuses": [
       "QUALIFIED_MAPPING",
       "RATIFIED_MAPPING"
@@ -23,9 +23,10 @@
       "peer_task_shape",
       "public_benchmark",
       "public_rubric"
-    ]
+    ],
+    "llmaj_prereg_sha256": "301e4721fa4ec1c87e17c41f7c55de03a3140790a9090f6a38c64aa8723e1979"
   },
-  "inventory_sha256": "ff28d7ec606068aaa5702b7b848dcbdb2220d8c13b9e29472e70781027f0b02d",
+  "inventory_sha256": "d88223dce15e5c734eeff6bfcef76dd8956ef3371c2505cbb80f7619dc4f4008",
   "rows": [
     {
       "function_concept_id": null,
@@ -134,102 +135,6 @@
       "mapping_status": "QUALIFIED_MAPPING",
       "rule_id": "R-PEER-SHAPE",
       "rationale": "CONFORMANCE.md records two banking tasks accepted in the Harvey LAB schema. Public peer task-shape only; content loci are not republished here, so mapping stays division-grain L1. This is not BOCG cell coverage."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L2",
-      "depth": "division",
-      "division_key": "ma_advisory",
-      "row_id": "ovr_mercor_apex_agents_ma_advisory",
-      "inventory_id": "public.mercor_apex_agents",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "APEX-Agents publishes an Investment Banking Analyst job family: financial models, company valuation, pitch materials and transaction-support work products graded by expert rubrics. That is sell-side advisory analyst work at division grain ma_advisory. Limits: the full APEX-Agents suite also covers non-banking professional services (law, consulting); only the IB job family paints. Not syndicate bookbuild/allocation (ecm/dcm terminality). Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L2",
-      "depth": "division",
-      "division_key": "ma_advisory",
-      "row_id": "ovr_mercor_apex1_ib_ma_advisory",
-      "inventory_id": "public.mercor_apex1_ib",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "APEX-1 Investment Banking Analyst is a public single-turn benchmark of practitioner-authored IB analyst tasks (DCF, cost of capital, numerical deliverables under rubric criteria). Maps to ma_advisory at division grain. Limits: discrete analyst prompts, not multi-application agent trajectories; not BOCG syndicate ops. Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L2",
-      "depth": "division",
-      "division_key": "ma_advisory",
-      "row_id": "ovr_rogo_bfb_ma_advisory",
-      "inventory_id": "public.rogo_big_finance_bench",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "Big Finance Bench explicitly includes M&A and special-situations workflows authored by former investment-banking practitioners, with derivation-level rubrics. QUALIFIED division map to ma_advisory. Separate rows cover research and capital-markets workflow families in the same inventory artifact. Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L2",
-      "depth": "division",
-      "division_key": "sellside_research",
-      "row_id": "ovr_rogo_bfb_sellside_research",
-      "inventory_id": "public.rogo_big_finance_bench",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "BFB's earnings / financial-statement analysis, valuation and KPI workflow families are public-equity research shapes with filing retrieval and forecast derivation — aligned to sellside_research terminality (forecast update, valuation methodology, estimate reconciliation). Limits: also used by buy-side roles; paint is sell-side research desk only under BOCG facing rules. Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L1",
-      "depth": "division",
-      "division_key": "capital_markets_origination_combined",
-      "row_id": "ovr_rogo_bfb_capital_markets",
-      "inventory_id": "public.rogo_big_finance_bench",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "BFB names capital-markets and capital-structure workflow families. Those are analytical research/structure tasks, not BOCG syndicate bookbuild, Reg M or allocation terminality — so mapping stays L1 QUALIFIED on capital_markets_origination_combined with that named limit. Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
-    },
-    {
-      "function_concept_id": null,
-      "task_concept_id": null,
-      "task_reference_id": null,
-      "control_point_id": null,
-      "channel": "public",
-      "ruling": null,
-      "band": "L2",
-      "depth": "division",
-      "division_key": "ma_advisory",
-      "row_id": "ovr_handshake_btb_ma_advisory",
-      "inventory_id": "public.handshake_bankertoolbench",
-      "mapping_status": "PENDING",
-      "rule_id": "R-DIV-KEY",
-      "rationale": "BankerToolBench is an open benchmark of end-to-end junior investment-banking workflows (models, pitch decks, memos) with expert-authored rubrics. Clear division-grain alignment to ma_advisory. Limits: environment is a self-contained data-room sandbox, not live syndicate or markets ops. Queued for public-eval LLMAJ adjudication (primary + sensitivity judges, intersection-union); one-pass owner QUALIFIED paint is not permitted for public_benchmark inventory."
     }
   ],
   "division_rollup": {

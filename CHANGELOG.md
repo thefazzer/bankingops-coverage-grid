@@ -2,16 +2,13 @@
 
 ## Unreleased
 
-- SPEC-09 public-eval mapping is LLMAJ multi-pass for `public_benchmark`:
-  - Inventory still lists Mercor APEX, Rogo Big Finance Bench and Handshake
-    BankerToolBench, but candidate overlay rows stay `PENDING` until
-    primary + sensitivity judges jointly PASS
-    (`specs/rubrics/public-eval-mapping.yaml`, intersection-union).
-  - Add LLMAJ schema, synthetic fixture (disagreement preserved), empty live
-    ledger, and `tools/public_eval_llmaj.py` (`check` / `candidates` /
-    `promote-gate`). S9-G5 refuses one-pass owner QUALIFIED paint.
-  - Harvey LAB peer-task-shape L1 seed remains the only painted row until live
-    LLMAJ cases exist.
+- SPEC-09 public-eval LLMAJ purity: front-loaded prereg + observable frozen prompt:
+  - Lock prompt, rubric, inventory/catalogue digests, band weights, call settings
+    and non-influence rules in `reference/public-eval-llmaj-prereg.v1.json`.
+  - Forbid owner-authored PENDING/PROPOSED `public_benchmark` rows and per-artifact
+    prompt variants (would steer relative saturation or seller own coverage).
+  - IB benches remain inventoried only; paint still requires live primary+sensitivity
+    PASS under the locked prereg. Harvey LAB peer-shape seed remains the only paint.
 
 ## v0.6.1 — 2026-09-25
 

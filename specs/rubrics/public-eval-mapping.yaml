@@ -53,4 +53,8 @@ rubric:
     machine_and_sme_assessors_permitted: true
     one_pass_owner_qualified_prohibited_for: [public_benchmark]
     paint_statuses_require_llmaj_pass: [QUALIFIED_MAPPING, RATIFIED_MAPPING]
-    candidate_statuses: [PROPOSED, PENDING]
+    candidate_statuses: []  # llmaj_output_only: no owner PROPOSED/PENDING public_benchmark rows
+    front_loaded_prereg_required: true
+    observable_prompt_required: true
+    relative_saturation_owner_steering: prohibited
+    seller_own_coverage_in_judge_context: prohibited
