@@ -3,8 +3,8 @@
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
     "tag": "v0.6.1",
-    "commit_sha": "efe89342cb70c45d52cb793c16ef3498b84734bd",
-    "generated_at": "2026-09-25T02:20:23.877577Z"
+    "commit_sha": "ca8ee9606a1fb08abcb4e703a2812ced5d995c55",
+    "generated_at": "2026-09-25T03:43:06.880020Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -206,22 +206,22 @@
       "path": "reference/public-eval-llmaj-ledger.v1.json",
       "role": "public-eval-llmaj-ledger",
       "media_type": "application/json",
-      "size_bytes": 359,
-      "sha256": "2b99f8d7336ed7ba64e35b26f99a20414bf604dd5bce64d11d89845c0f262eae"
+      "size_bytes": 22434,
+      "sha256": "8788ac3d73602f792179c76a5057b6bcde788bed3602deebdde7b6c96c086be1"
     },
     {
       "path": "reference/public-eval-llmaj-prereg.v1.json",
       "role": "public-eval-llmaj-prereg",
       "media_type": "application/json",
-      "size_bytes": 2641,
-      "sha256": "7ea18b7039fd3f7f3c4b8a53a527b74892a328aaaff111f7c7a1836c410d86b3"
+      "size_bytes": 2757,
+      "sha256": "f29b634dc72d99d4f2cd1b865abb3982aaf6afb05f4d256a249bcfa09c0fcac1"
     },
     {
       "path": "reference/public-eval-surface-map.v1.json",
       "role": "public-eval-surface-overlay",
       "media_type": "application/json",
       "size_bytes": 14644,
-      "sha256": "143db94d98db156da1ddd1f9974626e62328583bde60a413f4e3b7b031441334"
+      "sha256": "8dcc0d38d81a45ff29403c056370ec9a04d0bd0064cbe680bb2e129232b09f7c"
     },
     {
       "path": "reference/task-concept-rulings.yaml",
@@ -354,7 +354,7 @@
       "role": "conformance-fixture",
       "media_type": "application/json",
       "size_bytes": 7056,
-      "sha256": "5c5ba16a41d8e8ec7d134ae245da00cd15ace10805a4e2985fa07869fcf1e16d"
+      "sha256": "3c429885b0858c5868351cd8236998e3b8a6c7272c2206ffa94cb6b56f8b6c8b"
     },
     {
       "path": "specs/insight-construction-profile.yaml",
@@ -402,8 +402,8 @@
       "path": "specs/public-eval-llmaj-prereg.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
-      "size_bytes": 5235,
-      "sha256": "8d18bbed47702f6c2b60158b413d29e14cf529330af79ad0707daeb4e4a4d681"
+      "size_bytes": 5682,
+      "sha256": "c90f75e30e67da3bcf655ca490dd33def0e6e644d0e7669c4565f7f75603ad37"
     },
     {
       "path": "specs/public-eval-llmaj.schema.json",
@@ -469,12 +469,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "0c04c973061d4caa6430ab919ff42fa55c0d3d0386d71302e5a4fe7a96c22ad3",
+  "aggregate_sha256": "06141f41e767495997e4303e89b38668ff6816a5e30832bb166659625ecd6914",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "8e97a412369e0c5b80ce4bc05e91e9b8218137ac9003f9f55cc8b74cfaafdacc"
+  "manifest_sha256": "1da149602714f9576b9534827f6c536a0e3cdcbc4b2e08461c042786d7dc7471"
 }
