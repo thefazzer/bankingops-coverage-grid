@@ -1,5 +1,14 @@
 # Release changes
 
+## Unreleased
+
+- SPEC-09 inventory hydration for obvious IB public eval products:
+  - Add Mercor APEX-Agents / APEX-1 IB, Rogo Big Finance Bench, and Handshake
+    BankerToolBench as `public_benchmark` inventory rows.
+  - QUALIFIED paint onto `ma_advisory`, `sellside_research`, and (L1)
+    `capital_markets_origination_combined`; Harvey LAB trade-lifecycle seed retained.
+  - Overlay rules_version 1.2.0; pin overlay release tag to v0.6.1.
+
 ## v0.6.1 — 2026-09-25
 
 - SPEC-09 public-eval surface overlay (correct paint scope):

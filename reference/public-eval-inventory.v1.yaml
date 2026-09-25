@@ -1,13 +1,14 @@
 # BOCG public-eval inventory — public rubrics, benchmarks and evals only.
 # Not BOCG control-point citations, not private corpora, not institution names.
 schema: bocg.public-eval-inventory/v1
-version: 1.1.0
+version: 1.2.0
 checked_at: 2026-09-25
 notes:
   - Paint-eligible classes: peer_framework, peer_task_shape, public_benchmark, public_rubric.
   - own_rubric / own_eval entries may be listed for audit but never paint public saturation.
   - Control-point citation targets are out of scope for this inventory (they are BOCG coverage, not public evals).
   - Inclusion does not endorse construct validity for banking ops.
+  - Capital-markets / IB public benches (Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench) are first-class inventory, not optional afterthoughts.
 artifacts:
   - id: peer.datasheets
     title: Datasheets for Datasets (Gebru et al., v8)
@@ -32,6 +33,30 @@ artifacts:
     url: https://github.com/harveyai/harvey-labs
     class: peer_task_shape
     checked_at: 2026-08-30
+    access: open_source
+  - id: public.mercor_apex_agents
+    title: Mercor APEX-Agents (investment banking analyst job family)
+    url: https://www.mercor.com/apex/apex-agents-leaderboard/
+    class: public_benchmark
+    checked_at: 2026-09-25
+    access: open_web
+  - id: public.mercor_apex1_ib
+    title: Mercor APEX-1 Investment Banking Analyst (single-turn IB tasks)
+    url: https://www.mercor.com/resources/apex/best-ai-model-for-investment-banking-analyst-tasks/
+    class: public_benchmark
+    checked_at: 2026-09-25
+    access: open_web
+  - id: public.rogo_big_finance_bench
+    title: Rogo Big Finance Bench / BigFinanceBench (workflow-grounded financial-research agents)
+    url: https://github.com/Rogo-Technologies/big-finance-benchmark
+    class: public_benchmark
+    checked_at: 2026-09-25
+    access: open_source
+  - id: public.handshake_bankertoolbench
+    title: Handshake BankerToolBench (end-to-end investment banking workflows)
+    url: https://github.com/Handshake-AI-Research/bankertoolbench
+    class: public_benchmark
+    checked_at: 2026-09-25
     access: open_source
   - id: own.rubric.five_families
     title: BOCG five-families adjudication rubric (own artifact; audit only)

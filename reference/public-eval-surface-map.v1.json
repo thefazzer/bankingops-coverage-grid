@@ -1,11 +1,11 @@
 {
   "schema": "bocg.public-eval-surface-overlay/v1",
   "bocg_release": {
-    "tag": "v0.6.0",
+    "tag": "v0.6.1",
     "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
   },
   "method": {
-    "rules_version": "1.1.0",
+    "rules_version": "1.2.0",
     "paint_statuses": [
       "QUALIFIED_MAPPING",
       "RATIFIED_MAPPING"
@@ -25,7 +25,7 @@
       "public_rubric"
     ]
   },
-  "inventory_sha256": "949f1c93bfcce1bfe9affb30a63d6a516d22d1e81c321ca8b0da08920d385c98",
+  "inventory_sha256": "9e1d61ab333c8b4128eb57b82e7dc3c86115a8403d89afe9cbb198ea7103d9bb",
   "rows": [
     {
       "function_concept_id": null,
@@ -134,6 +134,120 @@
       "mapping_status": "QUALIFIED_MAPPING",
       "rule_id": "R-PEER-SHAPE",
       "rationale": "CONFORMANCE.md records two banking tasks accepted in the Harvey LAB schema. Public peer task-shape only; content loci are not republished here, so mapping stays division-grain L1. This is not BOCG cell coverage."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "division",
+      "division_key": "ma_advisory",
+      "row_id": "ovr_mercor_apex_agents_ma_advisory",
+      "inventory_id": "public.mercor_apex_agents",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "APEX-Agents publishes an Investment Banking Analyst job family: financial models, company valuation, pitch materials and transaction-support work products graded by expert rubrics. That is sell-side advisory analyst work at division grain ma_advisory. Limits: the full APEX-Agents suite also covers non-banking professional services (law, consulting); only the IB job family paints. Not syndicate bookbuild/allocation (ecm/dcm terminality)."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "division",
+      "division_key": "ma_advisory",
+      "row_id": "ovr_mercor_apex1_ib_ma_advisory",
+      "inventory_id": "public.mercor_apex1_ib",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "APEX-1 Investment Banking Analyst is a public single-turn benchmark of practitioner-authored IB analyst tasks (DCF, cost of capital, numerical deliverables under rubric criteria). Maps to ma_advisory at division grain. Limits: discrete analyst prompts, not multi-application agent trajectories; not BOCG syndicate ops."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "division",
+      "division_key": "ma_advisory",
+      "row_id": "ovr_rogo_bfb_ma_advisory",
+      "inventory_id": "public.rogo_big_finance_bench",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "Big Finance Bench explicitly includes M&A and special-situations workflows authored by former investment-banking practitioners, with derivation-level rubrics. QUALIFIED division map to ma_advisory. Separate rows cover research and capital-markets workflow families in the same inventory artifact."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "division",
+      "division_key": "sellside_research",
+      "row_id": "ovr_rogo_bfb_sellside_research",
+      "inventory_id": "public.rogo_big_finance_bench",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "BFB's earnings / financial-statement analysis, valuation and KPI workflow families are public-equity research shapes with filing retrieval and forecast derivation — aligned to sellside_research terminality (forecast update, valuation methodology, estimate reconciliation). Limits: also used by buy-side roles; paint is sell-side research desk only under BOCG facing rules."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L1",
+      "depth": "division",
+      "division_key": "capital_markets_origination_combined",
+      "row_id": "ovr_rogo_bfb_capital_markets",
+      "inventory_id": "public.rogo_big_finance_bench",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "BFB names capital-markets and capital-structure workflow families. Those are analytical research/structure tasks, not BOCG syndicate bookbuild, Reg M or allocation terminality — so mapping stays L1 QUALIFIED on capital_markets_origination_combined with that named limit."
+    },
+    {
+      "function_concept_id": null,
+      "task_concept_id": null,
+      "task_reference_id": null,
+      "control_point_id": null,
+      "channel": "public",
+      "ruling": {
+        "ruled_at": "2026-09-25",
+        "ruled_by_role": "owner"
+      },
+      "band": "L2",
+      "depth": "division",
+      "division_key": "ma_advisory",
+      "row_id": "ovr_handshake_btb_ma_advisory",
+      "inventory_id": "public.handshake_bankertoolbench",
+      "mapping_status": "QUALIFIED_MAPPING",
+      "rule_id": "R-DIV-KEY",
+      "rationale": "BankerToolBench is an open benchmark of end-to-end junior investment-banking workflows (models, pitch decks, memos) with expert-authored rubrics. Clear division-grain alignment to ma_advisory. Limits: environment is a self-contained data-room sandbox, not live syndicate or markets ops."
     }
   ],
   "division_rollup": {
@@ -202,10 +316,12 @@
         "division_key": "capital_markets_origination_combined",
         "review_status": "AUTO",
         "matrix_tier": "WEAK",
-        "painted_rows": 0,
-        "saturation": 0,
-        "void": true,
-        "row_ids": []
+        "painted_rows": 1,
+        "saturation": 1,
+        "void": false,
+        "row_ids": [
+          "ovr_rogo_bfb_capital_markets"
+        ]
       },
       {
         "division_key": "client_lifecycle_kyc",
@@ -373,10 +489,15 @@
         "division_key": "ma_advisory",
         "review_status": "AUTO",
         "matrix_tier": "WEAK",
-        "painted_rows": 0,
-        "saturation": 0,
-        "void": true,
-        "row_ids": []
+        "painted_rows": 4,
+        "saturation": 8,
+        "void": false,
+        "row_ids": [
+          "ovr_mercor_apex_agents_ma_advisory",
+          "ovr_mercor_apex1_ib_ma_advisory",
+          "ovr_rogo_bfb_ma_advisory",
+          "ovr_handshake_btb_ma_advisory"
+        ]
       },
       {
         "division_key": "macro_combined_rates_fx_em",
@@ -481,10 +602,12 @@
         "division_key": "sellside_research",
         "review_status": "AUTO",
         "matrix_tier": "WEAK",
-        "painted_rows": 0,
-        "saturation": 0,
-        "void": true,
-        "row_ids": []
+        "painted_rows": 1,
+        "saturation": 2,
+        "void": false,
+        "row_ids": [
+          "ovr_rogo_bfb_sellside_research"
+        ]
       },
       {
         "division_key": "trade_lifecycle_operations",
@@ -527,10 +650,10 @@
     ],
     "summary": {
       "admitted_divisions": 42,
-      "painted_divisions": 1,
-      "void_divisions": 41,
-      "painted_rows": 1,
-      "max_saturation": 1
+      "painted_divisions": 4,
+      "void_divisions": 38,
+      "painted_rows": 7,
+      "max_saturation": 8
     }
   }
 }

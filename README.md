@@ -52,9 +52,12 @@ and how deep its ratified evidence goes; candidates never raise that depth.
 [ SPEC-09 ](specs/SPEC-09-public-eval-surface-overlay.md) supplements the grid with
 a public rubric/benchmark/eval overlay likelihood-matched to the SPEC-08 depth
 ladder. Only third-party public eval inventory classes paint; BOCG cell citations
-and own rubrics do not. A derived division roll-up in the map reports saturation
-vs voids. Voids are admitted BOCG surface without painted public-eval touch — not
-elicited competency gaps (I7). Presentation style is left to consumers.
+and own rubrics do not. Capital-markets / IB public benches (Mercor APEX,
+Rogo Big Finance Bench, Handshake BankerToolBench) hydrate the inventory and
+paint advisory / research / capital-markets divisions alongside the Harvey LAB
+seed. A derived division roll-up in the map reports saturation vs voids. Voids
+are admitted BOCG surface without painted public-eval touch — not elicited
+competency gaps (I7). Presentation style is left to consumers.
 
 ## Tags (for search)
 BankingOps Coverage Grid, PB-Ops Eval, FinExhaust, BankingEnv, model consensus taxonomy, benchmark ceiling, frontier saturation, sealed holdout, rubric design, capital markets eval gap, seat-cost filter, terminality test, corroboration ledger, lineage attestation, span commitment, salted canary, pseudonymisation, clean room, buyer-counsel attestation, runnable gates, provenance manifest.

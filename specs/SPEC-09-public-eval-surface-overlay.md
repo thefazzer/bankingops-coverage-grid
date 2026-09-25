@@ -4,7 +4,7 @@
 ARTIFACT : inventory + likelihood-mapped overlay of public rubrics / benchmarks /
            evals onto the BOCG episode surface, with a division roll-up of
            saturation vs voids
-STATUS   : v1.1.0 normative shape
+STATUS   : v1.2.0 normative shape
 SOURCES  : reference/public-eval-inventory.v1.yaml,
            reference/public-eval-surface-map.v1.json,
            specs/public-eval-surface-overlay.schema.json,
@@ -89,10 +89,21 @@ consensus is not confused with public-eval density.
 | S9-G2 | Release pin, inventory digest, identifiers and paint rules pass `tools/public_eval_overlay.py check`. |
 | S9-G3 | Deny list (SPEC-03 I3) covers inventory, map and this specification. |
 
-## 6. Seed scope (v1.1)
+## 6. Seed scope (v1.2)
 
-Inventory is CONFORMANCE peers plus own rubrics listed only for audit
-(`own_artifact`, never paint). Method peers without banking-ops task content are
-rejected. Harvey LAB retains a single QUALIFIED L1 division mapping where
-CONFORMANCE records accepted banking tasks. Most admitted divisions are voids
-until further *public* eval artifacts are ruled in.
+Inventory is CONFORMANCE peers, capital-markets / IB public benches, plus own
+rubrics listed only for audit (`own_artifact`, never paint). Method peers without
+banking-ops task content are rejected.
+
+Painted public benches (QUALIFIED, channel=public):
+
+| Inventory | Division(s) painted | Band |
+|---|---|---|
+| Harvey LAB (peer task-shape) | `trade_lifecycle_operations` | L1 |
+| Mercor APEX-Agents (IB analyst job) | `ma_advisory` | L2 |
+| Mercor APEX-1 IB | `ma_advisory` | L2 |
+| Rogo Big Finance Bench | `ma_advisory`, `sellside_research`, `capital_markets_origination_combined` | L2 / L2 / L1 |
+| Handshake BankerToolBench | `ma_advisory` | L2 |
+
+Remaining admitted divisions stay voids until further *public* eval artifacts are
+ruled in. Private corpora and BOCG cell citations still do not paint.
