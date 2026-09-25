@@ -118,6 +118,13 @@
         "task_concept_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^task_concept:[a-z0-9_]+:[0-9a-f]{24}$"}]},
         "task_reference_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^task:[a-z0-9_]+:[0-9a-f]{24}$"}]},
         "control_point_id": {"oneOf": [{"type": "null"}, {"type": "string", "pattern": "^cp_[a-z0-9_]+$"}]},
+        "llmaj_pass_ref": {
+          "description": "Required for public_benchmark QUALIFIED/RATIFIED paint: case_id from reference/public-eval-llmaj-ledger.v1.json that passed primary+sensitivity intersection-union. Forbidden as a one-pass owner substitute.",
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^llmaj_[a-z0-9_]+$"}
+          ]
+        },
         "rationale": {"type": "string", "minLength": 20},
         "ruling": {
           "oneOf": [

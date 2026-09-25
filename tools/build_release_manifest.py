@@ -44,11 +44,15 @@ STATIC_ARTIFACTS = {
     "specs/task-concepts.schema.json": "json-schema",
     "specs/episode-surface.schema.json": "json-schema",
     "specs/public-eval-surface-overlay.schema.json": "json-schema",
+    "specs/public-eval-llmaj.schema.json": "json-schema",
+    "specs/rubrics/public-eval-mapping.yaml": "adjudication-rubric",
     "specs/fixtures/episode-surface-synthetic.json": "conformance-fixture",
+    "specs/fixtures/public-eval-llmaj-synthetic.json": "conformance-fixture",
     "reference/task-concepts.v1.json": "task-concept-catalogue",
     "reference/task-concept-rulings.yaml": "task-concept-rulings",
     "reference/public-eval-inventory.v1.yaml": "public-eval-inventory",
     "reference/public-eval-surface-map.v1.json": "public-eval-surface-overlay",
+    "reference/public-eval-llmaj-ledger.v1.json": "public-eval-llmaj-ledger",
     "specs/bocg-release-manifest.schema.json": "release-manifest-schema",
 }
 RUN_ARTIFACTS = {

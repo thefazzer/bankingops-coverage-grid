@@ -1,0 +1,56 @@
+# Public-eval surface mapping — LLMAJ qualitative adjudication.
+# Same discipline as five-families / downstream-evidence model judges:
+# primary + sensitivity, disagreement preserved, no silent average, no one-pass paint.
+rubric:
+  id: bocg-public-eval-mapping
+  version: 1.0.0
+  purpose: >
+    Decide whether a public rubric/benchmark/eval inventory artifact may be
+    likelihood-matched onto a BOCG episode-surface atom. Promotion to
+    QUALIFIED_MAPPING / RATIFIED_MAPPING is never a one-pass owner ruling for
+    public_benchmark inventory.
+  aggregation: prohibited
+  assessors:
+    required:
+      - judge-primary
+      - judge-sensitivity
+    policy: machine_judges_first_sme_overlay_append_only
+  families:
+    SURFACE_BINDING:
+      question: >
+        Does the public artifact's stated scope bind to the proposed BOCG
+        division_key (and depth) under a named matching rule, without pooling
+        across divisions?
+    LIMITS_NAMED:
+      question: >
+        Are partial-coverage limits, facing (sell/buy), and non-overlapping
+        operational roles named so a later reader can falsify the map?
+    NEGATIVE_CONTROL:
+      question: >
+        Do near-miss lexical false friends (generic "risk", "trading",
+        "finance", "banking") remain unpromoted when the operational unit of
+        work differs from the BOCG terminality of the proposed key?
+    EVIDENCE_ABLATION:
+      question: >
+        If the public URL / task-family citation is removed, does the mapping
+        claim collapse (no residual owner intuition)?
+    LATERAL_HIRE:
+      question: >
+        Can an experienced outsider reproduce the same mapping status, band and
+        rule_id from the inventory citation, catalogue labels and this rubric alone?
+  verdicts: [PASS, FAIL, UNCERTAIN, NOT_APPLICABLE]
+  pass_rule:
+    id: public-eval-mapping/intersection-union/v1
+    require:
+      - every required assessor returns PASS on every family that is not NOT_APPLICABLE
+      - no required assessor returns FAIL on SURFACE_BINDING or NEGATIVE_CONTROL
+      - sensitivity judge agrees in direction with primary on the promotion decision
+    on_disagreement: preserve_both_sheets_status_UNCERTAIN_no_paint
+  policy:
+    target_immutable: true
+    assessments_append_only: true
+    disagreement_preserved_until_resolution: true
+    machine_and_sme_assessors_permitted: true
+    one_pass_owner_qualified_prohibited_for: [public_benchmark]
+    paint_statuses_require_llmaj_pass: [QUALIFIED_MAPPING, RATIFIED_MAPPING]
+    candidate_statuses: [PROPOSED, PENDING]

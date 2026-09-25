@@ -22,7 +22,7 @@ does not claim validated consensus.
 | **Insight-construction profile** — portable Atom, Trace, Episode, institutional speech-act and adjudication definitions; definitions only, never institution instances | `specs/SPEC-05-insight-construction.md` | `specs/insight-construction-profile.yaml` | `python3 tools/gate_conformance.py` | lifecycle + rubric gates |
 | **Release manifest** — content-addressed assertion of the exact public specs, semantic profile, cells and release-run artifacts consumed at runtime | `specs/bocg-release-manifest.schema.json` | release asset `bocg-release-manifest.json` | `python3 tools/build_release_manifest.py --tag <tag> --commit <sha> --output bocg-release-manifest.json` | self-hash + per-artifact hashes |
 | **Task concepts + episode surface** — grouped function/task definitions with per-division provenance (machine-clustered AUTO or argued REVIEWED) and the instance-free shape that records how deep an Episode's ratified evidence binds to the grid | `specs/SPEC-08-task-concepts-and-episode-surface.md` | `reference/task-concepts.v1.json` + `reference/task-concept-rulings.yaml` + `specs/task-concepts.schema.json` + `specs/episode-surface.schema.json` | `python3 tools/build_task_concepts.py --check`; `python3 tools/episode_surface.py <surface.json>` | S8 gates |
-| **Public-eval surface overlay** — likelihood-matched projection of public rubrics/benchmarks/evals onto the SPEC-08 depth ladder; division roll-up of saturation vs admitted voids | `specs/SPEC-09-public-eval-surface-overlay.md` | `reference/public-eval-inventory.v1.yaml` + `reference/public-eval-surface-map.v1.json` + `specs/public-eval-surface-overlay.schema.json` | `python3 tools/public_eval_overlay.py check` | S9 gates |
+| **Public-eval surface overlay** — likelihood-matched projection of public rubrics/benchmarks/evals onto the SPEC-08 depth ladder; LLMAJ multi-pass for `public_benchmark`; division roll-up of saturation vs admitted voids | `specs/SPEC-09-public-eval-surface-overlay.md` | `reference/public-eval-inventory.v1.yaml` + `reference/public-eval-surface-map.v1.json` + `reference/public-eval-llmaj-ledger.v1.json` + `specs/public-eval-surface-overlay.schema.json` + `specs/public-eval-llmaj.schema.json` + `specs/rubrics/public-eval-mapping.yaml` | `python3 tools/public_eval_overlay.py check`; `python3 tools/public_eval_llmaj.py check` | S9 gates |
 | **Compliance scenario** — replayable, manifest-pinned contract that composes a control-point cell, terminality task, input state, oracle and expected verdict | `specs/SPEC-07-replayable-compliance-scenario.md` + `specs/SPEC-07-compliance-scenario.md` | `specs/replayable-compliance-scenario.schema.json` + `specs/compliance-scenario.schema.json` + `specs/fixtures/compliance-scenario-synthetic.json` | `python3 tools/gate_conformance.py` | S7 gate |
 
 The benchmark that sits in the seller's own cell is the **PB-Ops Eval**; it is deliberately *not* referenced anywhere in the BOCG elicitation assets (invariant I2, gate G1).
@@ -53,11 +53,12 @@ and how deep its ratified evidence goes; candidates never raise that depth.
 a public rubric/benchmark/eval overlay likelihood-matched to the SPEC-08 depth
 ladder. Only third-party public eval inventory classes paint; BOCG cell citations
 and own rubrics do not. Capital-markets / IB public benches (Mercor APEX,
-Rogo Big Finance Bench, Handshake BankerToolBench) hydrate the inventory and
-paint advisory / research / capital-markets divisions alongside the Harvey LAB
-seed. A derived division roll-up in the map reports saturation vs voids. Voids
-are admitted BOCG surface without painted public-eval touch — not elicited
-competency gaps (I7). Presentation style is left to consumers.
+Rogo Big Finance Bench, Handshake BankerToolBench) are inventoried as candidates;
+`public_benchmark` paint requires LLMAJ primary + sensitivity intersection-union
+(`tools/public_eval_llmaj.py`), never a one-pass owner map. A derived division
+roll-up in the map reports saturation vs voids. Voids are admitted BOCG surface
+without painted public-eval touch — not elicited competency gaps (I7).
+Presentation style is left to consumers.
 
 ## Tags (for search)
 BankingOps Coverage Grid, PB-Ops Eval, FinExhaust, BankingEnv, model consensus taxonomy, benchmark ceiling, frontier saturation, sealed holdout, rubric design, capital markets eval gap, seat-cost filter, terminality test, corroboration ledger, lineage attestation, span commitment, salted canary, pseudonymisation, clean room, buyer-counsel attestation, runnable gates, provenance manifest.

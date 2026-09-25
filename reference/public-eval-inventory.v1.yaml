@@ -1,14 +1,16 @@
 # BOCG public-eval inventory — public rubrics, benchmarks and evals only.
 # Not BOCG control-point citations, not private corpora, not institution names.
 schema: bocg.public-eval-inventory/v1
-version: 1.2.0
+version: 1.3.0
 checked_at: 2026-09-25
 notes:
   - Paint-eligible classes: peer_framework, peer_task_shape, public_benchmark, public_rubric.
   - own_rubric / own_eval entries may be listed for audit but never paint public saturation.
   - Control-point citation targets are out of scope for this inventory (they are BOCG coverage, not public evals).
   - Inclusion does not endorse construct validity for banking ops.
-  - Capital-markets / IB public benches (Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench) are first-class inventory, not optional afterthoughts.
+  - Capital-markets / IB public benches (Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench)
+    are inventoried here; public_benchmark paint requires LLMAJ primary+sensitivity
+    intersection-union (specs/rubrics/public-eval-mapping.yaml) — never one-pass owner QUALIFIED.
 artifacts:
   - id: peer.datasheets
     title: Datasheets for Datasets (Gebru et al., v8)

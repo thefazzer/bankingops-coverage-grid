@@ -4,14 +4,19 @@
 ARTIFACT : inventory + likelihood-mapped overlay of public rubrics / benchmarks /
            evals onto the BOCG episode surface, with a division roll-up of
            saturation vs voids
-STATUS   : v1.2.0 normative shape
+STATUS   : v1.3.0 normative shape
 SOURCES  : reference/public-eval-inventory.v1.yaml,
            reference/public-eval-surface-map.v1.json,
+           reference/public-eval-llmaj-ledger.v1.json,
            specs/public-eval-surface-overlay.schema.json,
-           tools/public_eval_overlay.py
+           specs/public-eval-llmaj.schema.json,
+           specs/rubrics/public-eval-mapping.yaml,
+           tools/public_eval_overlay.py,
+           tools/public_eval_llmaj.py
 BOUNDARY : third-party public rubrics/benchmarks/evals only for paint; no institution
            instance, no private corpus, no BOCG cell-citation coverage as eval
-           density, no competency score, no I7 gap elicitation
+           density, no competency score, no I7 gap elicitation; no one-pass
+           QUALIFIED paint for public_benchmark inventory
 ```
 
 ## 0. Purpose
@@ -47,6 +52,9 @@ Only rows that satisfy **all** of:
 1. `mapping_status` ∈ {`QUALIFIED_MAPPING`, `RATIFIED_MAPPING`}
 2. `channel` = `public`
 3. inventory `class` ∈ {`peer_framework`, `peer_task_shape`, `public_benchmark`, `public_rubric`}
+4. If inventory `class` = `public_benchmark`: a live LLMAJ case
+   (`llmaj_pass_ref`) whose primary + sensitivity sheets jointly PASS under
+   `public-eval-mapping/intersection-union/v1` (see §3.1)
 
 Must **not** paint:
 
@@ -55,6 +63,8 @@ Must **not** paint:
 - Own rubrics / own evals (`channel=own_artifact` or `own_cell`; inventory class
   `own_rubric` / `own_eval`)
 - Method peers with no banking-ops task content (`REJECTED_MAPPING` / `R-PEER-SHAPE`)
+- `public_benchmark` rows promoted by a one-pass owner ruling (PROPOSED/PENDING
+  only until LLMAJ passes)
 
 ## 3. Likelihood matching
 
@@ -69,7 +79,31 @@ Matching rules: `R-DIV-KEY`, `R-TERM-TASK`, `R-CONCEPT`, `R-PEER-SHAPE`,
 row; a citation alone never paints.
 
 Every painted row MUST carry: inventory id (public URL), BOCG identifier(s),
-rule id, band, rationale, and a dated ruling role.
+rule id, band, rationale, and a dated ruling role. Painted `public_benchmark`
+rows MUST also carry `llmaj_pass_ref`.
+
+### 3.1 LLMAJ multi-pass (required for `public_benchmark`)
+
+Capital-markets / IB public benches (and any other `public_benchmark`) are
+qualitative surface claims. They use the same discipline as five-families /
+downstream-evidence model judges — **not** a one-pass owner map:
+
+1. Inventory the artifact (`reference/public-eval-inventory.v1.yaml`).
+2. Stage a candidate overlay row as `PROPOSED` or `PENDING` (may carry a
+   proposed division/depth/band; candidates never paint).
+3. Run **judge-primary** and **judge-sensitivity** against
+   `specs/rubrics/public-eval-mapping.yaml` (five families; append-only sheets).
+4. Aggregate under `public-eval-mapping/intersection-union/v1`:
+   both assessors must PASS promotion; disagreement is preserved as
+   `UNCERTAIN` and **does not paint** (never averaged silently).
+5. Only then may an SME/owner overlay promote the row to QUALIFIED/RATIFIED
+   with `llmaj_pass_ref` bound to the live ledger case.
+
+Runnable tools: `python3 tools/public_eval_llmaj.py check|candidates|promote-gate`.
+
+Synthetic fixture `specs/fixtures/public-eval-llmaj-synthetic.json` demonstrates
+disagreement retention and agreement shape; fixture model ids never paint
+production rows.
 
 ## 4. Division roll-up
 
@@ -87,23 +121,21 @@ consensus is not confused with public-eval density.
 |---|---|
 | S9-G1 | Overlay validates against `public-eval-surface-overlay.schema.json`. |
 | S9-G2 | Release pin, inventory digest, identifiers and paint rules pass `tools/public_eval_overlay.py check`. |
-| S9-G3 | Deny list (SPEC-03 I3) covers inventory, map and this specification. |
+| S9-G3 | Deny list (SPEC-03 I3) covers inventory, map, LLMAJ ledger/rubric/fixture and this specification. |
+| S9-G5 | LLMAJ fixture + live ledger validate; `public_benchmark` paint requires live `llmaj_pass_ref` PASS (`promote-gate`). |
 
-## 6. Seed scope (v1.2)
+## 6. Seed scope (v1.3)
 
-Inventory is CONFORMANCE peers, capital-markets / IB public benches, plus own
-rubrics listed only for audit (`own_artifact`, never paint). Method peers without
-banking-ops task content are rejected.
+Inventory includes CONFORMANCE peers, capital-markets / IB public benches
+(Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench), plus own
+rubrics listed only for audit (`own_artifact`, never paint).
 
-Painted public benches (QUALIFIED, channel=public):
-
-| Inventory | Division(s) painted | Band |
+| Inventory | Overlay status | Notes |
 |---|---|---|
-| Harvey LAB (peer task-shape) | `trade_lifecycle_operations` | L1 |
-| Mercor APEX-Agents (IB analyst job) | `ma_advisory` | L2 |
-| Mercor APEX-1 IB | `ma_advisory` | L2 |
-| Rogo Big Finance Bench | `ma_advisory`, `sellside_research`, `capital_markets_origination_combined` | L2 / L2 / L1 |
-| Handshake BankerToolBench | `ma_advisory` | L2 |
+| Method peers without banking-ops content | `REJECTED_MAPPING` | Datasheets, BetterBench, Inspect |
+| Harvey LAB (peer task-shape) | `QUALIFIED_MAPPING` L1 → `trade_lifecycle_operations` | CONFORMANCE peer seed; not `public_benchmark` |
+| Mercor / Rogo / BankerToolBench | `PENDING` candidate rows | Inventory hydrated; **await LLMAJ** primary+sensitivity before paint |
 
-Remaining admitted divisions stay voids until further *public* eval artifacts are
-ruled in. Private corpora and BOCG cell citations still do not paint.
+Remaining admitted divisions stay voids until further *public* eval artifacts
+clear LLMAJ (for `public_benchmark`) or an argued method-peer ruling. Private
+corpora and BOCG cell citations still do not paint.
