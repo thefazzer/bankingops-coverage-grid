@@ -1,7 +1,7 @@
 {
   "schema": "bocg.compliance-scenario/v1",
   "scenario_id": "synthetic-cp-settled-instruction-amendment-001",
-  "manifest_sha256": "200a25fad84578316ce43fddd86cfc6b8cffeda6790607f05835c223e337d2ff",
+  "manifest_sha256": "8e97a412369e0c5b80ce4bc05e91e9b8218137ac9003f9f55cc8b74cfaafdacc",
   "cell_id": "cp_settled_instruction_amendment",
   "task_ref": "task:buyside_trading_execution:4da0790ddda180b928fa5a7a",
   "input_state": {
