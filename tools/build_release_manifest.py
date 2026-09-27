@@ -56,6 +56,9 @@ STATIC_ARTIFACTS = {
     "reference/public-eval-surface-map.v1.json": "public-eval-surface-overlay",
     "reference/public-eval-llmaj-ledger.v1.json": "public-eval-llmaj-ledger",
     "reference/public-eval-llmaj-prereg.v1.json": "public-eval-llmaj-prereg",
+    "reference/public-eval-observatory.v1.json": "public-eval-observatory",
+    "reference/cleanroom-eval-companion.v1.json": "cleanroom-eval-companion-pin",
+    "specs/public-eval-observatory.schema.json": "json-schema",
     "specs/bocg-release-manifest.schema.json": "release-manifest-schema",
 }
 RUN_ARTIFACTS = {

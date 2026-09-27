@@ -1,0 +1,18 @@
+*** Begin Patch
+*** Update File: ficta-meridian-site/app/page.tsx
+@@
+ import { RELEASE_OBSERVATORY } from './data/release-observatory';
+ import ReferenceExplorer from './components/ReferenceExplorer';
+ import { CAPABILITY_MAP } from './data/capability-map';
++import PublicEvalObservatory from './components/PublicEvalObservatory';
++import { CLEANROOM_EVAL_PIN } from './data/public-eval-observatory';
+@@
+       <ReferenceExplorer />
+ 
++      <PublicEvalObservatory />
++
+       <section className="section" id="capability-map" aria-labelledby="capability-map-title">
+@@
+-      <footer>Ficta Meridian · coverage grid: thefazzer/bankingops-coverage-grid ({RELEASE_OBSERVATORY.bocg.tag}) · harness: thefazzer/cleanroom-eval · 2026-09</footer>
++      <footer>Ficta Meridian · coverage grid: thefazzer/bankingops-coverage-grid ({RELEASE_OBSERVATORY.bocg.tag}) · harness: thefazzer/cleanroom-eval · {CLEANROOM_EVAL_PIN.version} · {RELEASE_OBSERVATORY.built_at.slice(0, 7)}</footer>
+*** End Patch

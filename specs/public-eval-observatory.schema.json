@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/thefazzer/bankingops-coverage-grid/specs/public-eval-observatory.schema.json",
+  "title": "BOCG public-eval observatory (Meridian-facing)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "bocg_release",
+    "prereg_sha256",
+    "cleanroom_eval",
+    "llmaj",
+    "overlay_paint",
+    "meridian",
+    "observatory_sha256"
+  ],
+  "properties": {
+    "schema": { "const": "bocg.public-eval-observatory/v1" },
+    "bocg_release": {
+      "type": "object",
+      "required": ["tag", "task_concepts_sha256"],
+      "additionalProperties": true,
+      "properties": {
+        "tag": { "type": "string" },
+        "task_concepts_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "prereg_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "cleanroom_eval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "version", "commit_sha", "release_status", "bocg_companion_tag", "url"],
+      "properties": {
+        "repository": { "type": "string" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "commit_sha": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "release_tag": { "type": ["string", "null"] },
+        "release_status": {
+          "type": "string",
+          "enum": [
+            "github_release_published",
+            "code_on_main_github_release_pending",
+            "unpinned"
+          ]
+        },
+        "bocg_companion_tag": { "type": "string" },
+        "url": { "type": "string", "format": "uri" },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+    "llmaj": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rubric_id",
+        "rubric_version",
+        "pass_rule_ref",
+        "candidate_policy",
+        "case_count",
+        "paint_eligible_count",
+        "public_benchmark_inventory_count",
+        "missing_llmaj_inventory_ids",
+        "headline",
+        "cases"
+      ],
+      "properties": {
+        "rubric_id": { "type": "string" },
+        "rubric_version": { "type": "string" },
+        "pass_rule_ref": { "type": "string" },
+        "candidate_policy": { "const": "llmaj_output_only" },
+        "case_count": { "type": "integer", "minimum": 0 },
+        "paint_eligible_count": { "type": "integer", "minimum": 0 },
+        "public_benchmark_inventory_count": { "type": "integer", "minimum": 0 },
+        "missing_llmaj_inventory_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "headline": { "type": "string", "minLength": 1 },
+        "cases": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/llmaj_case" }
+        }
+      }
+    },
+    "overlay_paint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["painted_row_count", "public_benchmark_painted_count", "rows"],
+      "properties": {
+        "painted_row_count": { "type": "integer", "minimum": 0 },
+        "public_benchmark_painted_count": { "type": "integer", "minimum": 0 },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/paint_row" } },
+        "division_rollup_summary": { "type": ["object", "null"] }
+      }
+    },
+    "meridian": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["footer_harness", "latest_json_fields", "ui_obligatory_cases"],
+      "properties": {
+        "footer_harness": { "type": "string" },
+        "latest_json_fields": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "ui_obligatory_cases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "observatory_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "$defs": {
+    "llmaj_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "inventory_id",
+        "title",
+        "inventory_class",
+        "case_verdict",
+        "paint_eligible",
+        "pass_rule_ref",
+        "assessors"
+      ],
+      "properties": {
+        "case_id": { "type": "string", "pattern": "^llmaj_[a-z0-9_]+$" },
+        "inventory_id": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "inventory_class": { "type": ["string", "null"] },
+        "case_verdict": { "enum": ["PASS", "FAIL", "UNCERTAIN"] },
+        "paint_eligible": { "type": "boolean" },
+        "disagreement_note": { "type": ["string", "null"] },
+        "pass_rule_ref": { "type": "string" },
+        "primary_promotion": { "type": ["string", "null"] },
+        "sensitivity_promotion": { "type": ["string", "null"] },
+        "assessors": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["assessor_id", "model_id", "promotion_verdict"],
+            "properties": {
+              "assessor_id": { "type": "string" },
+              "model_id": { "type": "string" },
+              "promotion_verdict": { "type": ["string", "null"] }
+            }
+          }
+        }
+      }
+    },
+    "paint_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "row_id",
+        "inventory_id",
+        "title",
+        "inventory_class",
+        "mapping_status",
+        "division_key",
+        "depth",
+        "band",
+        "rule_id"
+      ],
+      "properties": {
+        "row_id": { "type": "string" },
+        "inventory_id": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "inventory_class": { "type": ["string", "null"] },
+        "mapping_status": { "enum": ["QUALIFIED_MAPPING", "RATIFIED_MAPPING"] },
+        "division_key": { "type": ["string", "null"] },
+        "depth": { "type": ["string", "null"] },
+        "band": { "type": ["string", "null"] },
+        "rule_id": { "type": ["string", "null"] },
+        "llmaj_pass_ref": { "type": ["string", "null"] },
+        "rationale": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

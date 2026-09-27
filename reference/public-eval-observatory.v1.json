@@ -1,0 +1,172 @@
+{
+  "schema": "bocg.public-eval-observatory/v1",
+  "bocg_release": {
+    "tag": "v0.6.2",
+    "task_concepts_sha256": "92f823baf46a98d994437b619a74c25d89c6808aac8637df857141db4075aa62"
+  },
+  "prereg_sha256": "dfcc901848f814fc078891590ecce94e288bd39e968baa42968df280a9ef9441",
+  "cleanroom_eval": {
+    "repository": "thefazzer/cleanroom-eval",
+    "version": "1.2.0",
+    "commit_sha": "d01e56e35dd13143a7d3af364b43d59f286a3c50",
+    "release_tag": "v1.2.0",
+    "release_status": "code_on_main_github_release_pending",
+    "bocg_companion_tag": "v0.6.2",
+    "url": "https://github.com/thefazzer/cleanroom-eval",
+    "notes": "cleanroom-eval 1.2.0 is on main (README + pyproject). GitHub Release v1.2.0 was not yet cut when this pin was written; Meridian must still show version 1.2.0 from the companion pin and tip commit."
+  },
+  "llmaj": {
+    "rubric_id": "bocg-public-eval-mapping",
+    "rubric_version": "1.0.0",
+    "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+    "candidate_policy": "llmaj_output_only",
+    "case_count": 4,
+    "paint_eligible_count": 0,
+    "public_benchmark_inventory_count": 4,
+    "missing_llmaj_inventory_ids": [],
+    "headline": "Live primary+sensitivity LLMAJ under the locked prereg produced 0 paint-eligible PASS case(s) across 4 public_benchmark card(s). Empty mapping-key intersection on Mercor / Rogo / BankerToolBench → no public_benchmark QUALIFIED paint.",
+    "cases": [
+      {
+        "case_id": "llmaj_public_handshake_bankertoolbench_no_intersection",
+        "inventory_id": "public.handshake_bankertoolbench",
+        "title": "Handshake BankerToolBench",
+        "url": "https://github.com/Handshake-AI-Research/bankertoolbench",
+        "inventory_class": "public_benchmark",
+        "case_verdict": "UNCERTAIN",
+        "paint_eligible": false,
+        "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[]",
+        "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+        "primary_promotion": "FAIL",
+        "sensitivity_promotion": "UNCERTAIN",
+        "assessors": [
+          {
+            "assessor_id": "judge-primary",
+            "model_id": "gpt-5.6-sol-high",
+            "promotion_verdict": "FAIL"
+          },
+          {
+            "assessor_id": "judge-sensitivity",
+            "model_id": "claude-opus-5-5-high",
+            "promotion_verdict": "UNCERTAIN"
+          }
+        ]
+      },
+      {
+        "case_id": "llmaj_public_mercor_apex1_ib_no_intersection",
+        "inventory_id": "public.mercor_apex1_ib",
+        "title": "Mercor APEX-1 Investment Banking Analyst",
+        "url": "https://www.mercor.com/resources/apex/best-ai-model-for-investment-banking-analyst-tasks/",
+        "inventory_class": "public_benchmark",
+        "case_verdict": "UNCERTAIN",
+        "paint_eligible": false,
+        "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[('ma_advisory', 'function_concept', 'L2', 'R-CONCEPT')]",
+        "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+        "primary_promotion": "FAIL",
+        "sensitivity_promotion": "UNCERTAIN",
+        "assessors": [
+          {
+            "assessor_id": "judge-primary",
+            "model_id": "gpt-5.6-sol-high",
+            "promotion_verdict": "FAIL"
+          },
+          {
+            "assessor_id": "judge-sensitivity",
+            "model_id": "claude-opus-5-5-high",
+            "promotion_verdict": "UNCERTAIN"
+          }
+        ]
+      },
+      {
+        "case_id": "llmaj_public_mercor_apex_agents_no_intersection",
+        "inventory_id": "public.mercor_apex_agents",
+        "title": "Mercor APEX-Agents",
+        "url": "https://www.mercor.com/apex/apex-agents-leaderboard/",
+        "inventory_class": "public_benchmark",
+        "case_verdict": "UNCERTAIN",
+        "paint_eligible": false,
+        "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[('ma_advisory', 'function_concept', 'L3', 'R-CONCEPT')]",
+        "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+        "primary_promotion": "FAIL",
+        "sensitivity_promotion": "UNCERTAIN",
+        "assessors": [
+          {
+            "assessor_id": "judge-primary",
+            "model_id": "gpt-5.6-sol-high",
+            "promotion_verdict": "FAIL"
+          },
+          {
+            "assessor_id": "judge-sensitivity",
+            "model_id": "claude-opus-5-5-high",
+            "promotion_verdict": "UNCERTAIN"
+          }
+        ]
+      },
+      {
+        "case_id": "llmaj_public_rogo_big_finance_bench_no_intersection",
+        "inventory_id": "public.rogo_big_finance_bench",
+        "title": "Rogo Big Finance Bench / BigFinanceBench",
+        "url": "https://github.com/Rogo-Technologies/big-finance-benchmark",
+        "inventory_class": "public_benchmark",
+        "case_verdict": "UNCERTAIN",
+        "paint_eligible": false,
+        "disagreement_note": "No exact (division_key, depth, band, rule_id) intersection between primary mappings=[] and sensitivity mappings=[]",
+        "pass_rule_ref": "public-eval-mapping/intersection-union/v1",
+        "primary_promotion": "FAIL",
+        "sensitivity_promotion": "UNCERTAIN",
+        "assessors": [
+          {
+            "assessor_id": "judge-primary",
+            "model_id": "gpt-5.6-sol-high",
+            "promotion_verdict": "FAIL"
+          },
+          {
+            "assessor_id": "judge-sensitivity",
+            "model_id": "claude-opus-5-5-high",
+            "promotion_verdict": "UNCERTAIN"
+          }
+        ]
+      }
+    ]
+  },
+  "overlay_paint": {
+    "painted_row_count": 1,
+    "public_benchmark_painted_count": 0,
+    "rows": [
+      {
+        "row_id": "ovr_harvey_lab_trade_lifecycle",
+        "inventory_id": "peer.harvey_lab",
+        "title": "Harvey LAB task format",
+        "url": "https://github.com/harveyai/harvey-labs",
+        "inventory_class": "peer_task_shape",
+        "mapping_status": "QUALIFIED_MAPPING",
+        "division_key": "trade_lifecycle_operations",
+        "depth": "division",
+        "band": "L1",
+        "rule_id": "R-PEER-SHAPE",
+        "llmaj_pass_ref": null,
+        "rationale": "CONFORMANCE.md records two banking tasks accepted in the Harvey LAB schema. Public peer task-shape only; content loci are not republished here, so mapping stays division-grain L1. This is not BOCG cell coverage."
+      }
+    ],
+    "division_rollup_summary": {
+      "admitted_divisions": 42,
+      "painted_divisions": 1,
+      "void_divisions": 41,
+      "painted_rows": 1,
+      "max_saturation": 1
+    }
+  },
+  "meridian": {
+    "footer_harness": "thefazzer/cleanroom-eval · 1.2.0",
+    "latest_json_fields": [
+      "cleanroom_eval",
+      "public_eval"
+    ],
+    "ui_obligatory_cases": [
+      "public.mercor_apex1_ib",
+      "public.mercor_apex_agents",
+      "public.rogo_big_finance_bench",
+      "public.handshake_bankertoolbench"
+    ]
+  },
+  "observatory_sha256": "b40cf4007d232268020ea57775382fcd84499c52f1f9e758f11c3a67507a5f47"
+}

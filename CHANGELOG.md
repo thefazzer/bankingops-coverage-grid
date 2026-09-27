@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+- Meridian-facing public-eval observatory + cleanroom companion pin:
+  - `reference/cleanroom-eval-companion.v1.json` pins cleanroom-eval **1.2.0**
+    (tip commit on main; GitHub Release may still be pending).
+  - `reference/public-eval-observatory.v1.json` projects LLMAJ live outcomes
+    (Mercor / Rogo / BankerToolBench empty-intersection → `paint_eligible: false`)
+    plus overlay paint rows for Lab consumers.
+  - S9-G6 gate; `integrations/ficta-meridian/` Finexhaust apply pack updates
+    `gen-release-observatory.py`, Lab footer, and public-eval UI section.
+
 ## v0.6.2 — 2026-09-25
 
 - SPEC-09 public-eval LLMAJ purity: front-loaded prereg + observable frozen prompt:
