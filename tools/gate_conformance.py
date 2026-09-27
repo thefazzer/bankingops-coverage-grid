@@ -77,6 +77,9 @@ def gate_deny() -> None:
         ROOT / "reference/public-eval-surface-map.v1.json",
         ROOT / "reference/public-eval-llmaj-ledger.v1.json",
         ROOT / "reference/public-eval-llmaj-prereg.v1.json",
+        ROOT / "reference/public-eval-observatory.v1.json",
+        ROOT / "reference/cleanroom-eval-companion.v1.json",
+        ROOT / "specs/public-eval-observatory.schema.json",
         ROOT / "specs/rubrics/public-eval-mapping.yaml",
         ROOT / "specs/prompts/public-eval-llmaj-judge.v1.txt",
         ROOT / "specs/fixtures/public-eval-llmaj-synthetic.json",
@@ -517,6 +520,22 @@ def gate_public_eval_overlay() -> None:
                 fail(f"S9-G5 {line[5:].strip()}")
         if not any(line.startswith("FAIL") for line in buf.getvalue().splitlines()):
             fail("S9-G5 promote-gate failed")
+
+    # Meridian-facing observatory: cleanroom pin + LLMAJ empty-intersection story.
+    try:
+        from public_eval_observatory import cmd_check as observatory_check
+
+        obs_buf = io.StringIO()
+        with redirect_stdout(obs_buf):
+            obs_rc = observatory_check()
+        if obs_rc != 0:
+            for line in obs_buf.getvalue().splitlines():
+                if line.startswith("FAIL"):
+                    fail(f"S9-G6 observatory: {line[5:].strip()}")
+            if not any(line.startswith("FAIL") for line in obs_buf.getvalue().splitlines()):
+                fail("S9-G6 public-eval observatory check failed")
+    except (OSError, ValueError, ImportError) as exc:
+        fail(f"S9-G6 public-eval observatory unreadable: {exc}")
 
 
 def main() -> int:

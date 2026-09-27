@@ -152,6 +152,27 @@ function of painted rows under the locked band weights — not an owner knob.
 | S9-G2 | Release pin, inventory digest, identifiers and paint rules pass `tools/public_eval_overlay.py check`. |
 | S9-G3 | Deny list (SPEC-03 I3) covers inventory, map, LLMAJ prereg/ledger/rubric/prompt/fixture and this specification. |
 | S9-G5 | Front-loaded prereg + fixture/ledger validate; overlay band weights / channels bind to prereg; no owner `public_benchmark` candidates; paint requires live `llmaj_pass_ref` PASS. |
+| S9-G6 | Meridian-facing observatory (`reference/public-eval-observatory.v1.json`) pins cleanroom-eval companion version and surfaces every live LLMAJ case, including empty-intersection non-paint. |
+
+## 5.1 Meridian observatory projection
+
+`reference/public-eval-observatory.v1.json` (schema
+`specs/public-eval-observatory.schema.json`) is the consumer-facing summary for
+Ficta Meridian and other Lab surfaces. It carries:
+
+1. **cleanroom-eval companion pin** (`reference/cleanroom-eval-companion.v1.json`)
+   — version, tip commit, expected release tag, BOCG companion tag.
+2. **Live LLMAJ cases** — every `public_benchmark` card assessed under the locked
+   prereg, including `paint_eligible: false` empty-intersection outcomes
+   (Mercor APEX, Rogo Big Finance Bench, Handshake BankerToolBench).
+3. **Overlay paint rows** — QUALIFIED/RATIFIED only (currently Harvey LAB peer-shape).
+
+Meridian `manifests/latest.json` MUST emit `cleanroom_eval` and `public_eval`
+blocks derived from this artifact (or an equivalent rebuild from the same BOCG
+ledger + companion pin). The Lab footer MUST show the cleanroom version string
+from the pin (e.g. `thefazzer/cleanroom-eval · 1.2.0`), not a month-only label.
+
+Runnable: `python3 tools/public_eval_observatory.py build|check`.
 
 ## 6. Seed scope (v1.4)
 
@@ -163,7 +184,7 @@ rubrics listed only for audit (`own_artifact`, never paint).
 |---|---|---|
 | Method peers without banking-ops content | `REJECTED_MAPPING` | Datasheets, BetterBench, Inspect |
 | Harvey LAB (peer task-shape) | `QUALIFIED_MAPPING` L1 → `trade_lifecycle_operations` | CONFORMANCE peer seed; not `public_benchmark` |
-| Mercor / Rogo / BankerToolBench | Inventoried only | Await live LLMAJ under locked prereg; **no owner PENDING rows** |
+| Mercor / Rogo / BankerToolBench | Live LLMAJ recorded; **no QUALIFIED paint** | Locked prereg `dfcc901848f8…`; primary+sensitivity mapping-key intersection empty on every card (`paint_eligible: false`); observatory surfaces the four cases |
 
 Remaining admitted divisions stay voids until further *public* eval artifacts
 clear LLMAJ (for `public_benchmark`) or an argued method-peer ruling. Private
