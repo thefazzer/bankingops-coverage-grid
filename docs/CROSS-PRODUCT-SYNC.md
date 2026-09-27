@@ -12,7 +12,7 @@ Owner signal: **APPROVED GO** — Finexhaust / cleanroom GitHub writes still blo
 | **Finexhaust apply pack** | `integrations/ficta-meridian/` | Patched `gen-release-observatory.py`, Lab `PublicEvalObservatory` UI, footer version pin |
 | **BOCG** | `v0.6.2` live; observatory on this branch for next remint | https://github.com/thefazzer/bankingops-coverage-grid/releases/tag/v0.6.2 |
 | **Live Meridian (today)** | BOCG `v0.6.2` only | https://fictameridian.com/manifests/latest.json — **no** `cleanroom_eval` / `public_eval` keys yet; footer still `cleanroom-eval · 2026-09` |
-| **cleanroom-eval (code)** | `1.2.0` on `main` | README + pyproject; **no GitHub Release** yet |
+| **cleanroom-eval** | `v1.2.0` released 2026-09-27 (tag on `d01e56e35dd1…`) | https://github.com/thefazzer/cleanroom-eval/releases/tag/v1.2.0 |
 
 ## Hard blocker (production publish)
 
@@ -21,7 +21,7 @@ Cursor GitHub App installation for this agent is **`repository_selection=selecte
 | Target | Result with current token |
 |---|---|
 | `thefazzer/finexhaust` | **404** (no clone, no Actions, no workflow_dispatch) |
-| `thefazzer/cleanroom-eval` write / tag / release | **403** |
+| `thefazzer/cleanroom-eval` write / tag / release | **403** (moot: owner cut `v1.2.0` 2026-09-27) |
 | `thefazzer/fictameridian-site` write | **403** |
 | SSH deploy to `172.237.124.65` | **denied** |
 
@@ -36,13 +36,13 @@ GitHub → Settings → Applications → **Cursor** → Repository access → ad
 1. `thefazzer/finexhaust`
 2. `thefazzer/cleanroom-eval`
 
-Then reply **PROCEED** on the cloud agent (it will apply `integrations/ficta-meridian/`, cut cleanroom `v1.2.0`, remint/redeploy).
+Then reply **PROCEED** on the cloud agent (it will apply `integrations/ficta-meridian/`, remint/redeploy; cleanroom `v1.2.0` is already released).
 
 ### Option B — owner runs now
 
 ```bash
 # 1) Apply Meridian pack into Finexhaust (see integrations/ficta-meridian/README.md)
-# 2) cleanroom release
+# 2) cleanroom release — DONE 2026-09-27 (https://github.com/thefazzer/cleanroom-eval/releases/tag/v1.2.0)
 cd cleanroom-eval && git checkout main && git pull
 git tag -a v1.2.0 -m '1.2.0: FinExhaust sync; BOCG v0.6.2'
 git push origin v1.2.0

@@ -97,7 +97,7 @@ def _rebuild_public_eval(artifact_root: Path) -> dict:
             "version": "1.2.0",
             "commit_sha": "d01e56e35dd13143a7d3af364b43d59f286a3c50",
             "release_tag": "v1.2.0",
-            "release_status": "code_on_main_github_release_pending",
+            "release_status": "github_release_published",
             "bocg_companion_tag": "v0.6.2",
             "url": "https://github.com/thefazzer/cleanroom-eval",
             "notes": "fallback pin embedded in Meridian generator",
