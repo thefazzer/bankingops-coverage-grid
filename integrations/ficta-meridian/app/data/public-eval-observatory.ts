@@ -71,8 +71,8 @@ export const CLEANROOM_EVAL_PIN = {
   "version": "1.2.0",
   "commit_sha": "d01e56e35dd13143a7d3af364b43d59f286a3c50",
   "release_tag": "v1.2.0",
-  "release_status": "code_on_main_github_release_pending",
+  "release_status": "github_release_published",
   "bocg_companion_tag": "v0.6.2",
   "url": "https://github.com/thefazzer/cleanroom-eval",
-  "notes": "cleanroom-eval 1.2.0 is on main; Meridian must show this version even if the GitHub Release is still pending."
+  "notes": "cleanroom-eval 1.2.0 GitHub Release v1.2.0 published 2026-09-27: https://github.com/thefazzer/cleanroom-eval/releases/tag/v1.2.0"
 } as const;

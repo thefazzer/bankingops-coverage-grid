@@ -6,7 +6,7 @@
   "release_tag": "v1.2.0",
   "commit_sha": "d01e56e35dd13143a7d3af364b43d59f286a3c50",
   "bocg_companion_tag": "v0.6.2",
-  "release_status": "code_on_main_github_release_pending",
-  "checked_at": "2026-09-27T03:40:00Z",
-  "notes": "cleanroom-eval 1.2.0 is on main (README + pyproject). GitHub Release v1.2.0 was not yet cut when this pin was written; Meridian must still show version 1.2.0 from the companion pin and tip commit."
+  "release_status": "github_release_published",
+  "checked_at": "2026-09-27T04:23:37Z",
+  "notes": "cleanroom-eval 1.2.0 GitHub Release v1.2.0 published 2026-09-27 (annotated tag on d01e56e; assets RELEASE-MANIFEST.sha256 + SECURITY-RELEASE.md): https://github.com/thefazzer/cleanroom-eval/releases/tag/v1.2.0"
 }

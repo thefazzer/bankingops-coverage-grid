@@ -4,7 +4,8 @@
 
 - Meridian-facing public-eval observatory + cleanroom companion pin:
   - `reference/cleanroom-eval-companion.v1.json` pins cleanroom-eval **1.2.0**
-    (tip commit on main; GitHub Release may still be pending).
+    (tip commit on main; GitHub Release `v1.2.0` published 2026-09-27,
+    `release_status: github_release_published`).
   - `reference/public-eval-observatory.v1.json` projects LLMAJ live outcomes
     (Mercor / Rogo / BankerToolBench empty-intersection → `paint_eligible: false`)
     plus overlay paint rows for Lab consumers.
