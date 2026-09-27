@@ -192,7 +192,7 @@ def build_observatory() -> dict:
         "meridian": {
             "footer_harness": f"thefazzer/cleanroom-eval · {cleanroom['version']}",
             "latest_json_fields": ["cleanroom_eval", "public_eval"],
-            "ui_ obligatory_cases": [
+            "ui_obligatory_cases": [
                 "public.mercor_apex1_ib",
                 "public.mercor_apex_agents",
                 "public.rogo_big_finance_bench",

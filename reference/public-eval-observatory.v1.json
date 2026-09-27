@@ -161,12 +161,12 @@
       "cleanroom_eval",
       "public_eval"
     ],
-    "ui_ obligatory_cases": [
+    "ui_obligatory_cases": [
       "public.mercor_apex1_ib",
       "public.mercor_apex_agents",
       "public.rogo_big_finance_bench",
       "public.handshake_bankertoolbench"
     ]
   },
-  "observatory_sha256": "b2792924cda516f0d8fdc37dfe9e8cc65fd5d3649359bfce8e4cb70575fadb79"
+  "observatory_sha256": "b40cf4007d232268020ea57775382fcd84499c52f1f9e758f11c3a67507a5f47"
 }
