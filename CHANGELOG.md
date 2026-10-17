@@ -2,15 +2,17 @@
 
 ## Unreleased
 
+## v0.6.3 — 2026-10-17
+
 - Meridian-facing public-eval observatory + cleanroom companion pin:
   - `reference/cleanroom-eval-companion.v1.json` pins cleanroom-eval **1.2.0**
-    (tip commit on main; GitHub Release `v1.2.0` published 2026-09-27,
-    `release_status: github_release_published`).
+    (`github_release_published` on `d01e56e35dd1…`).
   - `reference/public-eval-observatory.v1.json` projects LLMAJ live outcomes
     (Mercor / Rogo / BankerToolBench empty-intersection → `paint_eligible: false`)
     plus overlay paint rows for Lab consumers.
-  - S9-G6 gate; `integrations/ficta-meridian/` Finexhaust apply pack updates
-    `gen-release-observatory.py`, Lab footer, and public-eval UI section.
+  - S9-G6 gate; `integrations/ficta-meridian/` Finexhaust apply pack
+    (`apply-to-finexhaust.sh`, patched generator, Lab UI, footer version pin).
+  - Catalogue / matrix / cells / task-concepts remain byte-compatible with v0.6.2.
 
 ## v0.6.2 — 2026-09-25
 

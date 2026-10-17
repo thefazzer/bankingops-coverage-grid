@@ -2,9 +2,9 @@
   "schema": "bankingops-coverage-grid.release-manifest.v1",
   "release": {
     "repository": "thefazzer/bankingops-coverage-grid",
-    "tag": "v0.6.2",
-    "commit_sha": "c84bebfa55081b061431357ad59fec4d93f2925c",
-    "generated_at": "2026-09-25T03:54:16.207384Z"
+    "tag": "v0.6.3",
+    "commit_sha": "fd846e4e1dbe47401b4749fc5c52f30fd61b5020",
+    "generated_at": "2026-10-17T02:46:51.688748Z"
   },
   "semantic_profile": {
     "id": "bocg-common-semantics",
@@ -17,8 +17,8 @@
       "path": "CONFORMANCE.md",
       "role": "conformance-record",
       "media_type": "text/markdown",
-      "size_bytes": 5139,
-      "sha256": "f5182ce5605409289316bec993028c681e6aedd9f071a594202afe3417602878"
+      "size_bytes": 5297,
+      "sha256": "11a27134237f5fe37a77f0634cde55593139cfc469780117634d1bd756e2f974"
     },
     {
       "path": "cells/cp_aana_umr_scope.json",
@@ -189,6 +189,13 @@
       "sha256": "36c5ab2551dfc67c2ef462db29c2ef70f6d6dc32fdab2b16feba4dc5c9888155"
     },
     {
+      "path": "reference/cleanroom-eval-companion.v1.json",
+      "role": "cleanroom-eval-companion-pin",
+      "media_type": "application/json",
+      "size_bytes": 606,
+      "sha256": "7da814d94e389f9f7511694d7c4a7c2e420efc112acbad032c992c0052aae4ed"
+    },
+    {
       "path": "reference/operating-catalogue.v1.json",
       "role": "operating-reference-catalogue",
       "media_type": "application/json",
@@ -215,6 +222,13 @@
       "media_type": "application/json",
       "size_bytes": 2757,
       "sha256": "f29b634dc72d99d4f2cd1b865abb3982aaf6afb05f4d256a249bcfa09c0fcac1"
+    },
+    {
+      "path": "reference/public-eval-observatory.v1.json",
+      "role": "public-eval-observatory",
+      "media_type": "application/json",
+      "size_bytes": 7184,
+      "sha256": "1cfa01ec3dd3f261dcf5d258eec2cc86176e10402da0e530c15e140b0d3a758d"
     },
     {
       "path": "reference/public-eval-surface-map.v1.json",
@@ -304,8 +318,8 @@
       "path": "specs/SPEC-09-public-eval-surface-overlay.md",
       "role": "normative-specification",
       "media_type": "text/markdown",
-      "size_bytes": 7806,
-      "sha256": "9b833c484df631c7acc1b976c235a007f0ddd8e26b306362769e0a573926b3a1"
+      "size_bytes": 9208,
+      "sha256": "8d6bcfc9e5162eab3752374725b7b00dca13c51719a5d0f69aadd2557c7cb057"
     },
     {
       "path": "specs/bocg-release-manifest.schema.json",
@@ -413,6 +427,13 @@
       "sha256": "548a4b91a54e98527bbd1a785a81a80032912b2aa310c25415081934db78dd17"
     },
     {
+      "path": "specs/public-eval-observatory.schema.json",
+      "role": "json-schema",
+      "media_type": "application/json",
+      "size_bytes": 6342,
+      "sha256": "cd3804ee8254530aff08eb93b9a46128b66645a6433635e6bcc16a0b4fc0b353"
+    },
+    {
       "path": "specs/public-eval-surface-overlay.schema.json",
       "role": "json-schema",
       "media_type": "application/json",
@@ -469,12 +490,12 @@
       "sha256": "2aabd1293cb9745f46a3f22319ffd7e83b6707d1e0e7330500e1ad2c3629fadb"
     }
   ],
-  "aggregate_sha256": "e628e88e6deab6211298031b8e431586a0781dbaaa3c5f56173ca86898f28184",
+  "aggregate_sha256": "32676fad0ba84d7d799e7f0924bb38ec8c4a12c5aee6a719cc794058cd8efe83",
   "invariants": {
     "semantic_ceiling": "control_point",
     "occurrence_claims_permitted": false,
     "institution_specific_workflow_permitted": false,
     "mappings_are_identity": false
   },
-  "manifest_sha256": "67f491ec4068af0949c36c4f8679f2a4a8a63f759ea19c39e51f0bd6e29b2554"
+  "manifest_sha256": "a157ff3e9bff43dee9857c889c57f5ce87917e530999fbd6d365f47dfaf352ec"
 }
