@@ -78,7 +78,9 @@ def build_matrix(norm: dict) -> dict:
     k_by_model: Counter = Counter(s["model_id"] for s in samples)
     vendor_by_model = {s["model_id"]: s.get("vendor") for s in samples}
     models = sorted(k_by_model)
-    n_models = len(models)
+    excluded = set(norm.get("excluded_models", []))
+    eligible = [m for m in models if m not in excluded]
+    n_models = len(eligible)
 
     naming: dict[str, dict[str, set]] = {}          # key -> model -> {sample_idx}
     per_key: dict[str, dict[str, list]] = {}        # key -> {axes, anchors, seat...}
@@ -91,6 +93,8 @@ def build_matrix(norm: dict) -> dict:
             if not d["server_admitted"] or key is None:
                 continue
             naming.setdefault(key, {}).setdefault(s["model_id"], set()).add(s["sample_idx"])
+            if s["model_id"] in excluded:
+                continue
             pk = per_key.setdefault(key, {"axes": [], "a1": [], "a2": [], "a3": [], "seat_mid": [],
                                           "det_frac": [], "addr": [], "terminality": [], "names": [],
                                           "functions": []})
@@ -109,7 +113,7 @@ def build_matrix(norm: dict) -> dict:
                 pk["names"].append(d["name"])
             seen_in_sample.add(key)
 
-    keys = sorted(naming)
+    keys = sorted(per_key)
     cells: dict[str, dict[str, float]] = {}
     rows = []
     for key in keys:
@@ -117,7 +121,7 @@ def build_matrix(norm: dict) -> dict:
         for m in models:
             n = len(naming[key].get(m, ()))
             cells[key][m] = round(n / k_by_model[m], 6) if k_by_model[m] else 0.0
-        support = sum(1 for m in models if cells[key][m] >= SUPPORT_CELL)
+        support = sum(1 for m in eligible if cells[key][m] >= SUPPORT_CELL)
         pk = per_key[key]
         # §5.6 anchor pool: union deduped by (type, canon(citation))
         pool: dict[str, list[dict]] = {"A1": [], "A2": [], "A3": []}
@@ -153,16 +157,20 @@ def build_matrix(norm: dict) -> dict:
             "axis": axis_vote(pk["axes"]),
             "anchor_pool": pool,
             "seat_pool": seat_pool,
-            "n_samples": sum(len(v) for v in naming[key].values()),
+            "n_samples": sum(len(v) for m, v in naming[key].items() if m in eligible),
         })
 
-    return {"schema_version": MATRIX_VERSION, "prompt_sha8": norm["prompt_sha8"],
+    result = {"schema_version": MATRIX_VERSION, "prompt_sha8": norm["prompt_sha8"],
             "aliases_sha256": norm["aliases_sha256"], "threshold_usd": norm["threshold_usd"],
             "models": [{"model_id": m, "vendor": vendor_by_model.get(m), "k": k_by_model[m]} for m in models],
             "n_models": n_models,
             "tier_thresholds": {"STRONG": math.ceil(0.8 * n_models) if n_models else None,
                                 "MODERATE": math.ceil(0.5 * n_models) if n_models else None},
             "division_keys": keys, "rows": rows}
+    if "excluded_models" in norm:
+        result.update(consensus_policy="eligible-models/v1", eligible_models=eligible,
+                      excluded_models=sorted(excluded), attempted_n_models=len(models))
+    return result
 
 
 def matrix_csv_rows(mx: dict) -> tuple[list[str], list[list]]:

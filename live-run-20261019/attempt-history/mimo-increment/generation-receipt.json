@@ -1,0 +1,44 @@
+{
+  "schema": "finexhaust.bocg-generation/v1",
+  "prefect_flow_run_id": "2f0e7fbf-6fa0-4469-af1e-8878ad66d7d1",
+  "producer_repository": "https://github.com/thefazzer/finexhaust",
+  "bocg_source_commit": "b5f83cc5923ba88b872838bf17c9ae209554169e",
+  "panel_sha256": "0b5813af16a60887e6b8f9a8196d2a8eca371f837fa3189d2b54b44f96c76b1b",
+  "runner_sha256": "2e2117e81f6c71e95aa898f152eb8415938a3f2ae96bedfd2618c7a3b9290402",
+  "code_sha256": {
+    "bocg/bocg/__init__.py": "1f3cc701d06de114fe6394b31971ba3bb10ba25fe3bf394beb0bc8cacbab4f75",
+    "bocg/bocg/aliases.py": "9ff29464abe99fc1861a08c54bb0714917b600e1ee66036fab2248e8ac34eac5",
+    "bocg/bocg/assets/forbidden_tokens.txt": "519a7f5f1b6e9256e5faecf7d2bb60293cc2daba955f91dcc59832e7b1d93ec3",
+    "bocg/bocg/assets/negative_instruction_allowlist.txt": "e089fe2acf36a0909949e4bbc2d4225b562a1ba3395ff3478277588079a6ab3b",
+    "bocg/bocg/assets/prompt.txt": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+    "bocg/bocg/assets/schema.json": "d686042c672433d7b0d012561d71f85261b8872a905f7ae949940e05c2dca681",
+    "bocg/bocg/assets/self_assess_patterns.txt": "c9bfb9d0cda4004d63f80a1279a08038fae6658056b03b1aad501e6f43a589fd",
+    "bocg/bocg/assets/system.txt": "e242faba9684f756e24b0f537ad0bca23f96f4b4277c137ac9bb33ba351af015",
+    "bocg/bocg/bundle.py": "575e8eb8bea01440c36d356f13ed7313587891e160b0dcc0c789133adc6c1e3e",
+    "bocg/bocg/canon.py": "7c8e397a884b14fc5640b411582f008dbb020f0b60e39dab8d1b76ae657809a7",
+    "bocg/bocg/cli.py": "3f4ab32c012b32d3cade995c1598c42b8a0b3aab38f98fe41f631be04488bb8b",
+    "bocg/bocg/corroborate.py": "b4143e3d4dafd281b765dd089301f31761f6854b560d45cec2190c300817d28c",
+    "bocg/bocg/coverage.py": "e3baa85d89f37f63da67768a3dc46501278ea61a5740dcfbb4e0bb34c7695a90",
+    "bocg/bocg/gates.py": "6a3731b80b1e7193e7e4b50217bced15cc3d652a0efa9f75e9305931cc39b29e",
+    "bocg/bocg/grid.py": "d68a0b881e20bc7c4d4c62ac49a291408800e3a3ad7e2c026afb5010ec60f1b0",
+    "bocg/bocg/matrix.py": "5fd009912f07b06fee1cbef8b1f0f561d0ffa458bf3eea391b54543a05197728",
+    "bocg/bocg/normalise.py": "53c2da4d323a2f1fc82756e4f6990da5641db1d3b9931be4b8619bb8a9bd086b",
+    "bocg/bocg/prompt.py": "6ea5a6193e034ec8c0fa8f4971394f2d4b4d1de6879e62ea0028d3185cc55c3d",
+    "bocg/bocg/providers.py": "d0ca18a57919e07137c0e294029bad0fa84777c69671a246418b9f9e9af137fa",
+    "bocg/bocg/run.py": "66bbb0c7e60954618fdbee7a5336fe0b2c695801e7cd81c6bfcde628093cd652",
+    "bocg/bocg/util.py": "72c193fb65aa01f8dcc4f11e8ab2edb675c9ce4cd00e124246854f77d6a0a621",
+    "bocg/bocg/validate.py": "bf866370a91a6394cb2910e3cacc25ed3c59dc3a64df18d256dc33e93dc2de55"
+  },
+  "state": "completed",
+  "completed_at": "2026-10-18T23:54:33.417096Z",
+  "models": [
+    {
+      "provider": "generic_openai_compatible",
+      "vendor": "xiaomi",
+      "model_requested": "mimo-v2.6-pro",
+      "model_dir": "mimo-v2.6-pro",
+      "k": 3,
+      "ok": 3
+    }
+  ]
+}

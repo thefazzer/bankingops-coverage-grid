@@ -1,0 +1,53 @@
+{
+  "$id": "bocg.response.v1",
+  "type": "object",
+  "required": ["divisions", "rejected"],
+  "properties": {
+    "divisions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["a1_regulatory","a2_segment","a3_market_size","a4_seat","name","axis","confidence"],
+        "properties": {
+          "a1_regulatory": {"type":["array","null"], "items": {"type":"object","required":["regime","jurisdiction","citation"],
+              "properties":{"regime":{"type":"string"},"jurisdiction":{"type":"string"},"citation":{"type":"string"}}}},
+          "a2_segment": {"type":["array","null"], "items": {"type":"object","required":["bank","filing","fiscal_year","line_item"],
+              "properties":{"bank":{"type":"string"},"filing":{"type":"string"},"fiscal_year":{"type":"integer"},"line_item":{"type":"string"}}}},
+          "a3_market_size": {"type":["array","null"], "items": {"type":"object","required":["publisher","series","value","unit","as_of"],
+              "properties":{"publisher":{"type":"string"},"series":{"type":"string"},"value":{"type":"number"},"unit":{"type":"string"},"as_of":{"type":"string"}}}},
+          "a4_seat": {"type":"object",
+              "required":["function","headcount_range","cost_per_seat","cost_source","determinable_fraction","relational_fraction","addressable_seat_cost","terminality"],
+              "properties":{
+                "function":{"type":"string"},
+                "headcount_range":{"type":"array","items":{"type":"integer"},"minItems":2,"maxItems":2},
+                "cost_per_seat":{"type":"array","items":{"type":"number"},"minItems":2,"maxItems":2},
+                "cost_source":{"type":"string"},
+                "determinable_fraction":{"type":"number","minimum":0,"maximum":1},
+                "relational_fraction":{"type":"number","minimum":0,"maximum":1},
+                "addressable_seat_cost":{"type":"number"},
+                "terminality":{"type":"array","minItems":3,"items":{"type":"object",
+                    "required":["task","input_records","terminal_state","evidence_record"],
+                    "properties":{"task":{"type":"string"},"input_records":{"type":"string"},"terminal_state":{"type":"string"},"evidence_record":{"type":"string"}}}}}},
+          "name": {"type":"string"},
+          "axis": {"type":"object","required":["business_line","side","region","product","office"],
+              "properties":{
+                "business_line":{"type":"string"},
+                "side":{"enum":["sell","buy","both"]},
+                "region":{"type":"array","items":{"enum":["AMER","EMEA","APAC","GLOBAL"]}},
+                "product":{"type":"array","items":{"enum":["rates","credit","fx","equities","commodities","em","securitised","financing","multi"]}},
+                "office":{"enum":["front","middle","back","control","multi"]}}},
+          "confidence": {"type":"number","minimum":0,"maximum":1}
+        }
+      }
+    },
+    "rejected": {
+      "type":"array","minItems":1,
+      "items":{"type":"object","required":["name","reason_codes","note"],
+        "properties":{"name":{"type":"string"},
+          "reason_codes":{"type":"array","minItems":1,"items":{"enum":[
+            "R_ANCHORS_LT2","R_SEAT_BELOW_THRESHOLD","R_TERMINALITY_LT3","R_RELATIONAL_DOMINANT",
+            "R_NOT_CAPITAL_MARKETS","R_DUPLICATE_OF","R_NO_STABLE_DEFINITION","R_UNCERTAIN_CITATIONS"]}},
+          "note":{"type":"string"}}}
+    }
+  }
+}

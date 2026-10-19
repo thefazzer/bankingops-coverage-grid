@@ -1,0 +1,105 @@
+# Task-concept rulings (SPEC-08 §2). A ruling marks ONE division REVIEWED and lists
+# every argued merge in it. Definitions the ruling does not merge stand alone
+# under the same review status. Divisions without a ruling stay AUTO: their
+# concepts are machine-clustered and unread.
+#
+# Members are released catalogue labels (reference/operating-catalogue.v1.json);
+# the builder refuses a label that is not a released function or task of the
+# division, a member named twice, or an alias without a rationale.
+#
+# Contains no institution instance, corpus text, client identity or personal name.
+schema: bocg.task-concept-rulings/v1
+version: 1
+rulings:
+- division_key: prime_brokerage_financing
+  review_status: REVIEWED
+  ruled_by: grid owner (FinExhaust owner ruling relayed in the v0.6.0 rebuild handoff; drafted under that ruling by an automated assistant, applied as written)
+  ruled_at: "2026-09-24"
+  basis: >-
+    Two argued task merges only: the released margin tasks split by their terminal
+    state into compute-requirement (the terminal test is a reproduced requirement)
+    and issue-and-collect (the terminal test is a call issued, met, escalated or
+    liquidated). One argued function merge: nine composite role labels that each
+    enumerate the same set of financing, margin, stock-loan and client-service
+    roles denote one function. Nothing else in the division is merged; every
+    other released task and function stands alone.
+  concepts:
+  - kind: task_concept
+    label: calculate a client margin requirement
+    label_source: member
+    rationale: >-
+      compute-requirement: the terminal state of each member is a margin
+      requirement that reproduces from the approved methodology, agreement or
+      rules engine. Issuance, collection and escalation are not part of the test.
+    members:
+    - calculate a client margin requirement
+    - calculate client portfolio margin
+    - calculate initial variation margin
+    - compute daily client margin under house regulatory schedule
+    - compute reg t house margin for hedge fund portfolio
+    alias_rationales:
+      calculate client portfolio margin: terminal state "required margin reproduces under the approved methodology"; a reproduced requirement, no call issued
+      calculate initial variation margin: terminal state "margin requirement reproduces under the governing agreement and approved methodology"; same reproduced-requirement test across IM and VM
+      compute daily client margin under house regulatory schedule: terminal state "margin call amount matches rules engine output"; the test is agreement of the computed amount, not issuance or receipt
+      compute reg t house margin for hedge fund portfolio: terminal state "margin calls issued equal recomputed requirement" with the ledger reconciled to an independent recomputation; the tested state is the recomputation equality, issuance is the input
+  - kind: task_concept
+    label: issue collect a house reg margin call under client s margin agreement
+    label_source: member
+    rationale: >-
+      issue-and-collect: the terminal state of each member is a call issued to
+      the client and then met, escalated, accepted, rejected or resolved by
+      liquidation. Computing the amount is an input step, not the tested state.
+    members:
+    - issue collect a house reg margin call under client s margin agreement
+    - calculate a client portfolio margin call under house methodology
+    - calculate margin call amount from client position prime brokerage agreement
+    - compute collect daily client margin
+    - compute daily client margin under house finra or portfolio margining rule
+    - compute overnight client margin requirement under agreed margin methodology issue call
+    - daily margin call calculation
+    - daily margin call computation issuance for prime brokerage account
+    - margin call calculation
+    - margin call processing
+    - process margin call
+    alias_rationales:
+      calculate a client portfolio margin call under house methodology: terminal state "margin amount is calculated and issued to the client"; issued
+      calculate margin call amount from client position prime brokerage agreement: terminal state "margin call amount is issued and matched to contract terms"; issued
+      compute collect daily client margin: terminal state "call issued and met within deadline; deficits escalated"; issued and collected
+      compute daily client margin under house finra or portfolio margining rule: terminal state "margin call issued, met, or escalated per policy"; issued and collected
+      compute overnight client margin requirement under agreed margin methodology issue call: terminal state "call issued and met by the deadline, or default procedures triggered"; issued and collected
+      daily margin call calculation: terminal state "margin call amount generated and transmitted to client"; issued
+      daily margin call computation issuance for prime brokerage account: terminal state "computed and call issued/met or position liquidated per policy"; issued and collected
+      margin call calculation: terminal state "call amount issued and met"; issued and collected
+      margin call processing: terminal state "call issued and accepted/rejected"; issued
+      process margin call: terminal state "margin posted or position liquidated"; collected
+  - kind: function_concept
+    label: Prime brokerage financing, margin, stock loan and client financing composite role
+    label_source: ruled
+    rationale: >-
+      nine composite roles as one function: each member label enumerates the
+      same bundle (financing or stock-loan or repo trader, margin or risk
+      analyst, client financing or coverage service) rather than naming one seat.
+      None of the nine is a natural canonical, so the concept label is ruled. The
+      six single-seat labels in the division (operations analyst, operations
+      manager, coverage specialist, risk manager, risk operations specialist,
+      financing trader) are not composites and stand alone.
+    members:
+    - Prime brokerage (PB financing traders, margin/lending officers serving hedge fund clients)
+    - Prime brokerage financing, margin and securities lending staff (margin analysts, stock loan traders, client financing service)
+    - Prime brokerage risk/margin analyst, stock loan trader and client service (financing) specialist
+    - Prime brokerage, securities lending, repo, synthetic financing and cross-asset collateral management
+    - Prime services financing trader and client margin manager (synthetic financing, stock loan, margin)
+    - Prime services risk/margin analyst, stock loan trader and client financing (delta one / synthetic) desk
+    - Prime-brokerage coverage, margin and stock-loan professionals, repo traders and collateral-financing specialists
+    - Prime-brokerage coverage, margin, stock-loan, synthetic-financing and portfolio-financing specialists
+    - Repo/stock-loan trader, prime brokerage client service and margin/risk analyst
+    alias_rationales:
+      Prime brokerage (PB financing traders, margin/lending officers serving hedge fund clients): enumerates financing traders plus margin/lending officers; a composite, not a seat
+      Prime brokerage financing, margin and securities lending staff (margin analysts, stock loan traders, client financing service): enumerates margin analysts, stock loan traders and client financing service; a composite
+      Prime brokerage risk/margin analyst, stock loan trader and client service (financing) specialist: enumerates risk/margin analyst, stock loan trader and client service; a composite
+      Prime brokerage, securities lending, repo, synthetic financing and cross-asset collateral management: enumerates securities lending, repo, synthetic financing and collateral management; a composite of activities, not a seat
+      Prime services financing trader and client margin manager (synthetic financing, stock loan, margin): enumerates financing trader and client margin manager; a composite
+      Prime services risk/margin analyst, stock loan trader and client financing (delta one / synthetic) desk: enumerates risk/margin analyst, stock loan trader and client financing desk; a composite
+      Prime-brokerage coverage, margin and stock-loan professionals, repo traders and collateral-financing specialists: enumerates coverage, margin, stock-loan, repo and collateral-financing roles; a composite
+      Prime-brokerage coverage, margin, stock-loan, synthetic-financing and portfolio-financing specialists: enumerates coverage, margin, stock-loan, synthetic and portfolio financing roles; a composite
+      Repo/stock-loan trader, prime brokerage client service and margin/risk analyst: enumerates repo/stock-loan trader, client service and margin/risk analyst; a composite

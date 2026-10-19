@@ -4,7 +4,7 @@ Two artifacts: a reproducible way to derive a taxonomy of banking operational di
 consensus (rather than from one person's assertion), and a toolkit that makes provenance claims about a
 derived corpus machine-verifiable by a party who never sees the source material.
 
-`live-run-20260826/` holds a real run of the first: five vendor families, cold, with every raw response published.
+`live-run-20261019/` is the current regeneration: 25 business areas from two eligible model families, with every attempt retained. The four-vendor requirement is not met; this release is provisional. The earlier five-vendor run remains in `live-run-20260826/`.
 It is **provisional** — the anchor-corroboration gate has not been satisfied. See that folder's README.
 
 The grid is a model-consensus prior, not a validated map. `docs/downstream-evidence.md` records how its division keys
@@ -26,6 +26,18 @@ does not claim validated consensus.
 | **Compliance scenario** — replayable, manifest-pinned contract that composes a control-point cell, terminality task, input state, oracle and expected verdict | `specs/SPEC-07-replayable-compliance-scenario.md` + `specs/SPEC-07-compliance-scenario.md` | `specs/replayable-compliance-scenario.schema.json` + `specs/compliance-scenario.schema.json` + `specs/fixtures/compliance-scenario-synthetic.json` | `python3 tools/gate_conformance.py` | S7 gate |
 
 The benchmark that sits in the seller's own cell is the **PB-Ops Eval**; it is deliberately *not* referenced anywhere in the BOCG elicitation assets (invariant I2, gate G1).
+
+## Current generation: v0.7.0
+
+The [19 October run](live-run-20261019/README.md) uses current provider models,
+retains transport and quota failures, and links the frozen prompts, model lists,
+roles and seat-cost claims. Only two families meet the three-valid-sample rule;
+G10 is not met. All external anchors and seat claims remain unverified (G6).
+Aliases and task concepts have no human review. Public-eval overlays retain
+historical catalogue bindings and do not describe this new release's coverage.
+No tests or gate suites were run for this regeneration. The authoritative
+content-addressed manifest is the GitHub release asset; an embedded manifest
+cannot name its own future commit.
 
 ## Operating reference contract — v0.4.0
 

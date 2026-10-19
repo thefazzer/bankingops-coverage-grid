@@ -1,0 +1,287 @@
+version: 1
+authored_after_runs: efd90b74
+authored_by: Codex automated assistant after all generation calls completed
+auto_generated: true
+human_reviewed: false
+scope: Only names admitted from eligible models; excluded raw claims remain in normalised.json
+  and runs/.
+aliases:
+- canon: asset management
+  key: buyside_portfolio_management
+  rationale: Automated synonym grouping within buyside portfolio management. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: asset management buy side counterpart
+  key: buyside_portfolio_management
+  rationale: Automated synonym grouping within buyside portfolio management. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: asset management buy side portfolio management
+  key: buyside_portfolio_management
+  rationale: Automated synonym grouping within buyside portfolio management. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: buy side asset management execution
+  key: buyside_trading_execution
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: buy side institutional asset management portfolio management
+  key: buyside_portfolio_management
+  rationale: Automated synonym grouping within buyside portfolio management. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: cash equity sale trading
+  key: equities_trading
+  rationale: Automated synonym grouping within equities trading. Labels retain the
+    stated product/activity; this is a provisional alias decision, not a human ruling.
+- canon: clearing settlement custody
+  key: clearing_settlement_custody
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: commodity energy sale trading
+  key: commodities_trading
+  rationale: Automated synonym grouping within commodities trading. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: commodity sale trading
+  key: commodities_trading
+  rationale: Automated synonym grouping within commodities trading. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: commodity trading financing
+  key: commodities_trading
+  rationale: Automated synonym grouping within commodities trading. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: commodity trading sale
+  key: commodities_trading
+  rationale: Automated synonym grouping within commodities trading. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: credit high yield sale trading
+  key: credit_trading
+  rationale: Automated synonym grouping within credit trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: credit sale trading
+  key: credit_trading
+  rationale: Automated synonym grouping within credit trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: credit trading market making
+  key: credit_trading
+  rationale: Automated synonym grouping within credit trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: credit trading sale
+  key: credit_trading
+  rationale: Automated synonym grouping within credit trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: debt capital market origination
+  key: dcm_origination
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: emerging market cross product trading
+  key: em_trading
+  rationale: Automated synonym grouping within em trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: emerging market trading
+  key: em_trading
+  rationale: Automated synonym grouping within em trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: equity capital market origination
+  key: ecm_origination
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: equity cash execution sale trading
+  key: equities_trading
+  rationale: Automated synonym grouping within equities trading. Labels retain the
+    stated product/activity; this is a provisional alias decision, not a human ruling.
+- canon: equity cash trading market making
+  key: equities_trading
+  rationale: Automated synonym grouping within equities trading. Labels retain the
+    stated product/activity; this is a provisional alias decision, not a human ruling.
+- canon: equity derivatif sale trading
+  key: equity_derivatives_structured
+  rationale: Automated synonym grouping within equity derivatives structured. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: equity derivatif structured product
+  key: equity_derivatives_structured
+  rationale: Automated synonym grouping within equity derivatives structured. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: equity derivatif trading structuring
+  key: equity_derivatives_structured
+  rationale: Automated synonym grouping within equity derivatives structured. Labels
+    retain the stated product/activity; this is a provisional alias decision, not
+    a human ruling.
+- canon: equity research
+  key: sellside_research
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: equity sale trading
+  key: equities_trading
+  rationale: Automated synonym grouping within equities trading. Labels retain the
+    stated product/activity; this is a provisional alias decision, not a human ruling.
+- canon: fx cross asset sale trading
+  key: fx_cross_asset_combined
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: fx sale trading
+  key: fx_trading
+  rationale: Automated synonym grouping within fx trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: fx trading market making
+  key: fx_trading
+  rationale: Automated synonym grouping within fx trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: fx trading sale
+  key: fx_trading
+  rationale: Automated synonym grouping within fx trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: global banking financing
+  key: global_banking_financing
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: global financing capital market
+  key: global_financing_capital_markets
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: global market commodity sale trading
+  key: commodities_trading
+  rationale: Automated synonym grouping within commodities trading. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: global market credit sale trading
+  key: credit_trading
+  rationale: Automated synonym grouping within credit trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: global market equity sale trading
+  key: equities_trading
+  rationale: Automated synonym grouping within equities trading. Labels retain the
+    stated product/activity; this is a provisional alias decision, not a human ruling.
+- canon: global market financing prime brokerage
+  key: prime_brokerage_financing
+  rationale: Automated synonym grouping within prime brokerage financing. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: global market market risk control
+  key: market_risk_management
+  rationale: Automated synonym grouping within market risk management. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: global market rate fx sale trading
+  key: rates_fx_combined
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: global market structured product securitized
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: leveraged finance syndicated loan
+  key: leveraged_finance_loan_capital_markets
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: listed derivatif execution clearing
+  key: listed_derivatives_client_clearing
+  rationale: Automated synonym grouping within listed derivatives client clearing.
+    Labels retain the stated product/activity; this is a provisional alias decision,
+    not a human ruling.
+- canon: listed otc clearing
+  key: listed_derivatives_client_clearing
+  rationale: Automated synonym grouping within listed derivatives client clearing.
+    Labels retain the stated product/activity; this is a provisional alias decision,
+    not a human ruling.
+- canon: market risk control
+  key: market_risk_management
+  rationale: Automated synonym grouping within market risk management. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: market risk middle office
+  key: market_risk_management
+  rationale: Automated synonym grouping within market risk management. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: prime brokerage client finance
+  key: prime_brokerage_financing
+  rationale: Automated synonym grouping within prime brokerage financing. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: prime brokerage financing
+  key: prime_brokerage_financing
+  rationale: Automated synonym grouping within prime brokerage financing. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: prime brokerage prime service
+  key: prime_brokerage_financing
+  rationale: Automated synonym grouping within prime brokerage financing. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: prime brokerage security lending
+  key: prime_brokerage_financing
+  rationale: Automated synonym grouping within prime brokerage financing. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: rate fixed income sale trading
+  key: rates_trading
+  rationale: Automated synonym grouping within rates trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: rate sale trading
+  key: rates_trading
+  rationale: Automated synonym grouping within rates trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: rate trading market making
+  key: rates_trading
+  rationale: Automated synonym grouping within rates trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: rate trading sale
+  key: rates_trading
+  rationale: Automated synonym grouping within rates trading. Labels retain the stated
+    product/activity; this is a provisional alias decision, not a human ruling.
+- canon: regulatory reporting market conduct compliance
+  key: regulatory_reporting_conduct_compliance
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.
+- canon: repo collateral financing
+  key: repo_secfin_collateral
+  rationale: Automated synonym grouping within repo secfin collateral. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: repo security lending financing
+  key: repo_secfin_collateral
+  rationale: Automated synonym grouping within repo secfin collateral. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: securitised product structured finance
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: securitised product trading
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: securitised product trading structuring
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: security finance
+  key: repo_secfin_collateral
+  rationale: Automated synonym grouping within repo secfin collateral. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: structured finance securitized
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: structured finance securitized product
+  key: securitised_products
+  rationale: Automated synonym grouping within securitised products. Labels retain
+    the stated product/activity; this is a provisional alias decision, not a human
+    ruling.
+- canon: trade operation settlement
+  key: trade_lifecycle_operations
+  rationale: Standalone activity or composite; no narrower activity is inferred. Provisional
+    automated decision.

@@ -1,0 +1,39 @@
+{
+  "schema": "bocg.postprocessing-receipt/v1",
+  "code_sha256": {
+    "bocg/bocg/grid.py": "d68a0b881e20bc7c4d4c62ac49a291408800e3a3ad7e2c026afb5010ec60f1b0",
+    "bocg/bocg/aliases.py": "9ff29464abe99fc1861a08c54bb0714917b600e1ee66036fab2248e8ac34eac5",
+    "bocg/bocg/canon.py": "7c8e397a884b14fc5640b411582f008dbb020f0b60e39dab8d1b76ae657809a7",
+    "bocg/bocg/cli.py": "3f4ab32c012b32d3cade995c1598c42b8a0b3aab38f98fe41f631be04488bb8b",
+    "bocg/bocg/prompt.py": "6ea5a6193e034ec8c0fa8f4971394f2d4b4d1de6879e62ea0028d3185cc55c3d",
+    "bocg/bocg/validate.py": "bf866370a91a6394cb2910e3cacc25ed3c59dc3a64df18d256dc33e93dc2de55",
+    "bocg/bocg/util.py": "72c193fb65aa01f8dcc4f11e8ab2edb675c9ce4cd00e124246854f77d6a0a621",
+    "bocg/bocg/__init__.py": "1f3cc701d06de114fe6394b31971ba3bb10ba25fe3bf394beb0bc8cacbab4f75",
+    "bocg/bocg/providers.py": "d0ca18a57919e07137c0e294029bad0fa84777c69671a246418b9f9e9af137fa",
+    "bocg/bocg/normalise.py": "70c68c99929979a09f9cae771ac8d521a775f4fe8193e90295c0423ee58dabfe",
+    "bocg/bocg/run.py": "66bbb0c7e60954618fdbee7a5336fe0b2c695801e7cd81c6bfcde628093cd652",
+    "bocg/bocg/matrix.py": "c4b101c60218267d36fa316aaf1d6795e2e088021cb7e96ec12207979c298880",
+    "bocg/bocg/gates.py": "6a3731b80b1e7193e7e4b50217bced15cc3d652a0efa9f75e9305931cc39b29e",
+    "bocg/bocg/bundle.py": "575e8eb8bea01440c36d356f13ed7313587891e160b0dcc0c789133adc6c1e3e",
+    "bocg/bocg/coverage.py": "e3baa85d89f37f63da67768a3dc46501278ea61a5740dcfbb4e0bb34c7695a90",
+    "bocg/bocg/corroborate.py": "b4143e3d4dafd281b765dd089301f31761f6854b560d45cec2190c300817d28c",
+    "tools/build_operating_catalogue.py": "91a891f871150d721d66c590fb433518435ee2dcd23df8a911082e8ad6979b96",
+    "tools/build_task_concepts.py": "c4a6315a0f871629a7234e7c31b1593cb58c00fb5c5872190ddce686525da64c",
+    "tools/build_release_manifest.py": "2db607a9fe172c4b0312b7455971f6a43216c991c5469a4ea7396b537ab657a1"
+  },
+  "input_sha256": {
+    "live-run-20261019/aliases.yaml": "442985978ad8d1b76c1a69c241e6797ec81ccba463e7ff6b753535aeeb408398",
+    "live-run-20261019/exclusions.json": "e138d168097fbe5aa653de7c1b790f47aa0e4b6139b9f84b8ff7d4f730d5a7a6",
+    "live-run-20261019/run_meta.json": "4d51c27cddfd9b5735d54de9537b673510a3efada2c396e8fe9253a64e255468"
+  },
+  "production_operations": [
+    "normalise",
+    "matrix",
+    "corroborate",
+    "grid",
+    "build_operating_catalogue",
+    "build_task_concepts"
+  ],
+  "test_suites_run": false,
+  "gate_suites_run": false
+}

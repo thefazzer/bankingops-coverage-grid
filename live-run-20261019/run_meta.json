@@ -1,0 +1,110 @@
+{
+  "fixtures_dir": null,
+  "models": [
+    {
+      "k": 3,
+      "model_dir": "deepseek-flash",
+      "model_requested": "deepseek-flash",
+      "ok": 3,
+      "provider": "deepseek",
+      "vendor": "deepseek"
+    },
+    {
+      "k": 3,
+      "model_dir": "glm-5.3",
+      "model_requested": "glm-5.3",
+      "ok": 0,
+      "provider": "generic_openai_compatible",
+      "vendor": "zhipu"
+    },
+    {
+      "k": 3,
+      "model_dir": "gpt-6-astra",
+      "model_requested": "gpt-6-astra",
+      "ok": 0,
+      "provider": "openai",
+      "vendor": "openai"
+    },
+    {
+      "k": 3,
+      "model_dir": "kimi-k3",
+      "model_requested": "kimi-k3",
+      "ok": 3,
+      "provider": "generic_openai_compatible",
+      "vendor": "moonshot"
+    },
+    {
+      "k": 3,
+      "model_dir": "mimo-v2.6-pro",
+      "model_requested": "mimo-v2.6-pro",
+      "ok": 3,
+      "provider": "generic_openai_compatible",
+      "vendor": "xiaomi"
+    },
+    {
+      "k": 3,
+      "model_dir": "qwen-3.8-27b",
+      "model_requested": "qwen-3.8-27b",
+      "ok": 3,
+      "provider": "generic_openai_compatible",
+      "vendor": "qwen"
+    }
+  ],
+  "panel": {
+    "call": {
+      "max_tokens": 64000,
+      "seed_base": 1000,
+      "stream": true,
+      "temperature": 0.2,
+      "timeout_s": 2400,
+      "top_p": 1.0
+    },
+    "models": [
+      {
+        "model": "gpt-6-astra",
+        "provider": "openai"
+      },
+      {
+        "model": "deepseek-flash",
+        "provider": "deepseek"
+      },
+      {
+        "api_key_env": "NEURALWATT_API_KEY",
+        "base_url": "https://api.neuralwatt.com/v1",
+        "model": "glm-5.3",
+        "provider": "generic_openai_compatible",
+        "vendor": "zhipu"
+      },
+      {
+        "api_key_env": "NEURALWATT_API_KEY",
+        "base_url": "https://api.neuralwatt.com/v1",
+        "model": "qwen-3.8-27b",
+        "provider": "generic_openai_compatible",
+        "vendor": "qwen"
+      },
+      {
+        "api_key_env": "NEURALWATT_API_KEY",
+        "base_url": "https://api.neuralwatt.com/v1",
+        "model": "kimi-k3",
+        "provider": "generic_openai_compatible",
+        "vendor": "moonshot"
+      },
+      {
+        "api_key_env": "NEURALWATT_API_KEY",
+        "base_url": "https://api.neuralwatt.com/v1",
+        "model": "mimo-v2.6-pro",
+        "provider": "generic_openai_compatible",
+        "vendor": "xiaomi"
+      }
+    ],
+    "params": {
+      "as_of_year": 2026,
+      "currency": "USD",
+      "threshold_usd": 200000
+    },
+    "samples": 3
+  },
+  "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+  "prompt_sha8": "efd90b74",
+  "ts_utc": "2026-10-19T00:06:49.718644+00:00"
+}

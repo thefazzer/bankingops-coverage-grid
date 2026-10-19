@@ -1,0 +1,75 @@
+{
+  "all_pass": false,
+  "gates": [
+    {
+      "id": "G1",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G2",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G3",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G4",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G5",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G6",
+      "status": "FAIL",
+      "evidence": {
+        "basis": "All corroboration rows are UNVERIFIED"
+      }
+    },
+    {
+      "id": "G7",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G8",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G9",
+      "status": "NOT_RUN",
+      "evidence": {
+        "basis": "Gate suite not run, as requested; production response normalization and admission were applied."
+      }
+    },
+    {
+      "id": "G10",
+      "status": "FAIL",
+      "evidence": {
+        "basis": "Only two independent model families have three valid samples"
+      }
+    }
+  ]
+}

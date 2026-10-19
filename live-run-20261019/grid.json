@@ -1,0 +1,784 @@
+{
+  "aliases_sha256": "442985978ad8d1b76c1a69c241e6797ec81ccba463e7ff6b753535aeeb408398",
+  "axes": {
+    "business_line": [
+      "Asset Management",
+      "Capital Markets",
+      "Capital Markets DCM",
+      "Capital Markets ECM",
+      "Capital Markets Leveraged Finance",
+      "Global Banking",
+      "Global Markets",
+      "Markets",
+      "Research",
+      "multi"
+    ],
+    "office": [
+      "back",
+      "control",
+      "front",
+      "middle",
+      "multi"
+    ],
+    "product": [
+      "commodities",
+      "credit",
+      "em",
+      "equities",
+      "financing",
+      "fx",
+      "multi",
+      "rates",
+      "securitised"
+    ],
+    "region": [
+      "AMER",
+      "APAC",
+      "EMEA",
+      "GLOBAL"
+    ],
+    "side": [
+      "both",
+      "buy",
+      "sell"
+    ]
+  },
+  "cells": [
+    {
+      "addressable_seat_cost_median": 226875.00000000003,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Asset Management",
+        "office": "front",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "buy"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "buyside_portfolio_management",
+      "model_support": 1,
+      "terminality_count": 12,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 210000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Asset Management",
+        "office": "front",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "GLOBAL"
+        ],
+        "side": "buy"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "buyside_trading_execution",
+      "model_support": 0,
+      "terminality_count": 4,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 202500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Markets",
+        "office": "back",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "both"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "clearing_settlement_custody",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 260625.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "commodities"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "commodities_trading",
+      "model_support": 2,
+      "terminality_count": 18,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 232500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "credit"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "credit_trading",
+      "model_support": 2,
+      "terminality_count": 20,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 225000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets DCM",
+        "office": "front",
+        "product": [
+          "credit",
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "dcm_origination",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 225000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets ECM",
+        "office": "front",
+        "product": [
+          "equities"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "ecm_origination",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 226875.00000000003,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "front",
+        "product": [
+          "em"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "em_trading",
+      "model_support": 1,
+      "terminality_count": 8,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 234499.99999999997,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "equities"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "equities_trading",
+      "model_support": 2,
+      "terminality_count": 17,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 255000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "front",
+        "product": [
+          "equities"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "equity_derivatives_structured",
+      "model_support": 1,
+      "terminality_count": 14,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 292500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets",
+        "office": "front",
+        "product": [
+          "fx"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "fx_cross_asset_combined",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 247500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "front",
+        "product": [
+          "fx"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "fx_trading",
+      "model_support": 1,
+      "terminality_count": 14,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 270000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Banking",
+        "office": "front",
+        "product": [
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "global_banking_financing",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 247500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets",
+        "office": "front",
+        "product": [
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "global_financing_capital_markets",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 225000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets Leveraged Finance",
+        "office": "front",
+        "product": [
+          "credit",
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "leveraged_finance_loan_capital_markets",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 218500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "multi",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "listed_derivatives_client_clearing",
+      "model_support": 1,
+      "terminality_count": 8,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 244999.99999999997,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "middle",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "market_risk_management",
+      "model_support": 1,
+      "terminality_count": 7,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 232500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "prime_brokerage_financing",
+      "model_support": 2,
+      "terminality_count": 20,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 210000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "fx",
+          "rates"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "rates_fx_combined",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 260000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "front",
+        "product": [
+          "rates"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "rates_trading",
+      "model_support": 2,
+      "terminality_count": 16,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 243750.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets",
+        "office": "control",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "regulatory_reporting_conduct_compliance",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 270000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "multi",
+        "office": "front",
+        "product": [
+          "financing"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "MODERATE",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "repo_secfin_collateral",
+      "model_support": 1,
+      "terminality_count": 11,
+      "tier": "MODERATE"
+    },
+    {
+      "addressable_seat_cost_median": 259375.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Global Markets",
+        "office": "front",
+        "product": [
+          "securitised"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "STRONG",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "securitised_products",
+      "model_support": 2,
+      "terminality_count": 20,
+      "tier": "STRONG"
+    },
+    {
+      "addressable_seat_cost_median": 210000.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Research",
+        "office": "front",
+        "product": [
+          "equities"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "sellside_research",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    },
+    {
+      "addressable_seat_cost_median": 212500.0,
+      "anchors_verified": {
+        "A1": 0,
+        "A2": 0,
+        "A3": 0,
+        "A4": false
+      },
+      "axis": {
+        "business_line": "Capital Markets",
+        "office": "back",
+        "product": [
+          "multi"
+        ],
+        "region": [
+          "AMER",
+          "APAC",
+          "EMEA",
+          "GLOBAL"
+        ],
+        "side": "sell"
+      },
+      "consensus_tier": "WEAK",
+      "corpus_coverage": null,
+      "corroborated": false,
+      "division_key": "trade_lifecycle_operations",
+      "model_support": 0,
+      "terminality_count": 3,
+      "tier": "WEAK"
+    }
+  ],
+  "n_models": 2,
+  "prompt_sha8": "efd90b74",
+  "schema_version": "bocg.grid.v1"
+}

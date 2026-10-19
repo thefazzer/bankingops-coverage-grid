@@ -1,0 +1,35 @@
+{
+  "prompt_sha8": "efd90b74",
+  "consensus_policy": "eligible-models/v1",
+  "note": "All attempts are retained. Excluded models contribute neither votes nor role/seat pools. Only two independent families are eligible: the four-vendor requirement is not met.",
+  "excluded": [
+    {
+      "model_id": "glm-5.3",
+      "vendor": "zhipu",
+      "valid": 0,
+      "of": 3,
+      "reason": "All three slots failed with empty SSE or interrupted transfer. No response content was available."
+    },
+    {
+      "model_id": "gpt-6-astra",
+      "vendor": "openai",
+      "valid": 0,
+      "of": 3,
+      "reason": "All three slots failed with credit_balance_exhausted; a second configured account also failed. Exact failed receipts are retained. No response content was available."
+    },
+    {
+      "model_id": "kimi-k3",
+      "vendor": "moonshot",
+      "valid": 2,
+      "of": 3,
+      "reason": "One of three responses puts the division name before its anchors (I5 ORDER_VIOLATION). Two valid samples do not meet the three-valid-sample eligibility rule. No content retry or repaired field ordering was applied."
+    },
+    {
+      "model_id": "mimo-v2.6-pro",
+      "vendor": "xiaomi",
+      "valid": 1,
+      "of": 3,
+      "reason": "Two of three responses put the division name before its anchors (I5 ORDER_VIOLATION). One valid sample does not meet the three-valid-sample eligibility rule. No content retry or repaired field ordering was applied."
+    }
+  ]
+}

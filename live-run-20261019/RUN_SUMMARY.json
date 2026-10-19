@@ -1,0 +1,66 @@
+{
+  "artifact": "BankingOps Coverage Grid current-model regeneration",
+  "date": "2026-10-19",
+  "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+  "prompt_sha8": "efd90b74",
+  "aliases_sha256": "442985978ad8d1b76c1a69c241e6797ec81ccba463e7ff6b753535aeeb408398",
+  "status": "PROVISIONAL: panel requirement not met (2 of 4 independent vendors); all anchor and seat claims unverified; aliases and task concepts have no human review.",
+  "gates": {
+    "G1": "NOT_RUN",
+    "G2": "NOT_RUN",
+    "G3": "NOT_RUN",
+    "G4": "NOT_RUN",
+    "G5": "NOT_RUN",
+    "G6": "FAIL",
+    "G7": "NOT_RUN",
+    "G8": "NOT_RUN",
+    "G9": "NOT_RUN",
+    "G10": "FAIL"
+  },
+  "samples_by_model": {
+    "deepseek-flash": {
+      "valid": 3,
+      "total": 3
+    },
+    "glm-5.3": {
+      "valid": 0,
+      "total": 3
+    },
+    "gpt-6-astra": {
+      "valid": 0,
+      "total": 3
+    },
+    "kimi-k3": {
+      "valid": 2,
+      "total": 3
+    },
+    "mimo-v2.6-pro": {
+      "valid": 1,
+      "total": 3
+    },
+    "qwen-3.8-27b": {
+      "valid": 3,
+      "total": 3
+    }
+  },
+  "vendors_with_3plus_valid": [
+    "deepseek",
+    "qwen"
+  ],
+  "excluded_models": [
+    "glm-5.3",
+    "gpt-6-astra",
+    "kimi-k3",
+    "mimo-v2.6-pro"
+  ],
+  "consensus_policy": "eligible-models/v1",
+  "panel_eligibility": {
+    "minimum_independent_vendors": 4,
+    "eligible_vendors": 2,
+    "valid_samples_per_model": 3,
+    "met": false
+  },
+  "generation_receipt": "generation-receipt.json",
+  "human_alias_review": false,
+  "support_4_plus": []
+}

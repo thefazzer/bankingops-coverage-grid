@@ -194,6 +194,14 @@ DRY_RUN     : `--fixtures <dir>` mode replays stored responses; used for tests +
 5.7 SEAT_POOL   : median of cost_per_seat midpoints, median determinable_fraction, union of terminality tasks (dedupe by canon).
 ```
 
+From v0.7.0, runs declaring `consensus_policy: eligible-models/v1` in
+`exclusions.json` use only non-excluded models for `N_models`, support votes,
+axis votes and anchor/seat pools. Eligibility requires three valid samples from
+each included model; the independent-vendor requirement remains unchanged.
+All attempted model columns and raw receipts remain published, including failed
+and excluded samples. Exclusions require explicit reasons. Historical runs
+without this policy retain their original denominators and aggregation.
+
 ## 6. CORROBORATION LEDGER
 
 ```

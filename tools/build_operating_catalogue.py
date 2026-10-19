@@ -19,7 +19,12 @@ def reference_id(kind, division, label=''):
     digest = hashlib.sha256(canonical_bytes([kind, division, label])).hexdigest()[:24]
     return kind + ':' + division + ':' + digest
 
-def build_catalogue(root=ROOT, matrix_path='live-run-20260826/matrix.json'):
+def current_run(root=ROOT):
+    pointer = root / 'reference/taxonomy-source.json'
+    return json.loads(pointer.read_text())['run_dir'] if pointer.exists() else 'live-run-20260826'
+
+def build_catalogue(root=ROOT, matrix_path=None):
+    matrix_path = matrix_path or current_run(root) + '/matrix.json'
     raw = (root / matrix_path).read_bytes()
     matrix = json.loads(raw)
     definitions = []
@@ -58,9 +63,10 @@ def build_catalogue(root=ROOT, matrix_path='live-run-20260826/matrix.json'):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check', action='store_true')
+    parser.add_argument('--matrix', help='Explicit released matrix; defaults to reference/taxonomy-source.json')
     args = parser.parse_args()
     destination = ROOT / CATALOGUE_PATH
-    expected = json.dumps(build_catalogue(), indent=2, ensure_ascii=False) + '\n'
+    expected = json.dumps(build_catalogue(matrix_path=args.matrix), indent=2, ensure_ascii=False) + '\n'
     if args.check:
         if not destination.exists() or destination.read_text() != expected:
             raise SystemExit('operating catalogue is stale; regenerate before release')
