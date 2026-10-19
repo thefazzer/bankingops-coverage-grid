@@ -1,0 +1,89 @@
+Decompose the capital-markets and global-markets business of a large, globally systemically important bank into its
+canonical operational divisions. Consider both the bank's own (sell-side) operations and the buy-side counterpart
+functions those operations serve. Consider all major regions in which such banks operate.
+
+For EVERY division you propose you must supply the following anchors BEFORE any other field, in this order:
+
+A1 REGULATORY   : at least one specific regulatory regime, rule, or article that governs the division's activity,
+                  with jurisdiction and citation (e.g. rule name + section/article number). If none, write null.
+A2 SEGMENT      : at least one line item from a G-SIB's published segment or revenue disclosure to which this division
+                  maps, naming the bank, the filing type, the fiscal year, and the line-item label as printed. If none, null.
+A3 MARKET_SIZE  : at least one published quantitative series for the division's market (notional outstanding, gross
+                  market value, daily turnover, AUM, revenue pool), naming the publisher, series name/id, value, unit,
+                  and reference date. If none, null.
+A4 SEAT         : the principal human operational function(s) that perform the division's work, with:
+                  - typical headcount range for that function at a single G-SIB
+                  - fully-loaded annual cost per seat, as a range in {CURRENCY}, with the survey/filing you rely on
+                  - time decomposition: fraction of the seat's working time spent on DETERMINABLE work
+                    (decisions with a checkable right answer given the inputs) vs RELATIONAL work
+                    (negotiation, relationship management, discretionary judgement with no checkable answer)
+                  - addressable_seat_cost = midpoint(cost_per_seat) * determinable_fraction
+                  - TERMINALITY: at least three concrete tasks the function performs whose correct outcome is
+                    identifiable after the fact from records the bank retains. For each: task, input records,
+                    terminal state, record that evidences correctness.
+
+Admission rule you must apply yourself:
+  - At least TWO of A1, A2, A3 must be non-null.
+  - addressable_seat_cost must be >= {THRESHOLD_USD} {CURRENCY}.
+  - TERMINALITY must list >= 3 tasks.
+  Divisions failing any of these go in `rejected` with the reason code(s) from the schema, not in `divisions`.
+  You MUST populate `rejected` with every candidate you considered and discarded. An empty `rejected` list is invalid.
+
+Do not rank divisions by importance. Do not comment on model or AI capability. Do not speculate about which
+divisions are under-served by tooling or data. Use only what you know as of {AS_OF_YEAR}; do not fabricate citations —
+if you are unsure a citation exists, set the anchor to null and note uncertainty in `confidence`.
+
+Output JSON conforming exactly to the schema below.
+{
+  "$id": "bocg.response.v1",
+  "type": "object",
+  "required": ["divisions", "rejected"],
+  "properties": {
+    "divisions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["a1_regulatory","a2_segment","a3_market_size","a4_seat","name","axis","confidence"],
+        "properties": {
+          "a1_regulatory": {"type":["array","null"], "items": {"type":"object","required":["regime","jurisdiction","citation"],
+              "properties":{"regime":{"type":"string"},"jurisdiction":{"type":"string"},"citation":{"type":"string"}}}},
+          "a2_segment": {"type":["array","null"], "items": {"type":"object","required":["bank","filing","fiscal_year","line_item"],
+              "properties":{"bank":{"type":"string"},"filing":{"type":"string"},"fiscal_year":{"type":"integer"},"line_item":{"type":"string"}}}},
+          "a3_market_size": {"type":["array","null"], "items": {"type":"object","required":["publisher","series","value","unit","as_of"],
+              "properties":{"publisher":{"type":"string"},"series":{"type":"string"},"value":{"type":"number"},"unit":{"type":"string"},"as_of":{"type":"string"}}}},
+          "a4_seat": {"type":"object",
+              "required":["function","headcount_range","cost_per_seat","cost_source","determinable_fraction","relational_fraction","addressable_seat_cost","terminality"],
+              "properties":{
+                "function":{"type":"string"},
+                "headcount_range":{"type":"array","items":{"type":"integer"},"minItems":2,"maxItems":2},
+                "cost_per_seat":{"type":"array","items":{"type":"number"},"minItems":2,"maxItems":2},
+                "cost_source":{"type":"string"},
+                "determinable_fraction":{"type":"number","minimum":0,"maximum":1},
+                "relational_fraction":{"type":"number","minimum":0,"maximum":1},
+                "addressable_seat_cost":{"type":"number"},
+                "terminality":{"type":"array","minItems":3,"items":{"type":"object",
+                    "required":["task","input_records","terminal_state","evidence_record"],
+                    "properties":{"task":{"type":"string"},"input_records":{"type":"string"},"terminal_state":{"type":"string"},"evidence_record":{"type":"string"}}}}}},
+          "name": {"type":"string"},
+          "axis": {"type":"object","required":["business_line","side","region","product","office"],
+              "properties":{
+                "business_line":{"type":"string"},
+                "side":{"enum":["sell","buy","both"]},
+                "region":{"type":"array","items":{"enum":["AMER","EMEA","APAC","GLOBAL"]}},
+                "product":{"type":"array","items":{"enum":["rates","credit","fx","equities","commodities","em","securitised","financing","multi"]}},
+                "office":{"enum":["front","middle","back","control","multi"]}}},
+          "confidence": {"type":"number","minimum":0,"maximum":1}
+        }
+      }
+    },
+    "rejected": {
+      "type":"array","minItems":1,
+      "items":{"type":"object","required":["name","reason_codes","note"],
+        "properties":{"name":{"type":"string"},
+          "reason_codes":{"type":"array","minItems":1,"items":{"enum":[
+            "R_ANCHORS_LT2","R_SEAT_BELOW_THRESHOLD","R_TERMINALITY_LT3","R_RELATIONAL_DOMINANT",
+            "R_NOT_CAPITAL_MARKETS","R_DUPLICATE_OF","R_NO_STABLE_DEFINITION","R_UNCERTAIN_CITATIONS"]}},
+          "note":{"type":"string"}}}
+    }
+  }
+}

@@ -22,6 +22,10 @@ def normalise_runs(ws: Workspace, aliases_path: Path | None = None, echo=print) 
     meta = read_json(ws.run_meta)
     threshold = _threshold(ws)
     runs = load_runs(ws, meta["prompt_sha8"])
+    exclusions_path = ws.root / "exclusions.json"
+    exclusions = read_json(exclusions_path) if exclusions_path.exists() else {}
+    excluded = ({r["model_id"] for r in exclusions["excluded"]}
+                if exclusions.get("consensus_policy") == "eligible-models/v1" else set())
 
     samples = []
     canon_set: dict[str, list[str]] = {}
@@ -75,7 +79,8 @@ def normalise_runs(ws: Workspace, aliases_path: Path | None = None, echo=print) 
         samples.append(s)
 
     # alias table: provided -> copy into workspace; else existing workspace table; else auto-draft identity
-    admitted_canons = sorted({d["canon"] for s in samples for d in s["divisions"] if d["server_admitted"]})
+    admitted_canons = sorted({d["canon"] for s in samples if s["model_id"] not in excluded
+                             for d in s["divisions"] if d["server_admitted"]})
     if aliases_path is not None:
         table = load_aliases(Path(aliases_path))
         if Path(aliases_path).resolve() != ws.aliases_yaml.resolve():
@@ -94,7 +99,7 @@ def normalise_runs(ws: Workspace, aliases_path: Path | None = None, echo=print) 
         for d in s["divisions"]:
             k = table.key_for(d["name"])
             d["division_key"] = k
-            if d["server_admitted"] and k is None and d["canon"] not in unaliased:
+            if s["model_id"] not in excluded and d["server_admitted"] and k is None and d["canon"] not in unaliased:
                 unaliased.append(d["canon"])
     if unaliased:
         echo(f"[normalise] WARNING {len(unaliased)} admitted canon name(s) have no alias and will be excluded "
@@ -104,6 +109,12 @@ def normalise_runs(ws: Workspace, aliases_path: Path | None = None, echo=print) 
            "prompt_sha256": meta["prompt_sha256"], "threshold_usd": threshold,
            "aliases_sha256": aliases_sha, "unaliased_canons": unaliased,
            "samples": samples}
+    if exclusions_path.exists():
+        if exclusions.get("consensus_policy") == "eligible-models/v1":
+            out["excluded_models"] = sorted(row["model_id"] for row in exclusions["excluded"])
+            unknown = set(out["excluded_models"]) - {s["model_id"] for s in samples}
+            if unknown:
+                raise ValueError(f"Exclusion names an unrecorded model: {sorted(unknown)}")
     write_json(ws.normalised_json, out)
     write_json(ws.canon_names_json, {"prompt_sha8": meta["prompt_sha8"],
                                      "canon_names": {c: sorted(v) for c, v in sorted(canon_set.items())},

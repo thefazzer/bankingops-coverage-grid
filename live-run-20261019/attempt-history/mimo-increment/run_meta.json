@@ -1,0 +1,41 @@
+{
+  "fixtures_dir": null,
+  "models": [
+    {
+      "k": 3,
+      "model_dir": "mimo-v2.6-pro",
+      "model_requested": "mimo-v2.6-pro",
+      "ok": 3,
+      "provider": "generic_openai_compatible",
+      "vendor": "xiaomi"
+    }
+  ],
+  "panel": {
+    "call": {
+      "max_tokens": 64000,
+      "seed_base": 1000,
+      "stream": true,
+      "temperature": 0.2,
+      "timeout_s": 2400.0,
+      "top_p": 1.0
+    },
+    "models": [
+      {
+        "api_key_env": "NEURALWATT_API_KEY",
+        "base_url": "https://api.neuralwatt.com/v1",
+        "model": "mimo-v2.6-pro",
+        "provider": "generic_openai_compatible",
+        "vendor": "xiaomi"
+      }
+    ],
+    "params": {
+      "as_of_year": 2026,
+      "currency": "USD",
+      "threshold_usd": 200000.0
+    },
+    "samples": 3
+  },
+  "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+  "prompt_sha8": "efd90b74",
+  "ts_utc": "2026-10-18T23:54:33.417096Z"
+}

@@ -1,0 +1,38 @@
+# Assembled panel; exact initial and incremental panels are in attempt-history.
+params:
+  threshold_usd: 200000
+  currency: USD
+  as_of_year: 2026
+samples: 3
+call:
+  temperature: 0.2
+  top_p: 1.0
+  max_tokens: 64000
+  seed_base: 1000
+  timeout_s: 2400
+  stream: true
+models:
+- provider: openai
+  model: gpt-6-astra
+- provider: deepseek
+  model: deepseek-flash
+- provider: generic_openai_compatible
+  model: glm-5.3
+  vendor: zhipu
+  base_url: https://api.neuralwatt.com/v1
+  api_key_env: NEURALWATT_API_KEY
+- provider: generic_openai_compatible
+  model: qwen-3.8-27b
+  vendor: qwen
+  base_url: https://api.neuralwatt.com/v1
+  api_key_env: NEURALWATT_API_KEY
+- provider: generic_openai_compatible
+  model: kimi-k3
+  vendor: moonshot
+  base_url: https://api.neuralwatt.com/v1
+  api_key_env: NEURALWATT_API_KEY
+- api_key_env: NEURALWATT_API_KEY
+  base_url: https://api.neuralwatt.com/v1
+  model: mimo-v2.6-pro
+  provider: generic_openai_compatible
+  vendor: xiaomi

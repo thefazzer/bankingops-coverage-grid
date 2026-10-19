@@ -1,0 +1,6 @@
+{
+  "schema": "bocg.taxonomy-source/v1",
+  "run_dir": "live-run-20261019",
+  "status": "PROVISIONAL_LIMITED_PANEL",
+  "historical_overlays": "Public-eval overlays retain their original pinned catalogue. They were not regenerated or rebased onto this release."
+}

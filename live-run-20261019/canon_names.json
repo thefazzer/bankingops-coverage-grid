@@ -1,0 +1,447 @@
+{
+  "admitted_canons": [
+    "asset management",
+    "asset management buy side counterpart",
+    "asset management buy side portfolio management",
+    "buy side asset management execution",
+    "buy side institutional asset management portfolio management",
+    "cash equity sale trading",
+    "clearing settlement custody",
+    "commodity energy sale trading",
+    "commodity sale trading",
+    "commodity trading financing",
+    "commodity trading sale",
+    "credit high yield sale trading",
+    "credit sale trading",
+    "credit trading market making",
+    "credit trading sale",
+    "debt capital market origination",
+    "emerging market cross product trading",
+    "emerging market trading",
+    "equity capital market origination",
+    "equity cash execution sale trading",
+    "equity cash trading market making",
+    "equity derivatif sale trading",
+    "equity derivatif structured product",
+    "equity derivatif trading structuring",
+    "equity research",
+    "equity sale trading",
+    "fx cross asset sale trading",
+    "fx sale trading",
+    "fx trading market making",
+    "fx trading sale",
+    "global banking financing",
+    "global financing capital market",
+    "global market commodity sale trading",
+    "global market credit sale trading",
+    "global market equity sale trading",
+    "global market financing prime brokerage",
+    "global market market risk control",
+    "global market rate fx sale trading",
+    "global market structured product securitized",
+    "leveraged finance syndicated loan",
+    "listed derivatif execution clearing",
+    "listed otc clearing",
+    "market risk control",
+    "market risk middle office",
+    "prime brokerage client finance",
+    "prime brokerage financing",
+    "prime brokerage prime service",
+    "prime brokerage security lending",
+    "rate fixed income sale trading",
+    "rate sale trading",
+    "rate trading market making",
+    "rate trading sale",
+    "regulatory reporting market conduct compliance",
+    "repo collateral financing",
+    "repo security lending financing",
+    "securitised product structured finance",
+    "securitised product trading",
+    "securitised product trading structuring",
+    "security finance",
+    "structured finance securitized",
+    "structured finance securitized product",
+    "trade operation settlement"
+  ],
+  "canon_names": {
+    "asset management": [
+      "Asset Management"
+    ],
+    "asset management buy side counterpart": [
+      "Asset Management Buy-Side Counterpart"
+    ],
+    "asset management buy side portfolio management": [
+      "Asset Management & Buy-side Portfolio Management"
+    ],
+    "buy side asset liability management pension insurance ldi": [
+      "Buy-Side Asset-Liability Management (pension & insurance LDI)"
+    ],
+    "buy side asset management execution": [
+      "Buy-Side Asset Management Execution Desk"
+    ],
+    "buy side central bank sovereign reserve management": [
+      "Buy-Side Central Bank & Sovereign Reserve Management"
+    ],
+    "buy side corporate treasury hedging": [
+      "Buy-Side Corporate Treasury Hedging"
+    ],
+    "buy side derivatif middle office collateral": [
+      "Buy-Side Derivatives Middle Office & Collateral"
+    ],
+    "buy side execution asset manager trading": [
+      "Buy-Side Execution Desk (asset manager trading)"
+    ],
+    "buy side fund operation nav production fund accounting": [
+      "Buy-Side Fund Operations, NAV Production and Fund Accounting"
+    ],
+    "buy side fund treasury financing hedge fund": [
+      "Buy-side Fund Treasury and Financing (hedge funds)"
+    ],
+    "buy side institutional asset management portfolio management": [
+      "Buy-Side Institutional Asset Management / Portfolio Management"
+    ],
+    "buy side institutional execution asset manager owner": [
+      "Buy-side Institutional Execution Desk (asset managers and owners)"
+    ],
+    "buy side investment risk compliance regulatory reporting": [
+      "Buy-Side Investment Risk, Compliance and Regulatory Reporting"
+    ],
+    "buy side portfolio management traditional multi asset": [
+      "Buy-Side Portfolio Management (Traditional and Multi-Asset)"
+    ],
+    "buy side trading execution institutional dealing": [
+      "Buy-Side Trading and Execution (Institutional Dealing Desks)"
+    ],
+    "cash equity agency execution service": [
+      "Cash Equities and Agency Execution Services"
+    ],
+    "cash equity execution service": [
+      "Cash Equities Execution Services"
+    ],
+    "cash equity sale trading": [
+      "Cash Equities Sales & Trading"
+    ],
+    "clearing settlement custody": [
+      "Clearing, Settlement & Custody"
+    ],
+    "client clearing listed otc derivatif clearing brokerage": [
+      "Client Clearing (listed & OTC derivatives clearing brokerage)"
+    ],
+    "collateral margin operation": [
+      "Collateral & Margin Operations"
+    ],
+    "collateral margin otc risk mitigation operation": [
+      "Collateral, Margin and OTC Risk-Mitigation Operations"
+    ],
+    "commodity energy sale trading": [
+      "Commodities & Energy Sales & Trading"
+    ],
+    "commodity sale trading": [
+      "Commodities Sales & Trading"
+    ],
+    "commodity trading": [
+      "Commodities Trading"
+    ],
+    "commodity trading energy metal agriculture": [
+      "Commodities Trading (energy, metals, agriculture)"
+    ],
+    "commodity trading financing": [
+      "Commodities Trading and Financing"
+    ],
+    "commodity trading sale": [
+      "Commodities Trading and Sales"
+    ],
+    "counterparty credit risk exposure management": [
+      "Counterparty Credit Risk and Exposure Management"
+    ],
+    "credit high yield sale trading": [
+      "Credit & High Yield Sales & Trading"
+    ],
+    "credit sale trading": [
+      "Credit Sales & Trading"
+    ],
+    "credit trading investment grade high yield cds": [
+      "Credit Trading (investment grade, high yield, CDS)"
+    ],
+    "credit trading investment grade high yield credit derivatif": [
+      "Credit Trading (Investment Grade, High Yield and Credit Derivatives)",
+      "Credit Trading (investment grade, high yield, credit derivatives)"
+    ],
+    "credit trading market making": [
+      "Credit Trading and Market Making"
+    ],
+    "credit trading sale": [
+      "Credit Trading and Sales"
+    ],
+    "debt capital market origination": [
+      "Debt Capital Markets Origination"
+    ],
+    "debt capital market syndicate origination": [
+      "Debt Capital Markets (syndicate and origination)"
+    ],
+    "delta one etf index trading": [
+      "Delta One, ETF and Index Trading"
+    ],
+    "derivatif structuring xva": [
+      "Derivatives Structuring and XVA"
+    ],
+    "electronic algorithmic execution service": [
+      "Electronic & Algorithmic Execution Services"
+    ],
+    "electronic trading algorithmic execution market access control": [
+      "Electronic Trading, Algorithmic Execution and Market Access Controls"
+    ],
+    "emerging market cross product trading": [
+      "Emerging Markets Cross-Product Trading"
+    ],
+    "emerging market trading": [
+      "Emerging Markets Trading"
+    ],
+    "emerging market trading local hard currency": [
+      "Emerging Markets Trading (local & hard currency)"
+    ],
+    "emerging market trading local rate em fx em credit": [
+      "Emerging Markets Trading (local rates, EM FX, EM credit)"
+    ],
+    "equity capital market origination": [
+      "Equity Capital Markets Origination"
+    ],
+    "equity capital market syndicate origination": [
+      "Equity Capital Markets (syndicate and origination)"
+    ],
+    "equity cash execution sale trading": [
+      "Equities Cash Execution and Sales Trading"
+    ],
+    "equity cash trading market making": [
+      "Equity Cash Trading and Market Making"
+    ],
+    "equity derivatif cash equity trading": [
+      "Equity Derivatives and Cash Equities Trading"
+    ],
+    "equity derivatif delta one": [
+      "Equity Derivatives & Delta One"
+    ],
+    "equity derivatif listed otc flow structured": [
+      "Equity Derivatives (listed, OTC flow and structured)"
+    ],
+    "equity derivatif sale trading": [
+      "Equities & Derivatives Sales & Trading"
+    ],
+    "equity derivatif structured product": [
+      "Equity Derivatives & Structured Products",
+      "Equity Derivatives and Structured Products"
+    ],
+    "equity derivatif trading structuring": [
+      "Equity Derivatives Trading and Structuring"
+    ],
+    "equity research": [
+      "Equity Research"
+    ],
+    "equity sale trading": [
+      "Equities Sales & Trading"
+    ],
+    "fx cross asset sale trading": [
+      "FX & Cross-Asset Sales & Trading"
+    ],
+    "fx money market trading": [
+      "FX and Money Market Trading"
+    ],
+    "fx sale trading": [
+      "FX Sales & Trading"
+    ],
+    "fx trading g10 em foreign exchange": [
+      "FX Trading (G10 & EM foreign exchange)"
+    ],
+    "fx trading g10 spot forward swap": [
+      "FX Trading (G10 spot, forwards, swaps)"
+    ],
+    "fx trading market making": [
+      "FX Trading and Market Making"
+    ],
+    "fx trading sale": [
+      "FX Trading and Sales"
+    ],
+    "g10 rate trading government bond interest rate swap": [
+      "G10 Rates Trading (government bonds and interest rate swaps)"
+    ],
+    "g10 rate trading market making": [
+      "G10 Rates Trading and Market Making"
+    ],
+    "global banking financing": [
+      "Global Banking & Financing"
+    ],
+    "global financing capital market": [
+      "Global Financing & Capital Markets"
+    ],
+    "global market commodity sale trading": [
+      "Global Markets Commodities Sales & Trading"
+    ],
+    "global market credit sale trading": [
+      "Global Markets Credit Sales & Trading"
+    ],
+    "global market equity sale trading": [
+      "Global Markets Equities Sales & Trading"
+    ],
+    "global market financing prime brokerage": [
+      "Global Markets Financing & Prime Brokerage"
+    ],
+    "global market market risk control": [
+      "Global Markets Market Risk Control"
+    ],
+    "global market rate fx sale trading": [
+      "Global Markets Rates & FX Sales & Trading"
+    ],
+    "global market research": [
+      "Global Markets Research"
+    ],
+    "global market structured product securitized": [
+      "Global Markets Structured Products & Securitized"
+    ],
+    "institutional ficc sale trading": [
+      "Institutional FICC Sales-Trading"
+    ],
+    "leveraged finance syndicated loan": [
+      "Leveraged Finance & Syndicated Loans"
+    ],
+    "leveraged loan distressed debt trading": [
+      "Leveraged Loan and Distressed Debt Trading"
+    ],
+    "listed derivatif execution clearing": [
+      "Listed Derivatives Execution and Clearing"
+    ],
+    "listed derivatif fcm clearing ccp operation": [
+      "Listed Derivatives, FCM Clearing and CCP Operations"
+    ],
+    "listed otc clearing": [
+      "Listed and OTC Clearing"
+    ],
+    "market risk control": [
+      "Market Risk & Control"
+    ],
+    "market risk management limit control": [
+      "Market Risk Management and Limit Control"
+    ],
+    "market risk management market middle office": [
+      "Market Risk Management (markets middle office)"
+    ],
+    "market risk middle office": [
+      "Market Risk & Middle Office"
+    ],
+    "market trade operation confirmation settlement": [
+      "Markets Trade Operations (confirmations & settlements)"
+    ],
+    "model risk management quantitative model validation": [
+      "Model Risk Management and Quantitative Model Validation"
+    ],
+    "municipal security trading us": [
+      "Municipal Securities Trading (US)"
+    ],
+    "primary market syndicate dcm ecm": [
+      "Primary Markets Syndicate (DCM/ECM)"
+    ],
+    "prime brokerage client finance": [
+      "Prime Brokerage & Client Finance"
+    ],
+    "prime brokerage financing": [
+      "Prime Brokerage & Financing"
+    ],
+    "prime brokerage prime service": [
+      "Prime Brokerage and Prime Services"
+    ],
+    "prime brokerage security lending": [
+      "Prime Brokerage & Securities Lending",
+      "Prime Brokerage and Securities Lending"
+    ],
+    "prime brokerage security lending collateralised financing": [
+      "Prime Brokerage, Securities Lending and Collateralised Financing"
+    ],
+    "prime service prime brokerage": [
+      "Prime Services / Prime Brokerage"
+    ],
+    "prime service prime brokerage security lending margin financing": [
+      "Prime Services (prime brokerage, securities lending, margin financing)"
+    ],
+    "rate fixed income sale trading": [
+      "Rates & Fixed Income Sales & Trading"
+    ],
+    "rate sale trading": [
+      "Rates Sales & Trading"
+    ],
+    "rate trading g10 government bond interest rate derivatif": [
+      "Rates Trading (G10 government bonds & interest rate derivatives)"
+    ],
+    "rate trading market making": [
+      "Rates Trading and Market Making"
+    ],
+    "rate trading sale": [
+      "Rates Trading and Sales"
+    ],
+    "regulatory reporting market conduct compliance": [
+      "Regulatory Reporting & Market Conduct Compliance"
+    ],
+    "regulatory reporting transaction reporting trade surveillance": [
+      "Regulatory Reporting, Transaction Reporting and Trade Surveillance"
+    ],
+    "regulatory transaction reporting market": [
+      "Regulatory Transaction Reporting (markets)"
+    ],
+    "repo collateral financing": [
+      "Repo and Collateral Financing"
+    ],
+    "repo security financing trading sft": [
+      "Repo and Securities Financing Trading (SFT desk)"
+    ],
+    "repo security lending financing": [
+      "Repo, Securities Lending and Financing"
+    ],
+    "securitised product structured finance": [
+      "Securitised Products & Structured Finance"
+    ],
+    "securitised product trading": [
+      "Securitised Products Trading"
+    ],
+    "securitised product trading financing": [
+      "Securitised Products Trading and Financing"
+    ],
+    "securitised product trading mbs abs clo": [
+      "Securitised Products Trading (MBS/ABS/CLO)"
+    ],
+    "securitised product trading structuring": [
+      "Securitised Products Trading and Structuring"
+    ],
+    "securitized product trading mbs abs clo": [
+      "Securitized Products Trading (MBS, ABS, CLO)"
+    ],
+    "security finance": [
+      "Securities Finance"
+    ],
+    "security financing repo sft trading": [
+      "Securities Financing Desk (repo & SFT trading)"
+    ],
+    "settlement reconciliation corporate action operation": [
+      "Settlement, Reconciliation and Corporate Actions Operations"
+    ],
+    "structured finance securitized": [
+      "Structured Finance & Securitized"
+    ],
+    "structured finance securitized product": [
+      "Structured Finance & Securitized Products"
+    ],
+    "trade capture confirmation derivative lifecycle management": [
+      "Trade Capture, Confirmation and Derivative Lifecycle Management"
+    ],
+    "trade operation settlement": [
+      "Trade Operations & Settlement"
+    ],
+    "traded market risk management frtb perimeter": [
+      "Traded Market Risk Management (FRTB perimeter)"
+    ],
+    "xva central funding": [
+      "XVA & Central Funding Desk"
+    ],
+    "xva counterparty credit risk trading": [
+      "XVA and Counterparty Credit Risk Trading"
+    ]
+  },
+  "prompt_sha8": "efd90b74"
+}

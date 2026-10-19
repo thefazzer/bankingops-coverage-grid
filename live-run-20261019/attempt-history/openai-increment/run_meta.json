@@ -1,0 +1,38 @@
+{
+  "fixtures_dir": null,
+  "models": [
+    {
+      "k": 3,
+      "model_dir": "gpt-6-astra",
+      "model_requested": "gpt-6-astra",
+      "ok": 0,
+      "provider": "openai",
+      "vendor": "openai"
+    }
+  ],
+  "panel": {
+    "call": {
+      "max_tokens": 64000,
+      "seed_base": 1000,
+      "stream": true,
+      "temperature": 0.2,
+      "timeout_s": 2400.0,
+      "top_p": 1.0
+    },
+    "models": [
+      {
+        "model": "gpt-6-astra",
+        "provider": "openai"
+      }
+    ],
+    "params": {
+      "as_of_year": 2026,
+      "currency": "USD",
+      "threshold_usd": 200000.0
+    },
+    "samples": 3
+  },
+  "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+  "prompt_sha8": "efd90b74",
+  "ts_utc": "2026-10-18T23:47:33.201801Z"
+}

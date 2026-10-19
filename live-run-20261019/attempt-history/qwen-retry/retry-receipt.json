@@ -1,0 +1,15 @@
+{
+  "model": "qwen-3.8-27b",
+  "panel_sha256": "bccda92f2ab5d751cdba181e315e7e1ca8528974486d5b28a306149bc7af8fbf",
+  "prefect_flow_run_id": "73d47ef4-aac7-4915-a46f-bd75a17e6796",
+  "prompt_sha256": "efd90b74d2fcab8c65ae39a245d93ef837376b8b7f3b7fc8a51ad3f5f48b149f",
+  "runner_sha256": "c5f14d561656f8cc9a7c18324154e320575ca606017f3b22bde7d571fc2b82e3",
+  "schema": "finexhaust.bocg-transport-retry/v1",
+  "slots": [
+    {
+      "path": "runs/efd90b74/qwen-3.8-27b/1.json",
+      "sample_idx": 1,
+      "status": "OK"
+    }
+  ]
+}

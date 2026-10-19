@@ -124,7 +124,7 @@ def build_manifest(
     commit_sha: str,
     generated_at: str,
     root: Path = ROOT,
-    run_dir: str = "live-run-20260826",
+    run_dir: str | None = None,
 ) -> dict:
     if not tag:
         raise ValueError("release tag is required")
@@ -137,7 +137,8 @@ def build_manifest(
     if parsed_time.tzinfo is None:
         raise ValueError("generated-at must include a timezone")
 
-    from build_operating_catalogue import build_catalogue, CATALOGUE_PATH
+    from build_operating_catalogue import build_catalogue, current_run, CATALOGUE_PATH
+    run_dir = run_dir or current_run(root)
     if json.loads((root / CATALOGUE_PATH).read_text()) != build_catalogue(root, f"{run_dir}/matrix.json"):
         raise ValueError("operating catalogue is stale")
     from build_task_concepts import build_task_concepts, render as render_concepts, OUTPUT_PATH as CONCEPTS_PATH
@@ -145,6 +146,16 @@ def build_manifest(
         raise ValueError("task concepts are stale")
 
     artifact_roles = dict(STATIC_ARTIFACTS)
+    if (root / 'reference/taxonomy-source.json').exists():
+        artifact_roles['reference/taxonomy-source.json'] = 'taxonomy-source'
+    if (root / run_dir / 'generation-receipt.json').exists():
+        # Preserve generation inputs, response attempts, exclusions and sources.
+        for path in sorted((root / run_dir).rglob('*')):
+            if path.is_file() and path.suffix in {'.json', '.csv', '.yaml', '.txt', '.sha256', '.md'}:
+                artifact_roles[path.relative_to(root).as_posix()] = 'generation-evidence'
+        for name in ('public-eval-surface-map.v1.json', 'public-eval-llmaj-ledger.v1.json',
+                     'public-eval-llmaj-prereg.v1.json', 'public-eval-observatory.v1.json'):
+            artifact_roles['reference/' + name] = 'historical-' + STATIC_ARTIFACTS['reference/' + name]
     artifact_roles.update(
         {f"{run_dir}/{name}": role for name, role in RUN_ARTIFACTS.items()}
     )
@@ -197,7 +208,7 @@ def main() -> int:
         "--generated-at",
         default=datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
     )
-    parser.add_argument("--run-dir", default="live-run-20260826")
+    parser.add_argument("--run-dir", help="Defaults to reference/taxonomy-source.json")
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     manifest = build_manifest(

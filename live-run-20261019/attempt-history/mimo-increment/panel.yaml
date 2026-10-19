@@ -1,0 +1,18 @@
+params:
+  threshold_usd: 200000
+  currency: USD
+  as_of_year: 2026
+samples: 3
+call:
+  temperature: 0.2
+  top_p: 1.0
+  max_tokens: 64000
+  seed_base: 1000
+  timeout_s: 2400
+  stream: true
+models:
+- provider: generic_openai_compatible
+  model: mimo-v2.6-pro
+  vendor: xiaomi
+  base_url: https://api.neuralwatt.com/v1
+  api_key_env: NEURALWATT_API_KEY
