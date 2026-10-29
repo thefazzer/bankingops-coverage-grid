@@ -12,4 +12,4 @@ regex:att-[0-9a-f]{8,}
 regex:(^|[\s"(])/(home|Users)/[A-Za-z]
 regex:[A-Z]:\\+Users\\+
 regex:\b[A-Za-z]+-TODO\.txt\b
-regex:sk-[A-Za-z0-9_\-]{16,}
+regex:(?<![A-Za-z0-9])sk-[A-Za-z0-9_\-]{16,}

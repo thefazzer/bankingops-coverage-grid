@@ -14,7 +14,7 @@ def test_catalogue_reproduces_public_sources_without_instances():
     assert build_catalogue(ROOT) == value
     assert value['institution_instances'] is False
     assert len({d['reference_id'] for d in value['definitions']}) == len(value['definitions'])
-    assert sum(d['kind'] == 'division' for d in value['definitions']) == 42
+    assert sum(d['kind'] == 'division' for d in value['definitions']) == 25
     for source in value['sources']:
         assert hashlib.sha256((ROOT / source['path']).read_bytes()).hexdigest() == source['sha256']
 
@@ -43,7 +43,8 @@ def test_stale_catalogue_blocks_release(tmp_path):
     import shutil
     for path in STATIC_ARTIFACTS:
         dest=tmp_path/path;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/path,dest)
-    shutil.copytree(ROOT/'live-run-20260826',tmp_path/'live-run-20260826')
+    shutil.copyfile(ROOT/'reference/taxonomy-source.json',tmp_path/'reference/taxonomy-source.json')
+    shutil.copytree(ROOT/'live-run-20261019',tmp_path/'live-run-20261019')
     shutil.copytree(ROOT/'cells',tmp_path/'cells')
     catalogue=tmp_path/'reference/operating-catalogue.v1.json'
     value=json.loads(catalogue.read_text());value['definitions'][0]['label']='Unreviewed change';catalogue.write_text(json.dumps(value))
