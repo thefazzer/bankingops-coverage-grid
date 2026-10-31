@@ -145,19 +145,78 @@ def compute_division_rollup(overlay: dict, *, root: Path = ROOT) -> dict:
     }
 
 
+def compute_historical_division_rollup(overlay: dict) -> dict:
+    """Recompute an archived rollup from its pinned division set and stored labels."""
+    prior = overlay.get("division_rollup") or {}
+    prior_divisions = prior.get("divisions") or []
+    division_metadata = {row["division_key"]: row for row in prior_divisions}
+    if len(division_metadata) != len(prior_divisions):
+        raise ValueError("duplicate division in historical rollup")
+    by_div: dict[str, list[dict]] = {key: [] for key in division_metadata}
+    inventory = inventory_by_id(load_inventory())
+    weights = dict((overlay.get("method") or {}).get("band_weights") or {})
+    for row in overlay.get("rows") or []:
+        if paint_weight(row, weights, inventory.get(row.get("inventory_id") or "")) <= 0:
+            continue
+        key = row.get("division_key")
+        if key not in by_div:
+            raise ValueError(f"painted division {key!r} is absent from historical rollup")
+        by_div[key].append(row)
+
+    divisions = []
+    max_saturation = 0
+    painted_divisions = 0
+    painted_rows = 0
+    for key, metadata in division_metadata.items():
+        rows = by_div[key]
+        saturation = sum(
+            paint_weight(row, weights, inventory.get(row.get("inventory_id") or ""))
+            for row in rows
+        )
+        max_saturation = max(max_saturation, saturation)
+        if rows:
+            painted_divisions += 1
+            painted_rows += len(rows)
+        divisions.append(
+            {
+                "division_key": key,
+                "review_status": metadata["review_status"],
+                "matrix_tier": metadata["matrix_tier"],
+                "painted_rows": len(rows),
+                "saturation": saturation,
+                "void": not rows,
+                "row_ids": [row["row_id"] for row in rows],
+            }
+        )
+    return {
+        "grain": "division",
+        "band_weights": weights,
+        "divisions": divisions,
+        "summary": {
+            "admitted_divisions": len(divisions),
+            "painted_divisions": painted_divisions,
+            "void_divisions": len(divisions) - painted_divisions,
+            "painted_rows": painted_rows,
+            "max_saturation": max_saturation,
+        },
+    }
+
+
 def overlay_problems(overlay: dict, *, root: Path = ROOT) -> list[str]:
     problems: list[str] = []
     concepts = json.loads((root / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
     catalogue = json.loads((root / "reference/operating-catalogue.v1.json").read_text(encoding="utf-8"))
+    prereg = json.loads((root / "reference/public-eval-llmaj-prereg.v1.json").read_text(encoding="utf-8"))
     inventory = load_inventory()
     by_inv = inventory_by_id(inventory)
     concept_ids = {c["concept_id"]: c for c in concepts["concepts"]}
     definitions = {d["reference_id"]: d for d in catalogue["definitions"]}
     divisions = {d["division_key"] for d in catalogue["definitions"] if d["kind"] == "division"}
     cells = {p.stem for p in (root / "cells").glob("*.json")}
+    current_task_concepts = prereg.get("inputs", {}).get("task_concepts_sha256") == concepts["task_concepts_sha256"]
 
-    if overlay.get("bocg_release", {}).get("task_concepts_sha256") != concepts["task_concepts_sha256"]:
-        problems.append("overlay is bound to a different task-concepts digest")
+    if overlay.get("bocg_release", {}).get("task_concepts_sha256") != prereg.get("inputs", {}).get("task_concepts_sha256"):
+        problems.append("overlay is bound to a different task-concepts digest than the prereg")
     if overlay.get("inventory_sha256") != inventory_digest():
         problems.append("overlay inventory_sha256 does not match reference/public-eval-inventory.v1.yaml")
 
@@ -202,7 +261,7 @@ def overlay_problems(overlay: dict, *, root: Path = ROOT) -> list[str]:
                 )
             if inv_item and inv_item.get("class") in {"own_rubric", "own_eval", "control_point_citation"}:
                 problems.append(f"{where}: BOCG-own or citation inventory cannot paint public-eval saturation")
-            if division not in divisions:
+            if current_task_concepts and division not in divisions:
                 problems.append(f"{where}: painted row needs an admitted division_key")
             if depth not in ID_FIELD_FOR_DEPTH and depth != "division":
                 problems.append(f"{where}: painted row needs a SPEC-08 depth")
@@ -212,48 +271,57 @@ def overlay_problems(overlay: dict, *, root: Path = ROOT) -> list[str]:
                 problems.append(f"{where}: painted row needs a ruling")
             if not (row.get("rationale") or "").strip():
                 problems.append(f"{where}: painted row needs a rationale")
-        elif division is not None and division not in divisions:
+        elif current_task_concepts and division is not None and division not in divisions:
             if status not in {"DEFERRED_MAPPING", "REJECTED_MAPPING"}:
                 problems.append(f"{where}: unknown division {division!r}")
         field = ID_FIELD_FOR_DEPTH.get(depth) if depth else None
         if field and not row.get(field):
             problems.append(f"{where}: depth {depth} needs {field}")
-        for key, kind in (("function_concept_id", "function_concept"), ("task_concept_id", "task_concept")):
-            value = row.get(key)
-            if value is None:
-                continue
-            concept = concept_ids.get(value)
-            if concept is None:
-                problems.append(f"{where}: {key} is not a released concept")
-            elif concept["kind"] != kind or (division and concept["division_key"] != division):
-                problems.append(f"{where}: {key} belongs to another kind or division")
-        task_ref = row.get("task_reference_id")
-        if task_ref is not None:
-            definition = definitions.get(task_ref)
-            if definition is None or definition["kind"] != "task" or (
-                division and definition["division_key"] != division
-            ):
-                problems.append(f"{where}: task_reference_id is not a released task of the division")
-            elif row.get("task_concept_id") in concept_ids:
-                if task_ref not in concept_ids[row["task_concept_id"]]["members"]:
-                    problems.append(f"{where}: task_reference_id is not a member of task_concept_id")
-        cell = row.get("control_point_id")
-        if cell is not None:
-            if cell not in cells:
-                problems.append(f"{where}: control_point_id is not a released cell")
-            else:
-                cell_division = json.loads(
-                    (root / "cells" / f"{cell}.json").read_text(encoding="utf-8")
-                ).get("division_key")
-                if cell_division in divisions and division and cell_division != division:
-                    problems.append(f"{where}: control_point_id belongs to another division")
-                if status in PAINT:
-                    problems.append(
-                        f"{where}: control_point depth must not paint public-eval saturation "
-                        "(BOCG cell coverage is not a public eval)"
-                    )
+        if current_task_concepts:
+            for key, kind in (("function_concept_id", "function_concept"), ("task_concept_id", "task_concept")):
+                value = row.get(key)
+                if value is None:
+                    continue
+                concept = concept_ids.get(value)
+                if concept is None:
+                    problems.append(f"{where}: {key} is not a released concept")
+                elif concept["kind"] != kind or (division and concept["division_key"] != division):
+                    problems.append(f"{where}: {key} belongs to another kind or division")
+            task_ref = row.get("task_reference_id")
+            if task_ref is not None:
+                definition = definitions.get(task_ref)
+                if definition is None or definition["kind"] != "task" or (
+                    division and definition["division_key"] != division
+                ):
+                    problems.append(f"{where}: task_reference_id is not a released task of the division")
+                elif row.get("task_concept_id") in concept_ids:
+                    if task_ref not in concept_ids[row["task_concept_id"]]["members"]:
+                        problems.append(f"{where}: task_reference_id is not a member of task_concept_id")
+            cell = row.get("control_point_id")
+            if cell is not None:
+                if cell not in cells:
+                    problems.append(f"{where}: control_point_id is not a released cell")
+                else:
+                    cell_division = json.loads(
+                        (root / "cells" / f"{cell}.json").read_text(encoding="utf-8")
+                    ).get("division_key")
+                    if cell_division in divisions and division and cell_division != division:
+                        problems.append(f"{where}: control_point_id belongs to another division")
+                    if status in PAINT:
+                        problems.append(
+                            f"{where}: control_point depth must not paint public-eval saturation "
+                            "(BOCG cell coverage is not a public eval)"
+                        )
 
-    expected = compute_division_rollup(overlay, root=root)
+    try:
+        expected = (
+            compute_division_rollup(overlay, root=root)
+            if current_task_concepts
+            else compute_historical_division_rollup(overlay)
+        )
+    except (KeyError, TypeError, ValueError) as exc:
+        problems.append(f"division_rollup cannot be verified against its pinned division set: {exc}")
+        return problems
     if overlay.get("division_rollup") != expected:
         problems.append("division_rollup does not match painted public-eval rows / band weights")
     return problems

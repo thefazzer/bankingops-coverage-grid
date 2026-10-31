@@ -137,7 +137,9 @@ def render_judge_prompt(*, inventory_id: str, assessor_id: str) -> str:
     return text
 
 
-def prereg_problems(prereg: dict | None = None) -> list[str]:
+def prereg_problems(
+    prereg: dict | None = None, *, require_current_inputs: bool = False
+) -> list[str]:
     problems: list[str] = []
     prereg = prereg or load_prereg()
     claimed = prereg.get("prereg_sha256")
@@ -153,11 +155,12 @@ def prereg_problems(prereg: dict | None = None) -> list[str]:
     inputs = prereg.get("inputs") or {}
     if sha256_file(ROOT / inputs.get("inventory_path", "")) != inputs.get("inventory_sha256"):
         problems.append("inventory bytes drifted from prereg sha256 (re-lock prereg after inventory edits)")
-    if sha256_file(ROOT / inputs.get("catalogue_path", "")) != inputs.get("catalogue_sha256"):
-        problems.append("catalogue bytes drifted from prereg sha256")
-    concepts = json.loads((ROOT / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
-    if inputs.get("task_concepts_sha256") != concepts["task_concepts_sha256"]:
-        problems.append("prereg task_concepts_sha256 drift")
+    if require_current_inputs:
+        if sha256_file(ROOT / inputs.get("catalogue_path", "")) != inputs.get("catalogue_sha256"):
+            problems.append("catalogue bytes drifted from prereg sha256")
+        concepts = json.loads((ROOT / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
+        if inputs.get("task_concepts_sha256") != concepts["task_concepts_sha256"]:
+            problems.append("prereg task_concepts_sha256 drift")
     if list(prereg.get("channels_in_saturation") or []) != ["public"]:
         problems.append("prereg channels_in_saturation must be exactly [public]")
     models = (prereg.get("panel") or {}).get("models") or {}
@@ -295,9 +298,8 @@ def ledger_problems(ledger: dict, *, allow_fixture_models: bool = False) -> list
         problems.append("ledger rubric_version drift")
     if ledger.get("prereg_sha256") != prereg.get("prereg_sha256"):
         problems.append("ledger prereg_sha256 does not match locked prereg pack")
-    concepts = json.loads((ROOT / "reference/task-concepts.v1.json").read_text(encoding="utf-8"))
-    if ledger.get("bocg_release", {}).get("task_concepts_sha256") != concepts["task_concepts_sha256"]:
-        problems.append("ledger is bound to a different task-concepts digest")
+    if ledger.get("bocg_release", {}).get("task_concepts_sha256") != prereg.get("inputs", {}).get("task_concepts_sha256"):
+        problems.append("ledger is bound to a different task-concepts digest than the prereg")
     inventory = inventory_by_id()
     seen: set[str] = set()
     for case in ledger.get("cases") or []:
@@ -417,8 +419,8 @@ def cmd_inventory_cards() -> int:
 
 
 def cmd_render_prompt(inventory_id: str, assessor_id: str) -> int:
-    if prereg_problems():
-        for problem in prereg_problems():
+    if prereg_problems(require_current_inputs=True):
+        for problem in prereg_problems(require_current_inputs=True):
             print("FAIL", problem)
         return 1
     print(render_judge_prompt(inventory_id=inventory_id, assessor_id=assessor_id))
@@ -427,15 +429,21 @@ def cmd_render_prompt(inventory_id: str, assessor_id: str) -> int:
 
 def cmd_promote_gate() -> int:
     """S9-G5: public_benchmark paint requires live LLMAJ PASS under locked prereg."""
-    if prereg_problems():
-        for problem in prereg_problems():
+    overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
+    inventory = inventory_by_id()
+    requires_current_inputs = any(
+        inventory.get(row.get("inventory_id") or "", {}).get("class") == "public_benchmark"
+        and row.get("mapping_status") in PAINT
+        for row in overlay.get("rows") or []
+    )
+    prereg_issues = prereg_problems(require_current_inputs=requires_current_inputs)
+    if prereg_issues:
+        for problem in prereg_issues:
             print("FAIL", problem)
         return 1
-    overlay = json.loads(OVERLAY_PATH.read_text(encoding="utf-8"))
     for problem in overlay_non_influence_problems(overlay):
         print("FAIL", problem)
         return 1
-    inventory = inventory_by_id()
     prereg = load_prereg()
     ledger_cases: dict[str, dict] = {}
     ledger_prereg = None

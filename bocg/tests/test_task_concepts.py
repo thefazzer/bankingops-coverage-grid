@@ -42,23 +42,13 @@ def test_every_released_definition_belongs_to_exactly_one_concept_of_its_divisio
     assert len({c['concept_id'] for c in value['concepts']}) == len(value['concepts'])
 
 
-def test_prime_brokerage_is_the_only_reviewed_division_with_twenty_three_aliases():
+def test_current_task_concepts_use_machine_provenance_without_reviewed_rulings():
     value = _concepts()
     reviewed = [d for d in value['divisions'] if d['review_status'] == 'REVIEWED']
-    assert [d['division_key'] for d in reviewed] == ['prime_brokerage_financing']
-    assert value['counts'] == {**value['counts'], 'reviewed_divisions': 1, 'auto_divisions': 41, 'reviewed_aliases': 23}
-    pb = reviewed[0]
-    assert pb['ruling']['aliases'] == 23 and pb['ruling']['argued_merges'] == 3
-    merges = [c for c in value['concepts'] if c['division_key'] == 'prime_brokerage_financing' and c['basis'] == 'argued_merge']
-    by_label = {c['label']: c for c in merges}
-    assert len(by_label['calculate a client margin requirement']['aliases']) == 4
-    assert len(by_label['issue collect a house reg margin call under client s margin agreement']['aliases']) == 10
-    composite = [c for c in merges if c['kind'] == 'function_concept']
-    assert len(composite) == 1 and len(composite[0]['members']) == 9 and composite[0]['label_source'] == 'ruled'
-    for concept in merges:
-        assert concept['rationale'] and all(a['rationale'] for a in concept['aliases'])
-    standalone = [c for c in value['concepts'] if c['division_key'] == 'prime_brokerage_financing' and c['basis'] == 'standalone_under_review']
-    assert all(len(c['members']) == 1 and not c['aliases'] for c in standalone)
+    assert reviewed == []
+    assert value['counts']['reviewed_divisions'] == 0
+    assert value['counts']['auto_divisions'] == len(value['divisions'])
+    assert value['counts']['reviewed_aliases'] == 0
 
 
 def test_auto_divisions_are_machine_clustered_and_never_claim_review():
@@ -94,14 +84,34 @@ def test_ruling_rejects_unknown_members_and_missing_rationales(tmp_path):
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / relative, dest)
     rulings_path = tmp_path / 'reference/task-concept-rulings.yaml'
+    catalogue = json.loads((tmp_path / 'reference/operating-catalogue.v1.json').read_text())
+    division = next(d['division_key'] for d in catalogue['definitions'] if d['kind'] == 'division')
+    members = [
+        d['label'] for d in catalogue['definitions']
+        if d['kind'] == 'task' and d['division_key'] == division
+    ][:2]
     original = yaml.safe_load(rulings_path.read_text())
+    original['rulings'] = [{
+        'division_key': division,
+        'review_status': 'REVIEWED',
+        'ruled_by': 'test reviewer',
+        'ruled_at': '2026-10-29',
+        'basis': 'synthetic test ruling',
+        'concepts': [{
+            'kind': 'task_concept',
+            'label': members[0],
+            'members': members,
+            'rationale': 'synthetic test rationale',
+            'alias_rationales': {members[1]: 'synthetic alias rationale'},
+        }],
+    }]
     broken = copy.deepcopy(original)
     broken['rulings'][0]['concepts'][0]['members'].append('not a released task')
     rulings_path.write_text(yaml.safe_dump(broken, sort_keys=False))
     with pytest.raises(ValueError, match='not a released'):
         build_task_concepts(tmp_path)
     broken = copy.deepcopy(original)
-    broken['rulings'][0]['concepts'][0]['alias_rationales'].pop('calculate client portfolio margin')
+    broken['rulings'][0]['concepts'][0]['alias_rationales'].pop(members[1])
     rulings_path.write_text(yaml.safe_dump(broken, sort_keys=False))
     with pytest.raises(ValueError, match='rationale'):
         build_task_concepts(tmp_path)
@@ -152,7 +162,8 @@ def test_release_binds_concepts_and_refuses_stale_concepts(tmp_path):
         dest = tmp_path / path
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / path, dest)
-    shutil.copytree(ROOT / 'live-run-20260826', tmp_path / 'live-run-20260826')
+    shutil.copyfile(ROOT / 'reference/taxonomy-source.json', tmp_path / 'reference/taxonomy-source.json')
+    shutil.copytree(ROOT / 'live-run-20261019', tmp_path / 'live-run-20261019')
     shutil.copytree(ROOT / 'cells', tmp_path / 'cells')
     concepts = tmp_path / 'reference/task-concepts.v1.json'
     value = json.loads(concepts.read_text())

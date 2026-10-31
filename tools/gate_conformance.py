@@ -291,10 +291,17 @@ def gate_compliance_scenarios() -> None:
     try:
         schema = json.loads(schema_path.read_text())
         fixture = json.loads(fixture_path.read_text())
-        manifest = json.loads(manifest_path.read_text())
     except (OSError, json.JSONDecodeError) as exc:
         fail(f"S7-G1 compliance-scenario artifacts unreadable: {exc}")
         return
+    # Release manifests are GitHub Release assets and may be absent from source checkouts.
+    manifest = None
+    if manifest_path.is_file():
+        try:
+            manifest = json.loads(manifest_path.read_text())
+        except (OSError, json.JSONDecodeError) as exc:
+            fail(f"S7-G1 release manifest is unreadable: {exc}")
+            return
     try:
         import jsonschema
         validator = jsonschema.Draft202012Validator(schema)
@@ -306,7 +313,7 @@ def gate_compliance_scenarios() -> None:
     pinned_sha256 = fixture.get("manifest_sha256")
     # The manifest's self-digest (manifest_sha256) is the authoritative release
     # pin. The fixture may pin the current manifest or any prior released manifest.
-    allowed = {manifest.get("manifest_sha256")}
+    allowed = {manifest.get("manifest_sha256")} if manifest else set()
     import subprocess
     for depth in range(1, 10):
         result = subprocess.run(
@@ -320,7 +327,7 @@ def gate_compliance_scenarios() -> None:
         except json.JSONDecodeError:
             continue
         allowed.add(prior_manifest.get("manifest_sha256"))
-    if pinned_sha256 not in allowed:
+    if allowed and pinned_sha256 not in allowed:
         fail("S7-G2 fixture manifest pin is not the current or a released manifest")
     cell_id = fixture.get("cell_id")
     cell_path = ROOT / "cells" / f"{cell_id}.json"
@@ -338,10 +345,11 @@ def gate_compliance_scenarios() -> None:
     try:
         import jsonschema
         manifest_schema = json.loads((ROOT / "specs/bocg-release-manifest.schema.json").read_text())
-        for error in jsonschema.Draft202012Validator(
-            manifest_schema, format_checker=jsonschema.FormatChecker()
-        ).iter_errors(manifest):
-            fail(f"S7-G5 pinned manifest is not schema-valid: {error.message[:120]}")
+        if manifest is not None:
+            for error in jsonschema.Draft202012Validator(
+                manifest_schema, format_checker=jsonschema.FormatChecker()
+            ).iter_errors(manifest):
+                fail(f"S7-G5 pinned manifest is not schema-valid: {error.message[:120]}")
     except ImportError:
         pass
 
